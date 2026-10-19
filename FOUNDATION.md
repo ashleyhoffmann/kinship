@@ -75,6 +75,7 @@ Meeting needs includes the need to reach the information. Many of the people Kin
 
 **Seeing**
 - Text contrast is at least 4.5:1 (3:1 for large text and for icons, borders and focus rings). Check the quiet styles too: planned, faded and “Soonest” items must stay readable.
+- **Text runs the full width of its box.** Paragraphs, ledes, headings and list items never stop a third or half way across the page: no `max-width` in `ch` on text and no `text-wrap: balance`. If something needs to be narrower, narrow the whole box (a card, a pop-up), not the lines inside it. `style.css` ends with a guard rule for this.
 - Never use colour alone to carry meaning. Status, “For you”, planned and tier all have a word or shape as well as a colour.
 - Text can be enlarged to 200% without breaking; sizes are relative where possible.
 - Every image or diagram that teaches has alt text or a text version beside it; decorative ones are hidden from screen readers (`aria-hidden`, empty `alt`).
@@ -97,3 +98,29 @@ Meeting needs includes the need to reach the information. Many of the people Kin
 - Before a course ships, try it: on a phone, with keyboard only, with a screen reader (VoiceOver or TalkBack), at 200% zoom, and with reduce motion on. Run an automated checker (such as axe or Lighthouse) as a first pass, not the last word.
 - Ask disabled people, phone-only users, and organizations that serve unhoused and disabled communities for feedback, and fold it in.
 
+
+## 8. The game happens in real life
+
+The site is the map and the notebook. The game happens in real life. What makes meeting needs fun is the joy of being able to provide, for yourself and for others, so every lens is built as a real-life game, never a screen game. Nobody is "done" once their own needs are met; the same skills reach outward, and we keep the collective in view without a single "should".
+
+**Care reaches outward.** Me → my household (including the animals and plants sharing the land) → my closest people and animals → neighbors and strangers (including animals and plants I'm not technically responsible for). This is a way of thinking, not a grid on screen.
+
+**A lens is a short run of steps, and each step is an ability.** Ability 1 is always the lens's whole way of thinking (Water: **Use · Source · Container · Purify · Test**). Each step after that is its own ability, in order (Water: 2 Use, 3 Sources, 4 Containers, 5 Purify, 6 Test).
+
+**Numbers carry forward.** The first working step is usually a calculator (Water: how much water, per task, at what grade of cleanliness). Its answers flow into every later step: sources show what your use would cost and whether a source can cover it; containers show how much to keep, for how long, and whether your roof can fill it, which points back to sources. Costs are never a final unit; a running total (upfront, each year) builds at the bottom of the page like a build-a-bear.
+
+**Calculators work by task and by who.** Steppers (+/−) for adults, kids, babies, animals and plants; each task (drinking, cooking, washing food, teeth, bathing, laundry, flushing, plants…) has a grade, a "how" choice and a per-day amount. Overall figures sit beside the result (Water: typical home, humanitarian baseline, short-term minimum). Special cases (nursing, pregnancy, heat, illness, medical equipment) live in an accordion and adjust the numbers.
+
+**Options live in sortable tables.** One row per strategy, columns anyone can sort by: upfront cost, your cost a year (from the calculator), ease, long-term health, how much is in your hands, cleanliness as it comes, and how much you can get. Squares *and* words (never colour alone, §7); more squares is always better for you, and costs are plain dollars. Rows run from right now (bottles, library water, 211) to systems (tap, filters, rain barrels) to land you tend (cisterns, springs, wells). Each row opens for notes: **Requires** (what it honestly takes, "a hammer, or a brick"), **Rules** (permits, water rights; California unless stated), **Where the money goes** (a choice of who you pay, not a verdict). On phones, rows become cards with a sort menu.
+
+**Tags, not tracks.** Nobody is routed into a separate track ("you're unhoused? here are your options"). Everyone sees the same table. Tags mark **Point someone here** (sources everyone should know by heart to pass on, like library fountains and 211), **Side quest** (creative or generous options: fog nets, dew, a sidewalk fountain for animals) and the kind of source. **Allies** (211, libraries, county labs, Buy Nothing groups, neighbors) are a recurring box style.
+
+**Tools are listed per topic.** No carried inventory. Where a tool is required, it can show **Also helps with**: its uses in other lenses and situations (a hammer drives tent stakes for your own camping trip or a neighbor's shelter, or secures a tarp in a storm). Generalizations, never assumptions about anyone's life.
+
+**Abilities, three levels, on their own page.** Each step page names its ability under the title, in different words from the title (step: *Thinking about water*; ability: *Can picture any water situation as five steps, and work it through*). The levels and the refresh live on a separate **Your abilities** page, reached from an abilities bar at the top of every step, never right below the content they test. Verbs, never identities ("Can catch rain", not "rain genius"). Self-reported on the honor system: **Know how** → **Done it** (in real life) → **Shared it** (helped someone else do it; the top level, because the joy is in giving). A badge can sit at *Know how* forever with no pressure. Asking to borrow and lending count as abilities too, and link to Relationships → Requests.
+
+**Refresh from memory.** Recall practice, not a test: fill in a lens's steps, or a step's short list (containers: food-grade, dark, dated, spread out), then check. A **Hint** button fills in the first letter, large. Missed ones are simply shown. No mnemonics, score, streak or countdown (§3); only "last refreshed" on the device. This is the one kind of question §6 allows: something to *do*, not something to pass.
+
+**Personalization stays light.** The core path is the same for everyone. The profile only marks things "For you"; it never hides an option. Badges, numbers and progress live on the device with a clear option (§5, §7).
+
+Mock-up: `mockups/water-game-mockup.html`. Water is the model; other lenses reuse the same steps-as-abilities, carry-forward calculator, sortable tables, tags, badges and refresh.

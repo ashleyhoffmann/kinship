@@ -433,7 +433,7 @@
       '<article class="plan glass" id="plan-education"><span class="eyebrow">Education plan</span><h2>Where to begin</h2>' + start + '</article>' +
       '<article class="plan glass" id="plan-budget" style="--lc:#2C64A0"><div class="lens-top"><span class="eyebrow">Improvements &amp; budget</span><span class="badge building">In progress</span></div>' +
       '<h2>What meeting needs costs</h2><p>Add up what it takes to meet your minimum needs, one-time and ongoing, and compare the ongoing cost before and after an improvement, like a filter instead of bottled water. It’s expensive being poor; this makes the math visible so savings can add up.</p>' +
-      '<p><a href="#lens-water/costs"><strong>Start with the water math →</strong></a></p></article>' +
+      '<p><a href="#lens-water/use"><strong>Start with the water math →</strong></a></p></article>' +
       '<a class="plan glass" id="plan-garden" href="#lens-gardening" style="--lc:#3E7B3A"><div class="lens-top"><span class="eyebrow">Garden planner</span><span class="badge building">In progress</span></div>' +
       '<h2>12 months, seed by seed</h2><p>Your zone and light from your profile, then a month-by-month plan for the space you have.</p></a>' +
       '</div>' + footer();
@@ -463,7 +463,7 @@
 
   /* My tools: every course tool and personal list in one place. Each is a shortcut into its course, never a gate. */
   var TOOLS = [
-    ['water', [['How much to store', '#lens-water/storage/amount'], ['Bleach dose for a crisis', '#lens-water/purify/crisis'], ['Match a filter to the worry', '#lens-water/purify/match'], ['Water prices', '#lens-water/costs/prices'], ['Your water math', '#lens-water/costs/math']]],
+    ['water', [['Your water use', '#lens-water/use/calc'], ['Compare sources', '#lens-water/sources/table'], ['How much to keep', '#lens-water/containers/keep'], ['Bleach dose for a crisis', '#lens-water/purify/crisis'], ['Match a filter to the worry', '#lens-water/purify/match'], ['Water prices', '#lens-water/sources/prices'], ['Your water abilities', '#lens-water/abilities']]],
     ['food', [['Soak & cook', '#lens-food/rehydrate/tool'], ['How long it keeps', '#lens-food/store/keeps'], ['Make it gentle', '#lens-food/gentle/tool']]],
     ['air', [['What do you notice?', '#lens-air/notice'], ['Filter sizer', '#lens-air/ventilation/sizer'], ['My list', '#lens-air/list']]],
     ['toxins', [['Where to start', '#lens-toxins/exposures/start'], ['Soil batch planner', '#lens-toxins/soil/planner'], ['My list', '#lens-toxins/list']]],

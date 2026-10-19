@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kinship · Water, step by step (mock-up v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Mock-up only. Mirrors style.css + water.css tokens. Text always runs the full width of its box (FOUNDATION §7). */
+:root{
+  --bg:#EEF2E8; --ink:#17241C; --ink-2:#2C3D32; --muted:#3F5546; --accent:#2F5E2C;
+  --chip:rgba(255,255,255,.62); --line:rgba(23,36,28,.16); --soft:rgba(23,36,28,.07); --focus:#2F6E9E;
+  --w1:#173D69; --w2:#255B95; --w3:#3B7BBA; --w4:#5F9BD0; --w5:#8DBDE3; --w6:#BCDDF4;
+  --w1-bg:#E1ECF7; --w1-mid:#C6DAEF; --w3-bg:#E9F2FA; --w5-bg:#F2F8FD;
+  --g1:#173D69; --g2:#3B7BBA; --g3:#7A8F6A; --g4:#6B5B4B;
+  --ally-bg:#FFF6E6; --ally-edge:#E2C38A; --ally-ink:#5A3D0C;
+  --quest-bg:#F1ECF8; --quest-edge:#BFAEDB; --quest-ink:#3E2D63;
+  --point-bg:#E9F4EA; --point-edge:#A9CFAE; --point-ink:#24502A;
+  --pip-on:#255B95; --pip-off:rgba(23,36,28,.14);
+  --f-head:'Manrope','Instrument Sans',system-ui,sans-serif;
+  --f-body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;padding-bottom:110px}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:8px}
+h1,h2,h3,h4{font-family:var(--f-head);margin:0}
+p{margin:0}
+p,li,dd,td,th,summary,label,h1,h2,h3,h4{max-width:none}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 16px;display:flex;flex-direction:column;gap:40px}
+.mono{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.note{font-size:13.5px;color:var(--muted)}
+.mock-banner{background:var(--w1);color:#fff;font-size:14px;padding:10px 16px}
+.mock-banner b{font-family:var(--f-mono);letter-spacing:.06em}
+.lede{font-size:clamp(17px,1.6vw,19px);color:var(--ink-2)}
+.panel{background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.8);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.hero{display:flex;flex-direction:column;gap:12px}
+.pill{align-self:flex-start;padding:6px 12px;border-radius:999px;background:#B85A14;color:#fff;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.hero h1{font-size:clamp(44px,6.4vw,80px);font-weight:800;line-height:.95;letter-spacing:-.04em}
+.big-idea{font-family:var(--f-head);font-weight:700;font-size:clamp(19px,2.2vw,24px);color:var(--w1);line-height:1.3}
+
+/* Stage header with achievement */
+.stage{display:flex;flex-direction:column;gap:16px;scroll-margin-top:12px}
+.stage-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:14px 16px;border-radius:22px;background:var(--w1-bg);border:1px solid var(--w1-mid)}
+.stage-num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--sd,var(--w1));color:#fff;font-family:var(--f-mono);font-size:16px;flex:none}
+.stage-head .t{flex:1 1 260px;display:flex;flex-direction:column}
+.stage-head h2{font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.stage-head .ach{font-size:14.5px;color:var(--ink-2)}
+.stage-head .ach b{font-family:var(--f-head)}
+.lvls{display:flex;gap:6px;flex-wrap:wrap}
+.lvls button{font:inherit;font-size:13.5px;min-height:44px;padding:6px 12px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.lvls button[aria-pressed="true"]{background:var(--w2);border-color:var(--w2);color:#fff}
+.lvls button[aria-pressed="true"]::before{content:"✓"}
+.also{font-size:14px;color:var(--ink-2)}
+.also b{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+h3.sub{font-size:20px;font-weight:800}
+
+/* Five steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.steps li{border-radius:18px;padding:12px;color:#fff;display:flex;flex-direction:column;gap:2px}
+.steps li:nth-child(1){background:var(--w1)} .steps li:nth-child(2){background:var(--w2)} .steps li:nth-child(3){background:var(--w3)}
+.steps li:nth-child(4){background:var(--w4);color:#0E2238} .steps li:nth-child(5){background:var(--w5);color:#0E2238}
+.steps .n{font-family:var(--f-mono);font-size:12px}
+.steps b{font-family:var(--f-head);font-size:20px;font-weight:800;line-height:1.1}
+.steps small{font-size:13.5px;line-height:1.3}
+@media (max-width:700px){.steps{grid-template-columns:1fr}.steps li{flex-direction:row;align-items:baseline;gap:10px;flex-wrap:wrap}}
+
+/* Recall with first-letter hints */
+.recall{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.rc{display:flex;flex-direction:column;gap:4px}
+.rc .lab{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.rc .box{display:flex;gap:6px}
+.rc input{flex:1;min-width:0;font:inherit;font-family:var(--f-head);font-weight:700;font-size:22px;min-height:52px;padding:4px 12px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.rc input::first-letter{font-size:28px}
+.rc input.ok{border-color:#3C8A4A;background:#EEF8EF}
+.rc input.look{border-color:#C08A2B;background:#FFF7E8}
+.rc .hint{font:inherit;font-size:13px;min-width:56px;min-height:52px;border-radius:12px;border:1.5px dashed var(--w3);background:var(--w5-bg);color:var(--w2);cursor:pointer}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:inherit;font-weight:600;min-height:44px;padding:8px 16px;border-radius:12px;border:0;background:var(--w1);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--w1);border:1.5px solid var(--w1)}
+
+/* People steppers */
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.who fieldset{border:1px solid var(--line);border-radius:18px;padding:10px 14px;margin:0;background:#fff;display:flex;flex-direction:column;gap:4px}
+.who legend{font-family:var(--f-head);font-weight:800;padding:0 6px}
+.stp{display:flex;align-items:center;gap:8px;font-size:15px;min-height:46px}
+.stp>span{flex:1}
+.stp small{display:block;color:var(--muted);font-size:12.5px;line-height:1.2}
+.stp button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--chip);font-size:20px;cursor:pointer;color:var(--ink)}
+.stp output{min-width:30px;text-align:center;font-family:var(--f-mono);font-size:15px}
+
+/* Tables */
+.tbl-wrap{position:relative;border-radius:18px;border:1px solid var(--line);background:#fff;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--soft);vertical-align:top}
+thead th{background:var(--w1-bg);font-family:var(--f-head);font-weight:800;font-size:13.5px;line-height:1.2;color:var(--w1)}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-family:var(--f-mono);white-space:nowrap}
+td select{font:inherit;font-size:14px;min-height:40px;padding:4px 8px;border-radius:10px;border:1px solid var(--line);background:#fff;width:100%}
+tfoot td{background:var(--w5-bg);font-weight:700}
+.sortbtn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:4px;min-height:32px}
+.sortbtn:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+.sortbtn::after{content:"↕";font-size:12px;opacity:.55}
+th[aria-sort="ascending"] .sortbtn::after{content:"↑";opacity:1}
+th[aria-sort="descending"] .sortbtn::after{content:"↓";opacity:1}
+.grade{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-size:13px}
+.grade i{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;color:#fff;font-style:normal;font-family:var(--f-mono);font-size:12px}
+.g1 i{background:var(--g1)} .g2 i{background:var(--g2)} .g3 i{background:var(--g3)} .g4 i{background:var(--g4)}
+.pips{display:inline-flex;gap:3px;vertical-align:-1px}
+.pips i{width:11px;height:11px;border-radius:3px;background:var(--pip-off)}
+.pips i.on{background:var(--pip-on)}
+.pv{display:block;font-size:12.5px;color:var(--muted);line-height:1.3;margin-top:2px}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:6px;margin:2px 4px 0 0}
+.tag.point{background:var(--point-bg);border:1px solid var(--point-edge);color:var(--point-ink)}
+.tag.quest{background:var(--quest-bg);border:1px solid var(--quest-edge);color:var(--quest-ink)}
+.tag.now{background:#FDEBD8;border:1px solid #E7B98A;color:#6B3A10}
+.tag.sys{background:var(--w3-bg);border:1px solid #C1DBF1;color:var(--w1)}
+.tag.stew{background:#E4EFE0;border:1px solid #B5CFAA;color:#2C4A22}
+td details>summary{cursor:pointer;font-weight:700;font-family:var(--f-head);font-size:15px;list-style:none}
+td details>summary::-webkit-details-marker{display:none}
+td details>summary::after{content:" +";color:var(--muted);font-weight:500}
+td details[open]>summary::after{content:" −"}
+td details .more{margin-top:6px;font-size:13.5px;color:var(--ink-2);display:flex;flex-direction:column;gap:4px}
+td details .more b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+td input[type=checkbox]{width:22px;height:22px}
+.sortbar{display:none;gap:8px;align-items:center;font-size:14.5px}
+.sortbar select{font:inherit;min-height:44px;padding:4px 10px;border-radius:12px;border:1px solid var(--line);background:#fff}
+/* Phones: rows become cards */
+@media (max-width:860px){
+  .sortbar{display:flex;flex-wrap:wrap}
+  .cardtbl thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .cardtbl,.cardtbl tbody,.cardtbl tr,.cardtbl td,.cardtbl tfoot{display:block;width:100%}
+  .cardtbl tr{padding:10px 12px;border-bottom:1px solid var(--line)}
+  .cardtbl td{border:0;padding:4px 0;display:flex;gap:10px;justify-content:space-between;align-items:flex-start;text-align:left}
+  .cardtbl td.num{text-align:left;white-space:normal}
+  .cardtbl td::before{content:attr(data-l);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);flex:0 0 38%;padding-top:2px}
+  .cardtbl td.first{display:block}
+  .cardtbl td.first::before{display:none}
+  .cardtbl td>*:not(details){text-align:right}
+}
+
+/* Results */
+.result{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.res{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.res b{font-family:var(--f-head);font-size:26px;font-weight:800;line-height:1.1}
+.res.main{background:var(--w1);color:#fff;border-color:var(--w1)}
+.res.main .mono{color:#C9DAEE}
+.compare{display:flex;flex-direction:column;gap:6px;font-size:15px}
+.bar{position:relative;height:14px;border-radius:7px;background:var(--soft);overflow:hidden}
+.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:7px;background:var(--w3)}
+.cmp-row{display:grid;grid-template-columns:minmax(150px,240px) 1fr auto;gap:10px;align-items:center}
+.cmp-row span:last-child{font-family:var(--f-mono);font-size:13.5px}
+@media (max-width:560px){.cmp-row{grid-template-columns:1fr auto}.cmp-row .bar{grid-column:1/-1;order:3}}
+
+/* Accordions */
+.acc{border:1px solid var(--line);border-radius:18px;background:#fff}
+.acc>summary{cursor:pointer;list-style:none;padding:12px 16px;min-height:48px;display:flex;align-items:center;gap:10px;font-family:var(--f-head);font-weight:800;font-size:16.5px}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary::before{content:"+";width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--w1-bg);color:var(--w1);font-family:var(--f-mono);flex:none}
+.acc[open]>summary::before{content:"−"}
+.acc .in{padding:0 16px 14px;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.acc ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.rung{border-radius:14px;padding:10px 12px;color:#fff;display:flex;flex-direction:column;gap:2px;font-size:14px}
+.rung b{font-family:var(--f-head);font-size:16px}
+.rung.r1{background:var(--g1)} .rung.r2{background:var(--g2)} .rung.r3{background:var(--g3)} .rung.r4{background:var(--g4)}
+.ally{background:var(--ally-bg);border:1.5px solid var(--ally-edge);border-radius:14px;padding:10px 12px;font-size:14.5px;color:var(--ally-ink)}
+.ally b:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-right:6px}
+.carry{border-left:4px solid var(--w3);background:var(--w5-bg);border-radius:0 14px 14px 0;padding:10px 14px;font-size:15px}
+.carry b.k{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--w2);margin-right:6px}
+.ctrl{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:flex-end}
+.ctrl label{display:flex;flex-direction:column;gap:4px;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.ctrl select,.ctrl input{font:inherit;font-family:var(--f-body);font-size:15.5px;min-height:44px;padding:4px 10px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+.ctrl input{width:120px}
+.ctrl label{max-width:100%;min-width:0}
+.ctrl select{max-width:100%;width:100%}
+.stub{border:1.5px dashed var(--line);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:6px;background:rgba(255,255,255,.4)}
+
+.tray{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#0F2D50;color:#fff;padding:10px 16px;box-shadow:0 -8px 30px rgba(0,0,0,.18)}
+.tray .in{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2px 22px;align-items:baseline}
+.tray b{font-family:var(--f-head);font-size:17px}
+.tray small{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#BFD3EA;margin-right:6px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="mock-banner"><b>MOCK-UP v2</b> · Water, step by step: each step is an ability, and your numbers carry forward from one step to the next. Example figures, rounded.</div>
+
+<main class="wrap">
+
+<header class="hero">
+  <span class="pill">Water</span>
+  <h1>Water</h1>
+  <p class="big-idea">The site is the map and the notebook. The game happens in real life.</p>
+  <p class="lede">Every body needs water, and so does every plant and animal sharing the land. Work out how much you need, then where it can come from, what holds it, and how to make it safe. Your numbers carry from each step to the next, and the total builds at the bottom of the page.</p>
+</header>
+
+<!-- ============ ACHIEVEMENT 1 ============ -->
+<section class="stage" id="a1" aria-labelledby="h-a1">
+  <div class="stage-head">
+    <span class="stage-num" aria-hidden="true">1</span>
+    <div class="t"><h2 id="h-a1">Thinking about water</h2><p class="ach">Ability: <b>Can think through any water situation</b></p></div>
+    <div class="lvls" role="group" aria-label="Can think through any water situation" data-b="a1"></div>
+  </div>
+  <ol class="steps">
+    <li><span class="n">1</span><b>Use</b><small>What it's for, how much, and how clean</small></li>
+    <li><span class="n">2</span><b>Source</b><small>Where it comes from</small></li>
+    <li><span class="n">3</span><b>Container</b><small>What holds it, and for how long</small></li>
+    <li><span class="n">4</span><b>Purify</b><small>Making it clean enough for the job</small></li>
+    <li><span class="n">5</span><b>Test</b><small>Knowing it's safe</small></li>
+  </ol>
+  <div class="panel">
+    <h3 class="sub">Refresh from memory</h3>
+    <p>Fill in the five steps without looking. Stuck? A hint fills in the first letter.</p>
+    <div class="recall" data-set="steps"></div>
+    <div class="row"><button class="btn" type="button" data-check="steps">Check</button><button class="btn ghost" type="button" data-reset="steps">Start again</button><span class="note" data-last="steps"></span></div>
+    <p class="note" aria-live="polite" data-msg="steps"></p>
+  </div>
+</section>
+
+<!-- ============ ACHIEVEMENT 2: USE ============ -->
+<section class="stage" id="a2" aria-labelledby="h-a2" style="--sd:var(--w1)">
+  <div class="stage-head">
+    <span class="stage-num" aria-hidden="true">2</span>
+    <div class="t"><h2 id="h-a2">Use: how much, how clean</h2><p class="ach">Ability: <b>Can work out how much water a household needs, and how clean each use has to be</b></p></div>
+    <div class="lvls" role="group" aria-label="Can work out how much water a household needs" data-b="a2"></div>
+  </div>
+  <p class="lede">Most US homes use about <b>80 gallons per person a day</b>, indoors and out. Humanitarian groups plan around <b>4 gallons (15 liters)</b> per person for drinking, cooking and basic washing, and <b>1 gallon</b> is the short-term minimum to stay alive. Most of what we use doesn't need to be drinking-clean.</p>
+
+  <div class="who">
+    <fieldset><legend>People</legend>
+      <div class="stp"><span>Adults &amp; teens</span><button type="button" data-k="adults" data-d="-1" aria-label="One fewer adult">−</button><output data-o="adults"></output><button type="button" data-k="adults" data-d="1" aria-label="One more adult">+</button></div>
+      <div class="stp"><span>Kids<small>about 2–12</small></span><button type="button" data-k="kids" data-d="-1" aria-label="One fewer kid">−</button><output data-o="kids"></output><button type="button" data-k="kids" data-d="1" aria-label="One more kid">+</button></div>
+      <div class="stp"><span>Babies<small>on formula or starting food</small></span><button type="button" data-k="babies" data-d="-1" aria-label="One fewer baby">−</button><output data-o="babies"></output><button type="button" data-k="babies" data-d="1" aria-label="One more baby">+</button></div>
+    </fieldset>
+    <fieldset><legend>Animals</legend>
+      <div class="stp"><span>Dogs<small>medium-sized</small></span><button type="button" data-k="dogs" data-d="-1" aria-label="One fewer dog">−</button><output data-o="dogs"></output><button type="button" data-k="dogs" data-d="1" aria-label="One more dog">+</button></div>
+      <div class="stp"><span>Cats</span><button type="button" data-k="cats" data-d="-1" aria-label="One fewer cat">−</button><output data-o="cats"></output><button type="button" data-k="cats" data-d="1" aria-label="One more cat">+</button></div>
+      <div class="stp"><span>Chickens</span><button type="button" data-k="hens" data-d="-1" aria-label="One fewer chicken">−</button><output data-o="hens"></output><button type="button" data-k="hens" data-d="1" aria-label="One more chicken">+</button></div>
+    </fieldset>
+    <fieldset><legend>Plants</legend>
+      <div class="stp"><span>Houseplants &amp; pots</span><button type="button" data-k="pots" data-d="-1" aria-label="One fewer pot">−</button><output data-o="pots"></output><button type="button" data-k="pots" data-d="1" aria-label="One more pot">+</button></div>
+      <div class="stp"><span>Veggie beds<small>4 × 8 ft each, in season</small></span><button type="button" data-k="beds" data-d="-1" aria-label="One fewer bed">−</button><output data-o="beds"></output><button type="button" data-k="beds" data-d="1" aria-label="One more bed">+</button></div>
+    </fieldset>
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="cardtbl" id="useTbl">
+      <caption class="sr">Water per task, per day</caption>
+      <thead><tr><th scope="col">Task</th><th scope="col">How clean</th><th scope="col">How</th><th scope="col">Who</th><th scope="col" class="num">Gal / day</th></tr></thead>
+      <tbody></tbody>
+      <tfoot><tr><td class="first" colspan="4">Your household, per day</td><td class="num" data-l="Total" id="useTotal"></td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="result">
+    <div class="res main"><span class="mono">Your household</span><b id="r-total">–</b><span id="r-pp"></span></div>
+    <div class="res"><span class="mono">Grade 1 · drinking-clean</span><b id="r-g1">–</b><span>drink, cook, teeth, food, animals' bowls</span></div>
+    <div class="res"><span class="mono">Grade 2 · clean</span><b id="r-g2">–</b><span>bodies, dishes, laundry, veggies</span></div>
+    <div class="res"><span class="mono">Grade 3 · gray is fine</span><b id="r-g3">–</b><span>flushing, houseplants, mopping</span></div>
+  </div>
+  <div class="panel compare" aria-label="Per person, compared">
+    <div class="cmp-row"><span>Short-term minimum</span><div class="bar"><i style="width:1.25%"></i></div><span>1 gal</span></div>
+    <div class="cmp-row"><span>Humanitarian baseline</span><div class="bar"><i style="width:5%"></i></div><span>4 gal</span></div>
+    <div class="cmp-row"><span><b>Your household, per person</b></span><div class="bar"><i id="r-bar" style="width:0"></i></div><span id="r-bar-n"></span></div>
+    <div class="cmp-row"><span>Typical US home</span><div class="bar"><i style="width:100%"></i></div><span>80 gal</span></div>
+  </div>
+
+  <details class="acc"><summary>Four grades of water (and what gray water is)</summary><div class="in">
+    <div class="ladder">
+      <div class="rung r1"><small>Grade 1</small><b>Drinking-clean</b>Drinking, cooking, brushing teeth, baby formula, ice, washing produce eaten raw, animals' bowls.</div>
+      <div class="rung r2"><small>Grade 2</small><b>Clean, boil if unsure</b>Washing hands and bodies, dishes, laundry, watering veggies. Rain or stored water fits here.</div>
+      <div class="rung r3"><small>Grade 3</small><b>Gray water</b>Used once: shower, bath, bathroom sink, laundry. Good for flushing and for the soil around non-edible plants.</div>
+      <div class="rung r4"><small>Grade 4</small><b>Black water</b>Toilet waste (and in many places, the kitchen sink). Goes to sewer, septic or a proper compost toilet.</div>
+    </div>
+    <ul>
+      <li>Use gray water within a day. Stored gray water starts to smell and grow germs.</li>
+      <li>Send it into soil or mulch, not onto leaves you eat or root crops.</li>
+      <li>Plant-friendly soaps (low salt, no boron or bleach) keep the soil happy.</li>
+      <li>A bowl in the sink while washing veggies catches grade 2 water for the houseplants.</li>
+    </ul>
+  </div></details>
+
+  <details class="acc"><summary>Special cases</summary><div class="in">
+    <div class="who">
+      <fieldset><legend>Add to the drinking water</legend>
+        <div class="stp"><span>Nursing<small>about 3–4 extra cups a day</small></span><button type="button" data-k="nursing" data-d="-1" aria-label="One fewer nursing person">−</button><output data-o="nursing"></output><button type="button" data-k="nursing" data-d="1" aria-label="One more nursing person">+</button></div>
+        <div class="stp"><span>Pregnant<small>about 1–2 extra cups a day</small></span><button type="button" data-k="preg" data-d="-1" aria-label="One fewer pregnant person">−</button><output data-o="preg"></output><button type="button" data-k="preg" data-d="1" aria-label="One more pregnant person">+</button></div>
+        <label class="stp"><span>Hot weather or hard work<small>drinking about 1.5×</small></span><input type="checkbox" data-flag="heat" style="width:24px;height:24px"></label>
+      </fieldset>
+    </div>
+    <ul>
+      <li><b>Breastfed babies</b> get their water from milk; the nursing parent drinks more instead.</li>
+      <li><b>Formula</b> needs grade 1 water. When you're unsure of it, boil and let it cool.</li>
+      <li><b>Illness</b> (fever, vomiting, diarrhea) raises needs fast. Oral rehydration salts help: 6 level tsp sugar + ½ tsp salt in 1 liter of clean water.</li>
+      <li><b>Elders</b> often feel thirst later than they need water. A full glass within reach helps.</li>
+      <li><b>Medical equipment:</b> CPAP humidifiers use distilled water; home dialysis uses a lot. Ask the care team how much to keep on hand.</li>
+      <li><b>Cloth diapers, reusable pads, incontinence:</b> add a laundry load or a soak bucket per week.</li>
+      <li><b>Animals</b> drink more in heat and while nursing; keep bowls in shade and topped up.</li>
+    </ul>
+  </div></details>
+</section>
+
+<!-- ============ ACHIEVEMENT 3: SOURCES ============ -->
+<section class="stage" id="a3" aria-labelledby="h-a3" style="--sd:var(--w2)">
+  <div class="stage-head">
+    <span class="stage-num" aria-hidden="true">3</span>
+    <div class="t"><h2 id="h-a3">Sources: where it can come from</h2><p class="ach">Ability: <b>Can find water, and point someone else to it</b></p></div>
+    <div class="lvls" role="group" aria-label="Can find water, and point someone else to it" data-b="a3"></div>
+  </div>
+  <p class="lede">From water you can get today, to water from a tap, to water from land you tend. Sort by whatever matters most to you right now. Squares: more is easier, healthier over the long run, or more in your hands. Open a source's name for notes, rules and where the money goes.</p>
+  <p class="carry" id="carrySrc"><b class="k">From step 2</b></p>
+
+  <div class="ctrl">
+    <label>Your climate<select id="climate">
+      <option value="40|4">Rainy (about 40 in a year, dry months ~4)</option>
+      <option value="18|7" selected>Mediterranean, like much of California (about 18 in, dry months ~7)</option>
+      <option value="50|1">Humid, rain all year (about 50 in)</option>
+      <option value="8|9">Desert (about 8 in, dry months ~9)</option>
+    </select></label>
+    <label>Roof area into one downspout (sq ft)<input type="number" id="spout" value="250" min="0" step="50" inputmode="numeric"></label>
+    <label>Whole roof (sq ft)<input type="number" id="roof" value="1200" min="0" step="100" inputmode="numeric"></label>
+  </div>
+
+  <div class="sortbar"><label for="sortSel">Sort by</label><select id="sortSel">
+    <option value="0">Kind (right now → land)</option><option value="2">Upfront cost</option><option value="3">Your cost a year</option>
+    <option value="4">Ease</option><option value="5">Long-term health</option><option value="6">In your hands</option><option value="7">Cleanest as it comes</option><option value="8">How much you can get</option>
+  </select></div>
+  <div class="tbl-wrap">
+    <table class="cardtbl" id="srcTbl">
+      <caption class="sr">Water sources, sortable</caption>
+      <thead><tr>
+        <th scope="col" data-c="0"><button class="sortbtn" type="button">Source</button></th>
+        <th scope="col">In plan</th>
+        <th scope="col" class="num" data-c="2"><button class="sortbtn" type="button">Upfront</button></th>
+        <th scope="col" class="num" data-c="3"><button class="sortbtn" type="button">Your cost / yr</button></th>
+        <th scope="col" data-c="4"><button class="sortbtn" type="button">Ease</button></th>
+        <th scope="col" data-c="5"><button class="sortbtn" type="button">Long-term health</button></th>
+        <th scope="col" data-c="6"><button class="sortbtn" type="button">In your hands</button></th>
+        <th scope="col" data-c="7"><button class="sortbtn" type="button">As it comes</button></th>
+        <th scope="col" data-c="8"><button class="sortbtn" type="button">How much</button></th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="note">“Your cost / yr” prices your grade 1 water from step 2 at that source. Rain is worked out as roof area × rainfall × 0.62 gal × 80% caught. Fog and dew yields vary a lot by site.</p>
+  <p class="ally"><b>Ally</b> Call or text <b>211</b> for local water, showers, laundry and food. Good to know for yourself, and to pass on.</p>
+</section>
+
+<!-- ============ ACHIEVEMENT 4: CONTAINERS ============ -->
+<section class="stage" id="a4" aria-labelledby="h-a4" style="--sd:var(--w3)">
+  <div class="stage-head">
+    <span class="stage-num" aria-hidden="true">4</span>
+    <div class="t"><h2 id="h-a4">Containers: what holds it, and how much</h2><p class="ach">Ability: <b>Can choose and keep water containers</b></p></div>
+    <div class="lvls" role="group" aria-label="Can choose and keep water containers" data-b="a4"></div>
+  </div>
+
+  <h3 class="sub">How much to keep</h3>
+  <div class="ctrl">
+    <label>Drinking-clean water on hand for<select id="days"><option value="3">3 days</option><option value="14" selected>2 weeks</option><option value="30">1 month</option></select></label>
+    <label>Rain stored for the dry months covers<select id="rainUse"><option value="garden">Veggie beds</option><option value="gardenflush">Veggie beds + flushing</option><option value="none">Nothing yet</option></select></label>
+  </div>
+  <div class="result">
+    <div class="res main"><span class="mono">Drinking-clean on hand</span><b id="k-g1">–</b><span id="k-g1n"></span></div>
+    <div class="res"><span class="mono">Rain to bridge the dry months</span><b id="k-rain">–</b><span id="k-rainn"></span></div>
+    <div class="res"><span class="mono">Your roof catches in a year</span><b id="k-catch">–</b><span id="k-catchn"></span></div>
+  </div>
+  <p class="carry" id="carryCont"><b class="k">Back to step 3</b></p>
+
+  <h3 class="sub">Kinds of containers</h3>
+  <div class="tbl-wrap">
+    <table class="cardtbl">
+      <caption class="sr">Container materials</caption>
+      <thead><tr><th scope="col">Material</th><th scope="col">Sizes</th><th scope="col">Good for</th><th scope="col">Light &amp; algae</th><th scope="col">Lasts</th><th scope="col">Watch for</th></tr></thead>
+      <tbody>
+        <tr><td class="first"><b>Food-grade HDPE (#2)</b><br><span class="note">water jugs, blue barrels</span></td><td data-l="Sizes">1–55 gal</td><td data-l="Good for"><span class="grade g1"><i>1</i>drinking</span></td><td data-l="Light">Opaque blue blocks light</td><td data-l="Lasts">10+ yrs out of sun</td><td data-l="Watch for">Sun breaks it down. Secondhand barrels are often free from bakeries and juice bottlers: ask what was in them.</td></tr>
+        <tr><td class="first"><b>PET (#1) bottles</b><br><span class="note">store-bought water</span></td><td data-l="Sizes">½ L–1 gal</td><td data-l="Good for"><span class="grade g1"><i>1</i>short-term</span></td><td data-l="Light">Clear: keep in the dark</td><td data-l="Lasts">Sealed: to the date</td><td data-l="Watch for">Made for one use. Heat speeds up what leaches out.</td></tr>
+        <tr><td class="first"><b>Milk jugs</b></td><td data-l="Sizes">1 gal</td><td data-l="Good for"><span class="grade g3"><i>3</i>plants</span></td><td data-l="Light">Translucent</td><td data-l="Lasts">Months</td><td data-l="Watch for">Thin and hard to clean. Plant water only.</td></tr>
+        <tr><td class="first"><b>Glass</b></td><td data-l="Sizes">jars to 5 gal</td><td data-l="Good for"><span class="grade g1"><i>1</i>drinking</span></td><td data-l="Light">Clear: keep in the dark</td><td data-l="Lasts">For good</td><td data-l="Watch for">Heavy, breaks. Never anything that held chemicals.</td></tr>
+        <tr><td class="first"><b>Stainless steel</b></td><td data-l="Sizes">bottles to tanks</td><td data-l="Good for"><span class="grade g1"><i>1</i>drinking</span></td><td data-l="Light">Blocks light</td><td data-l="Lasts">Decades</td><td data-l="Watch for">Costs more upfront; often secondhand.</td></tr>
+        <tr><td class="first"><b>Glazed ceramic</b><br><span class="note">crocks, dispensers</span></td><td data-l="Sizes">1–5 gal</td><td data-l="Good for"><span class="grade g1"><i>1</i>drinking</span></td><td data-l="Light">Blocks light</td><td data-l="Lasts">For good</td><td data-l="Watch for">Lead-free glaze only; older or unknown glazes can leach lead.</td></tr>
+        <tr><td class="first"><b>Unglazed clay</b><br><span class="note">water pots, ollas</span></td><td data-l="Sizes">1–5 gal</td><td data-l="Good for"><span class="grade g1"><i>1</i>day-to-day</span> <span class="grade g2"><i>2</i>garden ollas</span></td><td data-l="Light">Blocks light</td><td data-l="Lasts">Years, if not frozen</td><td data-l="Watch for">Keeps water cool by sweating. Refill daily, not for long storage. Buried ollas water roots slowly.</td></tr>
+        <tr><td class="first"><b>Copper</b></td><td data-l="Sizes">cups, pitchers</td><td data-l="Good for"><span class="grade g1"><i>1</i>overnight</span></td><td data-l="Light">Blocks light</td><td data-l="Lasts">For good</td><td data-l="Watch for">Short holds only, and never acidic drinks: copper builds up in the water.</td></tr>
+        <tr><td class="first"><b>Galvanized steel</b><br><span class="note">troughs, older tanks</span></td><td data-l="Sizes">10–1,000s gal</td><td data-l="Good for"><span class="grade g2"><i>2</i>rain, garden, animals</span></td><td data-l="Light">Blocks light if lidded</td><td data-l="Lasts">Decades</td><td data-l="Watch for">Zinc coating; old ones may have lead solder. Not for long-term drinking storage.</td></tr>
+        <tr><td class="first"><b>IBC totes</b></td><td data-l="Sizes">275–330 gal</td><td data-l="Good for"><span class="grade g2"><i>2</i>rain, garden</span></td><td data-l="Light">Translucent: cover or paint</td><td data-l="Lasts">Years, shaded</td><td data-l="Watch for">Only ones that held food. Algae grows fast in sun.</td></tr>
+        <tr><td class="first"><b>Concrete or ferrocement</b><br><span class="note">cisterns</span></td><td data-l="Sizes">1,000s gal</td><td data-l="Good for"><span class="grade g2"><i>2</i>rain</span> <span class="grade g1"><i>1</i>with treatment</span></td><td data-l="Light">Dark and cool</td><td data-l="Lasts">Decades</td><td data-l="Watch for">New concrete raises pH: rinse and cure first. Needs a permit in many places.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h3 class="sub">Keeping it good</h3>
+    <p><b>Food-grade</b> only, never anything that held chemicals. Keep it <b>dark</b> and cool: algae only need light, water and a few nutrients, so a clear jug on a sunny porch can turn green in weeks. <b>Date</b> it: refresh water you bottled yourself every 6 months. <b>Spread it out</b>, so one damaged spot doesn't take it all, and away from gasoline, paint and cleaners, which pass through plastic. Pour, don't dip.</p>
+    <h3 class="sub">Refresh from memory</h3>
+    <div class="recall" data-set="cont"></div>
+    <div class="row"><button class="btn" type="button" data-check="cont">Check</button><button class="btn ghost" type="button" data-reset="cont">Start again</button><span class="note" data-last="cont"></span></div>
+    <p class="note" aria-live="polite" data-msg="cont"></p>
+  </div>
+</section>
+
+<section class="stage" aria-label="Coming next">
+  <div class="stub"><span class="mono">Ability 5</span><h2 class="sub">Purify: can make water clean enough for the job</h2><p>Matched to the grades from step 2 and the sources picked in step 3: filters (with NSF numbers), boiling, bleach and sun for crises.</p></div>
+  <div class="stub"><span class="mono">Ability 6</span><h2 class="sub">Test: can tell whether water is safe</h2><p>Water reports, kits and labs, priced into your plan, with splitting a lab test across households.</p></div>
+</section>
+</main>
+
+<div class="tray" role="region" aria-label="Your water plan">
+  <div class="in" aria-live="polite">
+    <span><small>Use</small><b id="t-use">–</b></span>
+    <span><small>Drinking-clean</small><b id="t-g1">–</b></span>
+    <span><small>Upfront</small><b id="t-up">–</b></span>
+    <span><small>Each year</small><b id="t-yr">–</b></span>
+  </div>
+</div>
+<p class="sr" aria-live="polite" id="live"></p>
+
+<script>
+(function(){
+  var LS='meeting-needs.water.mock.v2';
+  function load(){try{return JSON.parse(localStorage.getItem(LS))||{}}catch(e){return {}}}
+  function save(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
+  var S=load();
+  S.q=Object.assign({adults:2,kids:0,babies:0,dogs:0,cats:0,hens:0,pots:4,beds:0,nursing:0,preg:0},S.q||{});
+  S.how=S.how||{}; S.flags=S.flags||{}; S.badges=S.badges||{}; S.plan=S.plan||{tap:1}; S.last=S.last||{};
+  var Q=S.q;
+  function $(id){return document.getElementById(id)}
+  function r1(n){return n>=100?Math.round(n).toLocaleString():(Math.round(n*10)/10).toString()}
+  function money(n){return '$'+Math.round(n).toLocaleString()}
+
+  /* ---------- Abilities ---------- */
+  var LV=['Know how','Done it','Shared it'];
+  document.querySelectorAll('.lvls').forEach(function(g){
+    g.innerHTML=LV.map(function(l,i){return '<button type="button" data-l="'+i+'">'+l+'</button>'}).join('');
+  });
+  function paintBadges(){
+    document.querySelectorAll('.lvls').forEach(function(g){
+      var cur=S.badges[g.dataset.b];
+      g.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',cur!=null&&+b.dataset.l<=cur?'true':'false')});
+    });
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.lvls button'); if(!b) return;
+    var id=b.parentNode.dataset.b,l=+b.dataset.l;
+    if(S.badges[id]===l){ if(l>0) S.badges[id]=l-1; else delete S.badges[id]; } else S.badges[id]=l;
+    save(); paintBadges();
+    $('live').textContent=b.parentNode.getAttribute('aria-label')+': '+(S.badges[id]!=null?LV[S.badges[id]]:'not yet');
+  });
+  paintBadges();
+
+  /* ---------- Recall with first-letter hints ---------- */
+  var SETS={
+    steps:[['Use','use|uses|using|need|needs'],['Source','source|sources'],['Container','container|containers|storage|store|storing'],['Purify','purify|purification|purifying|filter|treat|clean'],['Test','test|testing|tests|check']],
+    cont:[['Food-grade','foodgrade|foodsafe|food'],['Dark','dark|shade|shaded|nolight|cool'],['Dated','dated|date|label|labeled|labelled'],['Spread out','spreadout|spread|spreaditout']]
+  };
+  Object.keys(SETS).forEach(function(k){
+    var box=document.querySelector('.recall[data-set='+k+']');
+    box.innerHTML=SETS[k].map(function(a,i){
+      return '<div class="rc"><span class="lab" id="l-'+k+i+'">'+(i+1)+'</span><div class="box"><input autocomplete="off" autocapitalize="words" aria-labelledby="l-'+k+i+'" data-a="'+a[1]+'" data-w="'+a[0]+'"><button type="button" class="hint" aria-label="Hint for '+(i+1)+': first letter">Hint</button></div></div>';
+    }).join('');
+    box.addEventListener('click',function(e){
+      var h=e.target.closest('.hint'); if(!h) return;
+      var inp=h.previousElementSibling; inp.value=inp.dataset.w.charAt(0); inp.focus();
+      try{inp.setSelectionRange(1,1)}catch(_){}
+    });
+    if(S.last[k]) document.querySelector('[data-last='+k+']').textContent='Last refreshed '+new Date(S.last[k]).toLocaleDateString();
+  });
+  document.addEventListener('click',function(e){
+    var c=e.target.closest('[data-check]'), r=e.target.closest('[data-reset]');
+    if(c){
+      var k=c.dataset.check, ins=document.querySelectorAll('.recall[data-set='+k+'] input'), miss=[];
+      ins.forEach(function(i,n){
+        var v=i.value.toLowerCase().replace(/[^a-z]/g,''), ok=i.dataset.a.split('|').indexOf(v)!==-1;
+        i.classList.toggle('ok',ok); i.classList.toggle('look',!ok); if(!ok) miss.push((n+1)+': '+i.dataset.w);
+      });
+      document.querySelector('[data-msg='+k+']').textContent=miss.length?'Here’s the rest: '+miss.join(' · ')+'.':'All of them, from memory.';
+      S.last[k]=Date.now(); save();
+      document.querySelector('[data-last='+k+']').textContent='Last refreshed '+new Date(S.last[k]).toLocaleDateString();
+    }
+    if(r){
+      var k2=r.dataset.reset; document.querySelectorAll('.recall[data-set='+k2+'] input').forEach(function(i){i.value='';i.className=''});
+      document.querySelector('[data-msg='+k2+']').textContent='';
+      document.querySelector('.recall[data-set='+k2+'] input').focus();
+    }
+  });
+
+  /* ---------- Step 2: tasks ---------- */
+  var P=function(){return Q.adults+Q.kids};
+  var TASKS=[
+    {id:'drink',t:'Drinking',g:1,who:'Everyone, animals too',opts:[['Water + tea, milk, soup',1]],
+      f:function(m){var h=S.flags.heat?1.5:1;return (Q.adults*0.75+Q.kids*0.4+Q.babies*0.25+Q.nursing*0.25+Q.preg*0.08)*h}},
+    {id:'pets',t:'Animals’ bowls',g:1,who:'Dogs, cats, chickens',opts:[['Fresh daily',1]],f:function(){return Q.dogs*0.4+Q.cats*0.07+Q.hens*0.12}},
+    {id:'cook',t:'Cooking',g:1,who:'Adults & kids',opts:[['Boiling, soaking, soups',0.5],['Mostly raw or quick meals',0.25]],f:function(m){return P()*m}},
+    {id:'food',t:'Washing food',g:1,who:'Adults & kids',opts:[['In a bowl',0.25],['Under a running tap',1]],f:function(m){return P()*m}},
+    {id:'teeth',t:'Brushing teeth',g:1,who:'Adults & kids, twice a day',opts:[['A cup, tap off',0.1],['Tap running',4]],f:function(m){return P()*m}},
+    {id:'hands',t:'Washing hands',g:2,who:'Adults & kids, ~6 times',opts:[['Tap off while soaping',0.8],['Tap running',2.5]],f:function(m){return P()*m}},
+    {id:'bath',t:'Bathing',g:2,who:'Each person',opts:[['8-min shower, daily',16],['4-min shower, daily',8],['Shower every other day',8],['Bucket bath, daily',3],['Sponge bath, daily',1]],f:function(m){return Q.adults*m+Q.kids*m*0.6+Q.babies*0.5}},
+    {id:'dish',t:'Dishes',g:2,who:'The household',opts:[['Basin wash',4],['Efficient dishwasher',4],['Running tap',20]],f:function(m){return (P()+Q.babies)>0?m*Math.max(1,P()/3):0}},
+    {id:'laundry',t:'Laundry',g:2,who:'~1.5 loads a week each',opts:[['Efficient machine (~14 gal)',14],['Older top-loader (~35 gal)',35],['By hand (~8 gal)',8]],f:function(m){return (P()*1.5+Q.babies)*m/7}},
+    {id:'flush',t:'Flushing',g:3,who:'~5 a day each',opts:[['Newer toilet (1.3 gal)',1.3],['Older toilet (3.5 gal)',3.5],['Bucket of gray water (1.5 gal)',1.5],['Compost toilet',0]],f:function(m){return P()*5*m}},
+    {id:'mop',t:'Cleaning & mopping',g:3,who:'The household',opts:[['A bucket a day',1],['A bucket a week',0.15]],f:function(m){return P()>0?m:0}},
+    {id:'pots',t:'Houseplants & pots',g:3,who:'Each pot',opts:[['Weekly drink',0.03]],f:function(m){return Q.pots*m}},
+    {id:'beds',t:'Veggie beds',g:2,who:'Each 32 sq ft bed',opts:[['About 1 in a week, in season',2.8],['Mulched & drip',1.8]],f:function(m){return Q.beds*m}}
+  ];
+  var tb=document.querySelector('#useTbl tbody');
+  var GN={1:'Drinking-clean',2:'Clean',3:'Gray is fine'};
+  tb.innerHTML=TASKS.map(function(t){
+    var sel=t.opts.length>1?'<select data-task="'+t.id+'" aria-label="How: '+t.t+'">'+t.opts.map(function(o,i){return '<option value="'+i+'">'+o[0]+'</option>'}).join('')+'</select>':'<span>'+t.opts[0][0]+'</span>';
+    return '<tr><td class="first"><b>'+t.t+'</b></td><td data-l="How clean"><span class="grade g'+t.g+'"><i>'+t.g+'</i>'+GN[t.g]+'</span></td><td data-l="How">'+sel+'</td><td data-l="Who"><span>'+t.who+'</span></td><td class="num" data-l="Gal / day" data-v="'+t.id+'"></td></tr>';
+  }).join('');
+  tb.querySelectorAll('select').forEach(function(s){ if(S.how[s.dataset.task]!=null) s.value=S.how[s.dataset.task]; s.addEventListener('change',function(){S.how[s.dataset.task]=s.value;save();calc()}) });
+  document.querySelectorAll('[data-flag]').forEach(function(c){c.checked=!!S.flags[c.dataset.flag];c.addEventListener('change',function(){S.flags[c.dataset.flag]=c.checked;save();calc()})});
+  document.querySelectorAll('.stp button').forEach(function(b){
+    b.addEventListener('click',function(){var k=b.dataset.k;Q[k]=Math.max(0,Math.min(40,Q[k]+(+b.dataset.d)));save();calc()});
+  });
+
+  /* ---------- Step 3: sources ---------- */
+  // kind 1 right now, 2 system, 3 land. price $/gal. up $ upfront. yr fixed $/yr. ease/health/hands 1-5. g grade as it comes. amt(): gal/day or 1e6 for "as much as you pay for".
+  var SRC=[
+    {id:'bottles',n:'Store bottles',k:1,up:0,p:1.5,ease:5,hl:2,hd:1,g:1,amt:'buy',hv:['the store','microplastics; still being studied','gone when they run out'],
+      more:'<p><b>Requires</b>money each week, a store you can reach, a way to carry it.</p><p><b>Where the money goes</b>Some big brands are filtered city tap water. A later version breaks a dollar into source, bottler, shipping, store and parent company, so you can choose who you pay.</p>'},
+    {id:'refill',n:'Refill station or water store',k:1,up:0,p:0.4,ease:4,hl:4,hd:2,g:1,amt:'buy',hv:['bring your own jugs','filtered; check how often filters change','open hours'],
+      more:'<p><b>Requires</b>clean jugs (step 4), a way to carry them. A gallon weighs about 8.3 lb.</p><p><b>Where the money goes</b>Often a local small business.</p>'},
+    {id:'public',n:'Library, park and café water',k:1,tags:['point'],up:0,p:0,ease:2,hl:4,hd:1,g:1,amt:'carry',hv:['walking and carrying','treated public water; old building pipes can add lead','open hours'],
+      more:'<p>Libraries, parks, rec centers and transit stations have fountains; cafés and fast-food counters will often fill a bottle when asked. Day centers and shelters often have water, showers and laundry.</p><p><b>Point someone here</b>Worth knowing by heart for a friend between homes, or anyone asking.</p>'},
+    {id:'211',n:'Call or text 211',k:1,tags:['point'],up:0,p:0,ease:3,hl:4,hd:1,g:1,amt:'carry',hv:['one call','points to treated water','depends on local services'],
+      more:'<p>Finds local water, showers, laundry and food. Free and confidential in most of the US.</p><p><b>Point someone here</b>The quickest thing to pass on.</p>'},
+    {id:'tap',n:'Tap water',k:2,up:0,p:0.01,ease:5,hl:4,hd:2,g:1,amt:'buy',hv:['turn it on','treated and tested; read the yearly report','the utility holds the tap'],
+      more:'<p><b>Requires</b>a home with a tap. Every public system publishes a yearly water quality report (step 6).</p><p><b>Where the money goes</b>Your water utility, usually public.</p>'},
+    {id:'ro',n:'Tap + countertop reverse osmosis',k:2,up:250,p:0.01,yr:90,ease:4,hl:5,hd:3,g:1,amt:'buy',hv:['fill a tank, change filters','removes most lead, nitrate, PFAS (look for NSF 58)','the utility still supplies it'],
+      more:'<p><b>Requires</b>a tap, counter space, about $250 once (for example an AquaTru), or a friend’s to share. Optional mineral drops ~$40 last a long time.</p><p><b>If</b>renting or moving often → portable, no drilling. <b>If</b> you own and stay → an under-sink unit is the same idea, out of sight.</p>'},
+    {id:'gray',n:'Gray water from your own home',k:2,up:50,p:0,ease:3,hl:3,hd:5,g:3,amt:'gray',hv:['a bucket, or a laundry-to-landscape line','for soil and flushing only','yours'],
+      more:'<p>Catch the shower warm-up in a bucket; run laundry water to mulch basins. Use within a day.</p><p><b>Rules</b>California allows simple laundry-to-landscape systems without a permit if they follow the code; anything bigger needs one.</p>'},
+    {id:'spout',n:'Rain from one downspout',k:2,up:120,p:0,ease:4,hl:3,hd:4,g:2,amt:'spout',hv:['a barrel, a first-flush diverter, a spigot','birds visit roofs: boil or filter before drinking','depends on the weather'],
+      more:'<p>Water the soil, not the leaves, on food plants. Boiling kills germs but doesn’t remove roof chemicals.</p><p><b>Rules</b>California lets homes catch roof rain without a water right (2012). Elsewhere, search “<i>your state</i> rainwater collection law”; some states limit barrel size.</p>'},
+    {id:'cistern',n:'Rain from the whole roof, into a cistern',k:3,up:6000,p:0,yr:20,ease:3,hl:3,hd:5,g:2,amt:'roof',hv:['build once, clean gutters','treat before drinking','yours, within rainfall'],
+      more:'<p>Gutters → first-flush → screened, dark tank → filter and disinfect for drinking.</p><p><b>Rules</b>Large tanks often need a building permit; check with the county.</p>'},
+    {id:'fog',n:'Fog net',k:3,tags:['quest'],up:100,p:0,ease:2,hl:3,hd:4,g:2,amt:'fog',hv:['mesh, two posts, a gutter, a bucket','treat before drinking','only in fog belts'],
+      more:'<p>Fine shade-cloth mesh strung between posts; drops gather and run into a gutter. Used for real on foggy coasts in Chile and Morocco. Needs fog that rolls in often.</p>'},
+    {id:'dew',n:'Dew catcher',k:3,tags:['quest'],up:20,p:0,ease:3,hl:3,hd:4,g:2,amt:'dew',hv:['a cool, smooth surface at night','treat before drinking','clear, still nights'],
+      more:'<p>Glass, sheet metal and metal roofs cool fast at night and gather dew; no plastic tarp needed. A lovely experiment, not a supply.</p>'},
+    {id:'spring',n:'A spring',k:3,up:0,p:0,ease:2,hl:3,hd:3,g:2,amt:'varies',hv:['walking and carrying, or a spring box','often clean, but test it','shared; ask who’s upstream'],
+      more:'<p><b>Rules</b>Springs can come with water rights and access limits; ask the county and the landowner.</p>'},
+    {id:'well',n:'A well you tend',k:3,up:20000,p:0,yr:150,ease:4,hl:4,hd:5,g:1,amt:'well',hv:['drilling once, then a pump','test yearly: arsenic, nitrate, bacteria','yours, shared with the aquifer'],
+      more:'<p><b>Rules</b>Wells need a county permit. Drilling costs vary widely with depth.</p><p class="ally"><b>Ally</b>County environmental health offices often have free or cheap well test kits.</p>'},
+    {id:'wild',n:'Rivers and lakes',k:3,up:0,p:0,ease:1,hl:2,hd:3,g:2,amt:'carry',hv:['hauling','always purify; ask who’s upstream','shared'],
+      more:'<p>Running over still, but towns, farms, roads and mines drain somewhere. Skip water with scum, sheen, foam or dead fish.</p>'}
+  ];
+  var KN={1:['Right now','now'],2:['A system','sys'],3:['Land you tend','stew']};
+  var sortCol=0, sortDir=1;
+  function pips(n,label){var s='';for(var i=1;i<=5;i++)s+='<i'+(i<=n?' class="on"':'')+'></i>';return '<span class="pips" role="img" aria-label="'+label+' '+n+' of 5">'+s+'</span>'}
+  function srcAmt(s,U){
+    var cl=$('climate').value.split('|'), inch=+cl[0], spout=+$('spout').value||0, roof=+$('roof').value||0;
+    var yr;
+    switch(s.amt){
+      case 'buy': return {v:1e6,t:'as much as you pay for'};
+      case 'carry': return {v:2,t:'what you can carry (1 gal ≈ 8.3 lb)'};
+      case 'gray': return {v:U.grayMade,t:'about '+r1(U.grayMade)+' gal/day from your showers & laundry'};
+      case 'spout': yr=spout*inch*0.623*0.8; return {v:yr/365,t:'about '+r1(yr)+' gal a year, mostly in the wet months'};
+      case 'roof': yr=roof*inch*0.623*0.8; return {v:yr/365,t:'about '+r1(yr)+' gal a year'};
+      case 'fog': return {v:1,t:'roughly ½–2 gal per m² of mesh on a foggy day'};
+      case 'dew': return {v:0.1,t:'a cup or two per m² on a good night'};
+      case 'well': return {v:5000,t:'often 5+ gal a minute'};
+      default: return {v:3,t:'a trickle to gallons a minute'};
+    }
+  }
+  function srcCost(s,U){ return s.p*U.g1*365+(s.yr||0) }
+  function renderSrc(U){
+    var rows=SRC.map(function(s){var a=srcAmt(s,U);return {s:s,a:a,c:srcCost(s,U)}});
+    var key=function(r){return [r.s.k,0,r.s.up,r.c,r.s.ease,r.s.hl,r.s.hd,-r.s.g,r.a.v][sortCol]};
+    var idx=SRC.indexOf.bind(SRC);
+    rows.sort(function(a,b){var d=(key(a)-key(b))*sortDir;return d||idx(a.s)-idx(b.s)});
+    document.querySelector('#srcTbl tbody').innerHTML=rows.map(function(r){
+      var s=r.s, tags='<span class="tag '+KN[s.k][1]+'">'+KN[s.k][0]+'</span>'+(s.tags||[]).map(function(t){return t==='point'?'<span class="tag point">Point someone here</span>':'<span class="tag quest">Side quest</span>'}).join('');
+      return '<tr><td class="first"><details><summary>'+s.n+'</summary><div class="more">'+s.more+'</div></details>'+tags+'</td>'+
+        '<td data-l="In plan"><input type="checkbox" data-plan="'+s.id+'" aria-label="Add '+s.n+' to my plan"'+(S.plan[s.id]?' checked':'')+'></td>'+
+        '<td class="num" data-l="Upfront">'+(s.up?money(s.up):'$0')+'</td>'+
+        '<td class="num" data-l="Your cost / yr">'+(s.g===1||s.yr?money(r.c):'$0')+'</td>'+
+        '<td data-l="Ease"><span>'+pips(s.ease,'Ease')+'<span class="pv">'+s.hv[0]+'</span></span></td>'+
+        '<td data-l="Long-term health"><span>'+pips(s.hl,'Long-term health')+'<span class="pv">'+s.hv[1]+'</span></span></td>'+
+        '<td data-l="In your hands"><span>'+pips(s.hd,'In your hands')+'<span class="pv">'+s.hv[2]+'</span></span></td>'+
+        '<td data-l="As it comes"><span class="grade g'+s.g+'"><i>'+s.g+'</i>'+GN[s.g]+'</span></td>'+
+        '<td data-l="How much"><span>'+r.a.t+'</span></td></tr>';
+    }).join('');
+    document.querySelectorAll('#srcTbl th[data-c]').forEach(function(th){th.setAttribute('aria-sort',+th.dataset.c===sortCol?(sortDir>0?'ascending':'descending'):'none')});
+  }
+  document.querySelector('#srcTbl thead').addEventListener('click',function(e){
+    var th=e.target.closest('th[data-c]'); if(!th) return; var c=+th.dataset.c;
+    if(c===sortCol) sortDir=-sortDir; else {sortCol=c; sortDir=(c>=4&&c<=8)?-1:1;}
+    $('sortSel').value=String(c); calc();
+  });
+  $('sortSel').addEventListener('change',function(){sortCol=+this.value;sortDir=(sortCol>=4&&sortCol<=8)?-1:1;calc()});
+  document.querySelector('#srcTbl tbody').addEventListener('change',function(e){var c=e.target.closest('[data-plan]');if(!c)return;if(c.checked)S.plan[c.dataset.plan]=1;else delete S.plan[c.dataset.plan];save();calc()});
+  ['climate','spout','roof','days','rainUse'].forEach(function(id){$(id).addEventListener('input',calc);$(id).addEventListener('change',calc)});
+
+  /* ---------- Calculate everything ---------- */
+  function calc(){
+    Object.keys(Q).forEach(function(k){var o=document.querySelector('[data-o='+k+']');if(o)o.textContent=Q[k]});
+    var U={g1:0,g2:0,g3:0,by:{}};
+    TASKS.forEach(function(t){
+      var sel=document.querySelector('select[data-task='+t.id+']'), m=t.opts[sel?+sel.value:0][1], v=t.f(m);
+      U.by[t.id]=v; U['g'+t.g]+=v; document.querySelector('[data-v='+t.id+']').textContent=r1(v);
+    });
+    U.total=U.g1+U.g2+U.g3; var people=P()+Q.babies, pp=people?U.total/people:0;
+    U.grayMade=(U.by.bath+U.by.laundry+U.by.hands)*0.8;
+    $('useTotal').textContent=r1(U.total);
+    $('r-total').textContent=r1(U.total)+' gal/day'; $('r-pp').textContent=people?'about '+r1(pp)+' gal per person':'add people above';
+    $('r-g1').textContent=r1(U.g1)+' gal'; $('r-g2').textContent=r1(U.g2)+' gal'; $('r-g3').textContent=r1(U.g3)+' gal';
+    $('r-bar').style.width=Math.min(100,pp/80*100)+'%'; $('r-bar-n').textContent=r1(pp)+' gal';
+    $('carrySrc').innerHTML='<b class="k">From step 2</b>You need about <b>'+r1(U.g1)+' gal/day drinking-clean</b>, '+r1(U.g2)+' clean and '+r1(U.g3)+' where gray is fine. Your showers, sinks and laundry make about <b>'+r1(U.grayMade)+' gal/day of gray water</b>, '+(U.grayMade>=U.g3?'more than enough for everything gray can do.':'enough for '+Math.round(U.grayMade/Math.max(U.g3,0.01)*100)+'% of your gray-fine uses.');
+
+    /* Containers */
+    var days=+$('days').value, keep=U.g1*days, jugs=Math.ceil(keep/7);
+    var cl=$('climate').value.split('|'), inch=+cl[0], dry=+cl[1], roof=+$('roof').value||0, spout=+$('spout').value||0;
+    var ru=$('rainUse').value, rainDaily=ru==='none'?0:(U.by.beds+(ru==='gardenflush'?U.by.flush:0));
+    var rainNeed=rainDaily*dry*30, roofYr=roof*inch*0.623*0.8, spoutYr=spout*inch*0.623*0.8;
+    $('k-g1').textContent=r1(keep)+' gal'; $('k-g1n').textContent=jugs?'about '+jugs+' × 7-gal jugs':'';
+    $('k-rain').textContent=r1(rainNeed)+' gal';
+    $('k-rainn').textContent=rainNeed?dry+' dry months · about '+Math.ceil(rainNeed/55)+' × 55-gal barrels'+(rainNeed>1000?' or a '+(Math.ceil(rainNeed/500)*500).toLocaleString()+'-gal cistern':''):'add veggie beds in step 2, or pick what rain covers';
+    $('k-catch').textContent=r1(roofYr)+' gal'; $('k-catchn').textContent='one downspout: about '+r1(spoutYr)+' gal';
+    var cover=rainNeed?Math.min(100,Math.round(roofYr/rainNeed*100)):0;
+    $('carryCont').innerHTML='<b class="k">Back to step 3</b>'+(rainNeed?('To get through '+dry+' dry months you’d store about <b>'+r1(rainNeed)+' gal</b>. Your whole roof catches about '+r1(roofYr)+' gal a year, '+(cover>=100?'enough to fill it, if you have room to store it.':'about '+cover+'% of it; gray water or the tap can cover the rest.')):'Pick something for stored rain to cover, and this shows whether your roof can fill it.')+(jugs?' Your '+days+'-day store of drinking water fits in about '+jugs+' food-grade 7-gal jugs.':'');
+
+    renderSrc(U);
+
+    /* Tray */
+    var up=0, yr=0, drinkSrc=SRC.filter(function(s){return S.plan[s.id]&&s.g===1});
+    SRC.forEach(function(s){if(S.plan[s.id]){up+=s.up;yr+=s.yr||0}});
+    drinkSrc.forEach(function(s){yr+=s.p*U.g1*365/drinkSrc.length});
+    if(S.plan.ro&&S.plan.tap) yr-=0.01*U.g1*365/drinkSrc.length; // RO already counts its tap water
+    up+= jugs*15;
+    $('t-use').textContent=r1(U.total)+' gal/day'; $('t-g1').textContent=r1(U.g1)+' gal/day';
+    $('t-up').textContent=money(up); $('t-yr').textContent=money(Math.max(0,yr));
+  }
+  calc();
+})();
+</script>
+</body>
+</html>

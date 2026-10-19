@@ -33,7 +33,7 @@ html, body { overflow-x:clip; }
 body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 var(--f-body); }
 a { color:var(--accent); }
 :focus-visible { outline:3px solid var(--focus); outline-offset:3px; border-radius:8px; }
-h1,h2,h3 { font-family:var(--f-head); margin:0; text-wrap:balance; }
+h1,h2,h3 { font-family:var(--f-head); margin:0; }
 p { margin:0; }
 .eyebrow { font-family:var(--f-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
 .wrap { max-width:1000px; margin:0 auto; padding:16px 16px 36px; display:flex; flex-direction:column; gap:16px; }
@@ -57,7 +57,7 @@ p { margin:0; }
 /* hero */
 .hero { padding:16px 20px; border-radius:22px; background:var(--glass); border:1px solid rgba(255,255,255,.8); }
 .hero h1 { font-size:clamp(30px,5vw,44px); line-height:1.05; margin:4px 0 6px; }
-.hero .lede { max-width:66ch; color:var(--ink-2); font-size:16px; }
+.hero .lede { max-width:none; color:var(--ink-2); font-size:16px; }
 
 /* ---------- the tree stage ---------- */
 .stage { display:grid; grid-template-columns:var(--pic) minmax(0,1fr); border-radius:24px; overflow:hidden; border:1px solid var(--soft-line); box-shadow:0 12px 40px rgba(30,60,30,.07); }

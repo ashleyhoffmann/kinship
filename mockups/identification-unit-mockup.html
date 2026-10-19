@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kinship · Identification (unit mock-up)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Mock-up only. Mirrors Kinship's style.css + the Food mock-up so it can move into herb.css later. */
+:root {
+  --bg:#F6EEF2; --ink:#1F1A28; --ink-2:#352D42; --muted:#4F465E; --accent:#9A2F63;
+  --glass:rgba(255,255,255,.42); --glass-strong:rgba(255,255,255,.64); --glass-faint:rgba(255,255,255,.24);
+  --glass-edge:rgba(255,255,255,.78); --chip:rgba(255,255,255,.62); --line:rgba(31,26,40,.16);
+  --soft-line:rgba(31,26,40,.08); --focus:#2F6E9E; --lens:#A8346B;
+  --f-head:'Manrope','Instrument Sans',system-ui,sans-serif;
+  --f-body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  /* Identification (tier 1 Signals pink), darkest (1) to lightest (5). */
+  --c1-bg:#F7E6EE; --c1-mid:#EFD0DE; --c1-edge:#E4B6CB; --c1-dot:#7A2350; --c1-on:#fff;
+  --c2-bg:#F8EAF0; --c2-mid:#F1D6E2; --c2-edge:#E8C0D2; --c2-dot:#9A3363; --c2-on:#fff;
+  --c3-bg:#F9EDF3; --c3-mid:#F3DCE7; --c3-edge:#EBC8D8; --c3-dot:#B23E74; --c3-on:#fff;
+  --c4-bg:#FAF1F5; --c4-mid:#F5E3EB; --c4-edge:#EED2DF; --c4-dot:#D98BAE; --c4-on:#1F1A28;
+  --c5-bg:#FBF5F8; --c5-mid:#F7E9EF; --c5-edge:#F1DCE6; --c5-dot:#EBC0D3; --c5-on:#1F1A28;
+  --k-bg:var(--glass-faint); --k-mid:var(--chip); --k-edge:var(--line); --k-dot:var(--muted); --k-on:#fff;
+}
+.k1{--k-bg:var(--c1-bg);--k-mid:var(--c1-mid);--k-edge:var(--c1-edge);--k-dot:var(--c1-dot);--k-on:var(--c1-on)}
+.k2{--k-bg:var(--c2-bg);--k-mid:var(--c2-mid);--k-edge:var(--c2-edge);--k-dot:var(--c2-dot);--k-on:var(--c2-on)}
+.k3{--k-bg:var(--c3-bg);--k-mid:var(--c3-mid);--k-edge:var(--c3-edge);--k-dot:var(--c3-dot);--k-on:var(--c3-on)}
+.k4{--k-bg:var(--c4-bg);--k-mid:var(--c4-mid);--k-edge:var(--c4-edge);--k-dot:var(--c4-dot);--k-on:var(--c4-on)}
+.k5{--k-bg:var(--c5-bg);--k-mid:var(--c5-mid);--k-edge:var(--c5-edge);--k-dot:var(--c5-dot);--k-on:var(--c5-on)}
+
+*{box-sizing:border-box}
+html{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;overflow-x:clip}
+h1,h2,h3{font-family:var(--f-head);margin:0;}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:8px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.sky span{position:absolute;border-radius:50%;filter:blur(12px)}
+.sky .a{left:-12vw;top:-18vh;width:60vw;height:60vw;max-width:780px;max-height:780px;background:radial-gradient(circle,rgba(214,120,165,.36),transparent 68%)}
+.sky .b{right:-14vw;top:8vh;width:58vw;height:58vw;max-width:780px;max-height:780px;background:radial-gradient(circle,rgba(126,170,140,.32),transparent 68%)}
+.sky .c{left:25vw;bottom:-30vh;width:64vw;height:64vw;max-width:860px;max-height:860px;background:radial-gradient(circle,rgba(230,170,200,.32),transparent 68%)}
+
+.wrap{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:20px clamp(16px,3vw,40px) 72px;display:flex;flex-direction:column;gap:24px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;border-radius:999px;background:var(--glass);border:1px solid var(--glass-edge)}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink)}
+.brand b{font-family:var(--f-head);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.mock{font-family:var(--f-mono);font-size:12px;padding:4px 10px;border-radius:999px;border:1.5px dashed var(--line);color:var(--muted)}
+
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;align-items:start}
+.main{min-width:0;display:flex;flex-direction:column;gap:20px}
+
+/* Sidebar tree */
+.nav{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto;scrollbar-width:thin;padding:14px;border-radius:26px;background:rgba(255,255,255,.72);border:1px solid var(--glass-edge)}
+.nav-head{display:flex;flex-direction:column;padding:2px 6px 8px}
+.nav-head b{font-family:var(--f-head);font-size:21px;font-weight:800;letter-spacing:-.02em}
+.nav-over{display:flex;align-items:center;min-height:36px;padding:0 8px;margin-bottom:6px;border-radius:12px;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+.nav-over:hover,.nav-over.cur{background:var(--chip)}
+.vt{list-style:none;margin:0;padding:0;position:relative}
+.vt::before{content:'';position:absolute;left:21px;top:22px;bottom:22px;width:2px;border-radius:2px;background:linear-gradient(var(--c1-dot),var(--c3-dot),var(--c5-dot))}
+.vt-unit{position:relative;padding:3px 0}
+.vt-head{display:flex;align-items:center;gap:12px;min-height:46px;padding:4px 8px;border-radius:16px;color:var(--ink);text-decoration:none}
+.vt-head:hover{background:var(--k-bg)}
+.vt-unit.cur>.vt-head{background:var(--k-mid)}
+.vt-dot{position:relative;z-index:1;width:28px;height:28px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--k-dot);color:var(--k-on);box-shadow:0 0 0 4px var(--bg);font-family:var(--f-mono);font-size:13px}
+.vt-head b{display:block;font-family:var(--f-head);font-size:17px;font-weight:800;line-height:1.1}
+.vt-head small{display:block;font-size:13px;color:var(--muted)}
+.vt-subs{list-style:none;margin:2px 0 4px;padding:0 0 0 36px;display:none;flex-direction:column}
+.vt-unit.cur .vt-subs{display:flex}
+.vt-subs a{position:relative;display:flex;align-items:center;min-height:30px;padding:3px 8px;border-radius:10px;color:var(--ink-2);text-decoration:none;font-size:14px;line-height:1.25}
+.vt-subs a::before{content:'';position:absolute;left:-19px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--k-dot)}
+.vt-subs a:hover{background:var(--k-bg);color:var(--ink)}
+
+/* Situation panel (reads and writes the Kinship profile) */
+.sit{border-radius:22px;background:var(--glass-strong);border:1px solid var(--soft-line)}
+.sit>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:14px 18px}
+.sit>summary::-webkit-details-marker{display:none}
+.sit-sum{font-size:14.5px;color:var(--ink-2)}
+.sit-chips{display:flex;flex-wrap:wrap;gap:6px}
+.sit-chips span{font-size:13px;padding:3px 10px;border-radius:999px;background:#fff;border:1px solid var(--soft-line)}
+.sit-edit{margin-left:auto;font-size:14px;font-weight:600;color:var(--accent)}
+.sit-body{padding:0 18px 16px;display:flex;flex-direction:column;gap:12px}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.qgrid label.f select{width:100%}
+.sit-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:13.5px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--soft-line);background:#fff;color:var(--ink);font:inherit;font-size:14.5px;font-weight:600;cursor:pointer;text-decoration:none}
+.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.outage{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;padding:6px 14px;border-radius:999px;border:1px dashed var(--line);background:var(--glass-faint);cursor:pointer}
+.outage:has(input:checked){background:#FFF1E6;border-style:solid;border-color:#E9C29F}
+
+/* Overview */
+.hero{display:flex;flex-direction:column;gap:12px}
+.lens-pill{align-self:flex-start;padding:6px 12px;border-radius:999px;background:var(--lens);color:#fff;font-family:var(--f-mono);font-size:12px;line-height:1}
+.hero h1{font-weight:800;font-size:clamp(46px,6.4vw,84px);line-height:.95;letter-spacing:-.04em}
+.lede{font-size:clamp(17px,1.6vw,20px);color:var(--ink-2);max-width:none}
+.ucards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.ucard{display:flex;flex-direction:column;gap:8px;height:100%;padding:0 0 16px;border-radius:24px;background:var(--k-bg);border:1px solid var(--k-edge);text-decoration:none;color:var(--ink);overflow:hidden}
+.ucard>*{margin-inline:18px}
+.ucard .band{margin:0;height:10px;background:var(--k-dot)}
+.ucard:hover{background:var(--k-mid)}
+.ucard .n{font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-top:6px}
+.ucard b{font-family:var(--f-head);font-weight:800;font-size:clamp(24px,2.4vw,30px);line-height:1;letter-spacing:-.03em}
+.ucard span{font-size:15px;color:var(--ink-2)}
+.ucard ol{margin-top:4px;padding:8px 0 0 18px;border-top:1px solid var(--k-edge);font-size:13.5px;color:var(--ink-2)}
+.funfact,.review{display:flex;flex-direction:column;gap:6px;padding:16px 20px;border-radius:20px;font-size:15px;color:var(--ink-2)}
+.funfact{background:var(--glass-faint);border:1px solid var(--soft-line)}
+.review{border:1.5px dashed var(--line)}
+.review ul{margin:0;padding-left:18px}
+.truths{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.truth{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.7);border:1px solid var(--soft-line)}
+.truth b{display:block;font-family:var(--f-head);font-size:16.5px;margin-bottom:2px}
+.truth p{font-size:14.5px;color:var(--ink-2)}
+
+/* Unit page */
+.page[hidden]{display:none}
+.unit-hero{display:flex;flex-direction:column;gap:6px;padding:clamp(22px,3vw,32px);border-radius:28px;background:var(--k-bg);border:1px solid var(--k-edge);border-top:10px solid var(--k-dot)}
+.unit-hero h1{font-weight:800;font-size:clamp(44px,5.6vw,72px);line-height:.95;letter-spacing:-.04em}
+.unit-sub{font-family:var(--f-head);font-size:19px;font-weight:600;color:var(--ink-2)}
+.unit-hero .lede{font-size:16.5px;margin-top:4px}
+.jumps{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.jumps a{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px;border-radius:999px;background:var(--glass-strong);color:var(--ink);text-decoration:none;font-size:14px;font-weight:600}
+.jumps a span{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-weight:400}
+.jumps a:hover{background:var(--k-mid)}
+
+.sub{display:flex;flex-direction:column;gap:12px;padding:22px 24px;border-radius:24px;background:rgba(255,255,255,.74);border:1px solid var(--k-edge);scroll-margin-top:16px}
+.sub-top{display:flex;align-items:baseline;gap:10px}
+.sub-n{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);flex:none}
+.sub h2{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.sub>p{font-size:15.5px;max-width:none}
+.sub ul,.sub ol{margin:0;padding-left:20px;font-size:15px;color:var(--ink-2);display:flex;flex-direction:column;gap:4px;max-width:none}
+.do,.home,.old,.ca{font-size:14.5px;padding:10px 12px;border-radius:14px}
+.home{background:var(--k-bg);color:var(--ink-2)}
+.home::before{content:'At home · '}
+.do{background:var(--k-mid)}
+.do::before{content:'Try it · '}
+.old{background:#F6F1E7;color:var(--ink-2);border-left:4px solid #C9AE7C}
+.old::before{content:'Old ways · '}
+.ca{background:#FFF7E8;color:var(--ink-2);border-left:4px solid #E3B25B}
+.ca::before{content:'In California · '}
+.home::before,.do::before,.old::before,.ca::before{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.links{font-size:13px;color:var(--muted)}
+.links::before{content:'Links to → ';font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.kind{padding:12px 16px;border-radius:16px;background:#F8ECF2;border:1px solid #EBCFDC;font-size:14.5px;color:var(--ink-2)}
+
+/* Grade ladder (unit 1): the grades step lighter like the units */
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.rung{display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:18px;border:1px solid var(--soft-line)}
+.rung b{font-family:var(--f-head);font-size:18px}
+.rung small{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rung p{font-size:14px;color:var(--ink-2)}
+.r1{background:#D4E6F7}.r2{background:#E7F2EA}.r3{background:#F3EAD8}.r4{background:#EFE3E3}
+
+/* Accordions */
+.accs{display:flex;flex-direction:column;gap:8px}
+.acc{border-radius:16px;background:var(--k-bg);border:1px solid var(--k-edge)}
+.acc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;min-height:48px;padding:8px 14px;font-weight:600;font-size:15.5px}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary::after{content:'+';margin-left:auto;font-family:var(--f-mono);font-size:18px;color:var(--muted);flex:none}
+.acc[open]>summary::after{content:'–'}
+.acc>summary:hover{background:var(--k-mid);border-radius:16px}
+.acc .who{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:#fff;color:var(--ink-2);font-weight:400;flex:none}
+.acc .for-you{display:none;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--k-dot);color:var(--k-on);font-weight:400;flex:none}
+.acc.match{box-shadow:0 0 0 2px var(--k-dot)}
+.acc.match .for-you{display:inline-block}
+.acc .in{padding:2px 16px 14px;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--ink-2)}
+
+/* Notes, tables, tools */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.note{display:flex;flex-direction:column;gap:6px;padding:14px 18px;border-radius:18px;background:#FFF8EC;border:1px solid #EFDDB8;font-size:14.5px;color:var(--ink-2)}
+.note b.h{font-family:var(--f-head);font-size:16.5px;color:var(--ink)}
+.tbl-wrap{overflow-x:auto;border-radius:18px;border:1px solid var(--k-edge);background:#fff}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:14px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--soft-line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--k-bg)}
+td:first-child{font-weight:600}
+td.y{color:#2E6B35}td.p{color:#8A6418}td.n{color:#9A4A3A}
+.legend{font-size:12.5px;color:var(--muted)}
+.tool{display:flex;flex-direction:column;gap:10px;padding:16px 18px;border-radius:20px;background:var(--k-mid);border:1px solid var(--k-edge)}
+.tool b.t{font-family:var(--f-head);font-size:19px;font-weight:800}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-family:var(--f-mono);min-width:0;max-width:100%}
+input[type=number],select{font:inherit;font-family:var(--f-body);font-size:15.5px;min-height:40px;padding:0 12px;border-radius:12px;border:1px solid var(--soft-line);background:#fff;color:var(--ink);max-width:100%}
+input[type=number]{width:100px}
+.chk{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--ink-2);min-height:40px}
+.out{padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.85);font-size:15px}
+.out strong{font-family:var(--f-head);font-size:26px;font-weight:800;letter-spacing:-.02em;display:block;line-height:1.1}
+.out small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+
+.pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pager a{display:inline-flex;flex-direction:column;gap:2px;padding:12px 18px;border-radius:18px;background:var(--glass-strong);border:1px solid var(--soft-line);color:var(--ink);text-decoration:none;min-width:200px}
+.pager a small{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pager a b{font-family:var(--f-head);font-size:18px}
+.pager a.next{margin-left:auto;text-align:right}
+.pager a:hover{background:#fff}
+
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .nav{position:static;max-height:none}
+  .pager a{min-width:0;flex:1}
+}
+/* Shared additions (from the Food mock-up) */
+.vt-subs a.tool-link{font-weight:600}
+.danger{font-size:14.5px;padding:10px 12px;border-radius:14px;background:#FBEDEA;color:var(--ink-2);border-left:4px solid #C9806F}
+.danger::before{content:'Take care · ';font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.together{font-size:14.5px;padding:10px 12px;border-radius:14px;background:#F3EEF8;color:var(--ink-2);border-left:4px solid #B69AD3}
+.together::before{content:'Together · ';font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.plate{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.plate div{padding:12px 14px;border-radius:16px;background:var(--k-bg);border:1px solid var(--k-edge)}
+.plate b{display:block;font-family:var(--f-head);font-size:16px}
+.plate p{font-size:14px;color:var(--ink-2)}
+.status{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;padding:3px 10px;border-radius:999px}
+.st-ok{background:#E3F1E1;color:#2E6B35}.st-warn{background:#FBF0D9;color:#7A5714}.st-no{background:#F7E3DF;color:#8A3E31}
+
+
+/* ===== Identification additions (tier 1 pink) ===== */
+.nav-label{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:10px 8px 4px}
+.vt-unit.planned .vt-dot{background:transparent;color:var(--k-dot);border:2px dashed var(--k-dot)}
+.vt-unit.planned .vt-head small::after{content:' · planned'}
+.vt-subs a{min-height:36px}
+.sec-h{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-top:8px}
+.ucard.planned-card{border-style:dashed;background:var(--glass-faint)}
+.ucard.planned-card .band{background:transparent;border-bottom:2px dashed var(--k-dot)}
+.tool-cta{display:flex;flex-direction:column;gap:4px;padding:18px 22px;border-radius:24px;background:var(--c5-bg);border:1px solid var(--c3-edge);border-left:10px solid var(--c2-dot);text-decoration:none;color:var(--ink)}
+.tool-cta b{font-family:var(--f-head);font-size:24px;font-weight:800;letter-spacing:-.02em}
+.tool-cta span:last-child{color:var(--ink-2);font-size:15px}
+.tool-cta:hover{background:var(--c4-mid)}
+.tool-link{background:var(--c5-bg)}
+
+/* Five kinds of meeting, each with a word AND a colour (never colour alone) */
+.t-space{--t-bg:#FBF1E2;--t-edge:#E9C99A;--t-ink:#7A4E12}
+.t-hands{--t-bg:#FBE9E5;--t-edge:#E5B3A8;--t-ink:#8A3524}
+.t-house{--t-bg:#E8F0F7;--t-edge:#B6CCE0;--t-ink:#2D5578}
+.t-wonder{--t-bg:#E7F3E8;--t-edge:#B4D6B8;--t-ink:#2E6438}
+.t-forage{--t-bg:#F0EAF7;--t-edge:#D2C2E8;--t-ink:#5B3A8C}
+.kinds{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:10px}
+.kinds a{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:18px;background:var(--t-bg);border:1px solid var(--t-edge);border-top:6px solid var(--t-ink);color:var(--ink);text-decoration:none}
+.kinds a b{font-family:var(--f-head);font-size:18px}
+.kinds a span{font-size:14px;color:var(--ink-2)}
+.kinds a small{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--t-ink)}
+
+.sps{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}
+.sp{display:flex;flex-direction:column;gap:8px;padding:14px 16px 16px;border-radius:20px;background:var(--t-bg);border:1px solid var(--t-edge)}
+.sp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.sp h3{font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
+.tag{flex:none;font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:#fff;color:var(--t-ink);border:1px solid var(--t-edge);white-space:nowrap}
+.tag::before{content:attr(data-sym) ' '}
+.sci{font-size:13.5px;color:var(--muted);margin-top:-4px}
+.sp dl{margin:0;display:flex;flex-direction:column;gap:6px}
+.sp dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--t-ink)}
+.sp dd{margin:0;font-size:14.5px;color:var(--ink-2)}
+.sp .kid{font-size:14px;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.7);color:var(--ink-2)}
+.sp .kid::before{content:'With kids · ';font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+
+.rules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px;counter-reset:r}
+.rules li{counter-increment:r;padding:12px 14px 12px 50px;border-radius:16px;background:var(--k-bg);border:1px solid var(--k-edge);position:relative;font-size:14.5px;color:var(--ink-2)}
+.rules li::before{content:counter(r);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--k-dot);color:var(--k-on);font-family:var(--f-mono);font-size:13px}
+.rules b{display:block;font-family:var(--f-head);font-size:16px;color:var(--ink)}
+
+.twins{display:flex;flex-direction:column;gap:12px}
+.twin{border-radius:20px;border:1px solid var(--k-edge);background:#fff;overflow:hidden}
+.twin h3{font-size:18px;font-weight:800;padding:12px 16px;background:var(--k-bg);border-bottom:1px solid var(--k-edge)}
+.twin-pair{display:grid;grid-template-columns:1fr 1fr}
+.twin-pair>div{padding:12px 16px;font-size:14.5px;color:var(--ink-2);display:flex;flex-direction:column;gap:4px}
+.twin-pair>div+div{border-left:1px solid var(--soft-line)}
+.twin-pair b{font-family:var(--f-head);font-size:16px;color:var(--ink)}
+.twin .rule{padding:10px 16px;font-size:14.5px;border-top:1px solid var(--soft-line);background:var(--glass-faint)}
+.twin .rule::before{content:'The tell · ';font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+
+.sp-filters{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.sp-filters select{min-height:44px;min-width:min(100%,220px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;border:0;margin:0;padding:0}
+.chips legend{font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-bottom:6px;padding:0}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:999px;border:1.5px solid var(--t-edge,var(--line));background:#fff;color:var(--ink);font:inherit;font-size:14.5px;font-weight:600;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--t-bg,var(--k-mid));border-color:var(--t-ink,var(--ink))}
+.chip[aria-pressed="true"]::before{content:'✓'}
+.count{font-size:14.5px;color:var(--ink-2)}
+.calls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px}
+.calls div{padding:12px 14px;border-radius:16px;background:#FBE9E5;border:1px solid #E5B3A8;font-size:14.5px;color:var(--ink-2)}
+.calls b{display:block;font-family:var(--f-head);font-size:17px;color:var(--ink)}
+.calls a{font-weight:700}
+
+.twin-pair .tag{align-self:flex-start}
+[tabindex="-1"]:focus{outline:none}
+@media (max-width:600px){
+  .sub{padding:16px}
+  .twin-pair{grid-template-columns:1fr}
+  .twin-pair>div+div{border-left:0;border-top:1px solid var(--soft-line)}
+  .hero h1{font-size:44px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span></div>
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="#"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#C2477F" d="M12 21s-7.5-4.6-9.3-9.6C1.5 8 3.6 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.5 3.5 4.3 6.9C19.5 16.4 12 21 12 21z"/></svg><b>Kinship</b></a>
+  <span class="mock">Mock-up v1 · Identification</span>
+</header>
+
+<div class="layout">
+<nav class="nav" aria-label="Identification course">
+  <div class="nav-head"><span class="eyebrow">Tier 1 · Signals</span><b>Identification</b></div>
+  <a class="nav-over" href="#">Overview</a>
+  <a class="nav-over tool-link" href="#spotter">Tool: What did I see?</a>
+  <span class="nav-label">The course</span>
+  <ol class="vt">
+    <li class="vt-unit k1" data-unit="local"><a class="vt-head" href="#local"><span class="vt-dot">1</span><span><b>Learn the land</b><small>Who lives around the Bay</small></span></a>
+      <ul class="vt-subs">
+        <li><a href="#local/look">1.1 How to look</a></li>
+        <li><a href="#local/space">1.2 Give space</a></li>
+        <li><a href="#local/hands">1.3 Hands off</a></li>
+        <li><a href="#local/house">1.4 Protect the house</a></li>
+        <li><a href="#local/wonder">1.5 Local wonders</a></li>
+        <li><a href="#local/forage">1.6 The forager’s eye</a></li>
+        <li><a href="#local/twins">1.7 Twins</a></li>
+        <li><a href="#local/help">1.8 If something happens</a></li>
+      </ul></li>
+    <li class="vt-unit k2 planned" data-unit="plants"><a class="vt-head" href="#plants"><span class="vt-dot">2</span><span><b>Plants up close</b><small>Leaves, flowers, families</small></span></a></li>
+    <li class="vt-unit k3 planned" data-unit="fungi"><a class="vt-head" href="#fungi"><span class="vt-dot">3</span><span><b>Fungi</b><small>Mushrooms, molds and rot</small></span></a></li>
+    <li class="vt-unit k4 planned" data-unit="signs"><a class="vt-head" href="#signs"><span class="vt-dot">4</span><span><b>Tracks &amp; calls</b><small>Who was here</small></span></a></li>
+    <li class="vt-unit k5 planned" data-unit="seasons"><a class="vt-head" href="#seasons"><span class="vt-dot">5</span><span><b>Seasons</b><small>Who’s out when</small></span></a></li>
+  </ol>
+</nav>
+
+<main class="main">
+
+<!-- ============ OVERVIEW ============ -->
+<section class="page" data-page="">
+  <div class="hero">
+    <span class="lens-pill">TIER 1 · SIGNALS</span>
+    <h1 tabindex="-1">Identification</h1>
+    <p class="lede">Knowing who lives around you meets two needs at once: safety and wonder. The same walk that teaches a child to step around poison oak also shows them yerba buena, a banana slug and a hawk overhead. This course starts with the land around the San Francisco Bay.</p>
+  </div>
+
+  <ol class="ucards">
+    <li><a class="ucard k1" href="#local"><i class="band"></i><span class="n">01 · drafted</span><b>Learn the land</b><span>Who to give space, what to leave alone, what the house needs, and the plants and animals worth getting to know.</span><ol><li>How to look</li><li>Give space</li><li>Hands off</li><li>Protect the house</li><li>Local wonders</li><li>The forager’s eye</li><li>Twins</li><li>If something happens</li></ol></a></li>
+    <li><a class="ucard k2 planned-card" href="#plants"><i class="band"></i><span class="n">02 · planned</span><b>Plants up close</b><span>Leaf shapes, how leaves sit on the stem, flower parts, and the families that share a look.</span></a></li>
+    <li><a class="ucard k3 planned-card" href="#fungi"><i class="band"></i><span class="n">03 · planned</span><b>Fungi</b><span>Mushrooms, the molds in a house and the rot in a fence post: who they are and what they need.</span></a></li>
+    <li><a class="ucard k4 planned-card" href="#signs"><i class="band"></i><span class="n">04 · planned</span><b>Tracks &amp; calls</b><span>Footprints, scat, chewed acorns and birdsong: knowing who lives nearby without seeing them.</span></a></li>
+    <li><a class="ucard k5 planned-card" href="#seasons"><i class="band"></i><span class="n">05 · planned</span><b>Seasons</b><span>A year around the Bay: newts in the winter rains, poppies in spring, blackberries in August, termites after the first fall storm.</span></a></li>
+  </ol>
+
+  <a class="tool-cta" href="#spotter"><span class="eyebrow">Just saw something?</span><b>What did I see?</b><span>Pick where you are and what you noticed. It shows the likely neighbors and what to do.</span></a>
+
+  <div class="funfact"><span class="eyebrow">Fun fact</span>
+    <p>Kids around the Bay hear “poison ivy” on TV, but the plant on local trails is its cousin, <b>poison oak</b>. Same oil, same rash, same rule: leaves of three, let it be. It can be a shrub, a vine up a tree, or bare sticks in winter that still carry the oil.</p>
+  </div>
+
+  <div class="review"><span class="eyebrow">For review · mock-up notes</span>
+    <ul>
+      <li><b>Unit 1 is fully drafted;</b> units 2–5 are outlines. Unit 1 is Bay Area specific. A later unit or a <code>region</code> profile question could swap in other places.</li>
+      <li><b>Five kinds of meeting,</b> each with a word, a symbol and a colour: Give space, Hands off, Protect the house, Wonder, Forage. The house section never says “pest”; each visitor’s card says what the house is offering them, and every strategy is prevention.</li>
+      <li><b>From Kindred Creatures:</b> the species list started from its SF local sections (birds, animals, insects, trees, flowers, greenery), with the symbolism and the non-local animals left out. Its <code>where</code>, <code>uses</code> and <code>caution</code> fields map onto this unit’s “Where &amp; when” and “What to do.”</li>
+      <li><b>Photos:</b> this mock-up is text only. The plan is one hand-checked iNaturalist photo per card (like Kindred’s INAT list), loaded only when a card is opened, to keep pages light on slow connections.</li>
+      <li><b>Overlaps:</b> houseplants that harm cats and dogs stay in Poisons → 6.4 Plants and companions; rosemary and lavender go deep in Herbalism. This unit links to both.</li>
+      <li><b>Go deeper candidates</b> (need confirmed links and consent first): California Native Plant Society, Bay Area Mycological Society, iNaturalist and Seek, UC Statewide IPM, The Marine Mammal Center, and Café Ohlone (Vincent Medina and Louis Trevino).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ UNIT 1 ============ -->
+<section class="page k1" data-page="local" hidden>
+  <div class="unit-hero">
+    <span class="eyebrow">Unit 1</span><h1 tabindex="-1">Learn the land</h1><p class="unit-sub">Who lives around the Bay</p>
+    <p class="lede">Every plant and animal here is meeting their own needs: food, water, shelter, a safe place to raise young. Most of the time, ours and theirs fit together easily. This unit is about the few who need extra room, what the house needs to stay sound, and the many who make the land a joy to know.</p>
+    <ul class="jumps"><li><a href="#local/look"><span>1.1</span>Look</a></li><li><a href="#local/space"><span>1.2</span>Give space</a></li><li><a href="#local/hands"><span>1.3</span>Hands off</a></li><li><a href="#local/house"><span>1.4</span>House</a></li><li><a href="#local/wonder"><span>1.5</span>Wonders</a></li><li><a href="#local/forage"><span>1.6</span>Forage</a></li><li><a href="#local/twins"><span>1.7</span>Twins</a></li><li><a href="#local/help"><span>1.8</span>Help</a></li></ul>
+  </div>
+
+  <article class="sub" id="local-look">
+    <div class="sub-top"><span class="sub-n">1.1</span><h2>How to look</h2></div>
+    <p>Identifying is noticing a few features at once, never just one. A name is a guess until three or four features agree.</p>
+    <ul>
+      <li><b>Shape and size:</b> tall or low, a vine or a shrub, a body as long as a finger or a forearm.</li>
+      <li><b>Leaves:</b> their shape, whether they sit in pairs or alternate up the stem, and whether they come in threes.</li>
+      <li><b>Smell:</b> crush one leaf (not of a plant from the Hands off list). Fennel smells of licorice, bay of strong spice, yerba buena of sweet mint.</li>
+      <li><b>Where and when:</b> sun or shade, wet or dry, which month. Miner’s lettuce in a shady spot in March is a different guess from a green clump on a hot August roadside.</li>
+    </ul>
+    <p>Every card in this unit carries one of five words, so you know what kind of meeting it is:</p>
+    <div class="kinds">
+      <a class="t-space" href="#local/space"><small>▲ Give space</small><b>Animals who need room</b><span>Beautiful neighbors who protect themselves.</span></a>
+      <a class="t-hands" href="#local/hands"><small>✋ Hands off</small><b>Plants and fungi to leave be</b><span>Look all you like; no touching or tasting.</span></a>
+      <a class="t-house" href="#local/house"><small>⌂ Protect the house</small><b>Visitors the house is feeding</b><span>Small lives that can cost a home a lot.</span></a>
+      <a class="t-wonder" href="#local/wonder"><small>✦ Wonder</small><b>Local treasures</b><span>Who makes this place special.</span></a>
+      <a class="t-forage" href="#local/forage"><small>❦ Forage</small><b>Herbs and wild foods</b><span>What to learn to spot, and how to gather well.</span></a>
+    </div>
+    <h3 class="sec-h" style="font-size:20px">Trail rules for small hikers</h3>
+    <ol class="rules">
+      <li><b>Leaves of three, let it be</b>Bare sticks in winter too.</li>
+      <li><b>Ask before you taste</b>Every plant, every berry, every time. Mushrooms: never.</li>
+      <li><b>Look before you reach</b>Hands and feet only where you can see: under logs, in rock piles and woodpiles is where snakes and spiders rest.</li>
+      <li><b>Middle of the trail</b>Ticks wait on grass tips and poison oak lines the edges.</li>
+      <li><b>Watch from far away</b>A baby animal alone is usually waiting for a parent who’s nearby.</li>
+      <li><b>Never touch a bat</b>Or any wild animal acting tame, sleepy or sick. Tell a grown-up.</li>
+      <li><b>Big cat? Stand tall</b>Don’t run. Arms up, loud voice, stay with your grown-up.</li>
+      <li><b>Check when you’re home</b>A tick check (hair, ears, waist, knees) and wash hands.</li>
+    </ol>
+    <p class="together">Children learn the land by walking it next to adults who stop, crouch and smell. Name one plant per walk and let them find it again on the way back. By the end of a season they’ll be pointing out poison oak to you.</p>
+    <p class="do">Install a free app like <b>Seek by iNaturalist</b> (no account needed) and use it as a second opinion together. An app can suggest a name; it can’t tell you something is safe to eat.</p>
+  </article>
+
+  <article class="sub t-space-wrap" id="local-space">
+    <div class="sub-top"><span class="sub-n">1.2</span><h2>Give space: animals who need room</h2></div>
+    <p>None of these animals is out to get anyone. Each one protects themselves or their young when they feel cornered. Room, noise and watching from a distance meet everyone’s need for safety.</p>
+    <div class="sps" data-group="space"></div>
+    <p class="links"><a href="#lens-relationships/special/wild">Relationships: Wild animals</a> · <a href="#lens-emergency-prep">Emergency prep</a></p>
+  </article>
+
+  <article class="sub" id="local-hands">
+    <div class="sub-top"><span class="sub-n">1.3</span><h2>Hands off: plants and fungi to leave be</h2></div>
+    <p>Plants can’t run, so many make strong chemicals to avoid being eaten. These are the ones around the Bay where a touch, a taste or even the smoke can hurt. Look as much as you like.</p>
+    <div class="sps" data-group="hands"></div>
+    <p class="links"><a href="#lens-toxins/living/plants">Poisons: Plants and companions (houseplants, lilies and cats)</a></p>
+  </article>
+
+  <article class="sub" id="local-house">
+    <div class="sub-top"><span class="sub-n">1.4</span><h2>Protect the house: visitors the house is feeding</h2></div>
+    <p>A house is wood, water and shelter, which is exactly what some small neighbors are looking for. In the forest, termites and wood fungi recycle fallen trees into soil; they don’t know the difference between a log and a beam. A few can quietly cost a home thousands of dollars, so knowing the early signs is real care for the house. The strategy is always the same: notice early, and stop offering wood, water, food and a way in.</p>
+    <div class="sps" data-group="house"></div>
+    <p class="ca">When a home is sold, a <b>Wood Destroying Pests and Organisms report</b> is standard. Renters can ask to see the last one, and can report leaks and rot to the landlord in writing.</p>
+    <p class="links"><a href="#lens-cleaning">Cleaning</a> · <a href="#lens-air/ventilation/damp">Air: Damp air</a> · <a href="#lens-food/store/pantry">Food: The pantry</a></p>
+  </article>
+
+  <article class="sub" id="local-wonder">
+    <div class="sub-top"><span class="sub-n">1.5</span><h2>Local wonders</h2></div>
+    <p>The Bay is one of the richest places on Earth for life: fog-fed redwoods, oak hills, salt marsh and open ocean, all within a bus ride. These are some of the neighbors who make it home.</p>
+    <div class="sps" data-group="wonder"></div>
+    <p class="old">This is Ohlone land, and the lands of the Coast Miwok, Bay Miwok, Patwin and other Native peoples, who have tended these oaks, grasses and creeks for thousands of years and still do. Many of the plants in this unit were food and medicine long before they had English names.</p>
+  </article>
+
+  <article class="sub" id="local-forage">
+    <div class="sub-top"><span class="sub-n">1.6</span><h2>The forager’s eye: herbs and wild foods</h2></div>
+    <p>Learning to spot rosemary hedges, a patch of miner’s lettuce or a bay tree changes every walk into a treasure hunt. Most of the time it’s about knowing, smelling and saying hello, and only sometimes about bringing something home.</p>
+    <ol class="rules">
+      <li><b>Sure, or leave it</b>Three or four features agree, and someone who knows has checked it with you the first time.</li>
+      <li><b>Ask first</b>Your yard, a friend’s with permission, a community garden. Most Bay Area parks don’t allow picking; check before you gather.</li>
+      <li><b>Clean spots</b>Away from busy roads and old painted walls, above dog height, and not where anything was sprayed.</li>
+      <li><b>Take a little</b>A few leaves from many plants. Leave most for the birds, the bees and next year.</li>
+    </ol>
+    <div class="sps" data-group="forage"></div>
+    <p class="kind">White sage is sacred to many California Native nations and is overharvested from the wild. Garden sage and rosemary from a hedge meet the same kitchen and scent needs.</p>
+    <p class="links"><a href="#lens-herbalism">Herbalism: Rosemary and Lavender</a> · <a href="#lens-toxins/soil">Poisons: Soil</a></p>
+  </article>
+
+  <article class="sub" id="local-twins">
+    <div class="sub-top"><span class="sub-n">1.7</span><h2>Twins: who looks like whom</h2></div>
+    <p>Most bad days with wild plants and animals start with a look-alike. Learn the tell for each pair, and when in doubt, treat it as the one that needs more care.</p>
+    <div class="twins">
+      <div class="twin"><h3>Wild fennel or poison hemlock?</h3><div class="twin-pair">
+        <div><span class="tag t-forage" data-sym="❦">Forage</span><b>Wild fennel</b>Thread-thin feathery leaves, yellow umbrella flowers, a strong licorice smell from every part.</div>
+        <div><span class="tag t-hands" data-sym="✋">Hands off</span><b>Poison hemlock</b>Flat lacy leaves like parsley, white umbrella flowers, smooth stems with purple blotches, a musty smell. Deadly.</div></div>
+        <p class="rule">Smell and stem: no licorice or a blotched stem means leave it. They grow side by side on the same roadsides.</p></div>
+      <div class="twin"><h3>Wild carrot or poison hemlock?</h3><div class="twin-pair">
+        <div><span class="tag t-wonder" data-sym="✦">Wonder</span><b>Wild carrot (Queen Anne’s lace)</b>Hairy stems, often one tiny dark purple flower in the middle of the white umbrella.</div>
+        <div><span class="tag t-hands" data-sym="✋">Hands off</span><b>Poison hemlock</b>Smooth, hairless stems with purple blotches; usually much taller.</div></div>
+        <p class="rule">Leave the whole white-umbrella family alone until an expert walks you through it in person.</p></div>
+      <div class="twin"><h3>Bay leaf or oleander?</h3><div class="twin-pair">
+        <div><span class="tag t-forage" data-sym="❦">Forage</span><b>California bay laurel</b>A tree; a crushed leaf smells sharply of spice, strong enough to make your eyes water.</div>
+        <div><span class="tag t-hands" data-sym="✋">Hands off</span><b>Oleander</b>A shrub with showy flowers; long leathery leaves with little or no smell. A heart poison.</div></div>
+        <p class="rule">Crush and sniff. No strong spice, no cooking.</p></div>
+      <div class="twin"><h3>Wild onion or death camas?</h3><div class="twin-pair">
+        <div><span class="tag t-forage" data-sym="❦">Forage</span><b>Wild onion</b>Grass-like leaves that smell like onion when crushed.</div>
+        <div><span class="tag t-hands" data-sym="✋">Hands off</span><b>Fremont’s death camas</b>Grows in the same grassy hills with a similar bulb and creamy star flowers, and no onion smell. Toxic.</div></div>
+        <p class="rule">No onion smell, no onion.</p></div>
+      <div class="twin"><h3>Chestnut or buckeye?</h3><div class="twin-pair">
+        <div><span class="tag t-forage" data-sym="❦">Forage</span><b>Chestnut</b>Several nuts packed inside a very spiny husk; a little pointed tassel on each nut. Mostly from stores and planted trees here.</div>
+        <div><span class="tag t-hands" data-sym="✋">Hands off</span><b>California buckeye</b>One big shiny brown nut in a smooth, leathery husk. Toxic raw. Ohlone cooks made it food by long leaching; don’t try at home.</div></div>
+        <p class="rule">Spiny husk with a pointed nut, or leave it.</p></div>
+      <div class="twin"><h3>Puffball or death cap “egg”?</h3><div class="twin-pair">
+        <div><span class="tag t-wonder" data-sym="✦">Wonder</span><b>Puffball</b>Round and white; cut top to bottom it’s smooth solid white all the way through.</div>
+        <div><span class="tag t-hands" data-sym="✋">Hands off</span><b>Young death cap</b>Also an egg shape; cut open it shows the outline of a cap and stem inside.</div></div>
+        <p class="rule">Leave all wild mushrooms to experts who can check them in person.</p></div>
+      <div class="twin"><h3>Honeybee or yellowjacket?</h3><div class="twin-pair">
+        <div><span class="tag t-wonder" data-sym="✦">Wonder</span><b>Honeybee</b>Fuzzy, golden-brown, busy on flowers, rarely interested in you.</div>
+        <div><span class="tag t-space" data-sym="▲">Give space</span><b>Yellowjacket</b>Smooth, shiny, bright yellow and black, zigzagging around drinks and meat.</div></div>
+        <p class="rule">Fuzzy and on flowers is a bee. Shiny and at your sandwich is a yellowjacket.</p></div>
+      <div class="twin"><h3>Black widow or false widow?</h3><div class="twin-pair">
+        <div><span class="tag t-space" data-sym="▲">Give space</span><b>Western black widow</b>Glossy jet black, round belly, red hourglass underneath.</div>
+        <div><span class="tag t-wonder" data-sym="✦">Wonder</span><b>False widow</b>Brown to plum-purple, pale markings on top, no red hourglass. Common in Bay Area houses; a bite is mild.</div></div>
+        <p class="rule">Look underneath (from a distance): red hourglass means give her space.</p></div>
+      <div class="twin"><h3>Gopher snake or rattlesnake?</h3><div class="twin-pair">
+        <div><span class="tag t-wonder" data-sym="✦">Wonder</span><b>Gopher snake</b>Slim head barely wider than the neck, a tail that tapers to a point. May hiss and shake their tail in dry leaves to bluff.</div>
+        <div><span class="tag t-space" data-sym="▲">Give space</span><b>Northern Pacific rattlesnake</b>A wide, triangular head on a thin neck, a heavy body, a rattle (sometimes missing).</div></div>
+        <p class="rule">You don’t need to be sure: give every snake a few long steps of room and walk around.</p></div>
+    </div>
+  </article>
+
+  <article class="sub" id="local-help">
+    <div class="sub-top"><span class="sub-n">1.8</span><h2>If something happens</h2></div>
+    <p>Calm, quick calls make the biggest difference. Save these in your phone before the next hike.</p>
+    <div class="calls">
+      <div><b>911</b>Trouble breathing, a snake bite, swelling of the face or throat, someone faint or confused.</div>
+      <div><b>Poison Control · 1-800-222-1222</b>Free, 24 hours, in many languages. Call for any plant, mushroom, berry or spider bite, even if they seem fine. Bring or photograph what was eaten.</div>
+      <div><b>Animals · your vet or ASPCA Animal Poison Control, (888) 426-4435</b>For a dog or cat who ate a mushroom, a plant or was bitten. The ASPCA line may charge a fee.</div>
+      <div><b>Wild animal in trouble</b>Local animal services or a wildlife rescue. For a seal, sea lion or whale on the beach: The Marine Mammal Center.</div>
+    </div>
+    <p class="danger">For a snake bite: no cutting, sucking, ice or tight bands. Keep still, take off rings and watches, and get to help.</p>
+  </article>
+
+  <nav class="pager" aria-label="Units"><a href="#"><small>Back</small><b>Overview</b></a><a class="next" href="#plants"><small>Next unit</small><b>2 · Plants up close</b></a></nav>
+</section>
+
+<!-- ============ TOOL ============ -->
+<section class="page k1" data-page="spotter" hidden>
+  <div class="unit-hero">
+    <span class="eyebrow">Tool</span><h1 tabindex="-1">What did I see?</h1>
+    <p class="lede">Pick where you are and what you noticed. These are the likely neighbors around the Bay, with the first thing to do. It’s a starting point for a guess, not a final answer.</p>
+  </div>
+  <div class="tool">
+    <div class="sp-filters">
+      <label class="f" for="sp-where">Where are you?
+        <select id="sp-where">
+          <option value="">Anywhere</option><option value="yard">Yard or garden</option><option value="trail">Trail or hills</option><option value="creek">Creek, shade or woods</option><option value="beach">Beach or bay</option><option value="house">In or on the house</option>
+        </select></label>
+      <label class="f" for="sp-what">What did you notice?
+        <select id="sp-what">
+          <option value="">Anything</option><option value="animal">An animal</option><option value="plant">A plant</option><option value="fungus">A mushroom or rot</option>
+        </select></label>
+    </div>
+    <fieldset class="chips"><legend>Show</legend>
+      <button type="button" class="chip t-space" aria-pressed="true" data-g="space">▲ Give space</button>
+      <button type="button" class="chip t-hands" aria-pressed="true" data-g="hands">✋ Hands off</button>
+      <button type="button" class="chip t-house" aria-pressed="true" data-g="house">⌂ House</button>
+      <button type="button" class="chip t-wonder" aria-pressed="true" data-g="wonder">✦ Wonder</button>
+      <button type="button" class="chip t-forage" aria-pressed="true" data-g="forage">❦ Forage</button>
+    </fieldset>
+    <p class="count" id="sp-count" aria-live="polite"></p>
+  </div>
+  <div class="sps" id="sp-out"></div>
+</section>
+
+<!-- ============ PLANNED STUB ============ -->
+<section class="page" data-page="stub" hidden><div class="unit-hero" id="stub"></div></section>
+
+</main>
+</div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var G = {
+    space: ['Give space', '▲', 't-space'], hands: ['Hands off', '✋', 't-hands'], house: ['Protect the house', '⌂', 't-house'],
+    wonder: ['Wonder', '✦', 't-wonder'], forage: ['Forage', '❦', 't-forage']
+  };
+  /* id, group, kind, places, name, sci, look, where, need, do, kid. "need" label changes by group. */
+  var S = [
+    /* ---- Give space ---- */
+    ['lion', 'space', 'animal', 'trail', 'Mountain lion', 'Puma concolor', 'Tan all over, the size of a big dog or bigger, with a long, rope-like tail tipped in black.', 'Hills and open space all around the Bay; rarely seen, most often at dawn and dusk.', 'Deer to hunt and miles of quiet land. Young lions roam far looking for a home of their own.', 'Keep kids close and in sight on trails. If you meet one: don’t run. Stand tall, raise your arms or jacket, pick up small children, speak loudly and back away slowly. If they come closer, throw sticks or stones; if attacked, fight back. Meetings are very rare.', 'Practice “be a tree, then be big”: freeze, then arms up and a big voice.'],
+    ['rattle', 'space', 'animal', 'trail yard', 'Northern Pacific rattlesnake', 'Crotalus oreganus', 'A heavy body with brown blotches, a wide triangular head on a thin neck, and a rattle (sometimes missing).', 'Sunny grassland, rocks and trail edges in the hills, and yards that back onto them; out in warm months, spring through fall.', 'Warm rocks to bask on, rodents to eat, and a crack to hide in. They would much rather hide than strike.', 'Step back slowly and walk around with a few long steps of room. Look before stepping over logs or reaching into rocks. Keep dogs leashed in the hills. If bitten, see 1.8.', ''],
+    ['coyote', 'space', 'animal', 'trail yard', 'Coyote', 'Canis latrans', 'Like a slim gray-tan dog with big pointed ears, a narrow face and a bushy tail held low.', 'Everywhere, San Francisco included (the Presidio, Bernal Heights, Golden Gate Park). Most active at dawn and dusk.', 'Food, water and a quiet den in spring. They live in family groups and help keep rodent numbers in balance.', 'Never feed them; keep pet food, fallen fruit and compost covered. Leash dogs and bring cats and small animals in at night. If one comes close, stand tall, wave your arms, clap and shout until they move off. In spring and summer they may follow to “escort” you away from pups.', ''],
+    ['widow', 'space', 'animal', 'house yard', 'Western black widow', 'Latrodectus hesperus', 'She’s glossy jet black with a round belly and a red hourglass underneath. Her web is a messy tangle near the ground. Males and young ones are smaller, brown and striped.', 'Woodpiles, garages, sheds, under outdoor chairs, in water-meter boxes and old pots.', 'A dark, quiet corner and insects to catch. She bites only when pressed against skin.', 'Wear gloves for woodpiles, pots and garden boxes. Shake out shoes, gloves and toys left outside. A bite: wash, cool cloth, and call Poison Control.', 'Brown recluse spiders don’t live in California, so a scary-looking brown spider is almost always someone harmless.'],
+    ['tick', 'space', 'animal', 'trail creek', 'Western black-legged tick', 'Ixodes pacificus', 'Tiny: young ones are the size of a poppy seed. Dark legs; adult females have a red-brown body.', 'Tips of grasses and shrubs along trail edges, and leaf litter under oaks. Young ticks peak in spring.', 'One blood meal from a passing animal at each stage of life.', 'Stay mid-trail; light-coloured long pants tucked into socks make ticks easy to see. Check bodies, kids and dogs after. Remove with fine tweezers close to the skin, pulling straight up. A rash or fever in the weeks after: see a clinician, since Lyme disease is present in the Bay Area.', 'Make the tick check a game of “find the poppy seed”: hair, behind ears, waist, behind knees.'],
+    ['yj', 'space', 'animal', 'yard trail house', 'Western yellowjacket', 'Vespula pensylvanica', 'Smooth and shiny, bright yellow and black, with quick zigzag flight. Hovers around drinks and meat.', 'Nests in old rodent holes in the ground, and sometimes in walls. Busiest late summer into fall.', 'Protein for the young and sugar for the workers. Late in the year, food gets scarce and picnics look good.', 'Cover drinks or use a straw and a clear cup. Clear food soon after eating. Notice traffic in and out of a hole in the ground and walk around it. Many stings, or swelling of the face or throat: 911.', ''],
+    ['raccoon', 'space', 'animal', 'yard house creek', 'Raccoon', 'Procyon lotor', 'A black mask, a ringed tail, and clever hand-like paws.', 'Neighborhoods, creeks and under decks, mostly at night.', 'Food (pet food, compost, garbage), water and a dry den.', 'Never feed them; keep pet food inside and bin lids tight. Raccoons use a “latrine,” a pile of droppings on a deck, roof or woodpile, that can carry roundworm eggs dangerous to young children. Keep kids away; an adult bags it wearing gloves and a mask.', 'Hands that touched soil near a latrine get washed before snacks.'],
+    ['bat', 'space', 'animal', 'house yard creek', 'Bats', 'Mexican free-tailed bat, big brown bat and others', 'Small, fast fliers at dusk. A bat on the ground in daytime is unwell.', 'Bridges, attics, tree bark and rock cracks. Out at night over water and streetlights.', 'Night-flying insects: one bat can eat thousands of moths and mosquitoes a night.', 'Enjoy them from below at dusk. Never touch a bat with bare hands: in California, bats are the main carriers of rabies. A bat found on the ground, or in a room where someone was sleeping, is a call to animal services or the county health department.', ''],
+    /* ---- Hands off ---- */
+    ['poak', 'hands', 'plant', 'trail creek yard', 'Poison oak', 'Toxicodendron diversilobum', 'Leaves in threes, the middle one on a longer stalk, often lobed like an oak leaf. Glossy or dull; green in spring, red in summer and fall, bare sticks in winter. A shrub, or a vine climbing a tree.', 'Almost every trail, creek and hillside around the Bay.', 'A native plant that feeds deer and birds and holds hillsides together. Its oil, urushiol, protects it from being eaten.', 'Leaves of three, let it be, in every season. The oil rides on clothes, tools and dog fur. Wash skin with soap and cool water as soon as you can, then wash clothes, leashes and the dog. Never burn it: the smoke harms lungs.', 'The rash fluid doesn’t spread it; only the oil does.'],
+    ['hemlock', 'hands', 'plant', 'creek yard trail', 'Poison hemlock', 'Conium maculatum', 'Tall (often taller than an adult), with lacy, parsley-like leaves, smooth hollow stems blotched with purple, white umbrella-shaped flowers and a musty smell.', 'Creek banks, ditches, roadsides, vacant lots and park edges; spring and summer.', 'Every part is deadly if eaten, and the sap can bother skin.', 'Never taste a plant with white umbrella flowers. Wear gloves to pull it. Hollow stems are not for whistles or pea-shooters.', 'Learn this one together first: it’s the most dangerous plant on the list and grows right next to fennel.'],
+    ['deathcap', 'hands', 'fungus', 'yard trail', 'Death cap', 'Amanita phalloides', 'Greenish-yellow to bronze cap, white gills, a skirt-like ring on the stem and a cup-like sac at the base, often hidden in soil.', 'Under oaks, especially coast live oak, in yards, parks and schoolyards; fall and winter after rains.', 'Their partner oak: they trade minerals for the tree’s sugars through the roots. Arrived from Europe on imported trees.', 'One cap can kill an adult, and cooking doesn’t help. Symptoms start many hours later and can seem to pass while the liver is harmed. No wild mushroom in anyone’s mouth unless an expert checked it in person. Adults can lift caps out of play areas with a bag over the hand.', 'Dogs are poisoned too; walk them on a leash under oaks in rainy months.'],
+    ['oleander', 'hands', 'plant', 'yard', 'Oleander', 'Nerium oleander', 'A big shrub with long, narrow, leathery leaves and pink, white or red flowers.', 'Freeway medians, schoolyards and hedges all over the Bay.', 'Drought-tolerant and tough, which is why it’s planted everywhere.', 'Every part is a heart poison for people, dogs, cats and horses. Don’t use the sticks for roasting or burn the clippings.', ''],
+    ['castor', 'hands', 'plant', 'creek yard', 'Castor bean', 'Ricinus communis', 'Big star-shaped leaves, often red-purple, spiky seed pods and shiny mottled seeds.', 'Vacant lots, creek banks and freeway edges.', 'A fast-growing plant from warmer places that likes disturbed ground.', 'The seeds are very toxic if chewed. Leave the pods for an adult to bag and bin.', ''],
+    ['trumpet', 'hands', 'plant', 'yard', 'Angel’s trumpet and jimsonweed', 'Brugmansia, Datura', 'Huge trumpet-shaped flowers, hanging down (angel’s trumpet) or facing up (jimsonweed, with spiky seed pods).', 'Gardens and front yards; jimsonweed on dry roadsides.', 'Flowers that call moths at night with their scent.', 'All parts are toxic and can cause confusion and a racing heart. Admire, don’t pick, and wash hands after pruning.', ''],
+    ['foxglove', 'hands', 'plant', 'yard', 'Foxglove', 'Digitalis purpurea', 'Tall spikes of hanging tube flowers, purple to white, spotted inside.', 'Gardens, and escaped onto some coastal hills.', 'Bumblebees climb right inside the flowers.', 'A heart poison in every part. Grow it out of reach of small children and grazing animals.', ''],
+    /* ---- Protect the house ---- */
+    ['subterm', 'house', 'animal', 'house yard', 'Western subterranean termite', 'Reticulitermes hesperus', 'Pencil-wide mud tubes up a foundation; wood that sounds hollow. Workers are soft, creamy and ant-sized. Winged swarmers, dark with long wings of equal length, pour out on a sunny day after the first fall rains.', 'In the soil under and around homes, tunneling up into wood.', 'Wood, moisture and soil touching each other. In the forest they turn fallen trees into soil.', 'Keep a gap of at least 6 inches between soil and any wood: siding, fences, firewood, mulch. Fix leaks and drips and keep gutters running away from the house. Check the foundation for mud tubes each fall, and ask for an inspection if you find tubes or swarmers.', 'Swarm day is a great time to look together: winged termites have straight waists and matching wings; flying ants have pinched waists.'],
+    ['dryterm', 'house', 'animal', 'house', 'Western drywood termite', 'Incisitermes minor', 'Little piles of tiny six-sided pellets, like coarse sand or coffee grounds, under wood. Swarmers appear late summer and fall.', 'Attics, eaves, window frames and wooden furniture. They don’t need soil.', 'Dry, solid wood to live inside.', 'Paint or seal bare outdoor wood and screen attic vents. Check secondhand wooden furniture for pellets before it comes inside. Pellets in the house are a reason for an inspection.', ''],
+    ['rot', 'house', 'fungus', 'house', 'Wood rot', 'Brown rot and other wood fungi', 'Soft, crumbly or stringy wood, often cracked into little cubes, near a leak, a sprinkler or a gutter.', 'Window sills, decks, the bottoms of door frames, under sinks.', 'Water. Wood that stays wet for weeks feeds them.', 'Find and stop the water first. Replace soft wood; paint and caulk keep the rest dry. Point sprinklers away from walls.', ''],
+    ['rats', 'house', 'animal', 'house yard', 'Roof rats and house mice', 'Rattus rattus, Mus musculus', 'Droppings (mice like rice grains, rats like raisins), gnawed corners, scratching in walls at night, grease smudges along routes.', 'Attics, walls, under sinks; ivy, palms and fruit trees outside.', 'Food, water and a warm, safe nest.', 'Food in sealed glass or metal; pick up fallen fruit; trim ivy and branches back from the roof. Once they’ve moved on, close gaps: a mouse fits through a pencil-width gap, a rat through one the width of a thumb. Steel wool and hardware cloth hold. Clean droppings wet: spray, wait 5 minutes, wipe with gloves; never sweep or vacuum them dry.', 'Chewed wires are a fire risk, so a gnaw mark near wiring is worth an adult look the same day.'],
+    ['argant', 'house', 'animal', 'house yard', 'Argentine ants', 'Linepithema humile', 'Tiny, brown and in long lines, often flooding in during rain or heat waves.', 'Kitchens, bathrooms and pet bowls; colonies in garden soil and under pavers.', 'Water and sugar. They farm aphids for their sweet honeydew.', 'Wipe trails with soapy water (it erases their scent road). Keep sweets sealed and crumbs up; caulk the crack they use. A water dish outside in a heat wave can help too.', ''],
+    ['carpant', 'house', 'animal', 'house', 'Carpenter ants', 'Camponotus species', 'Big ants (up to half an inch), black or black-and-red, with little piles of sawdust-like shavings.', 'Damp wood in walls, decks and dead trees.', 'Soft, damp wood to carve nests in. They don’t eat it.', 'They’re a sign of water. Find the leak, dry it out and replace soft wood.', ''],
+    ['skunk', 'house', 'animal', 'house yard', 'Skunks and others under the deck', 'Striped skunk and neighbors', 'A burrow under a deck, shed or porch; a musky smell; small tracks in the dirt.', 'Under houses, decks and sheds, especially in spring when young are born.', 'A dry, safe den to raise babies.', 'Wait until the young have grown and left (late summer), then close the gap with hardware cloth bent outward and buried a few inches.', ''],
+    /* ---- Wonder ---- */
+    ['slug', 'wonder', 'animal', 'creek trail', 'Banana slug', 'Ariolimax', 'Bright yellow, sometimes spotted, up to the length of a hand.', 'Damp redwood and oak forests, on rainy and foggy days.', 'Fallen leaves, mushrooms and droppings to recycle into soil.', 'Watch, or touch with a clean wet finger only (sunscreen and bug spray hurt their skin). Move them off the trail in the direction they were heading.', 'UC Santa Cruz’s mascot. Let kids time how far one travels in a minute.'],
+    ['newt', 'wonder', 'animal', 'creek trail', 'California newt and rough-skinned newt', 'Taricha', 'Brown on top with a bright orange belly; slow, deliberate walkers.', 'Woods near ponds and creeks; they walk to water in the first winter rains.', 'Ponds for eggs, damp woods the rest of the year, and safe road crossings.', 'Look, don’t lick: their skin holds a strong toxin. If you hold one, wet clean hands, then wash. Slow down on roads near ponds on rainy nights.', 'Volunteers count newts crossing roads in winter, a lovely family outing.'],
+    ['fence', 'wonder', 'animal', 'trail yard', 'Western fence lizard', 'Sceloporus occidentalis', 'Gray-brown with bright blue belly patches, doing “push-ups” on sunny rocks and fences.', 'Fences, rocks and logs almost everywhere.', 'Sun to warm up, insects to eat, a crack to hide in.', 'Watch their push-ups. Ticks that feed on them lose the Lyme bacteria, so these lizards quietly make trails safer.', ''],
+    ['jcricket', 'wonder', 'animal', 'yard', 'Jerusalem cricket', 'Stenopelmatus', 'Big, shiny, amber-striped body with a large bald-looking head. Startling to meet.', 'Under boards and in garden soil; out on damp nights.', 'Roots and dead plant matter in the soil.', 'Harmless unless squeezed, when they can pinch. Lift them gently back into the garden with a cup and card.', 'A great “looks scary, isn’t” lesson.'],
+    ['quail', 'wonder', 'animal', 'yard trail', 'California quail', 'Callipepla californica', 'Plump gray birds with a curled black plume on the forehead, running in groups under bushes.', 'Scrub, parks and edges of yards with dense shrubs.', 'Thick bushes for cover and seeds to eat.', 'California’s state bird. Listen for their “chi-CA-go” call.', ''],
+    ['hummer', 'wonder', 'animal', 'yard', 'Anna’s hummingbird', 'Calypte anna', 'Tiny and green; males flash a rose-pink head in the sun.', 'Gardens all year round.', 'Nectar flowers in every season, and tiny insects for protein.', 'In winter, males climb high and dive in a U; the chirp at the bottom is made by their tail feathers.', ''],
+    ['monarch', 'wonder', 'animal', 'trail yard', 'Monarch butterfly', 'Danaus plexippus', 'Big orange wings veined in black.', 'In winter, monarchs gather in coastal groves (Ardenwood in Fremont, Natural Bridges in Santa Cruz).', 'Native milkweed for caterpillars, nectar for adults, and sheltered groves for winter.', 'Visit a winter grove and watch quietly from the path. Narrowleaf milkweed in a garden feeds caterpillars.', ''],
+    ['swallowtail', 'wonder', 'animal', 'yard trail', 'Anise swallowtail', 'Papilio zelicaon', 'Yellow and black wings with “tails” and blue and red spots near them. Caterpillars are green with black bands.', 'Hilltops in spring; anywhere fennel grows.', 'Fennel and other carrot-family plants for their caterpillars.', 'A reason to leave some fennel standing: look for caterpillars on the fronds.', ''],
+    ['seal', 'wonder', 'animal', 'beach', 'Harbor seal', 'Phoca vitulina', 'Spotted gray or brown, with a round head and no ear flaps; they rest on beaches in a banana shape.', 'Beaches and rocks around the Bay and coast. Pups are born in spring.', 'Quiet beaches to rest and raise pups. A mother leaves her pup on the sand while she feeds.', 'Stay about 50 yards back (half a football field) and keep dogs leashed. A pup alone is usually waiting for mom; call The Marine Mammal Center if worried.', ''],
+    ['otter', 'wonder', 'animal', 'beach creek', 'North American river otter', 'Lontra canadensis', 'Long, sleek and brown, rolling and diving in pairs or families.', 'Back in Bay Area marshes, lagoons and creeks after decades away.', 'Clean water and plenty of fish and crabs.', 'Watch quietly from a distance; report sightings to citizen-science counts.', ''],
+    ['jay', 'wonder', 'animal', 'yard trail', 'California scrub-jay', 'Aphelocoma californica', 'Blue and gray with a white eyebrow; loud and curious.', 'Yards, parks and oak woods.', 'Acorns and nuts, which they bury to eat later.', 'Every acorn a jay forgets can grow into an oak. They’ve planted many of the oaks you see.', ''],
+    ['acornwp', 'wonder', 'animal', 'trail', 'Acorn woodpecker', 'Melanerpes formicivorus', 'A clown face: black, white and red cap, with a wild laughing call.', 'Oak woodlands and parks.', 'Acorns, stored in “granary” trees drilled with thousands of holes.', 'Look for a dead tree or pole studded with acorns: a family’s winter pantry.', ''],
+    ['frog', 'wonder', 'animal', 'creek yard', 'Pacific chorus frog', 'Pseudacris regilla', 'Small, green or brown, with a dark stripe through the eye.', 'Ponds, creeks and wet gardens; loud on winter and spring nights.', 'Shallow water for eggs and damp hiding spots.', 'The classic “ribbit” in movies is this frog’s voice. A shallow dish of water with a rock in it helps in dry gardens.', ''],
+    ['liveoak', 'wonder', 'plant', 'trail yard', 'Coast live oak', 'Quercus agrifolia', 'An evergreen oak with cupped, holly-like spiny-edged leaves and pointed acorns.', 'Hills, parks and old yards everywhere around the Bay.', 'Deep soil and winter rain. In return, they feed and house hundreds of kinds of insects, birds and mammals.', 'Acorns were a staple food of the Ohlone, ground and leached of their bitterness. Leave fallen leaves under the tree as mulch.', ''],
+    ['redwood', 'wonder', 'plant', 'creek trail', 'Coast redwood', 'Sequoia sempervirens', 'Soft red, stringy bark and flat needles in two rows. The tallest trees on Earth.', 'Foggy canyons and hills; planted in yards and parks.', 'Summer fog: they drink water that condenses on their needles and drips down.', 'Stand under one on a foggy morning and listen to the drip.', ''],
+    ['poppy', 'wonder', 'plant', 'trail yard', 'California poppy', 'Eschscholzia californica', 'Silky orange cups on feathery blue-green leaves.', 'Sunny hills, roadsides and gardens, spring into summer.', 'Sun and dry, open ground.', 'The state flower. Notice how they close at night and on cloudy days. Leave them for the bees.', ''],
+    ['toyon', 'wonder', 'plant', 'trail yard', 'Toyon', 'Heteromeles arbutifolia', 'An evergreen shrub with leathery, toothed leaves and bright red berries in winter.', 'Hills and native gardens.', 'Winter food for robins, cedar waxwings and mockingbirds.', 'Hollywood is said to be named for this “California holly.” The berries were cooked by Native peoples; raw, they upset stomachs.', ''],
+    /* ---- Forage ---- */
+    ['rosemary', 'forage', 'plant', 'yard', 'Rosemary', 'Salvia rosmarinus', 'Needle-like leaves, green on top and silvery underneath, small blue flowers, a piney smell.', 'Hedges, medians and gardens everywhere; flowers in winter.', 'Sun and dry soil. Bees rely on it in winter when little else blooms.', 'Every kind of rosemary is edible. Snip green tips from hedges you have permission to cut, away from roads and dog height.', ''],
+    ['lavender', 'forage', 'plant', 'yard', 'Lavender', 'Lavandula', 'Gray-green narrow leaves and purple flower spikes with a sweet, clean smell.', 'Gardens and parking strips; summer flowers.', 'Sun, dry soil and good drainage.', 'English lavender is the sweet one for baking and tea. Spanish lavender (with “rabbit ear” petals on top) and many French kinds smell sharper: lovely for sachets, not for food.', ''],
+    ['yerba', 'forage', 'plant', 'creek yard', 'Yerba buena', 'Clinopodium douglasii', 'A low trailing plant with small round, scalloped leaves and a sweet mint smell.', 'Shady woods and native gardens.', 'Shade and a little moisture. San Francisco’s first name came from this plant.', 'A gentle mint tea. It’s a native that’s easy to grow in a pot, so the best harvest is from your own.', ''],
+    ['bay', 'forage', 'plant', 'creek trail yard', 'California bay laurel', 'Umbellularia californica', 'An evergreen tree with narrow, smooth leaves that smell of strong spice when crushed.', 'Canyons, creeks and hills.', 'Shade and moisture. Native peoples also roasted the nuts.', 'Much stronger than store bay: use a quarter to half a leaf in a pot. Sniff gently; deep breaths can bring on a headache. Learn the oleander twin (1.7).', ''],
+    ['fennel', 'forage', 'plant', 'trail yard', 'Wild fennel', 'Foeniculum vulgare', 'Tall, feathery, thread-thin leaves, yellow umbrella flowers and a licorice smell from every part.', 'Roadsides, vacant lots and hills, all year.', 'Not native, and spreading fast; anise swallowtail caterpillars love it.', 'Fronds for salads, seeds in late summer for tea and baking. Learn the poison hemlock twin first (1.7): they grow side by side.', ''],
+    ['miners', 'forage', 'plant', 'creek yard', 'Miner’s lettuce', 'Claytonia perfoliata', 'Round leaves that wrap all the way around the stem like a plate, with tiny white flowers sitting on top.', 'Shady, damp spots in winter and spring.', 'Cool weather and shade. Gold Rush miners ate it to stay well.', 'Eat raw, like lettuce. Pick from patches above dog height.', 'The leaf-plate with flowers on top is easy for kids to spot.'],
+    ['nettle', 'forage', 'plant', 'creek', 'Stinging nettle', 'Urtica dioica', 'Toothed, heart-shaped leaves in pairs, covered in tiny stinging hairs.', 'Damp creek edges and shady corners; best in early spring.', 'Moisture and rich soil. Food for butterfly caterpillars.', 'Gloves to pick the young tops. Cooking or drying takes away the sting; a rich green for soups.', ''],
+    ['blackberry', 'forage', 'plant', 'creek trail yard', 'Himalayan blackberry', 'Rubus armeniacus', 'Thorny arching canes, leaves in fives or threes, white flowers, then black berries.', 'Creeks, vacant lots and park edges; berries in late summer.', 'Sun and water. Not native, and it crowds out native plants.', 'Pick freely where you’re allowed, away from busy roads. Long sleeves for the thorns.', 'August blackberry picking is a perfect family job.'],
+    ['elder', 'forage', 'plant', 'creek trail', 'Blue elderberry', 'Sambucus cerulea', 'A large shrub with flat-topped clusters of cream flowers in spring and dusty blue berries in late summer.', 'Creeks, hills and native gardens.', 'Sun and some moisture; birds love the berries.', 'Only ripe berries, cooked (syrups, jams). Stems, leaves and unripe berries make people sick.', ''],
+    ['nasturtium', 'forage', 'plant', 'yard trail', 'Nasturtium', 'Tropaeolum majus', 'Round leaves like little lily pads and orange, red or yellow flowers.', 'Gardens, and spilling down coastal hills.', 'Mild weather and almost any soil.', 'Leaves and flowers are peppery and edible raw.', ''],
+    ['sourgrass', 'forage', 'plant', 'yard', 'Sourgrass (Bermuda buttercup)', 'Oxalis pes-caprae', 'Clover-like leaves and bright yellow flowers on long stems, carpeting yards in late winter.', 'Lawns, gardens and vacant lots.', 'Not native and very spready.', 'The lemony stems are a classic Bay Area kid nibble. The sour comes from oxalic acid, so a nibble, not a bowlful.', ''],
+    ['mustard', 'forage', 'plant', 'trail yard', 'Wild radish and mustard', 'Raphanus, Brassica', 'Four-petal flowers, yellow (mustard) or white to pink (radish), filling spring fields.', 'Hills, fields and vacant lots in spring.', 'Open, disturbed ground.', 'Flowers and young leaves taste peppery. Away from roads only.', ''],
+    ['plantain', 'forage', 'plant', 'yard trail', 'Broadleaf plantain', 'Plantago major', 'A flat rosette of oval leaves with strong parallel ribs, and thin flower spikes.', 'Lawns, paths and cracks in pavement.', 'Trampled, compacted soil, where little else grows.', 'Young leaves are edible cooked. A chewed or crushed leaf on a bug bite is an old tradition.', '']
+  ];
+  var NEED = { space: 'What they need', hands: 'Their place here', house: 'What the house offers', wonder: 'What they need', forage: 'Their place here' };
+  function card(s) {
+    var g = G[s[1]];
+    return '<article class="sp ' + g[2] + '"><div class="sp-top"><h3>' + s[4] + '</h3><span class="tag" data-sym="' + g[1] + '">' + g[0] + '</span></div>' +
+      '<p class="sci"><i>' + s[5] + '</i></p><dl>' +
+      '<dt>Look for</dt><dd>' + s[6] + '</dd><dt>Where &amp; when</dt><dd>' + s[7] + '</dd>' +
+      '<dt>' + NEED[s[1]] + '</dt><dd>' + s[8] + '</dd><dt>What to do</dt><dd>' + s[9] + '</dd></dl>' +
+      (s[10] ? '<p class="kid">' + s[10] + '</p>' : '') + '</article>';
+  }
+  document.querySelectorAll('.sps[data-group]').forEach(function (box) {
+    box.innerHTML = S.filter(function (s) { return s[1] === box.dataset.group; }).map(card).join('');
+  });
+
+  /* ---------- Tool ---------- */
+  function spot() {
+    var w = $('sp-where').value, k = $('sp-what').value, on = {};
+    document.querySelectorAll('.chip').forEach(function (c) { on[c.dataset.g] = c.getAttribute('aria-pressed') === 'true'; });
+    var r = S.filter(function (s) { return on[s[1]] && (!w || s[3].split(' ').indexOf(w) > -1) && (!k || s[2] === k); });
+    $('sp-out').innerHTML = r.map(card).join('');
+    $('sp-count').textContent = r.length ? r.length + ' likely neighbor' + (r.length > 1 ? 's' : '') + ' here.' : 'Nobody on the list matches. Try “Anywhere” or turn on more kinds.';
+  }
+  ['sp-where', 'sp-what'].forEach(function (id) { $(id).addEventListener('change', spot); });
+  document.querySelectorAll('.chip').forEach(function (c) {
+    c.addEventListener('click', function () { c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); spot(); });
+  });
+
+  /* ---------- Planned stubs ---------- */
+  var STUBS = {
+    plants: ['Unit 2', 'Plants up close', 'Leaf shapes and edges, opposite and alternate leaves, flower parts, and the families that share a look (mints have square stems; the carrot family has umbrella flowers).'],
+    fungi: ['Unit 3', 'Fungi', 'Mushrooms in the yard and woods, molds in the house and the rot in a fence post: who they are, what they need, and why nobody eats a wild mushroom without an expert.'],
+    signs: ['Unit 4', 'Tracks &amp; calls', 'Footprints in mud, scat on the trail, chewed acorns, owl pellets and birdsong: knowing who lives nearby without seeing them.'],
+    seasons: ['Unit 5', 'Seasons', 'A year around the Bay, month by month: who’s blooming, nesting, swarming and ripening.']
+  };
+  function route() {
+    var parts = location.hash.replace('#', '').split('/'), page = parts[0] || '', show = page;
+    if (STUBS[page]) { var t = STUBS[page]; $('stub').innerHTML = '<span class="eyebrow">' + t[0] + ' · planned</span><h1 tabindex="-1">' + t[1] + '</h1><p class="lede">' + t[2] + '</p><p><a class="btn" href="#local">Read unit 1</a></p>'; show = 'stub'; }
+    else if (page && !document.querySelector('.page[data-page="' + page + '"]')) page = show = '';
+    document.querySelectorAll('.page').forEach(function (p) { p.hidden = p.dataset.page !== show; });
+    document.querySelectorAll('.vt-unit').forEach(function (u) { u.classList.toggle('cur', u.dataset.unit === page); });
+    document.querySelectorAll('.nav-over')[0].classList.toggle('cur', page === '');
+    document.querySelector('.tool-link').classList.toggle('cur', page === 'spotter');
+    var target = parts[1] && $(page + '-' + parts[1]);
+    if (target) { target.scrollIntoView({ block: 'start' }); target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true }); }
+    else { window.scrollTo(0, 0); var h = document.querySelector('.page:not([hidden]) h1'); if (h) h.focus({ preventScroll: true }); }
+  }
+  window.addEventListener('hashchange', route);
+  spot(); route();
+})();
+</script>
+</body>
+</html>

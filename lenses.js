@@ -11,7 +11,7 @@ window.MN_TIERS = [
         id: 'emotions', name: 'Emotions', status: 'ready',
         blurb: 'Your rich inner world.',
         topics: ['Feelings', 'Needs', 'Who you are'],
-        looks: ['Feelings as signals: what’s alive inside of you, pain included', 'The universal needs beneath every feeling and strategy', 'Who you are underneath: the one who chooses, the body that remembers, mind and body']
+        looks: ['Feelings as signals: what’s alive inside of you, pain included', 'The universal needs beneath every feeling and strategy', 'Who you are underneath: conscious awareness and choice, the egoic body that remembers, mind-body pain relationships, and other mental faculties']
       },
       {
         id: 'relationships', name: 'Relationships', status: 'ready',
@@ -20,10 +20,10 @@ window.MN_TIERS = [
         looks: ['Requests instead of demands', 'Dialogue where both sets of needs count', 'Children, neighbors, animals, cooperatives and power shared instead of held over']
       },
       {
-        id: 'governance', name: 'California governance', status: 'building',
+        id: 'governance', name: 'California governance', status: 'ready',
         blurb: 'The laws that help or stop us meeting basic needs in California, how to advocate, and governance we can build instead.',
-        topics: ['Decision-makers', 'Criminalization', 'Stairs for change', 'Lovernance'],
-        looks: ['Who controls California’s water, and how they’re chosen', 'Criminalization and incarceration: when meeting a need becomes a crime', 'Stairs for change: art, talk, public comment, representatives, organizing, voting, peaceful protest, and paths outside law', 'Lovernance, envisioned alternatives: the Commons and private lovernance, with the California laws that help and stand in the way']
+        topics: ['Lovernance', 'Rights', 'Decision-makers', 'Criminalization', 'Stairs for change'],
+        looks: ['Lovernance, envisioned alternatives: the Commons and private lovernance, with the California laws that help and stand in the way', 'Rights you have by existing, in the US and California constitutions', 'Who controls California’s water, and how they’re chosen', 'Criminalization and incarceration: when meeting a need becomes a crime', 'Stairs for change: art, talk, public comment, representatives, organizing, voting, protest, and paths outside law']
       }
     ]
   },
@@ -33,9 +33,9 @@ window.MN_TIERS = [
     lenses: [
       {
         id: 'water', name: 'Water', status: 'ready',
-        blurb: 'How we use, find, store, clean, test and pay for water, at every scale from a studio to a farm to a sidewalk.',
-        topics: ['Uses', 'Sources', 'Storage', 'Purify', 'Testing', 'Costs'],
-        looks: ['Which water each job needs, and gray water', 'Taps, refills, rain, wells, springs and wild water', 'Containers that keep water safe', 'Filters and permanent systems, plus crisis methods', 'Knowing it’s safe, at the tap and in a lake', 'What water costs, and the household math']
+        blurb: 'Five steps for any water situation: use, source, container, purify, test. Your numbers carry from one to the next, at every scale from a studio to a farm to a sidewalk.',
+        topics: ['Thinking', 'Use', 'Sources', 'Containers', 'Purify', 'Test'],
+        looks: ['The five steps, and designing your water loop', 'How much water your household uses, task by task, and how clean each needs to be', 'Sources side by side, from bottles and 211 to rain, springs and wells', 'How much to keep, and containers that keep it good', 'Making each source clean enough for the job', 'Knowing it’s safe, and what to test for your sources']
       },
       {
         id: 'food', name: 'Food', status: 'ready',
@@ -74,7 +74,7 @@ window.MN_TIERS = [
         looks: ['Why water and a good cloth do most of the work', 'Soap, baking soda, vinegar and peroxide: what each is for, and what never mixes', 'Counters by material, boards, oven, bathroom, floors and ants', 'Which stain is which, and what lifts it', 'Laundry that is gentler on fabric, skin and water']
       },
       {
-        id: 'identification', name: 'Identification', status: 'soonest',
+        id: 'identification', name: 'Identification', status: 'soon',
         blurb: 'Recognize the plants and animals around you to assess threats and opportunities.',
         topics: ['Plants', 'Fungi', 'Animals'],
         looks: ['The features that actually separate species', 'Edible plants and their dangerous twins', 'Tracks, calls and signs of who lives nearby']

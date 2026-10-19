@@ -329,12 +329,12 @@ window.MN_REL = (function () {
           tool: 'finder', remember: 'Feeling → source → need.' }
       ] },
     { id: 'soil', course: 'emotions', num: 3, word: 'Who you are', sub: 'what’s going on down there', planned: true,
-      intro: 'The soil beneath the roots: the you who chooses, the body that remembers, and the tools your mind brings.',
+      intro: 'The soil beneath the roots: conscious awareness and choice, the egoic body that remembers, how mind and body shape pain, and your other mental faculties.',
       subs: [
-        { id: 'chooser', title: 'The one who chooses', short: 'Present awareness makes choices, never as blame: “I have to go to work” becomes “I choose to, because I want a home and food.”', planned: true },
-        { id: 'remembers', title: 'The body that remembers', short: 'The feeling body carries memories and beliefs, and tries to protect you from pain it has known.', planned: true },
-        { id: 'mindbody', title: 'Mind & body', short: 'How mind and body talk: memories, protection, and signals the brain learns to send.', planned: true },
-        { id: 'tools', title: 'Your mind’s tools', short: 'Imagination, memory, planning and mental math.', planned: true }
+        { id: 'chooser', title: 'Conscious awareness and choice', short: 'Present awareness makes choices, never as blame: “I have to go to work” becomes “I choose to, because I want a home and food.”', planned: true },
+        { id: 'remembers', title: 'The egoic body that remembers', short: 'The feeling body carries memories and beliefs, and tries to protect you from pain it has known.', planned: true },
+        { id: 'mindbody', title: 'Mind-body pain relationships', short: 'How mind and body talk about pain: memories, protection, and signals the brain learns to send.', planned: true },
+        { id: 'tools', title: 'Other mental faculties', short: 'Imagination, memory, planning and mental math.', planned: true }
       ] },
     { id: 'request', course: 'relationships', num: 1, word: 'Request', sub: 'ask, don’t demand', intro: 'Once you know your need, say it out loud: kindly, clearly, and in a way the other person can say yes or no to.',
       subs: [

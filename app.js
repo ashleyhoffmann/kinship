@@ -294,7 +294,7 @@
     { name: 'The San Francisco Diggers', who: 'Community anarchists · 1960s', work: 'Free food in the Panhandle and free stores, named for the English Diggers who farmed common land in 1649.', url: 'https://www.diggers.org', link: 'diggers.org',
       shaped: { kinship: 'The spirit of it: free, shared, for everyone' } },
     { name: 'Howard Schubiner, MD', who: 'Physician', work: '<i>Unlearn Your Pain</i>: how the brain can learn to send pain signals, and how they can be unlearned.',
-      shaped: { emotions: 'Pain is a signal too, and Mind & body (both planned)' } },
+      shaped: { emotions: 'Pain is a signal too, and Mind-body pain relationships (both planned)' } },
     { name: 'Michaeleen Doucleff', who: 'Journalist · author', work: '<i>Hunt, Gather, Parent</i> (2021), including the TEAM approach: togetherness, encouragement, autonomy, minimal interference.',
       shaped: { relationships: 'Children' } },
     { name: 'Barbara Rogoff', who: 'Researcher', work: 'Research on how children learn by observing and pitching in.',
@@ -302,7 +302,9 @@
     { name: 'Dr. Yvonne Burkart', who: 'Toxicologist', work: 'Free education on everyday toxic exposures and gentler swaps.',
       shaped: { toxins: 'This course’s view of everyday exposures' } },
     { name: 'Dr. Sarah Taber & Farm to Taber', who: 'Crop scientist · writer · podcaster', work: '<i>Farm to Taber</i>, on farming, food systems and the people who do the work, including field-tested heat safety.', url: 'https://substack.com/@farm2taber', link: 'Farm to Taber on Substack',
-      shaped: { air: 'The heat stupids: confusion as heat’s first warning' } }
+      shaped: { air: 'The heat stupids: confusion as heat’s first warning' } },
+    { name: 'Sustainable Economies Law Center', who: 'Nonprofit legal center · Oakland', work: 'Free legal tools and advice for cooperatives, community land trusts, shared housing and land reform.', url: 'https://www.theselc.org', link: 'theselc.org',
+      shaped: { governance: 'Governance advice for land reform: land trusts, co-ops and shared land', relationships: 'Cooperatives' } }
   ];
   function credits(course) {
     return SHOULDERS.filter(function (p) { return p.shaped[course]; }).map(function (p) {
@@ -361,7 +363,7 @@
       '<p>Kinship won’t solve these problems alone. It’s the clearest way I could package self-empowering information, for you to take and apply in your own life.</p>' +
       '<p>Most of Kinship aims to be plain, checkable information you can weigh for yourself.</p>' +
       '<p>The inspiring and helpful people whose work I’m amplifying and synthesizing are gathered under <a href="#resources">Resources</a>.</p>' +
-      '<p>Feel free to email me at ' + mailto() + '. I’m just a lady trying to make the world a better place (for free), so I don’t have tons of capacity to build new things, but if I can help you, or you have feedback or anything at all to share, I’m around!</p>' +
+      '<p>Feel free to email me at ' + mailto() + '. I’m just a law student trying to make the world a better place for free, so I honestly don’t have tons of capacity for requests, but if I can low-lift help you, or you have feedback or anything at all to share, I’m around!</p>' +
       '</div></section>' + footer();
   }
 

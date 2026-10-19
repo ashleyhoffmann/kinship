@@ -185,13 +185,15 @@
   }
 
   /* ---------- views ---------- */
-  /* Logo: a cut-paper chain of hearts, draped in a gentle curve and joined at the sides. Love as a practice, made by hand and linked. */
+  /* Logo: a cut-paper chain of hearts, draped in a gentle curve and joined at the sides, with dotted folds at the joins. Love as a practice, made by hand and linked. */
   var LOGO = (function () {
     var H = 'M12 21.2C7.4 18 3.3 14.6 2.4 10.9 1.6 7.5 3.8 4.6 6.9 4.6c2.1 0 3.6 1.2 5.1 3.1 1.5-1.9 3-3.1 5.1-3.1 3.1 0 5.3 2.9 4.5 6.3C20.7 14.6 16.6 18 12 21.2z';
-    var hearts = ['translate(-22.18 -3.14) rotate(16.1)', '', 'translate(22.18 -3.14) rotate(-16.1)'].map(function (t) { return '<path d="' + H + '" transform="' + t + ' translate(-12 -12.9)"/>'; }).join('');
-    return '<svg class="logo" width="72" height="26" viewBox="-35.66 -15.62 71.33 25.72" aria-hidden="true">' +
+    var hearts = ['translate(-19.45 -2.4) rotate(14.07)', '', 'translate(19.45 -2.4) rotate(-14.07)'].map(function (t) { return '<path d="' + H + '" transform="' + t + ' translate(-12 -12.9)"/>'; }).join('');
+    return '<svg class="logo" width="69" height="26" viewBox="-32.74 -14.63 65.48 24.73" aria-hidden="true">' +
       '<g fill="#C2477F" stroke="#C2477F" stroke-width="3.2" stroke-linejoin="round">' + hearts + '</g>' +
       '<g fill="#FCEFF4" stroke="none">' + hearts + '</g>' +
+      '<g fill="none" stroke="#C2477F" stroke-width="1" stroke-dasharray="1.4 1.6" stroke-linecap="round" opacity=".7">' +
+      '<path d="M0 -3.5V-1.1" transform="translate(-9.73 -1.2) rotate(7.04)"/><path d="M0 -3.5V-1.1" transform="translate(9.73 -1.2) rotate(-7.04)"/></g>' +
       '</svg>';
   })();
 

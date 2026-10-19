@@ -4,8 +4,8 @@
    Each tier has one colour; every lens in it shares that colour. In a locked tier, only ready lenses are clickable. */
 window.MN_TIERS = [
   {
-    id: 'signals', num: 1, name: 'Signals', color: '#C2477F',
-    blurb: 'Face what’s happening inside you, diagnose what needs to change, and unite in mutually-beneficial solutions.',
+    id: 'signals', num: 1, name: 'Choices', color: '#C2477F',
+    blurb: 'Connect with what’s happening inside you and others, and organize mutually-beneficial solutions.',
     lenses: [
       {
         id: 'emotions', name: 'Emotions', status: 'ready',
@@ -20,10 +20,10 @@ window.MN_TIERS = [
         looks: ['Requests instead of demands', 'Dialogue where both sets of needs count', 'Children, neighbors, animals, cooperatives and power shared instead of held over']
       },
       {
-        id: 'identification', name: 'Identification', status: 'soonest',
-        blurb: 'Recognize the plants and animals around you to assess threats and opportunities.',
-        topics: ['Plants', 'Fungi', 'Animals'],
-        looks: ['The features that actually separate species', 'Edible plants and their dangerous twins', 'Tracks, calls and signs of who lives nearby']
+        id: 'governance', name: 'California governance', status: 'building',
+        blurb: 'The laws that help or stop us meeting basic needs in California, how to advocate, and governance we can build instead.',
+        topics: ['Decision-makers', 'Criminalization', 'Stairs for change', 'Lovernance'],
+        looks: ['Who controls California’s water, and how they’re chosen', 'Criminalization and incarceration: when meeting a need becomes a crime', 'Stairs for change: art, talk, public comment, representatives, organizing, voting, peaceful protest, and paths outside law', 'Lovernance, envisioned alternatives: the Commons and private lovernance, with the California laws that help and stand in the way']
       }
     ]
   },
@@ -74,10 +74,10 @@ window.MN_TIERS = [
         looks: ['Why water and a good cloth do most of the work', 'Soap, baking soda, vinegar and peroxide: what each is for, and what never mixes', 'Counters by material, boards, oven, bathroom, floors and ants', 'Which stain is which, and what lifts it', 'Laundry that is gentler on fabric, skin and water']
       },
       {
-        id: 'body-care', name: 'Body care', status: 'soon',
-        blurb: 'Care for every body at home: little and aging ones, disabled and different bodies, and the animals you live with.',
-        topics: ['Children', 'Aging', 'Diversity', 'Animal care'],
-        looks: ['Skin, teeth and sleep for children and growing bodies', 'Aging bodies, and the care that keeps them comfortable', 'Disabilities and different bodies, plus the animals who share your home', 'Gentle foods for sick days and food as medicine (starts in Food → Gentle)']
+        id: 'identification', name: 'Identification', status: 'soonest',
+        blurb: 'Recognize the plants and animals around you to assess threats and opportunities.',
+        topics: ['Plants', 'Fungi', 'Animals'],
+        looks: ['The features that actually separate species', 'Edible plants and their dangerous twins', 'Tracks, calls and signs of who lives nearby']
       },
       {
         id: 'self-defense', name: 'Self-defense', status: 'soon',
@@ -96,6 +96,12 @@ window.MN_TIERS = [
         blurb: 'Heat, light, cook and stay warm with less: fireplaces, gas, lighting, insulation and more.',
         topics: ['Fireplaces', 'Cooking', 'Gas', 'Light', 'Insulation'],
         looks: ['Fireplaces and wood stoves that burn clean and safe', 'Gas appliances, leaks and carbon monoxide', 'Daylight, bulbs and staying lit through an outage', 'Insulation and draught-proofing that cut the bill']
+      },
+      {
+        id: 'body-care', name: 'Body care', status: 'soon',
+        blurb: 'Care for every body at home: little and aging ones, disabled and different bodies, and the animals you live with.',
+        topics: ['Children', 'Aging', 'Diversity', 'Animal care'],
+        looks: ['Skin, teeth and sleep for children and growing bodies', 'Aging bodies, and the care that keeps them comfortable', 'Disabilities and different bodies, plus the animals who share your home', 'Gentle foods for sick days and food as medicine (starts in Food → Gentle)']
       },
       {
         id: 'salvaging', name: 'Salvaging', status: 'soon',
@@ -204,12 +210,6 @@ window.MN_TIERS = [
         blurb: 'Libraries, open tools and connection on one side; surveillance and attention-for-profit on the other.',
         topics: ['Needs it meets', 'Libraries', 'Surveillance', 'Open tools'],
         looks: ['Which needs a screen is meeting right now (learning, connection, help) and which it’s pulling from (rest, presence, play)', 'Public libraries: free internet, devices, classes and quiet, and the librarians who protect your privacy', 'Surveillance: what apps, ad trackers, data brokers and cameras collect, and the free settings that cut most of it', 'Open-source tools, repair and keeping old devices going, so digital life serves people instead of profit']
-      },
-      {
-        id: 'governance', name: 'Governance', status: 'building',
-        blurb: 'What legally stops people from meeting basic needs, and how to advocate, in the systems we have and beyond them.',
-        topics: ['Decision-makers', 'Criminalization', 'Stairs for change'],
-        looks: ['Who controls California’s water, and how they’re chosen', 'Where the water goes', 'Criminalization and incarceration: when meeting a need becomes a crime', 'Stairs for change: art, talk, public comment, representatives, organizing, voting, peaceful protest, and paths outside law']
       },
       {
         id: 'death-seasons', name: 'Death & cycles', status: 'last',

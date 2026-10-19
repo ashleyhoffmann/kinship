@@ -124,3 +124,13 @@ The site is the map and the notebook. The game happens in real life. What makes 
 **Personalization stays light.** The core path is the same for everyone. The profile only marks things "For you"; it never hides an option. Badges, numbers and progress live on the device with a clear option (§5, §7).
 
 Mock-up: `mockups/water-game-mockup.html`. Water is the model; other lenses reuse the same steps-as-abilities, carry-forward calculator, sortable tables, tags, badges and refresh.
+
+
+## 9. California first, needs everywhere
+
+Kinship is California-centered. Laws, agencies, programs, prices and figures are California’s unless a page says otherwise. Federal law applies everywhere and is named when it matters. The needs are universal, so the strategies aim to be useful to anyone, anywhere; when a rule is different elsewhere, we say so plainly rather than hide the option.
+
+- **Name the level of law.** Federal, state, county, city or district. Counties and cities change a lot: Class K owner-built rural homes exist only in counties that adopt them, and shelter, camping, safe-parking and well rules differ from place to place. Where it matters, say "check your county" and who to ask.
+- **Laws are transparent for everyone.** Cite each law or case by name (SB 1079, *City of Grants Pass v. Johnson*) so anyone can look it up, explain it in plain words, and give the year, because law changes.
+- **Information, not legal advice.** Kinship explains what laws say; it doesn’t tell anyone what to do in their own case. Point to free help: legal aid, law school clinics and the California Courts Self-Help Guide.
+- **Governance lives in tier 1, Choices.** Every choice we make about meeting a need happens inside rules someone made, so knowing who made them, and how to change them, sits beside Emotions and Relationships. It ends with Lovernance, envisioned alternatives rooted in kinship (the Commons and private lovernance): models to build so the old way becomes obsolete.

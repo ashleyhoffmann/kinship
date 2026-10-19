@@ -1,4 +1,4 @@
-/* Governance lens (tier 6, in progress): a lens on what stops people, legally, from meeting basic needs, who decides over shared needs,
+/* California governance lens (tier 1 Choices, in progress): a lens on what stops people, legally, from meeting basic needs, who decides over shared needs,
    and how to advocate in the systems we have (and outside them) for better ones. Starts with California water and criminalization;
    housing (who owns homes, including private equity) is next. Registers window.MN_LENS_VIEWS.governance. */
 (function () {
@@ -28,10 +28,48 @@
     ['Vote, run, and protest peacefully', 'Water board seats are elected, often with few votes cast. Ballot measures decide water bonds. Peaceful protest makes a need visible when other doors stay shut.', '#lens-relationships', 'Nonviolence']
   ];
 
+  /* Lovernance (envisioned alternatives): two models to build toward. Each law row starts with a word (Helps, In the way, County by county, Federal, Not yet law), never colour alone. */
+  function law(rows) {
+    return '<ul class="gv-law">' + rows.map(function (r) { return '<li><span class="gv-tag">' + r[0] + '</span> ' + r[1] + '</li>'; }).join('') + '</ul>';
+  }
+  function vision(n, name, short, lead, needs, rows) {
+    return '<article class="gv-vision" aria-labelledby="gv-v' + n + '"><span class="eyebrow">Vision ' + n + '</span><h3 id="gv-v' + n + '">' + name + '</h3>' +
+      '<p class="gv-vshort">' + short + '</p><p>' + lead + '</p>' +
+      '<h4>How needs get met</h4>' + ul(needs) +
+      '<h4>California today</h4>' + law(rows) + '</article>';
+  }
+  var COMMONS = vision(1, 'The Commons', 'Land shared and tended together.',
+    'A front door anyone can walk through, especially people with nowhere else to go. It isn’t a separate place for poor people; it’s a commons open to all, the same way everyone sees the same table of water sources.',
+    ['<b>Day one:</b> a bed, water and food. Rest comes first, and nobody is asked to work at the door.',
+     '<b>The land</b> is held by a community land trust, which pays the land fee for everyone. Members give time instead of money.',
+     '<b>The people who use the land make its rules.</b> Problems get small responses first, and conflicts are worked through close to home, with <a href="#lens-relationships/dialogue">Dialogue</a>. These come from Elinor Ostrom’s design principles for commons.',
+     '<b>Worker co-ops</b> meet what’s hard to make alone: natural-fiber clothing, repair and tool libraries, tools, solar, internet and seed.',
+     '<b>Anyone can leave,</b> and they leave with their skills and credit for what they gave.'],
+    [['Helps', '<i>City of Santa Barbara v. Adamson</i> (California Supreme Court, 1980): the state constitution’s right to privacy struck down a city rule capping how many unrelated people could share a house.'],
+     ['Helps', 'County assessors must consider a land trust’s resale limits when they value its homes, which keeps property tax lower (Revenue and Taxation Code §402.1).'],
+     ['Helps', 'The Williamson Act (1965): farmland under a rolling 10-year contract is taxed on its value as a farm, not its market price. Not every county still signs new contracts.'],
+     ['Helps', 'The Rainwater Capture Act of 2012: rain caught from a roof can be used without a water right.'],
+     ['County by county', 'Class K (Title 25 of the California Code of Regulations, limited-density owner-built rural dwellings) lets people build simpler homes for themselves on rural land, but only in counties that have adopted it. Shelter, safe-parking and camping rules change by county and city too.'],
+     ['In the way', 'Zoning that limits homes on rural land, building codes written for contractors, land prices, and, since <i>Grants Pass</i> (2024), citations for people sleeping outside while they look for a place.']])
+  var LOVE = vision(2, 'Private lovernance', 'Land you hold yourself, governed by care instead of profit.',
+    'You’re safe on your land for as long as you live there and look after it, and it can pass to your kin. What it can’t be is held empty to sell high later.',
+    ['<b>One land fee,</b> charged on the value of the land, not the home on it, so building or fixing a home never raises the bill. This is Henry George’s land value tax.',
+     '<b>Pay it in money or in time.</b> An hour volunteering at your child’s school, on a road crew or on fire watch counts the same as anyone else’s hour, like Edgar Cahn’s time banks.',
+     '<b>Rentals become housing co-ops.</b> Residents own the building together on land-trust land. The monthly charge is the real cost (upkeep, the land fee, savings for repairs) with no profit on top, and resale prices are capped so homes stay affordable.',
+     '<b>Landlords’ needs count too.</b> Underneath the rent is a need for safety and predictability, and often purpose. The co-op can pay a former landlord a lifetime income from monthly charges, they can keep a home in the building for life, or take a paid role caring for it.',
+     '<b>Safety without hoarding.</b> Hoarding is one strategy for feeling safe. When health care, food and a home are reliably shared, it has less and less to do.'],
+    [['In the way', 'Prop 13 (1978) caps property tax at 1% of a property’s value when it was last bought, with increases of no more than 2% a year. It taxes the land and the home together, and the longer someone holds, the less they pay. A land-value fee would need voters to change the state constitution.'],
+     ['Helps', 'SB 1079 (2020): after a foreclosure auction of a home with 1 to 4 units, tenants, nonprofits, land trusts, limited-equity co-ops and public agencies get a window to make a matching offer.'],
+     ['Helps', 'San Francisco’s Community Opportunity to Purchase Act (2019) gives qualified nonprofits the first chance to buy many rental buildings when they’re sold.'],
+     ['Helps', 'The California Worker Cooperative Act (2015) made it simpler to form and fund worker-owned co-ops.'],
+     ['Federal', 'A landlord who sells over time instead of all at once can spread the tax on the gain across those years (installment sales, 26 U.S.C. §453).'],
+     ['Not yet law', 'Paying a land fee in time. Nothing in California does this yet, so it’s a door for advocacy (see Stairs for change above).']])
+
   function view() {
     var html =
-      '<section class="gv-hero"><span class="gv-pill">Tier 6 · Craft · In progress</span><h1 tabindex="-1">Governance</h1>' +
-      '<p class="gv-lede">Governance is one more lens on meeting needs: what stops people, legally, from meeting their basic needs, and how to advocate for yourself in the systems we have while building better ones. Every shared need (water, air, land, a place to sleep) is governed by someone, often far from the people it touches. Some paths run through law; plenty don’t, like asking your church, a co-op or your block to meet a need directly. It starts with California water and criminalization; more will gather here as other lenses open.</p></section>' +
+      '<section class="gv-hero"><span class="gv-pill">Tier 1 · Choices · In progress</span><h1 tabindex="-1">California governance</h1>' +
+      '<p class="gv-lede">California governance is one more lens on meeting needs: what helps or stops people, legally, from meeting their basic needs, and how to advocate for yourself in the systems we have while building better ones. Every shared need (water, air, land, a place to sleep) is governed by someone, often far from the people it touches. Some paths run through law; plenty don’t, like asking your church, a co-op or your block to meet a need directly. It starts with California water and criminalization, and ends with two visions of governance we can build instead.</p>' +
+      '<p class="gv-note"><b>California first.</b> State law comes first, federal law where it applies everywhere, and county or city rules are named when they change things, like shelters, camping and owner-built homes. Laws are explained here, not advised on: for your own situation, free legal aid and the California Courts Self-Help Guide (selfhelp.courts.ca.gov) can help.</p></section>' +
 
       sec(1, 'Two views, the same needs', 'Strategies differ by place; the needs underneath are shared.',
         '<div class="gv-views">' +
@@ -78,10 +116,16 @@
       sec(7, 'A transparency checklist', 'Questions to ask about any decision over a shared need.',
         ul(['Who made this decision, and who could have?', 'Who benefits, and who pays?', 'Who was at the table, and who wasn’t?', 'Where is the data, and can anyone read it?', 'When is the next chance to weigh in?'])) +
 
-      '<p class="gv-note"><b>Coming next · Housing:</b> who owns homes, including private equity firms that buy houses to rent out, and what that means for people looking for one.</p>' +
+      sec(8, 'Lovernance', 'Envisioned alternatives: governance we can build, so the old way becomes obsolete.',
+        '<p>A line often credited to Buckminster Fuller: “To change something, build a new model that makes the existing model obsolete.” Lovernance is governance rooted in love and kinship, and here are two models of it to build toward. Both start in the same place: the minimum isn’t what rent costs, it’s what it costs to meet needs directly. Rain caught on a tarp, seeds from a seed library and cuttings from a neighbor cost close to nothing (<a href="#lens-water/sources">Water: Sources</a>). The one thing that takes money is land, so that’s where governance comes in.</p>' +
+        '<p>Both are built on kinship. Nobody charges their sister rent: what we give flows from relationship and need, and care reaches outward, from our household to neighbors and strangers, animals and plants included.</p>' +
+        '<div class="gv-visions">' + COMMONS + LOVE + '</div>' +
+        '<p class="gv-src">Sources: <i>City of Santa Barbara v. Adamson</i>, 27 Cal.3d 123 (1980); Cal. Rev. &amp; Tax. Code §402.1; California Land Conservation Act of 1965 (Williamson Act); Rainwater Capture Act of 2012; Cal. Code Regs. tit. 25, Limited Density Owner-Built Rural Dwellings; Cal. Const. art. XIII A (Prop 13); SB 1079 (2020); San Francisco Administrative Code ch. 41B (COPA); AB 816, California Worker Cooperative Act (2015); 26 U.S.C. §453; Elinor Ostrom, <i>Governing the Commons</i> (1990); Henry George, <i>Progress and Poverty</i> (1879); Edgar S. Cahn, <i>No More Throw-Away People</i> (2000).</p>') +
+
+      '<p class="gv-note"><b>Coming next · Housing:</b> who owns homes, including private equity firms that buy houses to rent out, and the paths from rentals to co-ops.</p>' +
 
       '<aside class="gv-fun"><span class="eyebrow">Fun fact</span><p>California law (2012) recognizes a human right to safe, clean, affordable water. Rights on paper become rights in practice when people keep asking.</p></aside>';
-    return { title: 'Governance · Kinship', html: mn().header('home') + '<div><a class="back" href="#">← Education</a></div><main class="gv">' + html + '</main>' + mn().footer() };
+    return { title: 'California governance · Kinship', html: mn().header('home') + '<div><a class="back" href="#">← Education</a></div><main class="gv">' + html + '</main>' + mn().footer() };
   }
 
   window.MN_LENS_VIEWS = window.MN_LENS_VIEWS || {};

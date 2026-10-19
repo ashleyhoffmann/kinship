@@ -1,4 +1,4 @@
-/* Tier 1 Signals: two courses from one file, Emotions (inside) then Relationships (between).
+/* Tier 1 Choices: two courses from one file, Emotions (inside) then Relationships (between).
    Overviews, one page per unit (sub-units are sections), special situations, and the tools
    (feelings wheel, needs, accusation translator, need-or-strategy, Identify a need, Communicate).
    Routes: #lens-emotions[/<unit>[/<sub>]]   (unit: feel | need | soil)
@@ -61,7 +61,7 @@
   function href(u, sub) { return (UNIT[u] ? BASES[UNIT[u].course] : BASE) + '/' + u + (sub ? '/' + sub : ''); }
   function learned(id) { return !!prog.learned[id]; }
 
-  /* ---------- sidebar: both Signals courses, inside then outside ----------
+  /* ---------- sidebar: both Choices courses, inside then outside ----------
      The current course is open; the other is collapsed to its unit names, so the flow from inner to outer stays visible. */
   function vtUnit(u, cur) {
     var on = cur === u.id;
@@ -84,8 +84,8 @@
     var special = '<li class="rel-vt-unit k-apps u-special' + (cur === 'special' ? ' cur' : '') + '"><a class="rel-vt-head" href="' + BASE + '/special"' + (cur === 'special' ? ' aria-current="page"' : '') + '>' +
       '<span class="rel-vt-dot" aria-hidden="true">3</span><span><b>Special situations</b><small>the people, animals and places in your life</small></span></a>' +
       '<ol class="rel-vt-subs">' + D.APPS.map(function (a) { return '<li><a href="' + spHref(a.id) + '">' + esc(a.name) + '</a></li>'; }).join('') + '</ol></li>';
-    return '<nav class="rel-nav" aria-label="Signals courses: Emotions and Relationships">' +
-      '<details class="rel-nav-wrap"' + (wide ? ' open' : '') + '><summary class="rel-nav-head"><span class="eyebrow">Tier 1 · Signals</span><b>Inside, then outside</b></summary>' +
+    return '<nav class="rel-nav" aria-label="Choices courses: Emotions and Relationships">' +
+      '<details class="rel-nav-wrap"' + (wide ? ' open' : '') + '><summary class="rel-nav-head"><span class="eyebrow">Tier 1 · Choices</span><b>Inside, then outside</b></summary>' +
       block('emotions', 'Inside') +
       '<p class="rel-bridge" aria-hidden="true">then, connect</p>' +
       block('relationships', 'Between', special) +
@@ -124,7 +124,7 @@
     return {
       title: 'Emotions · Kinship',
       html: layout(null,
-        '<section class="rel-hero"><span class="eyebrow">Tier 1 · Signals · Course 1 of 2</span><h1 tabindex="-1">Emotions</h1>' +
+        '<section class="rel-hero"><span class="eyebrow">Tier 1 · Choices · Course 1 of 2</span><h1 tabindex="-1">Emotions</h1>' +
         '<p class="lede">Your rich inner world. Feelings are what’s alive inside of you: anger, love and pain are all asking to be tended. Beneath them are the roots, what you need, and beneath those the soil: who you are, and what’s going on down there.</p></section>' +
         '<section class="rel-depth" aria-label="Course map: plants, roots and soil">' +
           '<div class="rel-plants">' + SPROUT + '<div class="rel-plants-in"><p class="rel-layer"><b>Plants · what shows</b><span>Anger, love, pain: signals asking to be tended. Others can see them too.</span></p>' + card(U[0]) + tool('feel', 'wheel', 'Inner tool', 'Feelings wheel', 'Spin to the feeling that fits, and see the needs it may point to.') + '</div></div>' +
@@ -149,7 +149,7 @@
     return {
       title: 'Relationships · Kinship',
       html: layout(null,
-        '<section class="rel-hero"><span class="eyebrow">Tier 1 · Signals · Course 2 of 2</span><h1 tabindex="-1">Relationships</h1>' +
+        '<section class="rel-hero"><span class="eyebrow">Tier 1 · Choices · Course 2 of 2</span><h1 tabindex="-1">Relationships</h1>' +
         '<p class="lede">Connecting inner worlds. Every conflict is two people trying to meet their universal needs through strategies that aren’t working yet. Once you can hear your own needs, say them kindly and keep everyone’s on the table.</p></section>' +
         '<a class="rel-rooted" href="' + BASES.emotions + '">' + SPROUT + '<span><b>Rooted in Emotions</b><span>Feel and Identify the need come first: what’s showing in you, and what you need.</span></span><i>← Course 1</i></a>' +
         '<section class="rel-out" aria-label="Course map">' +

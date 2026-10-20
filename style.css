@@ -233,11 +233,11 @@ p { margin: 0; }
 @media (min-width: 900px) {
   .tier[data-tier="4"] .grid, .tier[data-tier="5"] .grid, .tier[data-tier="6"] .grid { grid-template-columns: repeat(4, 1fr); }
 }
-/* A row of exactly 4 units goes 4 across when it fits, otherwise 2 + 2 (never 3 + 1). Phones keep the swipe row below. */
+/* Tiers of 4 or 8 units go 4 across only when titles fit whole, otherwise 2 across (never 3 + 1). Phones keep the swipe row below. */
 .tier { container-type: inline-size; }
-.tier .grid:has(> :nth-child(4):last-child) { grid-template-columns: repeat(2, 1fr); }
-@container (min-width: 1000px) {
-  .tier .grid:has(> :nth-child(4):last-child) { grid-template-columns: repeat(4, 1fr); }
+.tier .grid:has(> :nth-child(4n):last-child) { grid-template-columns: repeat(2, 1fr); }
+@container (min-width: 1120px) {
+  .tier .grid:has(> :nth-child(4n):last-child) { grid-template-columns: repeat(4, 1fr); }
 }
 .tier-dots { display: none; }
 /* Phones: each tier's cards become a sideways row inside the tier panel, one card per swipe,

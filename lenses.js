@@ -16,13 +16,13 @@ window.MN_TIERS = [
       {
         id: 'relationships', name: 'Relationships', status: 'ready',
         blurb: 'Connecting inner worlds.',
-        topics: ['Requests', 'Dialogue', 'Special situations'],
+        topics: ['Dialogue', 'Requests', 'Conflict resolution'],
         looks: ['Requests instead of demands', 'Dialogue where both sets of needs count', 'Children, neighbors, animals, cooperatives and power shared instead of held over']
       },
       {
         id: 'governance', name: 'Governance', status: 'ready',
         blurb: 'Current laws and alternative visions (“lovernance”) for meeting needs. Broad concepts, but primarily about California.',
-        topics: ['Rights', 'Lovernance', 'Transformative justice', 'Incarceration'],
+        topics: ['Rights', 'Statutes', 'Incarceration'],
         looks: ['Lovernance, envisioned alternatives: the Commons and private lovernance, with the California laws that help and stand in the way', 'Rights you have by existing, in the US and California constitutions', 'Who controls California’s water, and how they’re chosen', 'Criminalization and incarceration: when meeting a need becomes a crime', 'Stairs for change: art, talk, public comment, representatives, organizing, voting, protest, and paths outside law']
       }
     ]

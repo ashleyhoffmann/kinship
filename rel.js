@@ -176,8 +176,9 @@
       if (s.next) h += '<a class="rel-nextunit k-' + KEYS[s.next[0]] + '" href="' + href(s.next[0], s.next[1]) + '"><span class="eyebrow">' + esc(s.next[2]) + '</span><b>' + esc(s.next[3]) + '</b><span>' + esc(s.next[4]) + '</span><i aria-hidden="true">→</i></a>';
       if (s.remember) h += '<p class="rel-remember"><span class="eyebrow">Remember</span>' + md(s.remember) + '</p>';
       if (s.src) h += '<p class="rel-src">' + s.src + '</p>';
-      if (s.opinion) h += mn().opinion('<p>' + md(s.opinion) + '</p>' + (s.opinionSrc ? '<p class="opinion-src">' + s.opinionSrc + '</p>' : ''));
-      return h + '</section>';
+      var op = s.opinion ? mn().opinion('<p>' + md(s.opinion) + '</p>' + (s.opinionSrc ? '<p class="opinion-src">' + s.opinionSrc + '</p>' : '')) : '';
+      if (!s.opinionAfter) h += op;
+      return h + '</section>' + (s.opinionAfter ? op : '');
     }).join('');
     function pg(x, dir) {
       if (!x) return dir === 'prev'

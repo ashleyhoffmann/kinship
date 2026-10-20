@@ -1,4 +1,4 @@
-/* California governance lens (tier 1 Choices, Beta): a lens on what stops people, legally, from meeting basic needs, who decides over shared needs,
+/* Governance lens (tier 1 Choices, Beta): a lens on what stops people, legally, from meeting basic needs, who decides over shared needs,
    and how to advocate in the systems we have (and outside them) for better ones. Starts with California water and criminalization;
    housing (who owns homes, including private equity) is next. Registers window.MN_LENS_VIEWS.governance. */
 (function () {
@@ -67,9 +67,9 @@
 
   function view() {
     var html =
-      '<section class="gv-hero"><span class="gv-pill">Tier 1 · Choices · Beta</span><h1 tabindex="-1">California governance</h1>' +
-      '<p class="gv-lede">California governance is one more lens on meeting needs: what helps or stops people, legally, from meeting their basic needs, and how to advocate for yourself in the systems we have while building better ones. Every shared need (water, air, land, a place to sleep) is governed by someone, often far from the people it touches. Some paths run through law; plenty don’t, like asking your church, a co-op or your block to meet a need directly. It starts with two visions of governance we can build, then gets into what the law currently is: the rights you hold just by existing, California water, and criminalization.</p>' +
-      '<p class="gv-note"><b>California first.</b> State law comes first, federal law where it applies everywhere, and county or city rules are named when they change things, like shelters, camping and owner-built homes. Laws are explained here, not advised on: for your own situation, free legal aid and the California Courts Self-Help Guide (selfhelp.courts.ca.gov) can help.</p></section>' +
+      '<section class="gv-hero"><span class="gv-pill">Tier 1 · Choices · Beta</span><h1 tabindex="-1">Governance</h1>' +
+      '<p class="gv-lede">Laws shape how people can meet their needs, and how to advocate within existing systems while we build better ones. <b>Every shared need (water, air, land, a place to sleep) is governed by someone,</b> often removed from the people their choices affect. It starts with a new vision of governance we can build, then gets into what the law currently is, including rights you hold just by existing.</p>' +
+      '<p class="gv-note">This points to some federal laws, state laws, and county or city rules. This is not legal advice. For your own situation, free legal aid or the California Courts Self-Help Guide (selfhelp.courts.ca.gov) can help.</p></section>' +
 
       sec(1, 'Lovernance', 'Envisioned alternatives: governance we can build, so the old way becomes obsolete.',
         '<p>A line often credited to Buckminster Fuller: “To change something, build a new model that makes the existing model obsolete.” Lovernance is governance rooted in love and kinship, and here are two models of it to build toward. Both start in the same place: the minimum isn’t what rent costs, it’s what it costs to meet needs directly. Rain caught on a tarp, seeds from a seed library and cuttings from a neighbor cost close to nothing (<a href="#lens-water/sources">Water: Sources</a>). The one thing that takes money is land, so that’s where governance comes in.</p>' +
@@ -136,7 +136,7 @@
         ul(['Who made this decision, and who could have?', 'Who benefits, and who pays?', 'Who was at the table, and who wasn’t?', 'Where is the data, and can anyone read it?', 'When is the next chance to weigh in?'])) +
 
       '<p class="gv-note"><b>Coming next · Housing:</b> who owns homes, including private equity firms that buy houses to rent out, and the paths from rentals to co-ops.</p>';
-    return { title: 'California governance · Kinship', html: mn().header('home') + '<div><a class="back" href="#">← Education</a></div><main class="gv">' + html + '</main>' + mn().footer() };
+    return { title: 'Governance · Kinship', html: mn().header('home') + '<div><a class="back" href="#">← Education</a></div><main class="gv">' + html + '</main>' + mn().footer() };
   }
 
   window.MN_LENS_VIEWS = window.MN_LENS_VIEWS || {};

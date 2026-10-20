@@ -1,6 +1,6 @@
 # Kinship
 
-Free, open education for meeting our needs, in six tiers: Choices, Roots, Protect, Nurture, Resilience and Craft. Tier 1, Choices, starts inside (Emotions), connects outward (Relationships), and then looks at the rules around us (California governance). Kinship is California-centered (FOUNDATION §9). Each lens is a way of looking at your home and life: what is quietly making you sick, what it costs, and what you can fix yourself.
+Free, open education for meeting our needs, in six tiers: Choices, Roots, Protect, Nurture, Resilience and Craft. Tier 1, Choices, starts inside (Emotions), connects outward (Relationships), and then looks at the rules around us (Governance). Kinship is California-centered (FOUNDATION §9). Each lens is a way of looking at your home and life: what is quietly making you sick, what it costs, and what you can fix yourself.
 
 Plain HTML, CSS and JavaScript. No build step, no server, no accounts.
 
@@ -11,7 +11,7 @@ Plain HTML, CSS and JavaScript. No build step, no server, no accounts.
 | --- | --- |
 | `index.html` | The page shell |
 | `style.css` | Look: colour tokens (light only), glass panels, layout. On phones (≤720px) each tier's cards scroll sideways one at a time inside the tier panel, with dots below (`tierDots` in `app.js`) |
-| `lenses.js` | The lens catalogue (`window.MN_TIERS`): tiers (each with one colour), lenses, status, copy. Tier 1 is Emotions, Relationships, California governance |
+| `lenses.js` | The lens catalogue (`window.MN_TIERS`): tiers (each with one colour), lenses, status, copy. Tier 1 is Emotions, Relationships, Governance |
 | `app.js` | Home, About (linked beside the Kinship logo in the header), lens pages, My tools (in the Plans menu), profile, the `PERSONALIZE` switch and the shared Go deeper block (`MN.deeper`); hash routes `#`, `#about`, `#plans`, `#favorites`, `#tools`, `#profile`, `#lens-<id>[/<sub>]` |
 | `FOUNDATION.md` | The principles behind every lens |
 | `rel-data.js` | Emotions and Relationships data: units (each with its `course`; `planned` units and sub-units show dashed with a short description), feelings wheel, needs, accusation words, examples, special situations |

@@ -5,7 +5,7 @@
 window.MN_TIERS = [
   {
     id: 'signals', num: 1, name: 'Choices', color: '#C2477F',
-    blurb: 'Connect with what’s happening inside you and others, and organize mutually-beneficial solutions.',
+    blurb: 'Signals of what’s happening inside yourself and others, and organizing mutually-beneficial solutions.',
     lenses: [
       {
         id: 'emotions', name: 'Emotions', status: 'ready',
@@ -20,9 +20,9 @@ window.MN_TIERS = [
         looks: ['Requests instead of demands', 'Dialogue where both sets of needs count', 'Children, neighbors, animals, cooperatives and power shared instead of held over']
       },
       {
-        id: 'governance', name: 'California governance', status: 'ready',
-        blurb: 'The laws that help or stop us meeting basic needs in California, how to advocate, and governance we can build instead.',
-        topics: ['Lovernance', 'Rights', 'Decision-makers', 'Criminalization', 'Stairs for change'],
+        id: 'governance', name: 'Governance', status: 'ready',
+        blurb: 'Current laws and alternative visions (“lovernance”) for meeting needs. Broad concepts, but primarily about California.',
+        topics: ['Rights', 'Lovernance', 'Transformative justice', 'Incarceration'],
         looks: ['Lovernance, envisioned alternatives: the Commons and private lovernance, with the California laws that help and stand in the way', 'Rights you have by existing, in the US and California constitutions', 'Who controls California’s water, and how they’re chosen', 'Criminalization and incarceration: when meeting a need becomes a crime', 'Stairs for change: art, talk, public comment, representatives, organizing, voting, protest, and paths outside law']
       }
     ]
@@ -62,16 +62,16 @@ window.MN_TIERS = [
     blurb: 'Keep every body and the home safe: shelter, cleaning, care and protection.',
     lenses: [
       {
-        id: 'shelter', name: 'Shelter', status: 'soon',
-        blurb: 'Temporary shelter: tents, tarps, vehicles and quick fixes for staying dry, warm and safe when home isn’t steady.',
-        topics: ['Tents & tarps', 'Vehicles', 'Warmth', 'Safe places'],
-        looks: ['Pitching a tarp or tent that sheds rain and wind', 'Living in a car, van or RV: sleep, air, heat and parking', 'Staying warm and dry with little: layers, ground insulation and condensation', 'Shelters, safe parking programs and legal places to stay']
-      },
-      {
         id: 'cleaning', name: 'Cleaning', status: 'ready',
         blurb: 'Water first, then a short ladder of gentle helpers for counters, stains and laundry, safe around kids and animals.',
         topics: ['Water', 'Gentle shelf', 'Surfaces', 'Stains', 'Laundry'],
         looks: ['Why water and a good cloth do most of the work', 'Soap, baking soda, vinegar and peroxide: what each is for, and what never mixes', 'Counters by material, boards, oven, bathroom, floors and ants', 'Which stain is which, and what lifts it', 'Laundry that is gentler on fabric, skin and water']
+      },
+      {
+        id: 'shelter', name: 'Shelter', status: 'soon',
+        blurb: 'Temporary shelter: tents, tarps, vehicles and quick fixes for staying dry, warm and safe when home isn’t steady.',
+        topics: ['Tents & tarps', 'Vehicles', 'Warmth', 'Safe places'],
+        looks: ['Pitching a tarp or tent that sheds rain and wind', 'Living in a car, van or RV: sleep, air, heat and parking', 'Staying warm and dry with little: layers, ground insulation and condensation', 'Shelters, safe parking programs and legal places to stay']
       },
       {
         id: 'identification', name: 'Identification', status: 'soon',
@@ -110,6 +110,12 @@ window.MN_TIERS = [
         looks: ['Where unwanted things gather: curbs, free groups, reuse centers and move-out days', 'Asking for, sharing and trading what others are letting go', 'Checking finds for bedbugs, mold, lead and recalls before they come home', 'Cleaning, fixing and storing so saved things stay useful (with Repair)']
       },
       {
+        id: 'household-tools', name: 'Tools', status: 'soon',
+        blurb: 'The toolbox, the cleaning shelf and the medicine cabinet: what tools do, and how to use them safely.',
+        topics: ['Tools', 'Chemistry', 'Safety'],
+        looks: ['The few tools that handle most jobs', 'Reading a label for what is actually in it', 'Pairs that must never meet, like bleach and ammonia']
+      },
+      {
         id: 'gardening', name: 'Growing', status: 'soon',
         blurb: 'Your teacher and planner: climate zone, soil, a 12-month plan, pruning, and new plants from cuttings.',
         topics: ['Learn', 'Plan', 'Prune', 'Seed saving'],
@@ -126,12 +132,6 @@ window.MN_TIERS = [
         blurb: 'Turn scraps into soil and handle waste safely, with the grid as the usual best bet and septic as an option.',
         topics: ['Scraps', 'Sewage', 'Worms'],
         looks: ['Compost and worm bins that don’t smell', 'How sewage and septic systems work, and why the grid is usually safest', 'Sending less of everything else away']
-      },
-      {
-        id: 'household-tools', name: 'Tools', status: 'soon',
-        blurb: 'The toolbox, the cleaning shelf and the medicine cabinet: what tools do, and how to use them safely.',
-        topics: ['Tools', 'Chemistry', 'Safety'],
-        looks: ['The few tools that handle most jobs', 'Reading a label for what is actually in it', 'Pairs that must never meet, like bleach and ammonia']
       },
       {
         id: 'weather', name: 'Weather', status: 'soon',
@@ -210,6 +210,12 @@ window.MN_TIERS = [
         blurb: 'Libraries, open tools and connection on one side; surveillance and attention-for-profit on the other.',
         topics: ['Needs it meets', 'Libraries', 'Surveillance', 'Open tools'],
         looks: ['Which needs a screen is meeting right now (learning, connection, help) and which it’s pulling from (rest, presence, play)', 'Public libraries: free internet, devices, classes and quiet, and the librarians who protect your privacy', 'Surveillance: what apps, ad trackers, data brokers and cameras collect, and the free settings that cut most of it', 'Open-source tools, repair and keeping old devices going, so digital life serves people instead of profit']
+      },
+      {
+        id: 'internet', name: 'Internet', status: 'last',
+        blurb: 'Accessing knowledge for free: library internet and computers, finding trustworthy information, and learning anything.',
+        topics: ['Libraries', 'Free access', 'Good sources'],
+        looks: ['Free internet, computers, printing and Wi-Fi at public libraries, and other places to get online', 'Free and low-cost ways to get connected at home', 'Finding trustworthy information, and checking where it came from', 'Free courses, ebooks, audiobooks and databases with a library card']
       },
       {
         id: 'death-seasons', name: 'Death & cycles', status: 'last',

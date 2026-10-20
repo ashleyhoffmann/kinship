@@ -411,3 +411,6 @@ h1[tabindex="-1"]:focus { outline: none; }
 /* Full-width text (FOUNDATION §7): text runs to the edge of its box, never stopping a third or half way across.
    No max-width in ch on text and no text-wrap: balance. Narrow only whole boxes (cards, pop-ups), never the lines inside them. */
 p, li, dd, dt, td, th, summary, figcaption, blockquote, label, h1, h2, h3, h4, h5, h6 { max-width: none; text-wrap: wrap; }
+
+/* Homepage cards are links, but their text can still be highlighted by dragging. */
+a.lens { -webkit-user-drag: none; user-select: text; -webkit-user-select: text; }

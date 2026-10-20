@@ -345,7 +345,7 @@
     var top = STATUS[l.status] ? '<span class="badge ' + l.status + '">' + STATUS[l.status] + '</span>' : '';
     var tag = linked ? 'a' : 'div';
     if (!linked) cls += ' is-static';
-    return '<' + tag + ' class="' + cls + '"' + (linked ? ' href="#lens-' + l.id + '"' : '') + ' style="--lc:' + l.color + '">' +
+    return '<' + tag + ' class="' + cls + '"' + (linked ? ' href="#lens-' + l.id + '" draggable="false"' : '') + ' style="--lc:' + l.color + '">' +
       '<div class="lens-head"><h3>' + esc(l.name) + '</h3>' + top + '</div>' +
       '<p>' + esc(l.blurb) + '</p>' +
       '<div class="topics">' + l.topics.map(esc).join(' · ') + '</div>' +
@@ -661,6 +661,11 @@
 
   var menuPicked = false;
   document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.nav-menu a')) menuPicked = true; }, true);
+  /* Card text can be highlighted: a click that ends a text selection inside a card doesn't open the unit. */
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest && e.target.closest('a.lens'), sel = window.getSelection();
+    if (card && sel && !sel.isCollapsed && card.contains(sel.anchorNode)) e.preventDefault();
+  }, true);
 
   function route() {
     var r = (location.hash || '').replace(/^#/, '');

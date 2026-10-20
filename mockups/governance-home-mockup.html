@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kinship · Governance card + Choices wording (mock-up)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* MOCK-UP: card text can be highlighted by dragging (desktop) without opening the unit. */
+a.lens { -webkit-user-drag: none; user-select: text; -webkit-user-select: text; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<noscript><p style="padding:24px">Kinship needs JavaScript turned on.</p></noscript>
+<script src="../lenses.js"></script>
+<script>
+/* MOCK-UP of lenses.js changes: tier 1 blurb, Governance name, blurb and topics. */
+(function () {
+  var t = window.MN_TIERS[0];
+  t.blurb = 'Signals of what’s happening inside yourself and others, and organizing mutually-beneficial solutions.';
+  var g = t.lenses.filter(function (l) { return l.id === 'governance'; })[0];
+  g.name = 'Governance';
+  g.blurb = 'Laws that help or stop us from meeting basic needs, and alternative visions (which I call “lovernance”) we can advocate for instead. Designed for California, but broad concepts.';
+  g.topics = ['Rights', 'Lovernance', 'Transformative justice', 'Incarceration'];
+})();
+</script>
+<script src="../app.js"></script>
+<script>
+/* MOCK-UP of app.js change: cards aren't link-draggable, and a click that ends a text selection doesn't open the unit. */
+(function () {
+  function fix() { document.querySelectorAll('a.lens').forEach(function (a) { a.setAttribute('draggable', 'false'); }); }
+  new MutationObserver(fix).observe(document.getElementById('app'), { childList: true, subtree: true }); fix();
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest && e.target.closest('a.lens'), s = window.getSelection();
+    if (card && s && !s.isCollapsed && card.contains(s.anchorNode)) e.preventDefault();
+  }, true);
+})();
+</script>
+</body>
+</html>

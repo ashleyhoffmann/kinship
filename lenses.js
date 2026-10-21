@@ -5,25 +5,25 @@
 window.MN_TIERS = [
   {
     id: 'signals', num: 1, name: 'Choices', color: '#C2477F',
-    blurb: 'Signals of what’s happening inside yourself and others, and organizing mutually-beneficial solutions.',
+    blurb: 'Listen for signals of aliveness inside yourself and others; organize mutually-beneficial solutions.',
     lenses: [
       {
         id: 'emotions', name: 'Emotions', status: 'ready',
         blurb: 'Your rich inner world.',
-        topics: ['Feelings', 'Needs', 'Who you are'],
+        topics: ['Conscious awareness', 'Feelings', 'Needs', 'Values'],
         looks: ['Feelings as signals: what’s alive inside of you, pain included', 'The universal needs beneath every feeling and strategy', 'Who you are underneath: conscious awareness and choice, the egoic body that remembers, mind-body pain relationships, and other mental faculties']
       },
       {
         id: 'relationships', name: 'Relationships', status: 'ready',
         blurb: 'Connecting inner worlds.',
-        topics: ['Dialogue', 'Requests', 'Conflict resolution'],
+        topics: ['Dialogue', 'Judgment', 'Conflict resolution', 'Obedience'],
         looks: ['Requests instead of demands', 'Dialogue where both sets of needs count', 'Children, neighbors, animals, cooperatives and power shared instead of held over']
       },
       {
         id: 'governance', name: 'Governance', status: 'ready',
-        blurb: 'Current laws and alternative visions (“lovernance”) for meeting needs. Broad concepts, but primarily about California.',
-        topics: ['Rights', 'Statutes', 'Incarceration'],
-        looks: ['Lovernance, envisioned alternatives: the Commons and private lovernance, with the California laws that help and stand in the way', 'Rights you have by existing, in the US and California constitutions', 'Who controls California’s water, and how they’re chosen', 'Criminalization and incarceration: when meeting a need becomes a crime', 'Stairs for change: art, talk, public comment, representatives, organizing, voting, protest, and paths outside law']
+        blurb: 'Current social rules and alternative visions (“lovernance”) to meet needs. Broad concepts, but tailored to California.',
+        topics: ['Lovernance', 'Rights', 'Power', 'Rules', 'Incarceration'],
+        looks: ['Lovernance, envisioned alternatives: Collectivernance and Private lovernance, with the California laws that help and stand in the way', 'Rights you have by existing, in the US and California constitutions', 'Who controls California’s water, and how they’re chosen', 'Criminalization and incarceration: when meeting a need becomes a crime', 'Stairs for change: art, talk, public comment, representatives, organizing, voting, protest, and paths outside law']
       }
     ]
   },
@@ -34,25 +34,25 @@ window.MN_TIERS = [
       {
         id: 'water', name: 'Water', status: 'ready',
         blurb: 'Five steps for any water situation: use, source, container, purify, test. Your numbers carry from one to the next, at every scale from a studio to a farm to a sidewalk.',
-        topics: ['Thinking', 'Use', 'Sources', 'Containers', 'Purify', 'Test'],
+        topics: ['Uses', 'Sources', 'Containers', 'Purify', 'Test'],
         looks: ['The five steps, and designing your water loop', 'How much water your household uses, task by task, and how clean each needs to be', 'Sources side by side, from bottles and 211 to rain, springs and wells', 'How much to keep, and containers that keep it good', 'Making each source clean enough for the job', 'Knowing it’s safe, and what to test for your sources']
       },
       {
         id: 'food', name: 'Food', status: 'ready',
         blurb: 'Find, cleanse, rehydrate, cook and store plant foods safely, soften them for sick days, and feed your animals.',
-        topics: ['Gather', 'Cleanse', 'Rehydrate', 'Cook', 'Store', 'Gentle', 'Companions'],
+        topics: ['Sources', 'Clean', 'Rehydrate', 'Cook', 'Store', 'Bodily fuels'],
         looks: ['Free, shared, bought, grown and foraged food', 'Washing produce, greens, grains and rice well', 'Soaking beans, grains and dried foods, and sprouting', 'Safe heat, little fuel, cooking with kids and a full plate', 'Cold, pantry, leftovers, preserving, and the animals who visit', 'Babies’ first foods, soft textures for sore mouths, and food as medicine', 'What companion animals eat in nature, kibble and raw, and plant-based options']
       },
       {
         id: 'air', name: 'Air & temperature', status: 'ready',
         blurb: 'What’s in the air, reading it around fires and storms, and how ventilation, vacuuming and shade clear it.',
-        topics: ['What’s in it', 'Ventilation', 'Dust', 'Heat & smoke', 'Sun & temperature'],
+        topics: ['Quality', 'Sunlight', 'Heat', 'Ventilation', 'Dust', 'Smoke'],
         looks: ['Particles, gases, living things, and what disasters add to the air', 'Moving air to cleanse it: windows, fans, filters and damp', 'Vacuuming and damp cleaning, new things, asbestos and lead', 'Cooking, gas, nonstick, smoke and solvents, and companions’ lungs', 'Heat waves, shade, cold, and sun on skin']
       },
       {
         id: 'toxins', name: 'Poisons', status: 'ready',
         blurb: 'See what is in the pan, the can, the couch and the ground, and swap what matters most first, one at a time.',
-        topics: ['Exposures', 'Plastics', 'In the home', 'Pesticides', 'Soil', 'Living toxins', 'Neighbors'],
+        topics: ['Exposures', 'Plastics', 'Cleaners', 'Polluters', 'Pesticides', 'Soil', 'Mold & plants'],
         looks: ['How exposures work, and what a healthy home is made of', 'Plastics, when a tarp is the safer bet, can linings, PFAS and pans', 'Cleaners, fragrance, furniture, dust and washing produce', 'Glyphosate, treated wood, potting mix and drift', 'Lead and legacy metals, tested once in one batch', 'Molds, algal blooms and plants that harm companions', 'Freeways, factories, wells, fire and changing it together']
       }
     ]
@@ -64,7 +64,7 @@ window.MN_TIERS = [
       {
         id: 'cleaning', name: 'Cleaning', status: 'ready',
         blurb: 'Water first, then a short ladder of gentle helpers for counters, stains and laundry, safe around kids and animals.',
-        topics: ['Water', 'Gentle shelf', 'Surfaces', 'Stains', 'Laundry'],
+        topics: ['Water', 'Gentle options', 'Surfaces', 'Stains', 'Laundry'],
         looks: ['Why water and a good cloth do most of the work', 'Soap, baking soda, vinegar and peroxide: what each is for, and what never mixes', 'Counters by material, boards, oven, bathroom, floors and ants', 'Which stain is which, and what lifts it', 'Laundry that is gentler on fabric, skin and water']
       },
       {

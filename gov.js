@@ -38,7 +38,7 @@
       '<h4>How needs get met</h4>' + ul(needs) +
       '<h4>California today</h4>' + law(rows) + '</article>';
   }
-  var COMMONS = vision(1, 'The Commons', 'Land shared and tended together.',
+  var COMMONS = vision(1, 'Collectivernance', 'Land shared and tended together.',
     'A front door anyone can walk through, especially people with nowhere else to go. It isn’t a separate place for poor people; it’s a commons open to all, the same way everyone sees the same table of water sources.',
     ['<b>Day one:</b> a bed, water and food. Rest comes first, and nobody is asked to work at the door.',
      '<b>The land</b> is held by a community land trust, which pays the land fee for everyone. Members give time instead of money.',
@@ -71,9 +71,9 @@
       '<p class="gv-lede">Laws shape how people can meet their needs, and how to advocate within existing systems while we build better ones. <b>Every shared need (water, air, land, a place to sleep) is governed by someone,</b> often removed from the people their choices affect. It starts with a new vision of governance we can build, then gets into what the law currently is, including rights you hold just by existing.</p>' +
       '<p class="gv-note">This points to some federal laws, state laws, and county or city rules. This is not legal advice. For your own situation, free legal aid or the California Courts Self-Help Guide (selfhelp.courts.ca.gov) can help.</p></section>' +
 
-      sec(1, 'Lovernance', 'Envisioned alternatives: governance we can build, so the old way becomes obsolete.',
-        '<p>A line often credited to Buckminster Fuller: “To change something, build a new model that makes the existing model obsolete.” Lovernance is governance rooted in love and kinship, and here are two models of it to build toward. Both start in the same place: the minimum isn’t what rent costs, it’s what it costs to meet needs directly. Rain caught on a tarp, seeds from a seed library and cuttings from a neighbor cost close to nothing (<a href="#lens-water/sources">Water: Sources</a>). The one thing that takes money is land, so that’s where governance comes in.</p>' +
-        '<p>Both are built on kinship. Nobody charges their sister rent: what we give flows from relationship and need, and care reaches outward, from our household to neighbors and strangers, animals and plants included.</p>' +
+      sec(1, 'Lovernance', '<b><i>“To change something, build a new model that makes the existing model obsolete.”</i></b> Credited to Buckminster Fuller.',
+        '<p>I’m calling my envisioned alternatives lovernance. Every situation is case-by-case, but here are the two generalized models (“Collectivernance” for people who want more support, and “Private lovernance” for people whose needs are basically met). Both are built on kinship; nobody charges their sister rent. What we give flows from relationship and need, and care reaches outward (especially once our needs feel met), from our household to loved ones, neighbors, and strangers, including animals, plants, and land.</p>' +
+        '<p>Both start in the same place: the minimum isn’t what rent costs, it’s what it costs to meet needs directly. Rain caught on a tarp, seeds from a seed library and cuttings from a neighbor cost close to nothing (<a href="#lens-water/sources">Water: Sources</a>). The one thing that takes money is land, so that’s where governance comes in.</p>' +
         '<div class="gv-visions">' + COMMONS + LOVE + '</div>' +
         '<p class="gv-src">Sources: <i>City of Santa Barbara v. Adamson</i>, 27 Cal.3d 123 (1980); Cal. Rev. &amp; Tax. Code §402.1; California Land Conservation Act of 1965 (Williamson Act); Rainwater Capture Act of 2012; Cal. Code Regs. tit. 25, Limited Density Owner-Built Rural Dwellings; Cal. Const. art. XIII A (Prop 13); SB 1079 (2020); San Francisco Administrative Code ch. 41B (COPA); AB 816, California Worker Cooperative Act (2015); 26 U.S.C. §453; Elinor Ostrom, <i>Governing the Commons</i> (1990); Henry George, <i>Progress and Poverty</i> (1879); Edgar S. Cahn, <i>No More Throw-Away People</i> (2000).</p>') +
 

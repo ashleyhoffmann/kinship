@@ -1,7 +1,7 @@
 /* Relationships lens: course data (skill tree, feelings, needs, translator, examples).
    Built on Marshall B. Rosenberg's Nonviolent Communication. Feelings and needs lists
    are adapted from the Center for Nonviolent Communication's inventories (cnvc.org).
-   Emotions: feel, need, soil (planned). Relationships: request, dialogue, then special situations. */
+   Emotions: observe (planned), feel, need, soil (planned). Relationships: request, dialogue, then special situations. */
 window.MN_REL = (function () {
 
   /* ---------- Needs (universal: no person, place, object or time inside) ---------- */
@@ -259,7 +259,15 @@ window.MN_REL = (function () {
   /* ---------- Two courses (Emotions, then Relationships), one page per unit; sub-units are sections on that page.
      course: which lens the unit lives in. planned: shown dashed, with a short description, until it's written. ---------- */
   var UNITS = [
-    { id: 'feel', course: 'emotions', num: 1, word: 'Feel', sub: 'what’s alive inside of you', next: ['universal', 'Next unit · 2.1', 'Universal needs', 'The roots beneath every feeling: needs every person shares.'], intro: 'Feelings are messages about needs. Learn to listen to them precisely and without blame (because accusations obscure our solution options).\nIf you’re like most people, your physical needs probably aren’t all met, and without hope of resolution, I fully empathize that facing existing pains may just feel painful. However, facing your problems is the first step to meeting your needs.',
+    { id: 'observe', course: 'emotions', num: 1, word: 'Observe', sub: 'it’s safe to look within', planned: true,
+      intro: 'Inward attention: presence, choice, and pauses to look within. It’s safe to look, and whatever you find, we’ll meet the needs together.',
+      subs: [
+        { id: 'awareness', title: 'Conscious awareness', short: 'Presence: noticing what’s here, without judgment.', planned: true },
+        { id: 'choices', title: 'Choices', short: 'Free will lives in conscious choice. We won’t always like our choices, but we’re always choosing, or letting autopilot choose.', planned: true },
+        { id: 'pauses', title: 'Pauses for self-reflection', short: 'Small stops to look within.', planned: true },
+        { id: 'meditation', title: 'Meditation', short: 'Short tips for staying presently aware a little longer: connected to what’s true, observing without judgment.', planned: true }
+      ] },
+    { id: 'feel', course: 'emotions', num: 2, word: 'Feel', sub: 'what’s alive inside of you', next: ['universal', 'Next unit · 3.1', 'Universal needs', 'The roots beneath every feeling: needs every person shares.'], intro: 'Feelings are messages about needs. Learn to listen to them precisely and without blame (because accusations obscure our solution options).\nIf you’re like most people, your physical needs probably aren’t all met, and without hope of resolution, I fully empathize that facing existing pains may just feel painful. However, facing your problems is the first step to meeting your needs.',
       subs: [
         { id: 'signals', title: 'Emotions are messengers', short: 'Every feeling points to a need, met or not.',
           key: ['Feelings aren’t good or bad. Each one is information.',
@@ -309,7 +317,7 @@ window.MN_REL = (function () {
             '**Ask for help when it’s too heavy.** If despair turns into not wanting to be here, please reach out to someone right now. In the US you can call or text 988, the Suicide & Crisis Lifeline.'],
           remember: 'Grieving is a need that wants to be heard as valid, not fought as a burden.' }
       ] },
-    { id: 'need', course: 'emotions', num: 2, word: 'Identify the need', sub: 'the roots beneath', intro: 'Underneath every feeling is a universal need. Find it, and you have more than one way to meet it.',
+    { id: 'need', course: 'emotions', num: 3, word: 'Identify the need', sub: 'the roots beneath', intro: 'Underneath every feeling is a universal need. Find it, and you have more than one way to meet it.',
       subs: [
         { id: 'universal', title: 'Universal needs', short: 'Food, safety, rest, freedom, belonging…',
           key: ['Every person shares the same needs. We may experience them at different times, in different ways.',
@@ -330,13 +338,13 @@ window.MN_REL = (function () {
             'Land on the need, and let it matter before you solve anything.'],
           tool: 'finder', remember: 'Feeling → source → need.' }
       ] },
-    { id: 'soil', course: 'emotions', num: 3, word: 'Who you are', sub: 'what’s going on down there', planned: true,
-      intro: 'The soil beneath the roots: conscious awareness and choice, the egoic body that remembers, how mind and body shape pain, and your other mental faculties.',
+    { id: 'soil', course: 'emotions', num: 4, word: 'Ego identity', sub: 'physical self through time', planned: true,
+      intro: 'The soil beneath the roots: ego identity through time, your other mental faculties, the beliefs, values and self-judgments we carry, and how mind and body shape pain.',
       subs: [
-        { id: 'chooser', title: 'Conscious awareness and choice', short: 'Present awareness makes choices, never as blame: “I have to go to work” becomes “I choose to, because I want a home and food.”', planned: true },
-        { id: 'remembers', title: 'The egoic body that remembers', short: 'The feeling body carries memories and beliefs, and tries to protect you from pain it has known.', planned: true },
-        { id: 'mindbody', title: 'Mind-body pain relationships', short: 'How mind and body talk about pain: memories, protection, and signals the brain learns to send.', planned: true },
-        { id: 'tools', title: 'Other mental faculties', short: 'Imagination, memory, planning and mental math.', planned: true }
+        { id: 'memories', title: 'Memories', short: 'Ego identity through time.', planned: true },
+        { id: 'tools', title: 'Other mental faculties', short: 'Imagination, memory, planning and mental math.', planned: true },
+        { id: 'beliefs', title: 'Beliefs, values, & self-judgments', short: 'The beliefs and values we collect, and the self-judgments that come with them. Beliefs frame our choices: they’re guideposts.', planned: true },
+        { id: 'mindbody', title: 'Mind-body pain relationships', short: 'How mind and body talk about pain: memories, protection, and signals the brain learns to send.', planned: true }
       ] },
     { id: 'request', course: 'relationships', num: 1, word: 'Request', sub: 'ask, don’t demand', intro: 'Once you know your need, say it out loud: kindly, clearly, and in a way the other person can say yes or no to.',
       subs: [

@@ -1,7 +1,7 @@
 /* Tier 1 Choices: two courses from one file, Emotions (inside) then Relationships (between).
    Overviews, one page per unit (sub-units are sections), special situations, and the tools
    (feelings wheel, needs, accusation translator, need-or-strategy, Identify a need, Communicate).
-   Routes: #lens-emotions[/<unit>[/<sub>]]   (unit: feel | need | soil)
+   Routes: #lens-emotions[/<unit>[/<sub>]]   (unit: observe | feel | need | soil)
            #lens-relationships[/<unit>[/<sub>]]   (unit: request | dialogue | special[/<id>])
    A unit opened under the other course's address (old links like #lens-relationships/feel) is shown in its own course
    and the address is corrected. The sidebar shows both courses. Registers window.MN_LENS_VIEWS.emotions and .relationships;
@@ -13,11 +13,11 @@
   var NAMES = { emotions: 'Emotions', relationships: 'Relationships' };
   var BASE = BASES.relationships;
   var KEY = 'meeting-needs.rel.v3';
-  var ALIAS = { 'feel/narrow': 'need/identify', 'request/observe': 'request/sharing', 'request/kindness': 'request/anticipating', 'dialogue/listening': 'dialogue/ask', 'dialogue/generous': 'dialogue/ask', 'dialogue/gratitude': 'dialogue/narrowing', animals: 'special/captive', 'special/animals': 'special/captive', finder: 'need/identify', identify: 'need/identify', dialogue: 'dialogue/communicate', conflict: 'dialogue/communicate', communicate: 'dialogue/communicate' };
+  var ALIAS = { 'feel/narrow': 'need/identify', 'request/observe': 'request/sharing', 'request/kindness': 'request/anticipating', 'dialogue/listening': 'dialogue/ask', 'dialogue/generous': 'dialogue/ask', 'dialogue/gratitude': 'dialogue/narrowing', animals: 'special/captive', 'special/animals': 'special/captive', finder: 'need/identify', identify: 'need/identify', dialogue: 'dialogue/communicate', 'soil/chooser': 'soil/memories', 'soil/remembers': 'soil/beliefs', conflict: 'dialogue/communicate', communicate: 'dialogue/communicate' };
 
   var UNIT = {}, FAMILY_OF = {}, FAUX = {}, SOURCE = {};
   /* k: the colour key for each unit (rel.css). SEQ: every unit in reading order, across both courses. */
-  var KEYS = { feel: 'feel', need: 'need', soil: 'soil', request: 'request', dialogue: 'dialogue' };
+  var KEYS = { observe: 'observe', feel: 'feel', need: 'need', soil: 'soil', request: 'request', dialogue: 'dialogue' };
   var COURSE_UNITS = { emotions: [], relationships: [] }, SEQ = D.UNITS.slice();
   D.UNITS.forEach(function (u) { UNIT[u.id] = u; u.k = KEYS[u.id] || u.id; COURSE_UNITS[u.course].push(u); });
   ['unmet', 'met'].forEach(function (m) {
@@ -62,17 +62,18 @@
   function learned(id) { return !!prog.learned[id]; }
 
   /* ---------- sidebar: both Choices courses, inside then outside ----------
-     The current course is open; the other is collapsed to its unit names, so the flow from inner to outer stays visible. */
+     The current course is open; the other is collapsed to its unit names, so the flow from inner to outer stays visible.
+     Sub-units show only under the unit you're in (none on the overviews), each in a small numbered circle (2.1, 2.2 …). */
   function vtUnit(u, cur) {
     var on = cur === u.id;
     return '<li class="rel-vt-unit k-' + u.k + ' u-' + u.id + (on ? ' cur' : '') + (learned(u.id) ? ' done' : '') + (u.planned ? ' planned' : '') + '">' +
       '<a class="rel-vt-head" href="' + href(u.id) + '"' + (on ? ' aria-current="page"' : '') + '>' +
       '<span class="rel-vt-dot" aria-hidden="true">' + (learned(u.id) ? '✓' : u.num) + '</span>' +
       '<span><b>' + esc(u.word) + '</b><small>' + esc(u.sub) + (u.planned ? ' · planned' : '') + '</small></span></a>' +
-      '<ol class="rel-vt-subs">' + u.subs.map(function (s) {
-        return '<li><a href="' + href(u.id, s.id) + '" data-spy="' + u.id + '-' + s.id + '"' + (s.isTool ? ' class="tool"' : '') + '>' + esc(s.title) +
+      (on ? '<ol class="rel-vt-subs">' + u.subs.map(function (s, j) {
+        return '<li><a href="' + href(u.id, s.id) + '" data-spy="' + u.id + '-' + s.id + '" class="has-n' + (s.isTool ? ' tool' : '') + '"><span class="rel-vt-n" aria-hidden="true">' + u.num + '.' + (j + 1) + '</span>' + esc(s.title) +
           (s.isTool ? ' <span class="rel-tooltag">tool</span>' : '') + (s.planned && !u.planned ? ' <span class="rel-soon">planned</span>' : '') + '</a></li>';
-      }).join('') + '</ol></li>';
+      }).join('') + '</ol>' : '') + '</li>';
   }
   function sidebar(cur, course) {
     var wide = window.matchMedia && window.matchMedia('(min-width: 900px)').matches;
@@ -83,7 +84,7 @@
     }
     var special = '<li class="rel-vt-unit k-apps u-special' + (cur === 'special' ? ' cur' : '') + '"><a class="rel-vt-head" href="' + BASE + '/special"' + (cur === 'special' ? ' aria-current="page"' : '') + '>' +
       '<span class="rel-vt-dot" aria-hidden="true">3</span><span><b>Special situations</b><small>the people, animals and places in your life</small></span></a>' +
-      '<ol class="rel-vt-subs">' + D.APPS.map(function (a) { return '<li><a href="' + spHref(a.id) + '">' + esc(a.name) + '</a></li>'; }).join('') + '</ol></li>';
+      (cur === 'special' ? '<ol class="rel-vt-subs">' + D.APPS.map(function (a) { return '<li><a href="' + spHref(a.id) + '">' + esc(a.name) + '</a></li>'; }).join('') + '</ol>' : '') + '</li>';
     return '<nav class="rel-nav" aria-label="Choices courses: Emotions and Relationships">' +
       '<details class="rel-nav-wrap"' + (wide ? ' open' : '') + '><summary class="rel-nav-head"><span class="eyebrow">Tier 1 · Choices</span><b>Inside, then outside</b></summary>' +
       block('emotions', 'Inside') +
@@ -109,6 +110,12 @@
     return '<a class="rel-tt k-' + u + '" href="' + href(u, sub) + '"><span class="eyebrow">' + eyebrow + '</span><b>' + name + '</b><span>' + text + '</span><i>Open →</i></a>';
   }
   var SPROUT = '<svg class="rel-sprout" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 33V15" stroke="#4E8A3E" stroke-width="2.2" stroke-linecap="round"/><path d="M17 19c-1-6-6-9-12-8 1 6 6 9 12 8z" fill="#8CC07A" stroke="#4E8A3E" stroke-width="1.6"/><path d="M17 15c1-7 6-11 13-10-1 7-6 11-13 10z" fill="#A9D396" stroke="#4E8A3E" stroke-width="1.6"/></svg>';
+  /* Looking: an eye with golden rays gazing down toward the plants. Black line work, no iris colour. */
+  var EYE = '<svg class="rel-eye" width="44" height="58" viewBox="0 0 44 58" aria-hidden="true">' +
+    '<g stroke="#E0A526" stroke-width="2" stroke-linecap="round" opacity="0.9"><path d="M22 28V55"/><path d="M17 28L9 52"/><path d="M27 28L35 52"/><path d="M13 26L2 44"/><path d="M31 26L42 44"/></g>' +
+    '<path d="M3 16Q22 1 41 16Q22 31 3 16Z" fill="#fff" stroke="#1E1E1E" stroke-width="1.8" stroke-linejoin="round"/>' +
+    '<circle cx="22" cy="16" r="6.6" fill="#1E1E1E"/>' +
+    '<g stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round"><path d="M8.6 12.6L4.7 8.5"/><path d="M14.4 10L12.3 5"/><path d="M22 8.6V3"/><path d="M29.6 10L31.7 5"/><path d="M35.4 12.6L39.3 8.5"/></g></svg>';
   function coursePager(prevH, prevL, nextH, nextL) {
     return '<nav class="rel-pager" aria-label="Courses">' +
       (prevH ? '<a class="rel-pg prev" href="' + prevH + '"><small>← Previous course</small><b>' + prevL + '</b></a>' : '<a class="rel-pg prev" href="#"><small>← Back to</small><b>Education</b></a>') +
@@ -116,9 +123,9 @@
   }
   /* Go deeper credits live in app.js (SHOULDERS) so the Resources page and every course share one list. */
 
-  /* ---------- Emotions overview: plants, roots, soil ----------
-     Going down is going deeper, so the units read 1 → 3 top to bottom: feelings are what’s alive inside you (the plants),
-     needs are the roots, and the soil is who you are underneath. */
+  /* ---------- Emotions overview: looking, plants, roots, soil ----------
+     Going down is going deeper, so the units read 1 → 4 top to bottom: inward attention shines down from above (looking),
+     feelings are what’s alive inside you (the plants), needs are the roots, and the soil is ego identity underneath. */
   function viewEmotions() {
     var U = COURSE_UNITS.emotions;
     return {
@@ -126,17 +133,18 @@
       html: layout(null,
         '<section class="rel-hero"><span class="eyebrow">Tier 1 · Choices · Course 1 of 2</span><h1 tabindex="-1">Emotions</h1>' +
         '<p class="lede">Your rich inner world. Feelings are what’s alive inside of you: anger, love and pain are all asking to be tended. Beneath them are the roots, what you need, and beneath those the soil: who you are, and what’s going on down there.</p></section>' +
-        '<section class="rel-depth" aria-label="Course map: plants, roots and soil">' +
-          '<div class="rel-plants">' + SPROUT + '<div class="rel-plants-in"><p class="rel-layer"><b>Plants · what shows</b><span>Anger, love, pain: signals asking to be tended. Others can see them too.</span></p>' + card(U[0]) + tool('feel', 'wheel', 'Inner tool', 'Feelings wheel', 'Spin to the feeling that fits, and see the needs it may point to.') + '</div></div>' +
+        '<section class="rel-depth" aria-label="Course map: looking, plants, roots and soil">' +
+          '<div class="rel-look">' + EYE + '<div class="rel-plants-in"><p class="rel-layer"><b>Looking · inward attention</b><span>Presence</span></p>' + card(U[0]) + '</div></div>' +
+          '<div class="rel-plants">' + SPROUT + '<div class="rel-plants-in"><p class="rel-layer"><b>Plants · what shows</b><span>Emotional signals asking to be tended. Others can see them too.</span></p>' + card(U[1]) + tool('feel', 'wheel', 'Inner tool', 'Feelings wheel', 'Spin to the feeling that fits, and see the needs it may point to.') + '</div></div>' +
           '<div class="rel-ground"><div class="rel-gauge" aria-hidden="true"><span>Deeper</span></div>' +
-            '<p class="rel-layer"><b>Roots · what you need</b><span>Universal, beneath every strategy.</span></p>' + card(U[1]) +
+            '<p class="rel-layer"><b>Roots · what you need</b><span>Universal, beneath every strategy.</span></p>' + card(U[2]) +
             tool('need', 'identify', 'Inner tool', 'Identify a need', 'From a big feeling to the word that fits and the need underneath.') +
-            '<p class="rel-layer"><b>Soil · who you are</b><span>What’s going on down there.</span></p>' + card(U[2]) +
+            '<p class="rel-layer"><b>Soil · ego identity</b><span>What’s going on down there.</span></p>' + card(U[3]) +
           '</div></section>' +
         mn().deeper('People whose work shaped this course, and where to go for more.', mn().credits('emotions')) +
-        /* Next step from the overview is Unit 1 (feelings), not the Relationships course. */
-        '<nav class="rel-pager" aria-label="Units"><a class="rel-pg prev" href="#"><small>← Back to</small><b>Education</b></a>' +
-          '<a class="rel-pg next k-' + U[0].k + '" href="' + href(U[0].id) + '"><small>Next unit →</small><b>' + U[0].num + ' · ' + esc(U[0].word) + '</b></a></nav>', 'emotions')
+        /* Next step from the overview is the first written unit (Feel while Observe is planned), not the Relationships course. */
+        (function (F) { return '<nav class="rel-pager" aria-label="Units"><a class="rel-pg prev" href="#"><small>← Back to</small><b>Education</b></a>' +
+          '<a class="rel-pg next k-' + F.k + '" href="' + href(F.id) + '"><small>Next unit →</small><b>' + F.num + ' · ' + esc(F.word) + '</b></a></nav>'; })(U.filter(function (x) { return !x.planned; })[0] || U[0]), 'emotions')
     };
   }
 

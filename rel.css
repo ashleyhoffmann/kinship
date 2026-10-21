@@ -1,8 +1,9 @@
 /* Relationships lens (light theme only; no backdrop blur on the long pages, to keep scrolling light).
    Soft, light concept colours (no hard lines):
-   feel = lavender, need = baby blue, request = baby pink, dialogue = green, applications = sand.
+   observe = warm amber, feel = lavender, need = baby blue, request = baby pink, dialogue = green, applications = sand.
    --k-bg: page wash · --k-mid: selected / filled · --k-edge: soft border · --k-dot: small accents. */
 :root {
+  --c-obs-bg:  #FFF8E8; --c-obs-mid:  #FCE9BF; --c-obs-edge:  #F6DA9C; --c-obs-dot:  #D9A13A;
   --c-feel-bg: #F6F3FD; --c-feel-mid: #E7E0FA; --c-feel-edge: #DDD4F6; --c-feel-dot: #A898E0;
   --c-need-bg: #F1F8FE; --c-need-mid: #DCEDFB; --c-need-edge: #CBE3F7; --c-need-dot: #86BCE6;
   --c-req-bg:  #FEF4F8; --c-req-mid:  #FBE3EE; --c-req-edge:  #F6D3E3; --c-req-dot:  #EDAECB;
@@ -11,6 +12,7 @@
   --k-bg: var(--glass-faint); --k-mid: var(--chip); --k-edge: var(--line); --k-dot: var(--muted);
   --soft-line: rgba(23, 36, 28, 0.08);
 }
+.k-observe { --k-bg: var(--c-obs-bg); --k-mid: var(--c-obs-mid); --k-edge: var(--c-obs-edge); --k-dot: var(--c-obs-dot); }
 .k-feel { --k-bg: var(--c-feel-bg); --k-mid: var(--c-feel-mid); --k-edge: var(--c-feel-edge); --k-dot: var(--c-feel-dot); }
 .k-need { --k-bg: var(--c-need-bg); --k-mid: var(--c-need-mid); --k-edge: var(--c-need-edge); --k-dot: var(--c-need-dot); }
 .k-request { --k-bg: var(--c-req-bg); --k-mid: var(--c-req-mid); --k-edge: var(--c-req-edge); --k-dot: var(--c-req-dot); }
@@ -42,7 +44,7 @@ a.rel-back { text-decoration: none; }
 .rel-nav-over:hover, .rel-nav-over[aria-current="page"] { background: var(--chip); }
 .rel-vt { list-style: none; margin: 0; padding: 0; position: relative; }
 .rel-vt::before { content: ''; position: absolute; left: 21px; top: 22px; bottom: 22px; width: 2px; border-radius: 2px;
-  background: linear-gradient(var(--c-feel-mid), var(--c-need-mid), var(--c-req-mid), var(--c-dlg-mid)); }
+  background: linear-gradient(var(--c-obs-mid), var(--c-feel-mid), var(--c-need-mid), var(--c-req-mid), var(--c-dlg-mid)); }
 .rel-vt-unit { position: relative; padding: 4px 0; }
 .rel-vt-head { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 4px 8px; border-radius: 16px; color: var(--ink); text-decoration: none; }
 .rel-vt-head:hover { background: var(--k-bg); }
@@ -58,6 +60,13 @@ a.rel-back { text-decoration: none; }
 .rel-vt-subs a:hover { background: var(--k-bg); color: var(--ink); }
 .rel-vt-subs a.reading { background: var(--k-bg); color: var(--ink); font-weight: 600; }
 .rel-vt-subs a.reading::before { background: var(--k-dot); }
+/* Numbered sub-units (2.1, 2.2 …): open circles in the unit colour, on the tree line */
+.rel-vt-subs a.has-n::before { display: none; }
+.rel-vt-n { position: absolute; left: -27px; top: 50%; width: 26px; height: 26px; margin-top: -13px; box-sizing: border-box; border-radius: 50%; display: grid; place-items: center;
+  background: #fff; border: 1.5px solid var(--k-dot); font: 500 10px var(--f-mono); letter-spacing: -0.02em; color: var(--ink-2); }
+.rel-vt-subs a.reading .rel-vt-n { background: var(--k-mid); color: var(--ink); }
+.rel-vt-unit.planned .rel-vt-n { border-style: dashed; }
+.rel-vt-subs a.has-n { min-height: 34px; }
 .rel-tooltag { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 7px; border-radius: 999px; background: var(--k-mid); color: var(--ink-2); font-weight: 400; vertical-align: 2px; }
 .rel-vt-apps { margin: 12px 4px 0; padding: 12px 12px; border-radius: 16px; border: 1.5px dashed var(--c-app-edge); background: var(--c-app-bg); display: flex; flex-direction: column; gap: 4px; }
 .rel-vt-apps .eyebrow { font-size: 10.5px; }
@@ -406,6 +415,11 @@ a.rel-back { text-decoration: none; }
 .rel-depth { border-radius: 24px; overflow: hidden; border: 1px solid var(--soft-line); box-shadow: 0 12px 40px rgba(30, 60, 30, 0.07); }
 .rel-plants { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; align-items: end; padding: 14px 16px 18px 10px; background: linear-gradient(180deg, #F1F7F2, #E8F2EA); }
 .rel-plants .rel-sprout { margin-bottom: -18px; }
+/* Looking: warm sunlight above the plants, an eye gazing down */
+.rel-look { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 6px; align-items: start; padding: 14px 16px 16px 6px; background: linear-gradient(180deg, #FFF3D6, #FDF0D2 60%, #F6F2E6); }
+.rel-look .rel-eye { margin-top: 2px; }
+.rel-look .rel-layer b { color: #7A520E; }
+.rel-look .rel-layer span { color: var(--ink-2); }
 .rel-plants-in { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .rel-ground { position: relative; display: flex; flex-direction: column; gap: 9px; padding: 22px 16px 16px 44px; background: linear-gradient(180deg, #EFE4D1 0%, #E7D8BF 45%, #DCCBB0 75%, #D3C3AA 100%); }
 .rel-ground::before { content: ''; position: absolute; left: 0; right: 0; top: -1px; border-top: 2px solid #7FA35F; }
@@ -436,6 +450,8 @@ a.rel-back { text-decoration: none; }
   .rel-layer span { text-align: left; }
   .rel-plants { grid-template-columns: minmax(0, 1fr); padding: 12px 10px 14px; }
   .rel-plants .rel-sprout { display: none; }
+  .rel-look { grid-template-columns: 30px minmax(0, 1fr); padding: 12px 10px 14px 6px; }
+  .rel-look .rel-eye { width: 30px; height: 40px; }
   .rel-rooted { flex-wrap: wrap; }
   .rel-rooted i { margin-left: 0; }
 }

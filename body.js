@@ -1,4 +1,4 @@
-/* Body care lens (tier 4 Nurture, Beta): unit 1 Mouth (1.1 Why teeth decay, 1.2 Xylitol and mouthwash).
+/* Body care lens (tier 3 Protect, Beta): unit 1 Mouth (1.1 Why teeth decay, 1.2 Xylitol and mouthwash).
    Units 2–5 are planned. Kept plain on purpose (FOUNDATION §6, Only build what helps). Registers window.MN_LENS_VIEWS['body-care']. */
 (function () {
   function mn() { return window.MN; }
@@ -11,7 +11,7 @@
 
   function view() {
     var html =
-      '<div class="bc-hero"><span class="bc-pill">Tier 4 · Nurture</span><h1 tabindex="-1">Body care</h1>' +
+      '<div class="bc-hero"><span class="bc-pill">Tier 3 · Protect</span><h1 tabindex="-1">Body care</h1>' +
         '<p class="bc-lede">Bodies are always repairing themselves. Body care is mostly about giving that repair what it needs. We start with the mouth.</p>' +
         '<ul class="bc-units" aria-label="Units"><li class="now">1 · Mouth</li>' + PLANNED.map(function (u, i) { return '<li class="later">' + (i + 2) + ' · ' + u + ' <span>Planned</span></li>'; }).join('') + '</ul></div>' +
 

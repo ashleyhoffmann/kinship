@@ -43,7 +43,6 @@
   function ca(h) { return box('ca', h); }
   function home(h) { return box('home', h); }
   function care(h) { return box('danger', h); }
-  function together(h) { return box('together', h); }
   function kin(h) { return box('kin', h); }
   function kind(h) { return '<p class="tx-kind">' + h + '</p>'; }
   function links(h) { return '<p class="tx-links">' + h + '</p>'; }

@@ -32,7 +32,6 @@
   function box(kind, html) { return '<p class="em-box em-' + kind + '">' + html + '</p>'; }
   function ca(h) { return box('ca', h); }
   function care(h) { return box('danger', h); }
-  function together(h) { return box('together', h); }
   function kin(h) { return box('kin', h); }
   function links(h) { return '<p class="em-links">' + h + '</p>'; }
   function src(h) { return '<p class="em-src">' + h + '</p>'; }

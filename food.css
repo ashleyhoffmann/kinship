@@ -126,7 +126,6 @@
 .fo-in { padding: 2px 16px 14px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: var(--ink-2); }
 
 /* Notes, tables, tools */
-.fo-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
 .fo-note { display: flex; flex-direction: column; gap: 6px; padding: 14px 18px; border-radius: 18px; background: #FFF8EC; border: 1px solid #EFDDB8; font-size: 14.5px; color: var(--ink-2); }
 .fo-note b { font-family: var(--f-head); font-size: 16.5px; color: var(--ink); }
 .fo-tbl { overflow-x: auto; border-radius: 18px; border: 1px solid var(--g-edge); background: #fff; }
@@ -141,7 +140,6 @@
 .fo-f { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); font-family: var(--f-mono); min-width: 0; max-width: 100%; }
 .fo-tool input[type="number"], .fo-tool select { width: auto; min-height: 40px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--g-soft); background: #fff; font-family: var(--f-body); font-size: 15.5px; max-width: 100%; }
 .fo-tool input[type="number"] { width: 110px; }
-.fo-chk { display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--ink-2); min-height: 40px; }
 .fo-out { padding: 12px 14px; border-radius: 16px; background: rgba(255, 255, 255, 0.85); font-size: 15px; }
 .fo-out strong { font-family: var(--f-head); font-size: 26px; font-weight: 800; letter-spacing: -0.02em; display: block; line-height: 1.1; }
 .fo-out small { display: block; color: var(--muted); font-size: 13px; margin-top: 4px; }
@@ -170,8 +168,6 @@
 .fo-out .fo-box { margin-top: 8px; }
 .fo-keeps { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
 .fo-keeps b { display: block; font-size: 15.5px; }
-.fo-st { display: inline-block; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.04em; padding: 2px 10px; border-radius: 999px; margin-left: 6px; }
-.fo-st.ok { background: #E3F1E1; color: #2E6B35; } .fo-st.warn { background: #FBF0D9; color: #7A5714; } .fo-st.no { background: #F7E3DF; color: #8A3E31; }
 
 @media (max-width: 900px) {
   .fo-layout { grid-template-columns: 1fr; }

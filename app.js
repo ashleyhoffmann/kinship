@@ -163,7 +163,6 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
-  function plural(n, word) { n = Number(n); return n + ' ' + word + (n === 1 ? '' : 's'); }
 
   function suggestions(p) {
     var ids = [];
@@ -175,13 +174,6 @@
     var seen = {};
     return ids.filter(function (id) { if (seen[id] || !LENS[id]) return false; seen[id] = 1; return true; })
       .slice(0, 3).map(function (id) { return LENS[id]; });
-  }
-  function household(p) {
-    var parts = [];
-    if (p.adults !== '' && Number(p.adults) > 0) parts.push(plural(p.adults, 'adult'));
-    if (p.kids !== '' && Number(p.kids) > 0) parts.push(Number(p.kids) === 1 ? '1 kid' : p.kids + ' kids');
-    if (p.pets) parts.push(p.pets);
-    return parts.join(' · ');
   }
 
   /* ---------- views ---------- */

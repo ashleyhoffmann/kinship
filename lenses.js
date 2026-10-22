@@ -74,10 +74,10 @@ window.MN_TIERS = [
         looks: ['Pitching a tarp or tent that sheds rain and wind', 'Living in a car, van or RV: sleep, air, heat and parking', 'Staying warm and dry with little: layers, ground insulation and condensation', 'Shelters, safe parking programs and legal places to stay']
       },
       {
-        id: 'identification', name: 'Identification', status: 'soon',
-        blurb: 'Recognize the plants and animals around you to assess threats and opportunities.',
-        topics: ['Plants', 'Fungi', 'Animals'],
-        looks: ['The features that actually separate species', 'Edible plants and their dangerous twins', 'Tracks, calls and signs of who lives nearby']
+        id: 'body-care', name: 'Body care', status: 'ready',
+        blurb: 'Care for every body at home, starting with the mouth: why teeth decay, and xylitol and homemade mouthwash that help them repair.',
+        topics: ['Mouth', 'Skin & hair', 'Sleep & rest', 'Bodies through time', 'Animal bodies'],
+        looks: ['Why teeth decay: bacteria, acid, dryness and minerals', 'Xylitol, and mouthwash and mints you can make at home', 'Skin, hair and sleep (planned)', 'Bodies through time: children, pregnancy, aging and different bodies (planned)', 'The animals who share your home (planned)']
       },
       {
         id: 'self-defense', name: 'Self-defense', status: 'soon',
@@ -98,10 +98,10 @@ window.MN_TIERS = [
         looks: ['Fireplaces and wood stoves that burn clean and safe', 'Gas appliances, leaks and carbon monoxide', 'Daylight, bulbs and staying lit through an outage', 'Insulation and draught-proofing that cut the bill']
       },
       {
-        id: 'body-care', name: 'Body care', status: 'ready',
-        blurb: 'Care for every body at home, starting with the mouth: why teeth decay, and xylitol and homemade mouthwash that help them repair.',
-        topics: ['Mouth', 'Skin & hair', 'Sleep & rest', 'Bodies through time', 'Animal bodies'],
-        looks: ['Why teeth decay: bacteria, acid, dryness and minerals', 'Xylitol, and mouthwash and mints you can make at home', 'Skin, hair and sleep (planned)', 'Bodies through time: children, pregnancy, aging and different bodies (planned)', 'The animals who share your home (planned)']
+        id: 'identification', name: 'Identification', status: 'soon',
+        blurb: 'Recognize the plants and animals around you to assess threats and opportunities.',
+        topics: ['Plants', 'Fungi', 'Animals'],
+        looks: ['The features that actually separate species', 'Edible plants and their dangerous twins', 'Tracks, calls and signs of who lives nearby']
       },
       {
         id: 'salvaging', name: 'Salvaging', status: 'soon',

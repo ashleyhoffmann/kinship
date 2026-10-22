@@ -287,26 +287,35 @@
      Keys in shaped are lens ids, or 'kinship' for the project as a whole. work is html; the rest is plain text. */
   var CONTACT = 'ashley@ashleyhoffmann.com';
   var SHOULDERS = [
-    { name: 'Marshall B. Rosenberg & the Center for Nonviolent Communication', who: 'Psychologist · nonprofit', work: '<i>Nonviolent Communication: A Language of Life</i>, and the free feelings and needs inventories.', url: 'https://www.cnvc.org', link: 'cnvc.org',
+    /* tier sets the colour group on the Resources page (a tier num from lenses.js); order within a tier is the order shown. */
+    { tier: 1, name: 'Marshall B. Rosenberg & the Center for Nonviolent Communication', who: 'Psychologist · nonprofit', work: '<i>Nonviolent Communication: A Language of Life</i>, and the free feelings and needs inventories.', url: 'https://www.cnvc.org', link: 'cnvc.org',
       shaped: { kinship: 'The spirit of the whole thing: meeting universal needs', emotions: 'Feelings as signals, universal needs, needs vs. strategies', relationships: 'Requests, dialogue and the Communicate tool' } },
-    { name: 'Alicia Bay Laurel', who: 'Author · illustrator', work: '<i>Living on the Earth</i> (1970), a hand-drawn handbook of practical know-how, freely shared.', url: 'https://www.aliciabaylaurel.com', link: 'aliciabaylaurel.com',
+    { tier: 1, name: 'Alicia Bay Laurel', who: 'Author · illustrator', work: '<i>Living on the Earth</i> (1970), a hand-drawn handbook of practical know-how, freely shared.', url: 'https://www.aliciabaylaurel.com', link: 'aliciabaylaurel.com',
       shaped: { kinship: 'Plain, practical knowledge as a gift' } },
-    { name: 'The San Francisco Diggers', who: 'Community anarchists · 1960s', work: 'Free food in the Panhandle and free stores, named for the English Diggers who farmed common land in 1649.', url: 'https://www.diggers.org', link: 'diggers.org',
-      shaped: { kinship: 'The spirit of it: free, shared, for everyone' } },
-    { name: 'Howard Schubiner, MD', who: 'Physician', work: '<i>Unlearn Your Pain</i>: how the brain can learn to send pain signals, and how they can be unlearned.',
+    { tier: 1, name: 'Sustainable Economies Law Center', who: 'Nonprofit legal center · Oakland', work: 'Free legal tools and advice for cooperatives, community land trusts, shared housing and land reform.', url: 'https://www.theselc.org', link: 'theselc.org',
+      shaped: { governance: 'Governance advice for land reform: land trusts, co-ops and shared land', relationships: 'Cooperatives' } },
+    { tier: 1, name: 'Alfie Kohn', who: 'Author · educator', work: '<i>Punished by Rewards</i> (1993): why gold stars, incentives, praise and other rewards backfire, for children and adults alike.', url: 'https://www.alfiekohn.org', link: 'alfiekohn.org',
+      shaped: { relationships: 'Rewards and punishment (coming soon)' } },
+    { tier: 1, name: 'Walter Wink', who: 'Theologian · author', work: '<i>The Powers That Be</i> (1998), on the “domination system” and creative nonviolent ways to resist it.', url: 'https://en.wikipedia.org/wiki/Walter_Wink', link: 'Wikipedia',
+      shaped: { relationships: 'Beyond good and bad: the domination system (more coming soon)' } },
+    { tier: 1, name: 'Michaeleen Doucleff', who: 'Journalist · author', work: '<i>Hunt, Gather, Parent</i> (2021), including the TEAM approach: togetherness, encouragement, autonomy, minimal interference.',
+      shaped: { relationships: 'Children' } },
+    { tier: 1, name: 'Barbara Rogoff', who: 'Researcher', work: 'Research on how children learn by observing and pitching in.',
+      shaped: { relationships: 'Children' } },
+    { tier: 1, name: 'Howard Schubiner, MD', who: 'Physician', work: '<i>Unlearn Your Pain</i>: how the brain can learn to send pain signals, and how they can be unlearned.',
       shaped: { emotions: 'Pain is a signal too, and Mind-body pain relationships (both planned)' } },
-    { name: 'Michaeleen Doucleff', who: 'Journalist · author', work: '<i>Hunt, Gather, Parent</i> (2021), including the TEAM approach: togetherness, encouragement, autonomy, minimal interference.',
-      shaped: { relationships: 'Children' } },
-    { name: 'Barbara Rogoff', who: 'Researcher', work: 'Research on how children learn by observing and pitching in.',
-      shaped: { relationships: 'Children' } },
-    { name: 'Dr. Yvonne Burkart', who: 'Toxicologist', work: 'Free education on everyday toxic exposures and gentler swaps.',
+    { tier: 2, name: 'Earthships & Michael Reynolds', who: 'Architect · Taos, New Mexico', work: 'Earthship Biotecture: off-grid homes of earth-packed tires and bottles that catch their own water, hold their own warmth and grow food.',
+      shaped: { kinship: 'A home designed to take care of you: the absolute basics, built in', water: 'Earthships: one drop, four jobs' } },
+    { tier: 2, name: 'The San Francisco Diggers', who: 'Community anarchists · 1960s', work: 'Free food in the Panhandle and free stores, named for the English Diggers who farmed common land in 1649.', url: 'https://www.diggers.org', link: 'diggers.org',
+      shaped: { kinship: 'The spirit of it: free, shared, for everyone', food: 'Food as something we share freely' } },
+    { tier: 2, name: 'Juliette de Baïracli Levy', who: 'Herbalist · author', work: '<i>Traveler’s Joy</i>, and a lifetime of writing on natural care for people and animals.', url: 'https://en.wikipedia.org/wiki/Juliette_de_Ba%C3%AFracli_Levy', link: 'Wikipedia',
+      shaped: { water: 'The upstream typhus story: why “pure” water still needs checking' } },
+    { tier: 2, name: 'Dr. Sarah Taber & Farm to Taber', who: 'Crop scientist · writer · podcaster', work: '<i>Farm to Taber</i>, on farming, food systems and the people who do the work, including field-tested heat safety.', url: 'https://substack.com/@farm2taber', link: 'Farm to Taber on Substack',
+      shaped: { air: 'Heat and “the heat stupids”: confusion as heat’s first warning' } },
+    { tier: 2, name: 'Dr. Yvonne Burkart', who: 'Toxicologist', work: 'Free education on everyday toxic exposures and gentler swaps.',
       shaped: { toxins: 'This course’s view of everyday exposures' } },
-    { name: 'Dr. Ellie Phillips', who: 'Dentist · author', work: '<i>Kiss Your Dentist Goodbye</i>: mouth health as chemistry and bacteria, with xylitol and a simple home routine.',
-      shaped: { 'body-care': 'Mouth: acid, dryness, bacteria and xylitol' } },
-    { name: 'Dr. Sarah Taber & Farm to Taber', who: 'Crop scientist · writer · podcaster', work: '<i>Farm to Taber</i>, on farming, food systems and the people who do the work, including field-tested heat safety.', url: 'https://substack.com/@farm2taber', link: 'Farm to Taber on Substack',
-      shaped: { air: 'The heat stupids: confusion as heat’s first warning' } },
-    { name: 'Sustainable Economies Law Center', who: 'Nonprofit legal center · Oakland', work: 'Free legal tools and advice for cooperatives, community land trusts, shared housing and land reform.', url: 'https://www.theselc.org', link: 'theselc.org',
-      shaped: { governance: 'Governance advice for land reform: land trusts, co-ops and shared land', relationships: 'Cooperatives' } }
+    { tier: 3, name: 'Dr. Ellie Phillips', who: 'Dentist · author', work: '<i>Kiss Your Dentist Goodbye</i>: mouth health as chemistry and bacteria, with xylitol and a simple home routine.',
+      shaped: { 'body-care': 'Mouth: acid, dryness, bacteria and xylitol' } }
   ];
   function credits(course) {
     return SHOULDERS.filter(function (p) { return p.shaped[course]; }).map(function (p) {
@@ -318,13 +327,21 @@
     return p.url ? '<a class="res-out" href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.link || p.url) + '<span class="sr-only"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>' : '';
   }
   function viewResources() {
-    var cards = SHOULDERS.map(function (p) {
+    function card(p) {
       var shaped = Object.keys(p.shaped).map(function (k) {
         var where = k === 'kinship' ? '<a class="res-c" href="#about">Kinship</a>' : (LENS[k] ? '<a class="res-c" href="#lens-' + k + '">' + esc(LENS[k].name) + '</a>' : esc(k));
         return '<span class="learned">' + where + ' · ' + esc(p.shaped[k]) + '</span>';
       }).join('');
       return '<li><b>' + esc(p.name) + '</b><span class="who">' + esc(p.who) + '</span><p>' + p.work + '</p>' +
         '<span class="eyebrow res-shaped">Shaped</span>' + shaped + extLink(p) + '</li>';
+    }
+    /* One colour-coded group per tier, in tier order, like the home page. */
+    var groups = TIERS.map(function (t) {
+      var ps = SHOULDERS.filter(function (p) { return p.tier === t.num; });
+      if (!ps.length) return '';
+      return '<section class="res-tier" style="--tc:' + t.color + '" aria-labelledby="res-t' + t.num + '">' +
+        '<div class="res-tier-head"><span class="tier-pill">Tier ' + t.num + '</span><h3 id="res-t' + t.num + '">' + esc(t.name) + '</h3></div>' +
+        '<ul>' + ps.map(card).join('') + '</ul></section>';
     }).join('');
     return header('resources') +
       '<section class="hero"><div class="hero-copy">' +
@@ -335,7 +352,7 @@
       '</div></section>' +
       '<aside class="res-collab"><b>Are you one of these people, or associated with their work?</b><span>I’d love to collaborate if you’re interested. Reach me at ' + mailto() + '.</span></aside>' +
       '<section class="deeper res-lib" aria-labelledby="res-lib-h"><div class="deeper-head"><span class="eyebrow">The library</span><h2 id="res-lib-h">Who shaped what</h2>' +
-      '<p>Each course ends with its own Go deeper list; here they all are together.</p></div><ul>' + cards + '</ul></section>' +
+      '<p>Each course ends with its own Go deeper list; here they all are together, coloured by tier.</p></div>' + groups + '</section>' +
       footer();
   }
 

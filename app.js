@@ -340,9 +340,8 @@
       '<span class="eyebrow">Resources</span>' +
       '<h1 tabindex="-1">Shoulders we stand on</h1>' +
       '<p>A growing library of the people and places whose work shaped Kinship, and where to go for more. Kinship is its own synthesis, so anything that misses the mark here is Kinship’s, not theirs.</p>' +
-      '<p>For feedback, corrections, or to reach out for any reason, email me at ' + mailto() + '.</p>' +
       '</div></section>' +
-      '<aside class="res-collab"><b>Are you one of these people, or associated with their work?</b><span>I’d love to collaborate if you’re interested. Reach me at ' + mailto() + '.</span></aside>' +
+      '<aside class="res-collab"><b>Are you one of these people, or associated with their work?</b><span>I’d love to collaborate if you’re interested! For feedback, corrections, or anything else, reach me at ' + mailto() + '.</span></aside>' +
       '<section class="deeper res-lib" aria-labelledby="res-lib-h"><div class="deeper-head"><span class="eyebrow">The library</span><h2 id="res-lib-h">Who shaped what</h2>' +
       '<p>Each course ends with its own Go deeper list; here they all are together, coloured by tier.</p></div>' + groups + '</section>' +
       footer();
@@ -367,8 +366,8 @@
     return header('about') +
       '<section class="hero"><div class="hero-copy">' +
       '<span class="eyebrow">About</span>' +
-      '<h1 class="hello" tabindex="-1">Hi, I’m Ashley. Based in San Francisco.</h1>' +
-      '<p>Kinship is made from love: free and open source, aiming to clarify what we need to live and teach how to meet universal needs. (I don’t think “jobs” are needs; they’re strategies for money to meet true needs to thrive like water, safety, and love.)</p>' +
+      '<h1 class="hello" tabindex="-1">Hello! I’m Ashley. Based in San Francisco, CA.</h1>' +
+      '<p>Kinship is made with love: free and open source, aiming to clarify what we need to live and teach how to meet universal needs. (E.g. I don’t think “jobs” are needs; they’re strategies for money to meet true needs to thrive like water, safety, and love.)</p>' +
       '<p>In a way, this is my modern contribution to organized hippies. The San Francisco Diggers served free food in the Panhandle and ran free stores in the 1960s. Alicia Bay Laurel opened <i>Living on the Earth</i> (1970): “This book is for people who would rather chop wood than work behind a desk so they can pay P.G.&amp;E.”</p>' +
       '<p>The system isn’t working for so many people, and in my opinion we’ve lost touch with what actually meets our needs, putting too much trust in broken systems.</p>' +
       '<p>Kinship won’t solve these problems alone. It’s the clearest way I could package self-empowering information, for you to take and apply in your own life.</p>' +

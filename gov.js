@@ -39,7 +39,7 @@
       '<h4>California today</h4>' + law(rows) + '</article>';
   }
   var COMMONS = vision(1, 'Collectivernance', 'Land shared and tended together.',
-    'A front door anyone can walk through, especially people with nowhere else to go. It isn’t a separate place for poor people; it’s a commons open to all, the same way everyone sees the same table of water sources.',
+    'A front door anyone can walk through, especially people with nowhere else to go. It isn’t a separate place for less-privileged people; it’s a social commons open to all. Plenty of people (especially in certain life stages or circumstances) would opt to live within a fun community rather than living isolated and commuting in for events.',
     ['<b>Day one:</b> a bed, water and food. Rest comes first, and nobody is asked to work at the door.',
      '<b>The land</b> is held by a community land trust, which pays the land fee for everyone. Members give time instead of money.',
      '<b>The people who use the land make its rules.</b> Problems get small responses first, and conflicts are worked through close to home, with <a href="#lens-relationships/dialogue">Dialogue</a>. These come from Elinor Ostrom’s design principles for commons.',

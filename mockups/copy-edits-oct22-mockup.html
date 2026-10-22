@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kinship · Copy edits: Resources, About, Collectivernance (mock-up)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../gov.css">
+<style>
+.mk { max-width: 860px; margin: 0 auto; padding: 24px 16px 64px; display: flex; flex-direction: column; gap: 28px; }
+.mk-sec { display: flex; flex-direction: column; gap: 12px; }
+.mk-label { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.mk-sec > h2 { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; }
+.mk-before { opacity: 0.6; border: 2px dashed rgba(23,36,28,0.2); border-radius: 22px; padding: 4px; }
+.mk-after { border: 2px solid #C2477F; border-radius: 22px; padding: 4px; }
+.mk .hero { padding: 16px 18px; }
+del { color: #9b2c2c; } ins { background: #FCEFF4; text-decoration: none; }
+</style>
+</head>
+<body>
+<main class="mk">
+  <header class="mk-sec"><span class="mk-label">Mock-up · Oct 22</span><h1 style="font-size:clamp(28px,4vw,40px);font-weight:800">Three copy edits</h1>
+  <p>Before (dashed, faded) and after (pink outline). Pink highlight marks new wording.</p></header>
+
+  <section class="mk-sec" aria-labelledby="m1"><span class="mk-label">1 · Resources (app.js)</span><h2 id="m1">One contact line, inside the collab box</h2>
+    <div class="mk-before"><section class="hero"><div class="hero-copy">
+      <span class="eyebrow">Resources</span><h1>Shoulders we stand on</h1>
+      <p>A growing library of the people and places whose work shaped Kinship, and where to go for more. Kinship is its own synthesis, so anything that misses the mark here is Kinship’s, not theirs.</p>
+      <p><del>For feedback, corrections, or to reach out for any reason, email me at <a href="mailto:ashley@ashleyhoffmann.com">ashley@ashleyhoffmann.com</a>.</del></p>
+    </div></section>
+    <aside class="res-collab"><b>Are you one of these people, or associated with their work?</b><span>I’d love to collaborate if you’re interested. Reach me at <a href="mailto:ashley@ashleyhoffmann.com">ashley@ashleyhoffmann.com</a>.</span></aside></div>
+    <div class="mk-after"><section class="hero"><div class="hero-copy">
+      <span class="eyebrow">Resources</span><h1>Shoulders we stand on</h1>
+      <p>A growing library of the people and places whose work shaped Kinship, and where to go for more. Kinship is its own synthesis, so anything that misses the mark here is Kinship’s, not theirs.</p>
+    </div></section>
+    <aside class="res-collab"><b>Are you one of these people, or associated with their work?</b><span>I’d love to collaborate if you’re interested<ins>! For feedback, corrections, or anything else, reach me at</ins> <a href="mailto:ashley@ashleyhoffmann.com">ashley@ashleyhoffmann.com</a>.</span></aside></div>
+  </section>
+
+  <section class="mk-sec" aria-labelledby="m2"><span class="mk-label">2 · About (app.js)</span><h2 id="m2">Greeting and first paragraph</h2>
+    <div class="mk-before"><section class="hero"><div class="hero-copy">
+      <span class="eyebrow">About</span><h1 class="hello">Hi, I’m Ashley. Based in San Francisco.</h1>
+      <p>Kinship is made from love: free and open source, aiming to clarify what we need to live and teach how to meet universal needs. (I don’t think “jobs” are needs; they’re strategies for money to meet true needs to thrive like water, safety, and love.)</p>
+    </div></section></div>
+    <div class="mk-after"><section class="hero"><div class="hero-copy">
+      <span class="eyebrow">About</span><h1 class="hello"><ins>Hello!</ins> I’m Ashley. Based in San Francisco<ins>, CA</ins>.</h1>
+      <p>Kinship is made <ins>with</ins> love: free and open source, aiming to clarify what we need to live and teach how to meet universal needs. (<ins>E.g.</ins> I don’t think “jobs” are needs; they’re strategies for money to meet true needs to thrive like water, safety, and love.)</p>
+    </div></section></div>
+  </section>
+
+  <section class="mk-sec" aria-labelledby="m3"><span class="mk-label">3 · Governance › Lovernance (gov.js)</span><h2 id="m3">Collectivernance intro</h2>
+    <div class="mk-before gv"><article class="gv-vision"><span class="eyebrow">Vision 1</span><h3>Collectivernance</h3>
+      <p class="gv-vshort">Land shared and tended together.</p>
+      <p>A front door anyone can walk through, especially people with nowhere else to go. It isn’t a separate place for poor people; it’s a commons open to all, the same way everyone sees the same table of water sources.</p></article></div>
+    <div class="mk-after gv"><article class="gv-vision"><span class="eyebrow">Vision 1</span><h3>Collectivernance</h3>
+      <p class="gv-vshort">Land shared and tended together.</p>
+      <p>A front door anyone can walk through, especially people with nowhere else to go. It isn’t a separate place for <ins>less-privileged</ins> people; it’s a <ins>social</ins> commons open to all. <ins>Plenty of people (especially in certain life stages or circumstances) would opt to live within a fun community rather than living isolated and commuting in for events.</ins></p></article></div>
+  </section>
+</main>
+</body>
+</html>

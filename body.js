@@ -20,7 +20,7 @@
         '<div class="bc-points">' +
           card('Acid and dryness are the problem', 'Acid pulls minerals out of enamel. Saliva neutralizes acid, so a dry mouth (from mouth-breathing, medicines or not drinking enough water) leaves teeth unprotected. After each sip or snack, saliva takes about 30 minutes to bring the mouth back to neutral. How often you eat or drink matters more than how much.') +
           card('Teeth need minerals', 'Enamel is mostly calcium and phosphate. In the quiet times between meals, saliva puts minerals back, and fluoride or hydroxyapatite toothpaste helps the surface rebuild harder. A cavity is where losing has outpaced rebuilding for a long time. Before that, early damage can reverse.') +
-          card('Sugar feeds the bacteria', 'Sugar doesn’t harm teeth by itself. Acid-making bacteria eat it, along with starches that linger (crackers, chips, dried fruit), and give off acid. Some drinks are acidic on their own, sugar or not, like soda (diet too), citrus, kombucha, sports drinks and lemon water.') +
+          card('Sugar feeds acid-making bacteria', 'Sugar doesn’t harm teeth by itself. Acid-producing bacteria eat sugar, along with starches that linger (potatoes, crackers, chips), and give off acid.</p><p>Regardless of sugar, some drinks are acidic, like soda (diet too), coffee, citrus drinks (incl. lemon water), kombucha, and sports drinks.') +
         '</div>' +
         '<h3>What helps</h3>' +
         ul(['Have acidic or sweet drinks with a meal rather than sipping them for hours.',

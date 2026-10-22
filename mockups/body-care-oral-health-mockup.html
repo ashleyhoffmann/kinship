@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kinship · Body care (course mock-up)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Mock-up v2 only. Mirrors Kinship's style.css and the Air mock-up so it can move into body.css later (prefix bc-). */
+:root {
+  --bg:#F2F5F1; --ink:#14231F; --ink-2:#2C3D38; --muted:#4E5F5A; --accent:#1F5F5B;
+  --glass:rgba(255,255,255,.42); --glass-strong:rgba(255,255,255,.66); --glass-edge:rgba(255,255,255,.78);
+  --chip:rgba(255,255,255,.62); --line:rgba(20,35,31,.18); --soft-line:rgba(20,35,31,.09);
+  --focus:#2F6E9E; --lens:#3E7B3A;
+  --f-head:'Manrope','Instrument Sans',system-ui,sans-serif;
+  --f-body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  /* Body care theme: teals. */
+  --k-bg:#E5F0EE; --k-mid:#CBE2DE; --k-edge:#AFD1CB; --k-dot:#1F5F5B; --k-on:#fff;
+}
+*{box-sizing:border-box}
+html{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;overflow-x:clip}
+h1,h2,h3{font-family:var(--f-head);margin:0}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:8px}
+[tabindex="-1"]:focus{outline:none}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+.wrap{max-width:1100px;margin:0 auto;padding:20px clamp(16px,3vw,40px) 72px;display:flex;flex-direction:column;gap:20px}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;padding:8px 18px;border-radius:22px;background:var(--glass);border:1px solid var(--glass-edge)}
+.brand{display:flex;align-items:center;gap:8px;min-height:44px;text-decoration:none;color:var(--ink)}
+.brand b{font-family:var(--f-head);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.mock{font-family:var(--f-mono);font-size:12px;padding:4px 10px;border-radius:999px;border:1.5px dashed var(--line);color:var(--muted)}
+
+.hero{display:flex;flex-direction:column;gap:10px}
+.lens-pill{align-self:flex-start;padding:6px 12px;border-radius:999px;background:var(--lens);color:#fff;font-family:var(--f-mono);font-size:12px;line-height:1}
+.hero h1{font-weight:800;font-size:clamp(42px,6vw,72px);line-height:.95;letter-spacing:-.04em}
+.lede{font-size:clamp(17px,1.6vw,19px);color:var(--ink-2)}
+.units{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.units span{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 14px;border-radius:999px;font-size:14.5px}
+.units .now{background:var(--k-dot);color:#fff;font-weight:600}
+.units .later{border:1.5px dashed var(--line);color:var(--muted)}
+.units .later::after{content:'· Planned';font-family:var(--f-mono);font-size:11px;letter-spacing:.04em}
+
+.sub{display:flex;flex-direction:column;gap:12px;padding:22px 24px;border-radius:24px;background:rgba(255,255,255,.78);border:1px solid var(--k-edge);border-top:8px solid var(--k-dot)}
+.sub-top{display:flex;align-items:baseline;gap:10px}
+.sub-n{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);flex:none}
+.sub h2{font-size:clamp(24px,3vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.sub h3{font-size:17px;font-weight:800;margin-top:6px}
+.sub p{font-size:16px}
+.sub ul,.sub ol{margin:0;padding-left:22px;font-size:16px;color:var(--ink-2);display:flex;flex-direction:column;gap:5px}
+
+.points{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.points div{padding:14px 16px;border-radius:16px;background:var(--k-bg);border:1px solid var(--k-edge)}
+.points b{display:block;font-family:var(--f-head);font-size:17px;margin-bottom:3px}
+.points p{font-size:15px;color:var(--ink-2)}
+
+.recipes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.recipe{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:18px;background:var(--k-bg);border:1px solid var(--k-edge)}
+.recipe h3{margin:0}
+.recipe ul,.recipe ol{font-size:15px}
+
+.danger,.ally{font-size:15px;padding:10px 12px;border-radius:14px;color:var(--ink-2)}
+.danger{background:#FBEDEA;border-left:4px solid #C9806F}
+.danger::before{content:'Take care · '}
+.ally{background:#EAF2F8;border-left:4px solid #7FA6C9}
+.ally::before{content:'Allies · '}
+.danger::before,.ally::before{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.src{font-size:13px;color:var(--muted)}
+.src::before{content:'Sources · ';font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+
+.deeper{display:flex;flex-direction:column;gap:10px;padding:18px 20px;border-radius:22px;background:var(--glass-strong);border:1px solid var(--soft-line)}
+.deeper h2{font-size:22px;font-weight:800}
+.person{padding:14px 16px;border-radius:16px;background:#fff;border:1px solid var(--soft-line);font-size:15px;color:var(--ink-2);display:flex;flex-direction:column;gap:4px}
+.person b{font-family:var(--f-head);font-size:17px;color:var(--ink)}
+.review{display:flex;flex-direction:column;gap:8px;padding:16px 20px;border-radius:20px;border:1.5px dashed var(--line);font-size:15px;color:var(--ink-2)}
+.review ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+@media (max-width:620px){.sub{padding:18px 16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="#"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#C2477F" d="M12 21s-7.5-4.6-9.3-9.6C1.5 8 3.6 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.4 0 5.5 3.5 4.3 6.9C19.5 16.4 12 21 12 21z"/></svg><b>Kinship</b></a>
+  <span class="mock">Mock-up v2 · Body care</span>
+</header>
+
+<main id="main" class="wrap" style="padding:0;gap:20px">
+  <div class="hero">
+    <span class="lens-pill">TIER 4 · NURTURE</span>
+    <h1 id="h1" tabindex="-1">Body care</h1>
+    <p class="lede">Bodies are always repairing themselves. Body care is mostly about giving that repair what it needs. We start with the mouth.</p>
+    <div class="units" aria-label="Units"><span class="now">1 · Mouth</span><span class="later">Skin &amp; hair</span><span class="later">Sleep &amp; rest</span></div>
+  </div>
+
+  <!-- 1.1 -->
+  <article class="sub" aria-labelledby="h-s1">
+    <div class="sub-top"><span class="sub-n">1.1</span><h2 id="h-s1">Why teeth decay</h2></div>
+    <p>Hundreds of kinds of bacteria live in every mouth, and most of them help. Trouble starts when conditions favor the few that make acid, mainly <i>Streptococcus mutans</i>. Plaque is a community, and changing the conditions changes who lives there.</p>
+    <div class="points">
+      <div><b>Acid and dryness are the problem</b><p>Acid pulls minerals out of enamel. Saliva neutralizes acid, so a dry mouth (from mouth-breathing, medicines or not drinking enough water) leaves teeth unprotected. After each sip or snack, saliva takes about 30 minutes to bring the mouth back to neutral. How often you eat or drink matters more than how much.</p></div>
+      <div><b>Teeth need minerals</b><p>Enamel is mostly calcium and phosphate. In the quiet times between meals, saliva puts minerals back, and fluoride or hydroxyapatite toothpaste helps the surface rebuild harder. A cavity is where losing has outpaced rebuilding for a long time. Before that, early damage can reverse.</p></div>
+      <div><b>Sugar feeds the bacteria</b><p>Sugar doesn’t harm teeth by itself. Acid-making bacteria eat it, along with starches that linger (crackers, chips, dried fruit), and give off acid. Some drinks are acidic on their own, sugar or not, like soda (diet too), citrus, kombucha, sports drinks and lemon water.</p></div>
+    </div>
+    <h3>What helps</h3>
+    <ul>
+      <li>Have acidic or sweet drinks with a meal rather than sipping them for hours.</li>
+      <li>End a meal on something neutral: water, nuts, crunchy vegetables or xylitol.</li>
+      <li>After something acidic, swish with water and wait 30–60 minutes before brushing.</li>
+      <li>Brush twice a day, along the gumline, with fluoride or nano-hydroxyapatite paste. Spit without rinsing, especially at night.</li>
+    </ul>
+    <p class="src">W.D. Miller, <i>The Micro-Organisms of the Human Mouth</i> (1890); Featherstone, “Dental caries: a dynamic disease process,” <i>Australian Dental Journal</i> (2008); Reddy et al., “The pH of beverages in the United States,” <i>JADA</i> (2016).</p>
+  </article>
+
+  <!-- 1.2 -->
+  <article class="sub" aria-labelledby="h-s2">
+    <div class="sub-top"><span class="sub-n">1.2</span><h2 id="h-s2">Xylitol and mouthwash</h2></div>
+    <h3>Xylitol</h3>
+    <p>Acid-making bacteria take in xylitol as if it were sugar, but can’t use it, so they grow more slowly and make less acid. Its sweet taste also gets saliva flowing. Dr. Ellie Phillips suggests 6–10 g a day, in 3–5 small doses after eating. It works through steady daily use.</p>
+
+    <h3>Make your own</h3>
+    <p>Simple and free of dyes and alcohol.</p>
+    <div class="recipes">
+      <div class="recipe"><h3>Rinse powder</h3>
+        <ul><li>½ cup baking soda</li><li>¼ cup xylitol</li><li>15–20 drops peppermint oil</li><li>5–8 drops clove oil</li></ul>
+        <p>Mix the oils into the dry powder until no damp spots are left, and store it in a glass jar. Stir ¾ tsp into ¼–½ cup of warm water, swish, and spit. The baking soda neutralizes acid. It keeps for months, and the scent fades after 2–3 months.</p></div>
+      <div class="recipe"><h3>Xylitol mints</h3>
+        <ul><li>½ cup xylitol (about 100 mints)</li><li>2–3 drops peppermint oil</li><li>1 drop clove oil, at most</li></ul>
+        <p>Melt the xylitol on low heat until clear. Cool it briefly, stir in the oils, and drop ¼ tsp amounts into tiny silicone molds. Let them set at room temperature, then store airtight. Each mint is about 1 g.</p></div>
+    </div>
+    <p>Mix essential oils into the dry powder first, because a drop of pure oil can burn your gums. Tea tree, cinnamon and wintergreen are best left out.</p>
+
+    <h3>Store-bought</h3>
+    <p>Dr. Ellie Phillips uses Closys (chlorine dioxide), original Listerine (essential oils) and ACT (0.05% sodium fluoride). Anything with the same active ingredient does the same job. Check labels for dyes such as Blue 1, alcohol and sweeteners. A fluoride rinse or fluoride toothpaste adds the mineral help that a homemade rinse doesn’t.</p>
+
+    <div class="danger">Xylitol is very toxic to dogs, even in small amounts. Keep jars, gum and mints out of reach.</div>
+    <div class="ally">A dentist can catch and treat what home care can’t, like deep cavities, cracked teeth, infections, gum disease and pain. Dental school clinics and community health centers often cost less. In California, Medi-Cal Dental covers many people. Call 211 to find care nearby.</div>
+    <p class="src">Mäkinen &amp; Scheinin, Turku sugar studies (1970s); Riley et al., Cochrane review of xylitol (2015); ASPCA Animal Poison Control, xylitol.</p>
+  </article>
+
+  <div class="deeper" aria-labelledby="h-deeper">
+    <span class="eyebrow">Go deeper</span>
+    <h2 id="h-deeper">Shoulders we stand on</h2>
+    <p>This unit is Kinship’s own synthesis. Anything that misses the mark is Kinship’s, not theirs.</p>
+    <div class="person"><b>Dr. Ellie Phillips</b><span>Dentist and author of <i>Kiss Your Dentist Goodbye</i>. Her focus on mouth chemistry, bacteria and xylitol shaped this unit.</span></div>
+  </div>
+
+  <div class="review"><span class="eyebrow">For review · mock-up notes</span>
+    <ul>
+      <li>Two short sub-units, with no tool, list, quiz or life-stage section.</li>
+      <li>Homemade recipes come before store-bought, with brand names kept to one line.</li>
+      <li>Only Skin &amp; hair and Sleep &amp; rest are listed as planned. Tell me if you’d rather show none yet.</li>
+    </ul>
+  </div>
+</main>
+</div>
+</body>
+</html>

@@ -57,6 +57,7 @@ The same four steps (notice, feel, find the need, ask) work everywhere, so every
 
 - Lenses are courses. A course opens on a **skill tree**: units left to right, nodes connected by prerequisites, planned nodes shown dashed.
 - Every node says what it teaches, gives a real example from home life, and ends with something to *do* (a tool, a practice or a question), not a quiz to pass.
+- **Only build what helps.** A unit is as short as its topic needs. Simple topics stay plain: the why, what to do, and where to get more help. Add tools, calculators, builders, trackers, lists or extra sections (like life stages) only when they do a job plain text can't. If it would mostly repeat the text, leave it out.
 - Tools are plug-and-play: start from where the person actually is ("I feel sad", "I need my husband to…", "there are mice in the pantry") and walk them to the need.
 - Link lenses wherever one need crosses into another: Relationships → Cleaning (shared chores), Gardening (plants), Food, Poisons.
 - Copy follows section 3. If a sentence blames, shames or demands, rewrite it.
@@ -123,7 +124,7 @@ The site is the map and the notebook. The game happens in real life. What makes 
 
 **Personalization stays light.** The core path is the same for everyone. The profile only marks things "For you"; it never hides an option. Badges, numbers and progress live on the device with a clear option (§5, §7).
 
-Mock-up: `mockups/water-game-mockup.html`. Water is the model; other lenses reuse the same steps-as-abilities, carry-forward calculator, sortable tables, tags, badges and refresh.
+Mock-up: `mockups/water-game-mockup.html`. Water is the model; other lenses reuse these pieces only where they help (§6, Only build what helps). A short, plain unit is fine.
 
 
 ## 9. California first, needs everywhere

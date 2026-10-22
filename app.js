@@ -301,6 +301,8 @@
       shaped: { relationships: 'Children' } },
     { name: 'Dr. Yvonne Burkart', who: 'Toxicologist', work: 'Free education on everyday toxic exposures and gentler swaps.',
       shaped: { toxins: 'This course’s view of everyday exposures' } },
+    { name: 'Dr. Ellie Phillips', who: 'Dentist · author', work: '<i>Kiss Your Dentist Goodbye</i>: mouth health as chemistry and bacteria, with xylitol and a simple home routine.',
+      shaped: { 'body-care': 'Mouth: acid, dryness, bacteria and xylitol' } },
     { name: 'Dr. Sarah Taber & Farm to Taber', who: 'Crop scientist · writer · podcaster', work: '<i>Farm to Taber</i>, on farming, food systems and the people who do the work, including field-tested heat safety.', url: 'https://substack.com/@farm2taber', link: 'Farm to Taber on Substack',
       shaped: { air: 'The heat stupids: confusion as heat’s first warning' } },
     { name: 'Sustainable Economies Law Center', who: 'Nonprofit legal center · Oakland', work: 'Free legal tools and advice for cooperatives, community land trusts, shared housing and land reform.', url: 'https://www.theselc.org', link: 'theselc.org',
@@ -634,7 +636,7 @@
   var sky = '<div class="sky" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>';
 
   /* Course files load only when someone opens that lens, so the home page stays light. */
-  var LAZY = { emotions: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, relationships: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, water: { css: 'water.css', js: ['water.js'] }, food: { css: 'food.css', js: ['food.js'] }, toxins: { css: 'tox.css', js: ['tox.js'] }, air: { css: 'air.css', js: ['air.js'] }, cleaning: { css: 'clean.css', js: ['clean.js'] }, 'emergency-prep': { css: 'em.css', js: ['em.js'] }, governance: { css: 'gov.css', js: ['gov.js'] } };
+  var LAZY = { emotions: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, relationships: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, water: { css: 'water.css', js: ['water.js'] }, food: { css: 'food.css', js: ['food.js'] }, toxins: { css: 'tox.css', js: ['tox.js'] }, air: { css: 'air.css', js: ['air.js'] }, cleaning: { css: 'clean.css', js: ['clean.js'] }, 'emergency-prep': { css: 'em.css', js: ['em.js'] }, governance: { css: 'gov.css', js: ['gov.js'] }, 'body-care': { css: 'body.css', js: ['body.js'] } };
   var lazyState = {};
   function needsLazy(r) {
     var lid = r.indexOf('lens-') === 0 ? r.slice(5).split(/[\/?]/)[0] : '';

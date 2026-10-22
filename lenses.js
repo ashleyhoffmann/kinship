@@ -98,10 +98,10 @@ window.MN_TIERS = [
         looks: ['Fireplaces and wood stoves that burn clean and safe', 'Gas appliances, leaks and carbon monoxide', 'Daylight, bulbs and staying lit through an outage', 'Insulation and draught-proofing that cut the bill']
       },
       {
-        id: 'body-care', name: 'Body care', status: 'soon',
-        blurb: 'Care for every body at home: little and aging ones, disabled and different bodies, and the animals you live with.',
-        topics: ['Children', 'Aging', 'Diversity', 'Animal care'],
-        looks: ['Skin, teeth and sleep for children and growing bodies', 'Aging bodies, and the care that keeps them comfortable', 'Disabilities and different bodies, plus the animals who share your home', 'Gentle foods for sick days and food as medicine (starts in Food → Gentle)']
+        id: 'body-care', name: 'Body care', status: 'ready',
+        blurb: 'Care for every body at home, starting with the mouth: why teeth decay, and xylitol and homemade mouthwash that help them repair.',
+        topics: ['Mouth', 'Skin & hair', 'Sleep & rest', 'Bodies through time', 'Animal bodies'],
+        looks: ['Why teeth decay: bacteria, acid, dryness and minerals', 'Xylitol, and mouthwash and mints you can make at home', 'Skin, hair and sleep (planned)', 'Bodies through time: children, pregnancy, aging and different bodies (planned)', 'The animals who share your home (planned)']
       },
       {
         id: 'salvaging', name: 'Salvaging', status: 'soon',

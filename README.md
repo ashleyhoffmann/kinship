@@ -31,6 +31,8 @@ Plain HTML, CSS and JavaScript. No build step, no server, no accounts.
 | `em.css` | Emergency prep styles (units in blues; `em-` prefix; generated from `tox.css`) |
 | `gov.js` | Governance course (tier 1, Beta): what legally stops people from meeting basic needs and how to advocate in and outside existing systems. 1 Lovernance, envisioned alternatives (Collectivernance and Private lovernance) with the California laws that help and stand in the way; then What the law currently is: 2 rights you have by existing (US and California constitutions, a nod to animals and land), two views, who controls California water, where it goes (with the right-to-water fun fact), criminalization and incarceration, stairs for change, paths outside law, a transparency checklist; housing (who owns homes, including private equity) is next (`#lens-governance`) |
 | `gov.css` | Governance course styles |
+| `body.js` | Body care course (tier 4, Beta), kept plain (FOUNDATION §6): unit 1 Mouth, one page with 1.1 Why teeth decay (bacteria, acid and dryness, minerals, sugar) and 1.2 Xylitol and mouthwash (homemade rinse powder and mints first, store-bought in one paragraph, when a dentist helps); units 2–5 planned: Skin & hair, Sleep & rest, Bodies through time, Animal bodies (`#lens-body-care`) |
+| `body.css` | Body care styles (teals; `bc-` prefix) |
 
 ## Run it locally
 Open `index.html` in a browser, or run `python3 -m http.server` in this folder and visit http://localhost:8000.
@@ -66,7 +68,7 @@ Most copy aims to be plain and checkable. The creator's own views are set apart 
 ## Go deeper (credits)
 Every course ends with the same **Go deeper** block (“Shoulders we stand on”), built with `MN.deeper(intro, people)` in `app.js`. Each card names a person or organization, who they are, their work, what it shaped in Kinship, and a link when we have a confirmed one. The block says Kinship is its own synthesis, so anything that misses the mark is Kinship’s, not theirs: it recommends where to go for more and credits influence, without presenting anyone’s work as Kinship’s or Kinship’s as theirs. Never guess a link; leave it out until it’s confirmed. Before launch, each person is asked for consent and invited to give feedback or help shape their section; anyone who declines is removed.
 
-So far: Emotions (Marshall B. Rosenberg & CNVC; Howard Schubiner, *Unlearn Your Pain*), Relationships (CNVC; Michaeleen Doucleff; Barbara Rogoff), Poisons (Dr. Yvonne Burkart). It replaces the older “Nonviolence theory origins” fun fact.
+So far: Emotions (Marshall B. Rosenberg & CNVC; Howard Schubiner, *Unlearn Your Pain*), Relationships (CNVC; Michaeleen Doucleff; Barbara Rogoff), Poisons (Dr. Yvonne Burkart), Body care (Dr. Ellie Phillips). It replaces the older “Nonviolence theory origins” fun fact.
 
 ## Labels
 Section labels are plain: “Fun fact”, never “A grateful fun fact” (gratitude can live in the copy itself).
@@ -91,6 +93,7 @@ Tiers keep their colour at the top level (home page, lens cards, the tier pill).
 | Emergency prep | Blues |
 | Cleaning | Whites |
 | Poisons | Reds |
+| Body care | Teals |
 
 Laws mentioned in courses are California's; the practices themselves are general.
 

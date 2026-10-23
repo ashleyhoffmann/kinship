@@ -46,13 +46,13 @@
         '<div class="bc-recipes">' +
           '<div><h4>Rinse powder</h4>' + ul(['½ cup baking soda', '¼ cup xylitol', '15–20 drops peppermint oil', '5–8 drops clove oil']) +
             '<p>Mix the oils into the dry powder until no damp spots are left, and store it in a glass jar. Stir ¾ tsp into ¼–½ cup of warm water, swish, and spit. It keeps for months, and the scent fades after 2–3 months.</p></div>' +
-          '<div><h4>Xylitol mints</h4>' + ul(['½ cup xylitol (about 100 mints)', '2–3 drops peppermint oil', '1 drop clove oil, at most']) +
-            '<p>Melt the xylitol on low heat until clear. Cool it briefly, stir in the oils, and drop ¼ tsp amounts into tiny silicone molds. Let them set at room temperature, then store airtight. Each mint is about 1 g, dependent on size.</p></div>' +
+          '<div><h4>Xylitol mints</h4>' + ul(['½ cup xylitol (about 100 mints)', '6–10 drops peppermint oil (start with 6, then taste)', 'Optional: ¼ tsp pure vanilla extract, for vanilla mints']) +
+            '<p>Melt the xylitol on low heat until clear. Cool it briefly, stir in the peppermint (and vanilla, if using), and drop ¼ tsp amounts into tiny silicone molds. Let them set at room temperature, then store airtight. Each mint is about 1 g, dependent on size.</p></div>' +
         '</div>' +
         '<p>Mix essential oils into the dry powder first, because a drop of pure oil can burn your gums. Tea tree, cinnamon and wintergreen are best left out.</p>' +
         '<p class="bc-care"><span>Take care</span> Xylitol is very toxic to dogs, even in small amounts. Keep jars, gum and mints out of reach.</p>' +
         '<h3>Store-bought</h3>' +
-        '<p>I’d recommend Auromere. Dr. Ellie Phillips uses unflavored Closys (stabilized chlorine dioxide), original Listerine (for menthol, thymol, and eucalyptus oil, though beware its acidity) and ACT (0.05% sodium fluoride). Anything with those active ingredients does the same job. I’d avoid dyes, alcohol, and unknown chemicals.</p>' +
+        '<p>I’d recommend Auromere. Dr. Ellie Phillips uses unflavored Closys (stabilized chlorine dioxide), original Listerine (for menthol, thymol, and eucalyptus oil, though beware its acidity), and ACT (0.05% sodium fluoride). Anything with those active ingredients does the same job. I’d avoid dyes, alcohol, and unknown chemicals.</p>' +
         '<p class="bc-src">Source: ASPCA Animal Poison Control, xylitol.</p>') +
 
       mn().deeper('People whose work shaped this course, and where to go for more.', mn().credits('body-care'));

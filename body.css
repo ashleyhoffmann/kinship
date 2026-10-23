@@ -23,9 +23,11 @@
 .bc-points p { font-size: 15px; color: var(--ink-2); }
 .bc-recipes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
 .bc-recipes ul, .bc-recipes p { font-size: 15px; }
-.bc-care, .bc-ally { padding: 10px 12px; border-radius: 14px; color: var(--ink-2); font-size: 15px !important; }
+.bc-care, .bc-ally, .bc-joy { padding: 10px 12px; border-radius: 14px; color: var(--ink-2); font-size: 15px !important; }
 .bc-care { background: #FBEDEA; border-left: 4px solid #C9806F; }
 .bc-ally { background: #EAF2F8; border-left: 4px solid #7FA6C9; }
-.bc-care span, .bc-ally span { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.bc-joy { background: #FDF0E6; border-left: 4px solid #B85A14; }
+.bc-care span, .bc-ally span, .bc-joy span { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.bc-joy span { color: #8F4510; }
 .bc-src { font-size: 13px !important; color: var(--muted); }
 @media (max-width: 620px) { .bc-sec { padding: 18px 16px; } }

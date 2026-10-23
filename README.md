@@ -32,7 +32,7 @@ Plain HTML, CSS and JavaScript. No build step, no server, no accounts.
 | `em.css` | Emergency prep styles (units in blues; `em-` prefix; generated from `tox.css`) |
 | `gov.js` | Governance course (tier 1, Beta): what legally stops people from meeting basic needs and how to advocate in and outside existing systems. 1 Lovernance, envisioned alternatives (Collectivernance and Private lovernance) with the California laws that help and stand in the way; then What the law currently is: 2 rights you have by existing (US and California constitutions, a nod to animals and land), two views, who controls California water, where it goes (with the right-to-water fun fact), criminalization and incarceration, stairs for change, paths outside law, a transparency checklist; housing (who owns homes, including private equity) is next (`#lens-governance`) |
 | `gov.css` | Governance course styles |
-| `body.js` | Body care course (tier 3, Beta), kept plain (FOUNDATION §6): unit 1 Mouth, one page with 1.1 Why teeth decay (bacteria, acid and dryness, minerals, sugar), 1.2 Solutions (dislodge and remove bacteria with floss and a tongue scraper, neutralize the acid, slow the acid-makers, rebuild enamel; a morning-to-night game plan with an orange Morning joys note on coffee and tea; when a dentist helps) and 1.3 Make mouthwashes & mints (homemade rinse powder and mints, then store-bought in one paragraph); units 2–5 planned: Skin & hair, Sleep & rest, Bodies through time, Animal bodies (`#lens-body-care`) |
+| `body.js` | Body care course (tier 3, Beta), kept plain (FOUNDATION §6): unit 1 Mouth, one page with 1.1 Why teeth decay (bacteria, acid and dryness, minerals, sugar), 1.2 Solutions (dislodge and remove bacteria with floss and a tongue scraper, neutralize the acid, slow the acid-makers, rebuild enamel; a morning-to-night game plan with an orange Morning joys note on coffee and tea; when a dentist helps) and 1.3 Make mouthwashes & mints (homemade rinse powder and mints, a Dog health note on xylitol, a yellow For sore gums note on adding 3% peroxide, then store-bought in one paragraph); units 2–5 planned: Skin & hair, Sleep & rest, Bodies through time, Animal bodies (`#lens-body-care`) |
 | `body.css` | Body care styles (teals; `bc-` prefix) |
 
 ## Run it locally
@@ -74,6 +74,10 @@ So far: Emotions (Marshall B. Rosenberg & CNVC; Howard Schubiner, *Unlearn Your 
 
 ## Labels
 Section labels are plain: “Fun fact”, never “A grateful fun fact” (gratitude can live in the copy itself).
+
+## Writing
+- **Oxford comma.** Always, in any list of three or more, in copy, labels, alt text, and these docs: “water, soap, and vinegar”, never “water, soap and vinegar”.
+- **Say how it works.** Explain the mechanism (scientific or design) in plain, logical words instead of euphemisms, as succinctly as possible: “slows the oxygen-avoiding bacteria that inflame gums”, not “soothes gums”.
 
 ## Language for animals
 Animals are someone, not something: they/them when sex is unknown, he/she when known, never "it". Never call animals by meat names ("beef", "pork", "poultry", "seafood") or "livestock", including in numbers, tables and labels. Don't soften animal agriculture either: name feedlots and slaughterhouses plainly, and say what a count leaves out. See FOUNDATION.md section 4.

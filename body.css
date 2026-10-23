@@ -29,5 +29,7 @@
 .bc-joy { background: #FDF0E6; border-left: 4px solid #B85A14; }
 .bc-care span, .bc-ally span, .bc-joy span { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
 .bc-joy span { color: #8F4510; }
+.bc-tip { padding: 10px 12px; border-radius: 14px; color: var(--ink-2); font-size: 15px !important; background: #FBF3DC; border-left: 4px solid #A87700; }
+.bc-tip span { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #7A5600; margin-right: 4px; }
 .bc-src { font-size: 13px !important; color: var(--muted); }
 @media (max-width: 620px) { .bc-sec { padding: 18px 16px; } }

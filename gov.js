@@ -472,7 +472,7 @@
     '<div class="gv-unit" id="gv-u0"><span class="eyebrow">Lovernance · Unit 0</span><h2>Overview</h2><p>What lovernance is, the ways in, and how we get there, before the details of housing, work and care.</p></div>' +
 
     sec2('0.1', 'What lovernance is', 'Start here', 'A way to meet everyone’s needs directly, built beside the system we have now.',
-      '<p><b><i>“To change something, build a new model that makes the existing model obsolete.”</i></b> Credited to Buckminster Fuller.</p>' +
+      '<p><b><i>“You never change anything by fighting it; you change things by making them obsolete through superior technology.”</i></b> Buckminster Fuller, as recalled in <i>Think Out of the Box</i> (1995).</p>' +
       '<p>I’m calling my envisioned alternatives lovernance: what I want the law to allow and encourage now. As our shared thinking catches up, communities can hold it themselves and government can step back. Every situation is case-by-case.</p>' +
       '<p>It’s built on kinship; nobody charges their sister rent. What we give flows from relationship and need, and care reaches outward (especially once our needs feel met), from our household to loved ones, neighbors, and strangers, including animals, plants, and land.</p>' +
       '<h4>In short</h4>' + ul([

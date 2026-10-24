@@ -286,6 +286,10 @@
       shaped: { kinship: 'Plain, practical knowledge as a gift' } },
     { tier: 1, name: 'Sustainable Economies Law Center', who: 'Nonprofit legal center · Oakland', work: 'Free legal tools and advice for cooperatives, community land trusts, shared housing and land reform.', url: 'https://www.theselc.org', link: 'theselc.org',
       shaped: { governance: 'Governance advice for land reform: land trusts, co-ops and shared land', relationships: 'Cooperatives' } },
+    { tier: 1, name: 'Leah Garcés, Mercy For Animals & The Transfarmation Project', who: 'Author · nonprofit', work: 'The Transfarmation Project (2019) helps farmers who raise animals switch to growing crops. Leah Garcés tells the story in <i>Transfarmation: The Movement to Free Us from Factory Farming</i> (2024).', url: 'https://thetransfarmationproject.org', link: 'thetransfarmationproject.org',
+      shaped: { governance: 'Transfarmation: out a barn at a time (2.1 Needs-meeting businesses)' } },
+    { tier: 1, name: 'R. Buckminster Fuller', who: 'Futurist · inventor · author (1895–1983)', work: '<i>Operating Manual for Spaceship Earth</i> (1969), the geodesic dome, and the World Game: making the world work for everyone by design rather than by fighting.', url: 'https://www.bfi.org', link: 'Buckminster Fuller Institute',
+      shaped: { kinship: 'Inspiration: a futurist designing a world that works for everyone', governance: '0.1 What lovernance is: “making them obsolete,” not fighting them' } },
     { tier: 1, name: 'Alfie Kohn', who: 'Author · educator', work: '<i>Punished by Rewards</i> (1993): why gold stars, incentives, praise and other rewards backfire, for children and adults alike.', url: 'https://www.alfiekohn.org', link: 'alfiekohn.org',
       shaped: { relationships: 'Rewards and punishment (coming soon)' } },
     { tier: 1, name: 'Walter Wink', who: 'Theologian · author', work: '<i>The Powers That Be</i> (1998), on the “domination system” and creative nonviolent ways to resist it.', url: 'https://en.wikipedia.org/wiki/Walter_Wink', link: 'Wikipedia',
@@ -306,8 +310,14 @@
       shaped: { air: 'Heat and “the heat stupids”: confusion as heat’s first warning' } },
     { tier: 2, name: 'Dr. Yvonne Burkart', who: 'Toxicologist', work: 'Free education on everyday toxic exposures and gentler swaps.',
       shaped: { toxins: 'This course’s view of everyday exposures' } },
+    { tier: 3, name: 'Kirsten Dirksen', who: 'Filmmaker · YouTuber', work: 'Video tours of small, off-grid and self-built homes and the people who live in them, with Nicolás Boullosa of faircompanies.', url: 'https://www.youtube.com/user/kirstendirksen', link: 'Kirsten Dirksen on YouTube',
+      shaped: { shelter: 'Documenting off-grid shelter alternatives (coming soon)' } },
     { tier: 3, name: 'Dr. Ellie Phillips', who: 'Dentist · author', work: '<i>Kiss Your Dentist Goodbye</i>: mouth health as chemistry and bacteria, with xylitol and a simple home routine.',
-      shaped: { 'body-care': 'Mouth: acid, dryness, bacteria and xylitol' } }
+      shaped: { 'body-care': 'Mouth: acid, dryness, bacteria and xylitol' } },
+    { tier: 3, name: 'Eugene Tssui & Ojo del Sol (The Fish House)', who: 'Architect · Berkeley', work: 'Ojo del Sol (1995), a fish-shaped Berkeley home built to ride out earthquakes, warmed by sun-heated water and cooled by sitting partly underground.', url: 'https://en.wikipedia.org/wiki/Ojo_del_Sol', link: 'Wikipedia',
+      shaped: { shelter: 'Documenting off-grid shelter alternatives (coming soon)' } },
+    { tier: 4, name: 'Strange Exchange', who: 'Free swap · Divisadero Farmers’ Market, San Francisco', work: 'A volunteer-run “community reshuffling hub” started by Lela Means and Christina Gilyutin: on Sundays, neighbors leave and take useful things for free, and leftovers go to local nonprofits.', url: 'https://www.instagram.com/strangeexchangesf', link: '@strangeexchangesf on Instagram',
+      shaped: { salvaging: 'Free swaps and passing things on (coming soon)' } }
   ];
   function credits(course) {
     return SHOULDERS.filter(function (p) { return p.shaped[course]; }).map(function (p) {

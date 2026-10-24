@@ -280,6 +280,8 @@
   var CONTACT = 'ashley@ashleyhoffmann.com';
   var SHOULDERS = [
     /* tier sets the colour group on the Resources page (a tier num from lenses.js); order within a tier is the order shown. */
+    { tier: 1, name: 'Homesteading & gardening', who: 'A practice as old as people', work: 'Growing food, building, mending and making what a household needs, by hand and from the land around it. For most of human history, that’s simply how everyone lived. It isn’t a radical idea that we can meet our own needs: there is enough, and people are adaptable.',
+      shaped: { kinship: 'The radical idea that there’s enough, and we already know how: meeting needs directly', gardening: 'Growing your own food (coming soon)' } },
     { tier: 1, name: 'Marshall B. Rosenberg & the Center for Nonviolent Communication', who: 'Psychologist · nonprofit', work: '<i>Nonviolent Communication: A Language of Life</i>, and the free feelings and needs inventories.', url: 'https://www.cnvc.org', link: 'cnvc.org',
       shaped: { kinship: 'The spirit of the whole thing: meeting universal needs', emotions: 'Feelings as signals, universal needs, needs vs. strategies', relationships: 'Requests, dialogue and the Communicate tool' } },
     { tier: 1, name: 'Alicia Bay Laurel', who: 'Author · illustrator', work: '<i>Living on the Earth</i> (1970), a hand-drawn handbook of practical know-how, freely shared.', url: 'https://www.aliciabaylaurel.com', link: 'aliciabaylaurel.com',
@@ -290,10 +292,14 @@
       shaped: { governance: 'Transfarmation: out a barn at a time (2.1 Needs-meeting businesses)' } },
     { tier: 1, name: 'R. Buckminster Fuller', who: 'Futurist · inventor · author (1895–1983)', work: '<i>Operating Manual for Spaceship Earth</i> (1969), the geodesic dome, and the World Game: making the world work for everyone by design rather than by fighting.', url: 'https://www.bfi.org', link: 'Buckminster Fuller Institute',
       shaped: { kinship: 'Inspiration: a futurist designing a world that works for everyone', governance: '0.1 What lovernance is: “making them obsolete,” not fighting them' } },
+    { tier: 1, name: 'Justin Marceau & Lori Gruen', who: 'Law professor · philosopher', work: 'Editors of <i>Carceral Logics: Human Incarceration and Animal Captivity</i> (2022), free to read: how punishment-first thinking shapes both prisons and the caging of animals, and what each movement can learn from the other.', url: 'https://www.cambridge.org/core/books/carceral-logics/11994B3F1D4DD38FD0841005DD758A3A', link: 'Free on Cambridge Core',
+      shaped: { governance: '4.2 Criminalization and incarceration: cages for people and animals' } },
     { tier: 1, name: 'Alfie Kohn', who: 'Author · educator', work: '<i>Punished by Rewards</i> (1993): why gold stars, incentives, praise and other rewards backfire, for children and adults alike.', url: 'https://www.alfiekohn.org', link: 'alfiekohn.org',
       shaped: { relationships: 'Rewards and punishment (coming soon)' } },
     { tier: 1, name: 'Walter Wink', who: 'Theologian · author', work: '<i>The Powers That Be</i> (1998), on the “domination system” and creative nonviolent ways to resist it.', url: 'https://en.wikipedia.org/wiki/Walter_Wink', link: 'Wikipedia',
       shaped: { relationships: 'Beyond good and bad: the domination system (more coming soon)' } },
+    { tier: 1, name: 'Mia Mingus', who: 'Writer · educator · organizer', work: 'Transformative and disability justice, co-founder of the Bay Area Transformative Justice Collective, and pod mapping: knowing who you can turn to when harm happens.', url: 'https://leavingevidence.wordpress.com', link: 'Leaving Evidence',
+      shaped: { relationships: 'Restorative and transformative justice (coming soon)' } },
     { tier: 1, name: 'Michaeleen Doucleff', who: 'Journalist · author', work: '<i>Hunt, Gather, Parent</i> (2021), including the TEAM approach: togetherness, encouragement, autonomy, minimal interference.',
       shaped: { relationships: 'Children' } },
     { tier: 1, name: 'Barbara Rogoff', who: 'Researcher', work: 'Research on how children learn by observing and pitching in.',

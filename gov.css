@@ -176,3 +176,11 @@ details[open] > summary > .gv-pm { background: var(--gv-mid); }
 .gv-bridge { display: flex; align-items: center; gap: 8px; margin: 10px 4px 6px; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 .gv-bridge::before, .gv-bridge::after { content: ''; flex: 1; border-top: 2px solid var(--gv-edge, #EFC9D9); }
 .gv-bridge.first { margin-top: 4px; }
+/* v16: Unit 0 stages (reuses .gv-stairs) and the letter to adapt */
+.gv-st-you { display: flex; flex-direction: column; gap: 2px; padding: 8px 12px; border-radius: 12px; background: rgba(255, 255, 255, 0.9); border: 1px solid var(--gv-edge); }
+.gv-st-you .eyebrow { color: var(--gv); font-size: 10.5px; }
+.gv-stages .gv-st-gen > b { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.gv-stages .gv-st-kick { font-style: italic; }
+.gv-st-k { font-weight: 600; color: var(--ink); }
+.gv-letter { display: flex; flex-direction: column; gap: 6px; }
+.gv-letter p { font-family: var(--f-mono); font-size: 13.5px; }

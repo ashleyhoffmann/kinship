@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kinship · Governance in three units (mock-up)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../gov.css">
+<style>
+.mk-label { display: block; max-width: 1100px; margin: 16px auto 0; padding: 0 16px; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.mk-new { outline: 3px dashed #C2477F; outline-offset: 4px; }
+/* Unit 2 section list */
+.gv-u2list { list-style: none; margin: 4px 0 0; padding: 0 !important; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 8px; }
+.gv-u2list a { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 12px; border-radius: 12px; background: rgba(255, 255, 255, 0.8); border: 1px solid var(--gv-edge); text-decoration: none; font-weight: 600; color: var(--ink); }
+.gv-u2list .gv-n { width: 34px; height: 34px; border-radius: 10px; font-size: 13px; }
+.gv-sec > .gv-visions { grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); }
+.gv-axes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 8px; }
+.gv-axes > div { padding: 10px 12px; border-radius: 12px; background: rgba(255, 255, 255, 0.8); border: 1px solid var(--gv-edge); }
+.gv-axes p { font-size: 15px; margin-top: 2px; }
+.gv-shift { list-style: none; padding: 0 !important; display: grid; gap: 8px !important; }
+.gv-shift li { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 12px; background: rgba(255, 255, 255, 0.8); border: 1px solid var(--gv-edge); }
+@media (max-width: 520px) { .gv-shift li { grid-template-columns: 1fr; gap: 2px; } .gv-shift li > span[aria-hidden] { transform: rotate(90deg); width: max-content; } }
+</style>
+</head>
+<body>
+<span class="mk-label">Mock-up v8 · Oct 23 · gov.js · Unit 1: two ways in, commons play/materials/fostering, kin gift vs trade, standing, when a home opens, renters first · Unit 2 rebuilt (11 sections) · 3.1 Housing Act (dashed outline = new since live)</span>
+<div id="app"></div>
+<script>
+window.MN = { header: function () { return ''; }, footer: function () { return ''; } };
+</script>
+<script src="gov-next.js"></script>
+<script>
+document.getElementById('app').innerHTML = window.MN_LENS_VIEWS.governance('').html;
+['gv-1-4', 'gv-u2'].forEach(function (id) { var e = document.getElementById(id); if (e) e.classList.add('mk-new'); });
+var s = document.getElementById('gv-u2'); while (s && (s = s.nextElementSibling) && s.id !== 'gv-u3') { if (s.classList.contains('gv-sec') || s.classList.contains('gv-src')) s.classList.add('mk-new'); }
+document.querySelectorAll('#gv-3\\.1 li').forEach(function (li) { if (/Housing Act of 1949/.test(li.textContent)) li.classList.add('mk-new'); });
+document.querySelectorAll('a[href^="#lens-governance/"]').forEach(function (a) { var id = 'gv-' + a.getAttribute('href').split('/')[1]; a.addEventListener('click', function (e) { var t = document.getElementById(id); if (t) { e.preventDefault(); t.scrollIntoView(); } }); });
+</script>
+</body>
+</html>

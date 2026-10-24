@@ -23,7 +23,7 @@ window.MN_TIERS = [
         id: 'governance', name: 'Governance', status: 'ready',
         blurb: 'Current social rules and alternative visions (“lovernance”) to meet needs. Broad concepts, but tailored to California.',
         topics: ['Lovernance', 'Rights', 'Power', 'Rules', 'Incarceration'],
-        looks: ['Lovernance, envisioned alternatives: Collectivernance and Private lovernance, with the California laws that help and stand in the way', 'Rights you have by existing, in the US and California constitutions', 'Who controls California’s water, and how they’re chosen', 'Criminalization and incarceration: when meeting a need becomes a crime', 'Stairs for change: art, talk, public comment, representatives, organizing, voting, protest, and paths outside law']
+        looks: ['Unit 1, Lovernance: three envisioned kinds of land (needs-meeting commons, collective-owned homes and the give-and-get program), with the California laws that help and stand in the way', 'Rights you have by existing, in the US and California constitutions', 'Who controls California’s water, and how they’re chosen', 'Criminalization and incarceration: when meeting a need becomes a crime', 'Stairs for change: art, talk, public comment, representatives, organizing, voting, protest, and paths outside law']
       }
     ]
   },

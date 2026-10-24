@@ -245,14 +245,23 @@
         '<b>Public service clears student loans.</b> Ten years of full-time work for a nonprofit or a public employer can forgive what’s left of federal student loans. It meets an old-economy need, so it counts. A nonprofit that meets the four musts is an honorary NMB (' + go('2.1') + '), so nobody has to restructure and lose years toward forgiveness. Public school teachers already qualify, and a four-day week of eight-hour days still counts as full-time.',
         '<b>Low income, low payments.</b> With a home and food covered, income-based student loan payments can drop very low.',
         '<b>A student debt fund</b> at the community credit union helps pay down what’s left (' + go('2.6') + ').',
+        '<b>A fresh start, when it’s safe.</b> Bankruptcy is a forgiveness the law already guarantees. Chapter 7 clears most credit card, medical and personal loan debt in a few months, and in California people keep a home up to a limit, a car, work tools and some savings. It stays on a credit report for up to 10 years, so it fits best once the commons reliably meets your needs, or when your credit is already past saving. It’s always your choice, never pushed.',
+        '<b>Free legal help.</b> The commons fund pays for legal aid, so anyone who chooses bankruptcy files with a real lawyer. Low-income filers can ask the court to waive its fee.',
+        '<b>File first, then give.</b> A gift to the commons made in the years before filing can be undone by the bankruptcy trustee. File first and keep what the law protects, then give it if you want to.',
+        '<b>Some debts just fade.</b> Someone with no wages or property a creditor can take is “judgment-proof”: Social Security, SSI and most public benefits are protected, and in California most debts can’t be sued on after four years. Bankruptcy still gives a clean, final end, if that brings peace.',
         '<b>Debt never decides your place.</b> Homes and care go by need, never by credit score.']) +
       law([
         ['Helps', 'California hospitals must offer free or discounted care to patients with income up to 400% of the federal poverty level (AB 1020, 2021).'],
         ['Helps', 'Since 2025, medical debt can’t appear on California credit reports (SB 1061, 2024).'],
         ['Federal', 'Public Service Loan Forgiveness clears what’s left of federal Direct Loans after 120 qualifying payments while working full-time (at least 30 hours a week) for a government or 501(c)(3) nonprofit employer. A worker co-op or an LLC doesn’t qualify, one reason honorary NMBs exist.'],
-        ['Federal', 'Forgiven debt can count as taxable income, with exceptions, including Public Service Loan Forgiveness and debt forgiven when someone owes more than they own (26 U.S.C. §108).'],
+        ['Federal', 'Forgiven debt can count as taxable income, with exceptions, including bankruptcy, Public Service Loan Forgiveness and debt forgiven when someone owes more than they own (26 U.S.C. §108).'],
+        ['Federal', 'Chapter 7 bankruptcy discharges most unsecured debts, like credit cards and medical bills, usually within a few months (11 U.S.C. §727). Child support, most recent taxes, criminal fines and debts from fraud survive (§523). Low-income filers can ask to have the filing fee waived (28 U.S.C. §1930(f)).'],
+        ['Helps', 'California exemptions let bankruptcy filers keep a home up to a limit, a car, work tools and some savings (Code Civ. Proc. §§703.140, 704.010–704.730).'],
+        ['Helps', 'In California, most debts on a written contract can’t be sued on after four years (Code Civ. Proc. §337), and Social Security and SSI can’t be taken by creditors.'],
+        ['In the way', 'Federal student loans are discharged in bankruptcy only for “undue hardship” (11 U.S.C. §523(a)(8)), a hard test, though a simpler federal process began in 2022.'],
+        ['In the way', 'A bankruptcy trustee can undo gifts made within 2 years before filing (11 U.S.C. §548), or up to 4 years under California law (Civ. Code §3439.09), so gifts to the commons should come after filing.'],
         ['Elsewhere', 'Cook County, Illinois (2022), and other cities and counties have paid a nonprofit to buy and forgive residents’ medical debt for pennies on the dollar.'],
-        ['Not yet law', 'Debt forgiveness counted as a needs-meeting gift, commons banking with lenders that forgive, and a debt-buying fund.']])) +
+        ['Not yet law', 'Debt forgiveness counted as a needs-meeting gift, commons banking with lenders that forgive, a debt-buying fund, and commons-paid legal aid for bankruptcy.']])) +
 
     sec2('2.8', 'Less to throw away', 'Waste', 'Compost what can rot, use less plastic, and keep the rest away from people until it can be broken down safely.',
       '<p>A landfill is where needs went unmet: food nobody ate, things nobody could fix. Most of it can go back to the soil or back into use. Plastic is the hard part. Recycling it still means handling it, and plastic sheds tiny pieces and chemicals into food, water and bodies (<a href="#lens-toxins">Poisons</a>).</p>' +

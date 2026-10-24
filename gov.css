@@ -171,3 +171,8 @@ details[open] > summary > .gv-pm { background: var(--gv-mid); }
 .gv-acc.is-planned .gv-need { background: rgba(255, 255, 255, 0.6); border-style: dashed; }
 .gv-main [id^="gv-"] { scroll-margin-top: 110px; }
 @media (max-width: 720px) { .gv-main [id^="gv-"] { scroll-margin-top: 170px; } }
+
+/* Sidebar bridge between lovernance (units 1–3) and the law (4–5), like Emotions → Relationships */
+.gv-bridge { display: flex; align-items: center; gap: 8px; margin: 10px 4px 6px; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.gv-bridge::before, .gv-bridge::after { content: ''; flex: 1; border-top: 2px solid var(--gv-edge, #EFC9D9); }
+.gv-bridge.first { margin-top: 4px; }

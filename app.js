@@ -660,7 +660,7 @@
   var sky = '<div class="sky" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>';
 
   /* Course files load only when someone opens that lens, so the home page stays light. */
-  var LAZY = { emotions: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, relationships: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, water: { css: 'water.css', js: ['water.js'] }, food: { css: 'food.css', js: ['food.js'] }, toxins: { css: 'tox.css', js: ['tox.js'] }, air: { css: 'air.css', js: ['air.js'] }, cleaning: { css: 'clean.css', js: ['clean.js'] }, 'emergency-prep': { css: 'em.css', js: ['em.js'] }, governance: { css: 'gov.css', js: ['gov.js'] }, 'body-care': { css: 'body.css', js: ['body.js'] } };
+  var LAZY = { emotions: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, relationships: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, water: { css: 'water.css', js: ['water.js'] }, food: { css: 'food.css', js: ['food.js'] }, toxins: { css: 'tox.css', js: ['tox.js'] }, air: { css: 'air.css', js: ['air.js'] }, cleaning: { css: 'clean.css', js: ['clean.js'] }, 'emergency-prep': { css: 'em.css', js: ['em.js'] }, governance: { css: 'gov.css', js: ['gov.js'] }, 'body-care': { css: 'body.css', js: ['body.js'] }, 'composting-waste': { css: 'compost.css', js: ['compost.js'] } };
   var lazyState = {};
   function needsLazy(r) {
     var lid = r.indexOf('lens-') === 0 ? r.slice(5).split(/[\/?]/)[0] : '';

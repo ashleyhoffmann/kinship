@@ -128,10 +128,10 @@ window.MN_TIERS = [
         looks: ['When and how much to cut so the plant thrives', 'Sorting a big pile of trimmings, then rinsing and drying it', 'Jars, freezing, and how long dried herbs keep', 'Herb by herb: rosemary for the kitchen, lavender for scent and baking', 'Which plants and oils are safe for cats, dogs, horses and birds (lavender and essential oils are hard on cats)']
       },
       {
-        id: 'composting-waste', name: 'Composting & waste', status: 'soon',
+        id: 'composting-waste', name: 'Composting & waste', status: 'ready',
         blurb: 'Turn scraps into soil and handle waste safely, with the grid as the usual best bet and septic as an option.',
-        topics: ['Scraps', 'Sewage', 'Worms'],
-        looks: ['Compost and worm bins that don’t smell', 'How sewage and septic systems work, and why the grid is usually safest', 'Sending less of everything else away']
+        topics: ['Microbes', 'Ways to compost', 'What goes in', 'Using compost', 'Sewage'],
+        looks: ['How microbes, greens, browns, water, and air make compost', 'Green bins, Lomi, bokashi, worms, piles, and trenches, side by side', 'What to save for broth, what goes in, and what stays out (dog poop and “compostable” plastic included)', 'Which compost feeds veggies and which suits trees and flowers', 'How sewage and septic systems work, and why the grid is usually safest (planned)']
       },
       {
         id: 'weather', name: 'Weather', status: 'soon',

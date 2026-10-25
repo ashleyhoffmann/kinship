@@ -281,7 +281,7 @@
   var SHOULDERS = [
     /* tier sets the colour group on the Resources page (a tier num from lenses.js); order within a tier is the order shown. */
     { tier: 1, name: 'Homesteading & gardening', who: 'A practice as old as people', work: 'Growing food, building, mending and making what a household needs, by hand and from the land around it. For most of human history, that’s simply how everyone lived. It isn’t a radical idea that we can meet our own needs: there is enough, and people are adaptable.',
-      shaped: { kinship: 'The radical idea that there’s enough, and we already know how: meeting needs directly', gardening: 'Growing your own food (coming soon)' } },
+      shaped: { kinship: 'The radical idea that there’s enough, and we already know how: meeting needs directly', gardening: 'Growing your own food' } },
     { tier: 1, name: 'Marshall B. Rosenberg & the Center for Nonviolent Communication', who: 'Psychologist · nonprofit', work: '<i>Nonviolent Communication: A Language of Life</i>, and the free feelings and needs inventories.', url: 'https://www.cnvc.org', link: 'cnvc.org',
       shaped: { kinship: 'The spirit of the whole thing: meeting universal needs', emotions: 'Feelings as signals, universal needs, needs vs. strategies', relationships: 'Requests, dialogue and the Communicate tool' } },
     { tier: 1, name: 'Alicia Bay Laurel', who: 'Author · illustrator', work: '<i>Living on the Earth</i> (1970), a hand-drawn handbook of practical know-how, freely shared.', url: 'https://www.aliciabaylaurel.com', link: 'aliciabaylaurel.com',
@@ -660,7 +660,7 @@
   var sky = '<div class="sky" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>';
 
   /* Course files load only when someone opens that lens, so the home page stays light. */
-  var LAZY = { emotions: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, relationships: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, water: { css: 'water.css', js: ['water.js'] }, food: { css: 'food.css', js: ['food.js'] }, toxins: { css: 'tox.css', js: ['tox.js'] }, air: { css: 'air.css', js: ['air.js'] }, cleaning: { css: 'clean.css', js: ['clean.js'] }, 'emergency-prep': { css: 'em.css', js: ['em.js'] }, governance: { css: 'gov.css', js: ['gov.js'] }, 'body-care': { css: 'body.css', js: ['body.js'] }, 'composting-waste': { css: 'compost.css', js: ['compost.js'] } };
+  var LAZY = { emotions: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, relationships: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, water: { css: 'water.css', js: ['water.js'] }, food: { css: 'food.css', js: ['food.js'] }, toxins: { css: 'tox.css', js: ['tox.js'] }, air: { css: 'air.css', js: ['air.js'] }, cleaning: { css: 'clean.css', js: ['clean.js'] }, 'emergency-prep': { css: 'em.css', js: ['em.js'] }, governance: { css: 'gov.css', js: ['gov.js'] }, 'body-care': { css: 'body.css', js: ['body.js'] }, 'composting-waste': { css: 'compost.css', js: ['compost.js'] }, gardening: { css: 'grow.css', js: ['grow.js'] } };
   var lazyState = {};
   function needsLazy(r) {
     var lid = r.indexOf('lens-') === 0 ? r.slice(5).split(/[\/?]/)[0] : '';

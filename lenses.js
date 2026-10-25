@@ -116,7 +116,7 @@ window.MN_TIERS = [
         looks: ['The few tools that handle most jobs', 'Reading a label for what is actually in it', 'Pairs that must never meet, like bleach and ammonia']
       },
       {
-        id: 'gardening', name: 'Growing', status: 'soon',
+        id: 'gardening', name: 'Growing', status: 'ready',
         blurb: 'Your teacher and planner: climate zone, soil, a 12-month plan, pruning, and new plants from cuttings.',
         topics: ['Learn', 'Plan', 'Prune', 'Seed saving'],
         looks: ['Your growing zone, frost dates and the light you actually get', 'Soil you can build instead of buy', 'A month-by-month plan for the space you have', 'Pruning that keeps plants young, and free plants from cuttings']

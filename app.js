@@ -289,11 +289,11 @@
     { tier: 1, name: 'Sustainable Economies Law Center', who: 'Nonprofit legal center · Oakland', work: 'Free legal tools and advice for cooperatives, community land trusts, shared housing and land reform.', url: 'https://www.theselc.org', link: 'theselc.org',
       shaped: { governance: 'Governance advice for land reform: land trusts, co-ops and shared land', relationships: 'Cooperatives' } },
     { tier: 1, name: 'Leah Garcés, Mercy For Animals & The Transfarmation Project', who: 'Author · nonprofit', work: 'The Transfarmation Project (2019) helps farmers who raise animals switch to growing crops. Leah Garcés tells the story in <i>Transfarmation: The Movement to Free Us from Factory Farming</i> (2024).', url: 'https://thetransfarmationproject.org', link: 'thetransfarmationproject.org',
-      shaped: { governance: 'Transfarmation: out a barn at a time (2.1 Needs-meeting businesses)' } },
+      shaped: { governance: 'Transfarmation: out a barn at a time (3.1 Needs-meeting businesses)' } },
     { tier: 1, name: 'R. Buckminster Fuller', who: 'Futurist · inventor · author (1895–1983)', work: '<i>Operating Manual for Spaceship Earth</i> (1969), the geodesic dome, and the World Game: making the world work for everyone by design rather than by fighting.', url: 'https://www.bfi.org', link: 'Buckminster Fuller Institute',
-      shaped: { kinship: 'Inspiration: a futurist designing a world that works for everyone', governance: '0.1 What lovernance is: “making them obsolete,” not fighting them' } },
+      shaped: { kinship: 'Inspiration: a futurist designing a world that works for everyone', governance: '1.1 “Lovernance” is interdependence: “making them obsolete,” not fighting them' } },
     { tier: 1, name: 'Justin Marceau & Lori Gruen', who: 'Law professor · philosopher', work: 'Editors of <i>Carceral Logics: Human Incarceration and Animal Captivity</i> (2022), free to read: how punishment-first thinking shapes both prisons and the caging of animals, and what each movement can learn from the other.', url: 'https://www.cambridge.org/core/books/carceral-logics/11994B3F1D4DD38FD0841005DD758A3A', link: 'Free on Cambridge Core',
-      shaped: { governance: '4.2 Criminalization and incarceration: cages for people and animals' } },
+      shaped: { governance: '5.2 Criminalization and incarceration: cages for people and animals' } },
     { tier: 1, name: 'Alfie Kohn', who: 'Author · educator', work: '<i>Punished by Rewards</i> (1993): why gold stars, incentives, praise and other rewards backfire, for children and adults alike.', url: 'https://www.alfiekohn.org', link: 'alfiekohn.org',
       shaped: { relationships: 'Rewards and punishment (coming soon)' } },
     { tier: 1, name: 'Walter Wink', who: 'Theologian · author', work: '<i>The Powers That Be</i> (1998), on the “domination system” and creative nonviolent ways to resist it.', url: 'https://en.wikipedia.org/wiki/Walter_Wink', link: 'Wikipedia',
@@ -323,7 +323,9 @@
     { tier: 3, name: 'Eugene Tssui & Ojo del Sol (The Fish House)', who: 'Architect · Berkeley', work: 'Ojo del Sol (1995), a fish-shaped Berkeley home built to ride out earthquakes, warmed by sun-heated water and cooled by sitting partly underground.', url: 'https://en.wikipedia.org/wiki/Ojo_del_Sol', link: 'Wikipedia',
       shaped: { shelter: 'Documenting off-grid shelter alternatives (coming soon)' } },
     { tier: 4, name: 'Strange Exchange', who: 'Free swap · Divisadero Farmers’ Market, San Francisco', work: 'A volunteer-run “community reshuffling hub” started by Lela Means and Christina Gilyutin: on Sundays, neighbors leave and take useful things for free, and leftovers go to local nonprofits.', url: 'https://www.instagram.com/strangeexchangesf', link: '@strangeexchangesf on Instagram',
-      shaped: { salvaging: 'Free swaps and passing things on (coming soon)' } }
+      shaped: { salvaging: 'Free swaps and passing things on (coming soon)' } },
+    { tier: 4, name: 'Bob Sparkman & the Haven Street Bubbler', who: 'Neighbor · Holly Hills, St. Louis', work: 'A water fountain for neighborhood dogs, built in 2026 outside his home from leftover brick and tile and fed by his own spigot, after walking his two big dogs in summer heat. Neighbors who used to cross the street now stop and talk.', url: 'https://www.ksdk.com/article/news/local/lets-paws-south-st-louis-creates-continuous-water-fountain-for-dogs-in-his-neighborhood/63-4c9be1ba-af5f-48f1-b9f4-f9b33a5ccf05', link: 'KSDK',
+      shaped: { governance: '1.2 There’s enough: one neighbor meeting a need with what he already had' } }
   ];
   function credits(course) {
     return SHOULDERS.filter(function (p) { return p.shaped[course]; }).map(function (p) {

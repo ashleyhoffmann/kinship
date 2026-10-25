@@ -84,9 +84,16 @@
         ul(['<b>Sun:</b> count the hours of direct sun each spot gets, and save the sunniest for fruiting plants.',
           '<b>Season:</b> much of California grows greens, peas, and garlic from fall to spring, and tomatoes and squash in summer.',
           '<b>Soil:</b> near an older house or a busy road, test for lead first (see <a href="#lens-toxins/soil">Poisons → Soil</a>), or grow in raised beds of new soil.',
-          '<b>Water:</b> deeply and less often, soaking about 6 inches down, so roots grow deep. Mornings are best, and drip lines or soaker hoses save water.']) +
+          '<b>Water:</b> deeply and less often, soaking about 6 inches down, so roots grow deep. In dry months beds need about an inch a week, around 60 gallons per 100 square feet. Mornings are best, and drip lines, soaker hoses, and mulch save water.']) +
+        '<p><b>What saves the most:</b> grow what’s easy and costly to buy, and buy what’s cheap.</p>' +
+        '<div class="gr-waits">' +
+          wait('Grow it', [['Herbs', 'About $57 a pound in small clamshells; one basil plant can stand in for a clamshell a week'], ['Chard and kale', 'Pick the outer leaves for months; chard gives about 30 lb per 10 ft of row'], ['Lettuce and spinach', 'Ready in 4–6 weeks, and happiest in cool weather'], ['Cherry tomatoes', 'About $4 a pound, if the spot gets 6+ hours of sun'], ['Pole beans', 'They climb, so they need little ground']]) +
+          wait('One is plenty', [['Zucchini', 'One plant fills about 9 square feet and makes more than most households eat']]) +
+          wait('Usually cheaper to buy', [['Cabbage', 'Under $1 a pound, and about 3 months for one head'], ['Potatoes, onions, and carrots', 'About $1 a pound and keep for weeks; grow them for fun or for the soil']]) +
+        '</div>' +
+        '<p><b>How much a yard grows:</b> a well-kept bed gives about ½ lb per square foot a year, and low-income families in San Jose weighed about 1¼ lb per square foot in one spring and summer. So 100 square feet of beds gives roughly 50–120 lb a year. What that means for a neighborhood is in <a href="#lens-governance/1-2">Governance → There’s enough</a>.</p>' +
         '<p class="gr-ally"><span>Allies</span> UC Master Gardeners answer growing questions for free in most California counties. Community gardens rent plots, often for a small yearly fee.</p>' +
-        '<p class="gr-src">Sources: UC Master Gardener Program, “Watering the Home Garden”.</p>') +
+        '<p class="gr-src">Sources: UC Master Gardener Program, “Watering the Home Garden”; University of Minnesota Extension, “Watering the Vegetable Garden”; USDA ERS, Fruit and Vegetable Prices (2023 data); Cornell Cooperative Extension, expected yields for garden vegetables; National Gardening Association, <i>The Impact of Home and Community Gardening in America</i> (2009); Algert et al., <i>J. Hunger &amp; Environmental Nutrition</i> (2016).</p>') +
 
       unit(5, 'Sharing the garden',
         ul(['<b>Most visitors help.</b> Bees pollinate, and ladybugs and lacewings eat aphids. Bug sprays kill the helpers too.',

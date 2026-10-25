@@ -184,3 +184,35 @@ details[open] > summary > .gv-pm { background: var(--gv-mid); }
 .gv-st-k { font-weight: 600; color: var(--ink); }
 .gv-letter { display: flex; flex-direction: column; gap: 6px; }
 .gv-letter p { font-family: var(--f-mono); font-size: 13.5px; }
+/* v18: Unit 1 · 1.2 There’s enough (one yard, one year; proof at every size) and 1.4 From a wave to a home */
+.gv-yard { display: flex; flex-direction: column; gap: 6px; }
+.gv-yard ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.gv-yard-in { grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); }
+.gv-yard-out { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
+.gv-yard li { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border-radius: 16px; background: #fff; border: 1px solid var(--gv-edge); }
+.gv-yard-out li { background: #E3F0E4; border-color: #B9D8BD; }
+.gv-yard li .eyebrow { font-size: 11px; color: var(--gv); }
+.gv-yard-out li .eyebrow { color: #2E6B34; }
+.gv-yard li b { font-family: var(--f-head); font-size: clamp(19px, 2.2vw, 23px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; }
+.gv-yard li small { font-size: 14px; color: var(--ink-2); line-height: 1.4; }
+.gv-yard-arrow { text-align: center; font-size: 22px; line-height: 1; color: var(--muted); margin: 0; }
+/* Proof at every size */
+.gv-proof { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 10px; }
+.gv-proof article { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-radius: 18px; background: var(--gv-bg); border: 1px solid var(--gv-edge); }
+.gv-proof .eyebrow { font-size: 11px; color: var(--gv); }
+.gv-proof h3 { font-family: var(--f-head); font-size: 19px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; }
+.gv-proof p { font-size: 14.5px; color: var(--ink-2); }
+.gv-proof .gv-proof-src { margin-top: auto; font-size: 14px; font-weight: 600; }
+.gv-proof .gv-proof-src a { display: inline-flex; align-items: center; min-height: 44px; }
+/* From a wave to a home: each gift a little bigger */
+.gv-sizes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.gv-sizes li { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(0, 0.8fr); align-items: baseline; gap: 4px 12px; margin-left: calc(var(--i) * clamp(6px, 2.4vw, 30px)); padding: 10px 14px; border-radius: 14px; background: color-mix(in oklab, var(--gv), white calc(94% - var(--i) * 4%)); border: 1px solid var(--gv-edge); }
+.gv-sizes b { font-family: var(--f-head); font-size: 16px; }
+.gv-sizes span { font-size: 15px; color: var(--ink-2); }
+.gv-sizes em { font-style: normal; font-weight: 700; color: var(--ink); }
+.gv-sizes small { font-family: var(--f-mono); font-size: 12px; color: var(--muted); text-align: right; }
+@media (max-width: 600px) {
+  .gv-sizes li { grid-template-columns: minmax(0, 1fr); margin-left: calc(var(--i) * 6px); }
+  .gv-sizes small { text-align: left; }
+}
+.gv-stages + h4 { margin-top: 6px; }

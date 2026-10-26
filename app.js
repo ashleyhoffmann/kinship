@@ -324,6 +324,8 @@
       shaped: { toxins: 'This lens’s view of everyday exposures' } },
     { tier: 3, name: 'Kirsten Dirksen', who: 'Filmmaker · YouTuber', work: 'Video tours of small, off-grid and self-built homes and the people who live in them, with Nicolás Boullosa of faircompanies.', url: 'https://www.youtube.com/user/kirstendirksen', link: 'Kirsten Dirksen on YouTube',
       shaped: { shelter: 'Documenting off-grid shelter alternatives (coming soon)' } },
+    { tier: 3, name: 'Electronic Frontier Foundation · Surveillance Self-Defense', who: 'Nonprofit · San Francisco', work: 'Surveillance Self-Defense, free guides to security planning, passwords, phones, and protests, including “Online Privacy for Parents and Youth” (2026), and the Privacy Badger browser extension.', url: 'https://ssd.eff.org', link: 'ssd.eff.org',
+      shaped: { 'self-defense': 'Unit 6 Everyday cybersecurity: a security plan, passwords, phones and trackers, and kids and screens' } },
     { tier: 3, name: 'Dr. Ellie Phillips', who: 'Dentist · author', work: '<i>Kiss Your Dentist Goodbye</i>: mouth health as chemistry and bacteria, with xylitol and a simple home routine.',
       shaped: { 'body-care': 'Mouth: acid, dryness, bacteria and xylitol' } },
     { tier: 3, name: 'Aly Art', who: 'Style YouTuber', work: 'Videos on hair color, makeup, and style, including “Balayage At Home - How to.”', url: 'https://www.youtube.com/watch?v=XgSOwUkn82A', link: 'Balayage at home on YouTube',
@@ -672,7 +674,7 @@
   var sky = '<div class="sky" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>';
 
   /* Course files load only when someone opens that lens, so the home page stays light. */
-  var LAZY = { emotions: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, relationships: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, water: { css: 'water.css', js: ['water.js'] }, food: { css: 'food.css', js: ['food.js'] }, toxins: { css: 'tox.css', js: ['tox.js'] }, air: { css: 'air.css', js: ['air.js'] }, cleaning: { css: 'clean.css', js: ['clean.js'] }, 'emergency-prep': { css: 'em.css', js: ['em.js'] }, governance: { css: 'gov.css', js: ['gov.js'] }, 'body-care': { css: 'body.css', js: ['body.js'] }, 'composting-waste': { css: 'compost.css', js: ['compost.js'] }, gardening: { css: 'grow.css', js: ['grow.js'] } };
+  var LAZY = { emotions: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, relationships: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, water: { css: 'water.css', js: ['water.js'] }, food: { css: 'food.css', js: ['food.js'] }, toxins: { css: 'tox.css', js: ['tox.js'] }, air: { css: 'air.css', js: ['air.js'] }, cleaning: { css: 'clean.css', js: ['clean.js'] }, 'emergency-prep': { css: 'em.css', js: ['em.js'] }, governance: { css: 'gov.css', js: ['gov.js'] }, 'body-care': { css: 'body.css', js: ['body.js'] }, 'composting-waste': { css: 'compost.css', js: ['compost.js'] }, gardening: { css: 'grow.css', js: ['grow.js'] }, 'self-defense': { css: 'sd.css', js: ['sd.js'] } };
   var lazyState = {};
   function needsLazy(r) {
     var lid = r.indexOf('lens-') === 0 ? r.slice(5).split(/[\/?]/)[0] : '';

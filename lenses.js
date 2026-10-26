@@ -80,10 +80,10 @@ window.MN_TIERS = [
         looks: ['Overview: water, food, air and gentle skin care for one body, sleep and rest, routines and blue light, and a small kit of tools', 'Mouth: why teeth decay, xylitol, and mouthwash and mints you can make at home', 'Hair care: hair types, washing less, water-only washes and hippie options, and textured and coily hair', 'Hair bleaching at home: bleach, wash, tone, and condition', 'Bodies through time: children, pregnancy, aging and different bodies (planned)', 'The animals who share your home (planned)']
       },
       {
-        id: 'self-defense', name: 'Self-defense', status: 'soon',
-        blurb: 'Keep yourself, your people and your home safe: noticing early, calming things with words, and getting away.',
-        topics: ['Noticing', 'De-escalation', 'Getting away', 'Home'],
-        looks: ['Trusting the early feeling that something is off, and leaving early', 'De-escalation: distance, calm and words before anything else', 'Simple protective moves for breaking free and getting away', 'Home preparation: locks, lights, a safe room, a plan and neighbors who check in (with Emergency prep)']
+        id: 'self-defense', name: 'Self-defense', status: 'building',
+        blurb: 'Everyday safety for yourself, your people, your animals, and your home: trust, noticing early, calming things with words, getting away, and staying safe online.',
+        topics: ['Safety', 'Noticing', 'De-escalation', 'Getting away', 'Home', 'Cybersecurity', 'Animal safety'],
+        looks: ['Safety: where it lives, trust and vulnerability, warning signs close to home, power, and a web of people', 'Noticing: trusting the early feeling, reading a place and a person, and leaving early', 'De-escalation: calming yourself, space, words that lower the heat, someone in crisis, and scared animals', 'Getting away: your voice, simple moves for breaking free, running to people, and afterward', 'Home: doors and locks, light, who comes to the door, a safe room and a plan, and neighbors who check in', 'Everyday cybersecurity: a security plan, passwords, phones and trackers, scams, and kids and screens', 'Animal safety: animals as noticers, everyday care, a plan if you can’t be there, and animals in harm at home']
       }
     ]
   },

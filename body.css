@@ -45,3 +45,8 @@
 @media (max-width: 620px) { .bc-sec { padding: 18px 16px; } }
 /* Deep links (#lens-body-care/1-2) land below the header, which wraps taller on phones. */
 @media (max-width: 720px) { .bc-sec { scroll-margin-top: 172px; } }
+/* Next unit: a big tap target at the end of each ready unit. */
+.bc-next { display: flex; flex-direction: column; gap: 2px; min-height: 44px; padding: 16px 18px; border-radius: 20px; background: var(--bc); color: #fff; text-decoration: none; }
+.bc-next span { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; opacity: 0.9; }
+.bc-next b { font-family: var(--f-head); font-size: clamp(22px, 3vw, 28px); font-weight: 800; letter-spacing: -0.02em; }
+.bc-next:hover b { text-decoration: underline; }

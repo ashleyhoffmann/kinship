@@ -70,7 +70,7 @@
         subs: [
           { id: 'sources', short: 'Sources', title: 'Know your food sources', html: function () { return table(['Source', 'Good for', 'Costs'], [
               ['Shops and markets', 'Everything, any day', '[p]Money'],
-              ['Co-ops and buying clubs', 'Bulk beans, grains, oil, spices', '[p]Money, less of it'],
+              ['Co-ops and buying clubs', 'Spices, flours, beans, and grains by weight, in any amount', '[p]Money, often less'],
               ['Food banks and pantries', 'Staples, produce, canned food', '[y]Free'],
               ['Shared meals and community fridges', 'A meal today, company', '[y]Free'],
               ['Gardens', 'Greens, herbs, fruit, squash, beans', '[p]Time, water, seeds'],
@@ -88,9 +88,26 @@
           { id: 'spend', short: 'Spend less', title: 'Stretching what you spend', html: function () { return ul([
               '<b>Dried beans</b> usually cost half or less per serving than canned, and keep for years (' + a('rehydrate', 'Unit 3') + ').',
               '<b>Buy the staples in bulk</b> with friends or a co-op: a 25-lb sack of rice or beans split three ways.',
+              '<b>Buy spices and slow-use foods small</b>, from a co-op’s bulk bins: it usually costs less per pound than a big bag online (' + a('gather/bulk', '1.4') + ').',
               '<b>Cook once, eat three times:</b> a big pot of beans becomes soup, tacos and a spread.',
               'Frozen vegetables and fruit are picked ripe, cost less than fresh out of season, and don’t go to waste.']) +
             home('A shared list with two neighbors: who’s buying the oats sack this month, who has the jars.'); } },
+          { id: 'bulk', short: 'Co-op bulk', title: 'Co-op bulk bins often cost less, for both small and big quantities', html: function () { return '<p>For spices, flours, grains, beans, and anything else you don’t plan to grow, check your local co-op or natural foods store first. Bulk bins sell by weight, so two tablespoons cost the same per pound as two pounds.</p>' +
+            ul([
+              '<b>Buying small usually costs less.</b> Online spice shops charge far more per pound for small bags. One organic shop sells garlic powder at $8.99 for 4 oz (about $36 a pound) and $26.99 for a full pound. From a co-op bin at $23 a pound, 2 oz costs about $2.90.',
+              '<b>Even a full pound online often costs more.</b> In one October 2026 check, spices in the bins at Other Avenues in San Francisco cost about 10–40% less than the same organic spices in one-pound bags online, and juniper berries less than half. Brown rice flour was $2.89 a pound in the bin, and about $4.70 a pound in a 5-lb bag online.',
+              '<b>Small amounts get used up.</b> A few ounces of a spice you cook with now beats a pound fading in the cupboard, and a spoonful lets you try something new for pocket change.',
+              '<b>Less packaging.</b> The same jars and bags go back and forth for years.']) +
+            '<p><b>Taring your own jars.</b> The “tare” is a container’s empty weight. The cashier subtracts it, so you pay only for the food:</p>' +
+            ol([
+              'Bring clean, completely dry jars or bags; any damp makes flour and spices clump.',
+              'Weigh each empty jar on the store’s scale, or ask at the register, and write the weight on it with masking tape or a wax pencil. Once it’s written, the jar is ready for every trip.',
+              'Fill it, and write the bin number (often 4 digits) on the lid or tape.',
+              'At checkout, the cashier weighs the full jar and takes off the tare.']) +
+            '<p>Every store does it a little differently, so ask at the register the first time. Most keep paper bags and jars by the bins too.</p>' +
+            home('A shelf of small jars with their tares written on the lids makes a co-op trip quick: grab what’s low, fill, and go.') +
+            links('<a href="#lens-gardening">Growing</a> (what saves the most to grow, and what’s usually cheaper to buy) · ' + a('gather/spend', 'Stretching what you spend')) +
+            '<p class="fo-src"><small>Sources: shelf prices at Other Avenues Grocery Cooperative, San Francisco; list prices from pinchspicemarket.com and anthonysgoods.com, October 2026.</small></p>'; } },
           { id: 'grow', short: 'Grow &amp; forage', title: 'Growing and foraging', html: function () { return '<p>Even a windowsill grows herbs and sprouts. More space adds greens, beans, squash and fruit trees. Gleaning, picking what farms and backyard trees leave behind, puts fruit that would rot to use.</p>' +
             care('Only eat a wild plant you can name with certainty, from a clean place (away from roads and sprayed edges). Wild mushrooms need an expert, every time.') +
             ca('Picking plants in state parks is generally not allowed; rules differ on other land. Ask before picking from a tree on someone else’s property; fallen-fruit maps show public trees.') +

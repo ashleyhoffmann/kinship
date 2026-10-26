@@ -310,6 +310,8 @@
       shaped: { kinship: 'A home designed to take care of you: the absolute basics, built in', water: 'Earthships: one drop, four jobs' } },
     { tier: 2, name: 'The San Francisco Diggers', who: 'Community anarchists · 1960s', work: 'Free food in the Panhandle and free stores, named for the English Diggers who farmed common land in 1649.', url: 'https://www.diggers.org', link: 'diggers.org',
       shaped: { kinship: 'The spirit of it: free, shared, for everyone', food: 'Food as something we share freely' } },
+    { tier: 2, name: 'Other Avenues Grocery Cooperative', who: 'Worker-owned grocery co-op · Sunset, San Francisco', work: 'A 100% organic grocery started by volunteers in 1975 and worker-owned since 1999, with walls of bulk bins for grains, flours, nuts, herbs, and spices, and your own jars welcome.', url: 'https://www.otheravenues.coop', link: 'otheravenues.coop',
+      shaped: { food: 'Inspiration for co-op bulk bins: buying small, and taring your own jars (1.4)' } },
     { tier: 2, name: 'Juliette de Baïracli Levy', who: 'Herbalist · author', work: '<i>Traveler’s Joy</i>, and a lifetime of writing on natural care for people and animals.', url: 'https://en.wikipedia.org/wiki/Juliette_de_Ba%C3%AFracli_Levy', link: 'Wikipedia',
       shaped: { water: 'The upstream typhus story: why “pure” water still needs checking' } },
     { tier: 2, name: 'Dr. Sarah Taber & Farm to Taber', who: 'Crop scientist · writer · podcaster', work: '<i>Farm to Taber</i>, on farming, food systems and the people who do the work, including field-tested heat safety.', url: 'https://substack.com/@farm2taber', link: 'Farm to Taber on Substack',

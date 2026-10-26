@@ -1,5 +1,5 @@
 /* Body care lens (tier 3 Protect, Beta). Each ready unit is its own screen: unit 1 Mouth (#lens-body-care; 1.1 Why teeth decay, 1.2 Solutions,
-   1.3 Make mouthwashes & mints) and unit 4 Hair bleaching (#lens-body-care/bleach; 4.1 Steps, 4.2 Materials & safety, 4.3 How bleach works).
+   1.3 Make mouthwashes & mints) and unit 4 Hair bleaching (#lens-body-care/bleach; 4.1 Steps as blocks (0 Preparation, then 1–4), 4.2 Materials & safety, 4.3 How bleach works).
    Units 2 Skin, 3 Hair, 5 Sleep & rest, 6 Bodies through time, and 7 Animal bodies are planned. Kept plain on purpose (FOUNDATION §6, Only build what helps). Registers window.MN_LENS_VIEWS['body-care']. */
 (function () {
   function mn() { return window.MN; }
@@ -8,7 +8,10 @@
     return '<article class="bc-sec" id="bc-' + n.replace('.', '-') + '"><div class="bc-sec-head"><span class="bc-n">' + n + '</span><h3>' + title + '</h3></div>' + body + '</article>';
   }
   function card(title, text) { return '<div><h4>' + title + '</h4><p>' + text + '</p></div>'; }
-  function ol(items) { return '<ol>' + items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ol>'; }
+  /* A block with a number title, a short bold subtitle (optional), and its text. */
+  function step(title, sub, text) { return '<div><h4>' + title + '</h4>' + (sub ? '<p class="bc-sub">' + sub + '</p>' : '') + (text ? '<p>' + text + '</p>' : '') + '</div>'; }
+  /* Body care credits split by unit: a credit whose line starts with Hair bleaching shows on unit 4, the rest on Mouth. */
+  function unitCredits(bleach) { return mn().credits('body-care').filter(function (p) { return (p.shaped.indexOf('Hair bleaching') === 0) === bleach; }); }
   /* Units in order. Ready ones have a route and their own screen; planned ones show dashed. */
   var UNITS = [
     { id: 'mouth', name: 'Mouth', href: '#lens-body-care' },
@@ -74,49 +77,60 @@
         '<p>I’d recommend Auromere. Dr. Ellie Phillips uses unflavored Closys (stabilized chlorine dioxide), original Listerine (for menthol, thymol, and eucalyptus oil, though beware its acidity), and ACT (0.05% sodium fluoride). Anything with those active ingredients does the same job. I’d avoid dyes, alcohol, and unknown chemicals.</p>' +
         '<p class="bc-src">Sources: ASPCA Animal Poison Control, xylitol; US over-the-counter label for 1.5% peroxide mouth rinses (use up to 7 days); Walsh, “Safety issues relating to the use of hydrogen peroxide in dentistry,” <i>Australian Dental Journal</i> (2000); Hossainian et al., review of hydrogen peroxide mouthwashes, <i>International Journal of Dental Hygiene</i> (2011).</p>') +
 
-      mn().deeper('People whose work shaped this course, and where to go for more.', mn().credits('body-care'));
+      mn().deeper('People whose work shaped this unit, and where to go for more.', unitCredits(false));
     return page('Mouth', '', html);
   }
 
   function bleach() {
     var html = hero('bleach') + unitHead(4, 'Hair bleaching') +
-      '<p class="bc-lede">Four steps: bleach, wash, tone, and condition. Free first: sunlight breaks down hair color too, so hair lightens over a summer outdoors, with the same dryness at a slower pace.</p>' +
+      '<p class="bc-lede">After prep, four steps: bleach, shampoo, tone, and condition. Free first: sunlight breaks down hair color too, so hair lightens over a summer outdoors, with the same dryness at a slower pace.</p>' +
+      '<p class="bc-tip"><span>Heads up</span> I’m not a doctor or a cosmetologist. I’ve bleached my own hair at home for five years, and this is what I’ve learned.</p>' +
 
       sec('4.1', 'Steps',
-        ol(['<b>Bleach.</b> Mix only what you need, usually 1 part powder to 2 parts 20 vol developer (follow the box). On dry hair in four sections, brush it onto mid-lengths and ends first, a finger-width from the scalp, then the roots last, since body heat makes roots lighten faster. Check a strand every 10 minutes by wiping it clean with a damp towel. Stop at pale yellow or at 45 minutes, whichever comes first. Tingling is common; burning means rinse right away.',
-          '<b>Shower with shampoo, no conditioner.</b> Rinse with lukewarm water, then shampoo to wash out every trace of bleach. Skip conditioner here: it coats the hair, and toner soaks in evenly only on clean, bare hair.',
-          '<b>Tone.</b> Towel-dry, then apply toner to tint over leftover warmth. Opposite colors cancel: purple cancels yellow, and blue cancels orange. Leave it on for the time on the box.',
-          '<b>Shower with conditioner, no shampoo.</b> Rinse out the toner and condition. Skip shampoo here, since it would wash out fresh toner. Conditioner smooths the hair’s scales back down and stands in for the oily layer bleach removed.']) +
-        '<div class="bc-points">' +
-          card('Care after', 'Conditioner every wash, a weekly deep conditioner or oil on the ends, cool water, a wide-tooth comb on wet hair, and low heat. Purple shampoo once a week keeps yellow away between tones.') +
-          card('Go lighter in steps', 'Dark hair often needs two or three sessions to reach pale blonde. Wait about two weeks between them, and afterward bleach only new growth, since bleach over bleach is where hair breaks.') +
+        '<div class="bc-points bc-five">' +
+          step('0. Preparation', '', 'Set up your materials, section your hair with hair clips, then mix the bleach.') +
+          step('1. Bleach (on oily hair)', 'Lighten (leans orange)', 'Apply bleach paste to dry hair, typically painting thin strips from roots to tips, then cover them in tinfoil. Burning means rinse right away. It’s a race against the clock, and body heat makes roots lighten faster.</p><p>Where to bleach is an art, not a science, and depends on the style you’re going for. I’d recommend balayage (hand-painted highlights), keeping roots darker and cooler and tips lighter and warmer.') +
+          step('2. Shower with shampoo', 'Thoroughly remove bleach', 'Rinse, then shampoo (even twice) to wash out every trace of bleach. Skip conditioner, because it coats the hair, and toner soaks in evenly only on clean, bare hair.') +
+          step('3. Tone', 'De-orange', 'Towel-dry, mix your toner, then apply it. Toner looks clear-brown at first but leaves an indigo-leaning tint that cancels warmth: purple cancels yellow, and blue cancels orange. Leave it on for the time on the box (I’d estimate 15 minutes).') +
+          step('4. Shower with conditioner', 'Rinse &amp; seal', 'Rinse out the toner and condition. Skip shampoo for now, since it would wash out fresh toner. Conditioner smooths the hair’s scales back down and stands in for the oily layer bleach removed.') +
         '</div>' +
-        '<p>Before the first time, see <a href="#bc-4-2">4.2</a> for a strand test and a skin test.</p>') +
+        '<h4>Test a strand before bleach day</h4><p>Before the first time, snip a small lock from underneath, bleach it, and check every 5–10 minutes. It shows how long your hair takes, the color it stops at, and whether it stays strong.</p>' +
+        '<h4>Care after</h4><p>Purple shampoo, purple conditioner, or both keep yellow away between tones.</p>' +
+        '<h4>Go lighter in steps</h4><p>Dark hair often needs two or three sessions to reach pale blonde. Wait about two weeks between them, and afterward bleach only new growth, since bleach over bleach is where hair breaks.</p>') +
 
       sec('4.2', 'Materials &amp; safety',
-        '<h4>You’ll need</h4>' +
-        ul(['Bleach powder and 20 vol developer', 'Toner (or purple shampoo, the gentlest start), plus 10 vol developer if the toner calls for it', 'Shampoo and conditioner', 'A plastic or glass bowl and a brush (metal can react)', 'Gloves, clips, an old towel and shirt, and a timer', 'An open window or a fan, since the powder and fumes irritate lungs (see <a href="#lens-air/ventilation">Air → Ventilation</a>)']) +
-        '<div class="bc-points">' +
-          card('Choose a gentle developer', 'Developer strength is counted in “volumes.” 10 vol is 3% peroxide (the drugstore bottle), 20 vol is 6%, 30 vol is 9%, and 40 vol is 12%.</p><p>20 vol is the usual choice at home and the strongest to use on the scalp. Stronger developer lifts faster, and also burns skin and breaks hair faster.') +
-          card('Test a strand', 'Snip a small lock from underneath, bleach it, and check every 5–10 minutes. It shows how long your hair takes, the color it stops at, and whether it stays strong.') +
-          card('Test your skin', 'Persulfates in bleach powder can cause allergies, which can build with each use. Dab a little mixed bleach behind your ear or inside your elbow for the full processing time, rinse, and watch it for 48 hours. Redness, itching, or swelling means bleach isn’t a match for your body.') +
-          card('Give hair and scalp a rest', 'Skip shampoo for a day or two before, since scalp oil cushions the skin. Wait at least two weeks after a perm or relaxer, and until any cut, sore, or sunburn on the scalp has healed.</p><p>Henna with metallic salts and “progressive” dyes can heat up and smoke when they meet peroxide, so test a strand first.') +
-          card('Leftovers', 'Mixed bleach keeps giving off oxygen and can burst a closed container, so it can’t be saved. Rinse leftovers down the drain with plenty of water.') +
+        '<div class="bc-points bc-five">' +
+          step('Bleach powder + bleach developer', '(I use BLONDME.)', 'Use 20 vol developer, the usual choice at home and the strongest to use on the scalp.') +
+          step('Toner + toner developer', '(I use Wella T14.)', 'Wella toners mix with 20 vol developer; check the box for yours.') +
+          step('Kitchen scale', 'I use 2:1 ratios and end up with about 30 g of each mix, which is more than enough.', 'Weighing in grams keeps 2 parts developer to 1 part powder (or toner) exact.') +
+          step('Bowl and brush', '', 'Ceramic, plastic, or glass. Metal can react with bleach.') +
+          step('Shampoo and conditioner', '', 'Any you like. (I use Ethique bars, plastic-free.) Purple ones prevent brassiness.') +
+          step('Hair clips', '', '') +
+          step('Old towels, bathmat, and clothes', '', 'Clothes may get stained (alternatively, go topless).') +
+          step('Timer', '', 'For the first few times, it’s helpful to see how long it takes. Better yet, ask a friend (ideally with experience, in person or over the phone) to keep time for the first round! There’s enough to handle, plus they can see the back of your head in person.') +
+          step('Mirrors', '', 'To see the back of your head.') +
+          step('Gloves (optional)', '', '') +
         '</div>' +
+        '<h4>Fresh air</h4><p>Open a window or run a fan, since bleach powder and fumes irritate lungs (see <a href="#lens-air/ventilation">Air → Ventilation</a>). If your respiratory system is extra sensitive, I’d advise a mask.</p>' +
+        '<h4>Developer strength</h4><p>Developer strength is counted in “volumes.” 10 vol is 3% peroxide (the drugstore bottle), 20 vol is 6%, 30 vol is 9%, and 40 vol is 12%. Stronger developer lifts faster, and also burns skin and breaks hair faster.</p>' +
+        '<h4>Oily hair protects your scalp</h4><p>Wait until your hair is oily to bleach, because scalp oil cushions the skin. Wait at least two weeks after a perm or relaxer, and until any cut, sore, or sunburn on the scalp has healed.</p>' +
+        '<h4>Leftovers</h4><p>Mixed bleach keeps giving off oxygen and can burst a closed container, so it can’t be saved. Rinse leftovers down the drain with plenty of water.</p>' +
         '<p class="bc-tip"><span>For kids</span> Wash-out colors, like hair chalk and color conditioner, change hair with no peroxide and rinse out when they’re ready for something new.</p>' +
-        '<p class="bc-care"><span>Cat and dog health</span> Peroxide and persulfates irritate mouths and stomachs. Keep powder and mixed bleach out of reach, and wipe up drips, since paws carry them to tongues.</p>' +
-        '<p class="bc-ally"><span>Allies</span> Beauty (cosmetology) schools color hair for much less, done by students with an instructor checking each step. If bleach gets in an eye, rinse it with water for 15 minutes and call Poison Control at <a href="tel:18002221222">1-800-222-1222</a> (free, any time). For blisters or swelling that spreads, get medical care; 211 can point you to low-cost clinics.</p>' +
-        '<p class="bc-src">Sources: Cosmetic Ingredient Review, “Final report on the safety assessment of ammonium, potassium, and sodium persulfate,” <i>International Journal of Toxicology</i> (2001); US FDA, “Hair Dyes” (patch test guidance); America’s Poison Centers, first aid for eye exposures.</p>') +
+        '<p class="bc-care"><span>Cat and dog health</span> Peroxide and persulfates irritate mouths and stomachs. Keep powder and mixed bleach out of reach, and wipe up drips.</p>' +
+        '<p class="bc-ally"><span>Allies</span> Beauty (cosmetology) schools color hair for much less, done by students with an instructor checking each step. If bleach gets in an eye, rinse it with water for 15 minutes and call Poison Control at <a href="tel:18002221222">1-800-222-1222</a> (free, any time). For blisters or swelling, get medical care; 211 can point you to low-cost clinics.</p>' +
+        '<p class="bc-src">Sources: Cosmetic Ingredient Review, “Final report on the safety assessment of ammonium, potassium, and sodium persulfate,” <i>International Journal of Toxicology</i> (2001); America’s Poison Centers, first aid for eye exposures; Wella Color Charm toner directions.</p>') +
 
-      sec('4.3', 'How bleach works (for nerds)',
+      sec('4.3', 'How bleach works',
         '<p>Hair gets its color from melanin, pigment packed inside each hair’s core (the cortex). There are two kinds: eumelanin (brown and black) and pheomelanin (red and yellow). Overlapping scales, the cuticle, shield the core.</p>' +
         '<div class="bc-points">' +
-          card('Alkali opens the hair', 'Bleach is mixed to a high pH (about 10–11) with ammonia or a similar alkali. That swells each hair and lifts its scales, so peroxide can reach the pigment.') +
-          card('Peroxide breaks the pigment', 'Hydrogen peroxide (the “developer”) oxidizes melanin into colorless pieces. Persulfate salts in bleach powder speed it up.</p><p>Brown and black melanin breaks down first, and red and yellow last, so hair passes through red, orange, and yellow on its way to pale blonde. That leftover warmth is what toner cancels.') +
-          card('The same reaction weakens hair', 'Oxidation also breaks some of the sulfur bonds that hold hair’s protein (keratin) together, and strips the oily outer layer that lets hair shed water.</p><p>Bleached hair is porous: it soaks up water, tangles, and snaps more easily. Hair past the scalp isn’t alive, so it can’t repair this. Care is about losing less until it grows out.') +
+          step('Alkali opens the hair', '', 'Bleach is mixed to a high pH (about 10–11) with ammonia or a similar alkali. That swells each hair and lifts its scales, so peroxide can reach the pigment.') +
+          step('Peroxide breaks the pigment', '', 'Hydrogen peroxide (the “developer”) oxidizes melanin into colorless pieces. Persulfate salts in bleach powder speed it up. Brown and black melanin breaks down first, and red and yellow last, so hair passes through red, orange, and yellow on its way to pale blonde. That leftover warmth is what toner cancels.') +
+          step('The same reaction weakens hair', '', 'Oxidation also breaks some of the sulfur bonds that hold hair’s protein (keratin) together, and strips the oily outer layer that lets hair shed water. Bleached hair is porous: it soaks up water, tangles, and snaps more easily. Hair past the scalp isn’t alive, so it can’t repair this. Care is about losing less until it grows out.') +
         '</div>' +
         '<p>“High-lift” box dyes lighten natural hair a few shades with less damage. Dye can’t lift other dye, though; only bleach removes color that’s already there.</p>' +
-        '<p class="bc-src">Sources: Robbins, <i>Chemical and Physical Behavior of Human Hair</i>, 5th ed. (Springer, 2012); Wolfram, “Human hair: a unique physicochemical composite,” <i>Journal of the American Academy of Dermatology</i> (2003).</p>');
+        '<p class="bc-src">Sources: Robbins, <i>Chemical and Physical Behavior of Human Hair</i>, 5th ed. (Springer, 2012); Wolfram, “Human hair: a unique physicochemical composite,” <i>Journal of the American Academy of Dermatology</i> (2003).</p>') +
+
+      mn().deeper('People whose work shaped this unit, and where to go for more.', unitCredits(true));
     return page('Hair bleaching', ' bc-u4', html);
   }
 

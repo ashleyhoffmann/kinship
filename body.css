@@ -26,6 +26,8 @@
 .bc-points { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
 .bc-points > div, .bc-recipes > div { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-radius: 16px; background: var(--bc-bg); border: 1px solid var(--bc-edge); }
 .bc-points h4 { margin: 0; }
+.bc-five { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
+.bc-points .bc-sub { margin-top: -4px; font-size: 13.5px; font-weight: 700; color: var(--bc); }
 .bc-sec a { color: var(--bc); font-weight: 600; }
 .bc-sec a[href^="tel:"] { white-space: nowrap; }
 .bc-points p { font-size: 15px; color: var(--ink-2); }

@@ -320,6 +320,8 @@
       shaped: { shelter: 'Documenting off-grid shelter alternatives (coming soon)' } },
     { tier: 3, name: 'Dr. Ellie Phillips', who: 'Dentist · author', work: '<i>Kiss Your Dentist Goodbye</i>: mouth health as chemistry and bacteria, with xylitol and a simple home routine.',
       shaped: { 'body-care': 'Mouth: acid, dryness, bacteria and xylitol' } },
+    { tier: 3, name: 'Aly Art', who: 'Style YouTuber', work: 'Videos on hair color, makeup, and style, including “Balayage At Home - How to.”', url: 'https://www.youtube.com/watch?v=XgSOwUkn82A', link: 'Balayage at home on YouTube',
+      shaped: { 'body-care': 'Hair bleaching at home' } },
     { tier: 3, name: 'Eugene Tssui & Ojo del Sol (The Fish House)', who: 'Architect · Berkeley', work: 'Ojo del Sol (1995), a fish-shaped Berkeley home built to ride out earthquakes, warmed by sun-heated water and cooled by sitting partly underground.', url: 'https://en.wikipedia.org/wiki/Ojo_del_Sol', link: 'Wikipedia',
       shaped: { shelter: 'Documenting off-grid shelter alternatives (coming soon)' } },
     { tier: 4, name: 'Strange Exchange', who: 'Free swap · Divisadero Farmers’ Market, San Francisco', work: 'A volunteer-run “community reshuffling hub” started by Lela Means and Christina Gilyutin: on Sundays, neighbors leave and take useful things for free, and leftovers go to local nonprofits.', url: 'https://www.instagram.com/strangeexchangesf', link: '@strangeexchangesf on Instagram',

@@ -170,15 +170,15 @@
       ul([
         '<b>Water and power:</b> plumbers, well and rain-tank installers, water testers, electricians, and the people who make and install solar panels, batteries and heat pumps (' + go('3.10') + '). <b>Public utilities</b> (water, power, gas, sewer, garbage, internet, transit) support everyone. When a private company runs one, the town treats it as an outside business it pays, free to go all in.',
         '<b>Building and infrastructure:</b> builders, roofers, electricians, natural builders, and road, bridge and transit crews.',
-        '<b>Homes:</b> home cleaners, home restorers, furniture and bed makers, movers.',
+        '<b>Homes:</b> home cleaners, home restorers, house-painters and muralists, furniture and bed makers, movers.',
         '<b>Land:</b> land restoration crews, soil and pollution experts and testers, toxicologists (<a href="#lens-toxins">Poisons</a>), tree planters and arborists (' + go('2.8') + ').',
         '<b>Food:</b> growers, garden educators, seed savers, compost and worm farms, food preservers (canning, drying, fermenting, shared freezers), bakers, cooks, grocers, and public kitchens, including a 24/7 diner within walking distance.',
-        '<b>Health:</b> doctors, dentists who offer yearly exams, nutritionists, community health workers, herbalists, midwives, therapists.',
+        '<b>Health:</b> doctors, dentists who offer yearly exams, foot doctors, nutritionists, community health workers, herbalists, midwives, therapists, and simple haircuts and nail trims for anyone who can’t do their own.',
         '<b>Care:</b> childcare, elder care, disability care, hospice helpers and death doulas, pet care, veterinarians, animal sanctuaries and fosters.',
         '<b>Things:</b> seamstresses, cobblers, clothing and electronics repair, thrift, a tool library that sells cheap hardware, auto mechanics who offer yearly checkups, bike shops.',
-        '<b>Waste:</b> composters, refill shops, and a plastics NMB (' + go('3.8') + ').',
-        '<b>Place:</b> litter crews, artists and muralists, because a beautiful block is a need too.',
-        '<b>Beauty:</b> dyers, designers and artists who make natural-fiber clothes fun, and seamstresses who tailor and mend, because looking good is a need too.',
+        '<b>Making:</b> manufacturers of the tools, hardware, nails and screws, non-toxic paints and nail polish, fabric and parts every other job here uses, sourcing materials as close to home as they can and taking back what they make to repair or remake, so it all stays in a closed loop (' + go('3.8') + ').',
+        '<b>Waste:</b> litter crews, composters, refill shops, and a plastics NMB (' + go('3.8') + ').',
+        '<b>Beauty:</b> artists, florists, landscapers, hairstylists, non-toxic nail artists, barbers, fashion designers and dyers who make natural-fiber clothes fun, and seamstresses who tailor and mend. Everyone would prefer to live in a beautiful place.',
         '<b>Learning, play and discovery:</b> skill educators, coaches, musicians, performers, and scientists, with research funded and results open to all.',
         '<b>Holding it together:</b> community credit unions (with a student debt fund), mediators and restorative practitioners, estate planners, home stewards, housing matchmakers, business matchmakers and NMB business advisors.']) +
       law([

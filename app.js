@@ -284,6 +284,8 @@
       shaped: { kinship: 'The radical idea that there’s enough, and we already know how: meeting needs directly', gardening: 'Growing your own food' } },
     { tier: 1, name: 'Marshall B. Rosenberg & the Center for Nonviolent Communication', who: 'Psychologist · nonprofit', work: '<i>Nonviolent Communication: A Language of Life</i>, and the free feelings and needs inventories.', url: 'https://www.cnvc.org', link: 'cnvc.org',
       shaped: { kinship: 'The spirit of the whole thing: meeting universal needs', emotions: 'Feelings as signals, universal needs, needs vs. strategies', relationships: 'Requests, dialogue and the Communicate tool' } },
+    { tier: 1, name: 'Carl Rogers', who: 'Psychologist (1902–1987)', work: '<i>On Becoming a Person</i> (1961) and person-centered therapy: relationships heal through empathy, acceptance without conditions, and being real with each other. Marshall Rosenberg studied with him.', url: 'https://en.wikipedia.org/wiki/Carl_Rogers', link: 'Wikipedia',
+      shaped: { relationships: 'Healing relationships: empathy, acceptance, and being real' } },
     { tier: 1, name: 'Alicia Bay Laurel', who: 'Author · illustrator', work: '<i>Living on the Earth</i> (1970), a hand-drawn handbook of practical know-how, freely shared.', url: 'https://www.aliciabaylaurel.com', link: 'aliciabaylaurel.com',
       shaped: { kinship: 'Plain, practical knowledge as a gift' } },
     { tier: 1, name: 'Sustainable Economies Law Center', who: 'Nonprofit legal center · Oakland', work: 'Free legal tools and advice for cooperatives, community land trusts, shared housing and land reform.', url: 'https://www.theselc.org', link: 'theselc.org',
@@ -308,6 +310,8 @@
       shaped: { emotions: 'Pain is a signal too, and Mind-body pain relationships (both planned)' } },
     { tier: 2, name: 'Earthships & Michael Reynolds', who: 'Architect · Taos, New Mexico', work: 'Earthship Biotecture: off-grid homes of earth-packed tires and bottles that catch their own water, hold their own warmth and grow food.',
       shaped: { kinship: 'A home designed to take care of you: the absolute basics, built in', water: 'Earthships: one drop, four jobs' } },
+    { tier: 2, name: 'Bob Sparkman & the Haven Street Bubbler', who: 'Neighbor · Holly Hills, St. Louis', work: 'A water fountain for neighborhood dogs, built in 2026 outside his home from leftover brick and tile and fed by his own spigot, after walking his two big dogs in summer heat. Neighbors who used to cross the street now stop and talk.', url: 'https://www.ksdk.com/article/news/local/lets-paws-south-st-louis-creates-continuous-water-fountain-for-dogs-in-his-neighborhood/63-4c9be1ba-af5f-48f1-b9f4-f9b33a5ccf05', link: 'KSDK',
+      shaped: { governance: '1.2 There’s enough: one neighbor meeting a need with what he already had' } },
     { tier: 2, name: 'The San Francisco Diggers', who: 'Community anarchists · 1960s', work: 'Free food in the Panhandle and free stores, named for the English Diggers who farmed common land in 1649.', url: 'https://www.diggers.org', link: 'diggers.org',
       shaped: { kinship: 'The spirit of it: free, shared, for everyone', food: 'Food as something we share freely' } },
     { tier: 2, name: 'Other Avenues Grocery Cooperative', who: 'Worker-owned grocery co-op · Sunset, San Francisco', work: 'A 100% organic grocery started by volunteers in 1975 and worker-owned since 1999, with walls of bulk bins for grains, flours, nuts, herbs, and spices, and your own jars welcome.', url: 'https://www.otheravenues.coop', link: 'otheravenues.coop',
@@ -325,11 +329,13 @@
     { tier: 3, name: 'Aly Art', who: 'Style YouTuber', work: 'Videos on hair color, makeup, and style, including “Balayage At Home - How to.”', url: 'https://www.youtube.com/watch?v=XgSOwUkn82A', link: 'Balayage at home on YouTube',
       shaped: { 'body-care': 'Hair bleaching at home' } },
     { tier: 3, name: 'Eugene Tssui & Ojo del Sol (The Fish House)', who: 'Architect · Berkeley', work: 'Ojo del Sol (1995), a fish-shaped Berkeley home built to ride out earthquakes, warmed by sun-heated water and cooled by sitting partly underground.', url: 'https://en.wikipedia.org/wiki/Ojo_del_Sol', link: 'Wikipedia',
-      shaped: { shelter: 'Documenting off-grid shelter alternatives (coming soon)' } },
+      shaped: { shelter: 'A creatively designed off-grid home (coming soon)' } },
     { tier: 4, name: 'Strange Exchange', who: 'Free swap · Divisadero Farmers’ Market, San Francisco', work: 'A volunteer-run “community reshuffling hub” started by Lela Means and Christina Gilyutin: on Sundays, neighbors leave and take useful things for free, and leftovers go to local nonprofits.', url: 'https://www.instagram.com/strangeexchangesf', link: '@strangeexchangesf on Instagram',
       shaped: { salvaging: 'Free swaps and passing things on (coming soon)' } },
-    { tier: 4, name: 'Bob Sparkman & the Haven Street Bubbler', who: 'Neighbor · Holly Hills, St. Louis', work: 'A water fountain for neighborhood dogs, built in 2026 outside his home from leftover brick and tile and fed by his own spigot, after walking his two big dogs in summer heat. Neighbors who used to cross the street now stop and talk.', url: 'https://www.ksdk.com/article/news/local/lets-paws-south-st-louis-creates-continuous-water-fountain-for-dogs-in-his-neighborhood/63-4c9be1ba-af5f-48f1-b9f4-f9b33a5ccf05', link: 'KSDK',
-      shaped: { governance: '1.2 There’s enough: one neighbor meeting a need with what he already had' } }
+    { tier: 4, name: 'USF Seed Library', who: 'Free seed library · Gleeson Library, University of San Francisco', work: 'Started on Earth Day 2014 by librarians Debbie Benrubi and Carol Spector and professor David Silver, with USF’s Urban Agriculture program: free seeds and how-to for new gardeners, with seeds saved from local gardens shared back. Open to the USF community, and shared at public events.', url: 'https://library.usfca.edu/seeds', link: 'library.usfca.edu/seeds',
+      shaped: { gardening: 'Seed libraries: free seeds, and saving your own to share' } },
+    { tier: 6, name: 'Scenic Routes Community Bicycle Center', who: 'Member-supported bike shop · Inner Richmond, San Francisco', work: 'Grew from Jay Beaman fixing bikes for free from his apartment in 2020; now a Balboa Street shop run to break even, where 200+ members get free repairs, plus free Thursday-night classes like fixing a flat.', url: 'https://www.scenicroutessf.com', link: 'scenicroutessf.com',
+      shaped: { bikes: 'A community bike shop: repairs and free classes (coming soon)' } }
   ];
   function credits(course) {
     return SHOULDERS.filter(function (p) { return p.shaped[course]; }).map(function (p) {

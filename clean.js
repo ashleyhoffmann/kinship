@@ -99,6 +99,7 @@
           { id: "cloths", short: "Cloths", title: "Cloths that grab", html: function () { return "<p>The cloth does as much work as whatever is on it. <b>Microfiber</b> is split into fibers far finer than a hair, so it scoops up grease and microbes that a cotton cloth pushes around. In a hospital trial, microfiber mops with plain water removed about 99% of bacteria from floors; conventional cotton mops removed about a third.</p>" +
             "<div class=\"cl-does\">\n<div><b>Microfiber <i>Grabs most</i></b><p>Damp, not wet. Washed warm, no softener (it clogs the fibers). Lasts hundreds of washes.</p></div>\n<div><b>Cotton or linen <i>No plastic</i></b><p>Old towels, T-shirts and flour-sack cloths. Fine for most jobs; rinse and wring more often.</p></div>\n<div><b>Paper towels <i>For the yucky ones</i></b><p>Vomit, droppings, a companion’s accident: catch it, then compost or bin it.</p></div>\n</div>" +
             kin("Microfiber is plastic and sheds tiny fibers in the wash. Fewer, longer-lived cloths and a wash bag (5.5) meet both needs: clean counters and clean rivers.") +
+            home("Instead of disposable wipes: keep a lidded jar of cut cloths dry, and spray one with the soap spray (2.1) when you need it. Cloths stored soaking in a jar sour and mildew within days, and a vinegar soak doesn’t disinfect them (2.3).") +
             fix({ rungs: [["r1", "Water"]], modes: [["once"]], cost: "Free → $", c: 1,
               steps: [["Free · today", "Cut old towels or shirts into a stack of cloths. Keep them in a basket where everyone can reach."], ["Free", "Colors by job: one color for the kitchen, one for the bathroom, so they never swap."], ["$ · once", "A few microfiber cloths (about $10 for a pack) for counters, glass and dusting."]],
               add: ["A basket of cloths, one color per room"] }) +
@@ -141,12 +142,12 @@
         intro: "<div class=\"cl-tbl\"><table>\n<thead><tr><th>Helper</th><th>What it does</th><th>Great for</th><th>Not for</th><th>Cost</th></tr></thead>\n<tbody>\n<tr><td>Soap (castile or plain dish soap)</td><td>Grabs grease and oil so water can rinse them away</td><td>Greasy counters, stovetops, hands, dishes, floors</td><td>Mixing with vinegar (they cancel out)</td><td>A bottle lasts months</td></tr>\n<tr><td>Baking soda</td><td>A soft scrub; mildly alkaline; soaks up smells</td><td>Sinks, tubs, pans, ovens, smelly bins and shoes</td><td>Polished stone or high-gloss finishes (can dull them)</td><td>About $1 a pound</td></tr>\n<tr><td>White vinegar (5%)</td><td>An acid: dissolves mineral scale and soap scum</td><td>Kettles, faucets, shower glass, windows</td><td>Marble, limestone, travertine, grout, cast iron, waxed wood</td><td>About $4 a gallon</td></tr>\n<tr><td>Hydrogen peroxide (3%)</td><td>Breaks down germs; turns into water and oxygen</td><td>Disinfecting after sickness, boards, toilets, light fabric stains</td><td>Dark fabrics (can lighten them); storing in a clear bottle</td><td>About $1 a pint</td></tr>\n</tbody>\n</table></div>",
         subs: [
           { id: "soap", short: "Soap", title: "Soap for grease", html: function () { return "<p>Water and oil don’t mix, so water alone slides over grease. A soap molecule has one end that holds water and one end that holds oil. It wraps tiny bits of grease in little balls (micelles) that water can carry away. That’s all soap does, and it’s exactly what kitchen grease, skin oil and fingerprints need.</p>" +
-            "<ul>\n<li>A few drops in a bowl or spray bottle of warm water is plenty. Too much leaves a film that collects dirt.</li>\n<li>Castile soap (made from plant oils) or a plain, fragrance-free dish soap both work.</li>\n<li>Wipe with the soapy cloth, then once with a water-only cloth so no film stays behind.</li>\n</ul>" +
+            "<ul>\n<li>A few drops in a bowl or spray bottle of warm water is plenty. Too much leaves a film that collects dirt.</li>\n<li>Castile soap (made from plant oils) or a plain, fragrance-free dish soap both work.</li>\n<li>Wipe with the soapy cloth, then once with a water-only cloth so no film stays behind.</li>\n<li>A foaming pump stretches hand or dish soap: about 1 part liquid soap to 4 parts water makes the same lather. Mix small batches, and wash and dry the pump between refills instead of topping it up; watered-down soap left for weeks can grow bacteria.</li>\n</ul>" +
             home("A kitchen spray: 500 ml warm water and 1 teaspoon of dish soap or castile soap. Label it, and make a fresh bottle every couple of weeks.") +
             fix({ rungs: [["r2", "Soap"]], modes: [["once"]], cost: "Free", c: 0,
               steps: [["Free · today", "Make the kitchen spray from the soap you already have."], ["Free", "Soapy wipe, then a water wipe: no film."], ["As it runs out", "Swap scented dish soap for a fragrance-free one."]],
               add: ["Make a labeled soap-and-water kitchen spray"] }) +
-            src("American Chemical Society, <i>ChemMatters</i>, how soap works (micelles)."); } },
+            src("American Chemical Society, <i>ChemMatters</i>, how soap works (micelles); Zapka, C. et al., “Bacterial hand contamination and transfer after use of contaminated bulk-soap-refillable dispensers,” <i>Applied and Environmental Microbiology</i> 77 (2011)."); } },
           { id: "soda", short: "Baking soda", title: "Baking soda to scrub", html: function () { return "<p>Baking soda (sodium bicarbonate) is a fine powder that’s softer than most surfaces, so it scrubs without scratching. It’s mildly alkaline, which helps it cut greasy, acidic grime, and it soaks up sour smells rather than covering them.</p>" +
             "<ul>\n<li><b>Paste:</b> 3 parts baking soda to 1 part water. Spread, wait 15 minutes (or overnight for an oven), then scrub and rinse.</li>\n<li><b>Sprinkle:</b> on a damp sponge for sinks, tubs and stained mugs.</li>\n<li><b>Smells:</b> an open jar in the fridge; a sprinkle in the bin, a shoe or a rug for an hour, then vacuum.</li>\n</ul>" +
             care("Test on a hidden spot first on high-gloss, painted or aluminum surfaces; it can dull a polish. Rinse it off aluminum pans quickly.") +
@@ -206,7 +207,7 @@
               add: ["Counters: warm cloth, then dry, after cooking"] }) +
             src("Natural Stone Institute, <i>Care and Cleaning for Natural Stone Surfaces</i>; manufacturers’ care guides for engineered quartz and laminate."); } },
           { id: "boards", short: "Boards & sinks", title: "Boards, sinks and sponges", html: function () { return "<p>The kitchen sponge is often the most microbe-rich object in the house: warm, wet and fed. It doesn’t need to be sterile, just dry between uses and swapped often. Cutting boards and the sink need the same thing: a scrub, a rinse, and air.</p>" +
-            "<ul>\n<li><b>Boards:</b> hot soapy water and a brush right after use, then stand upright to dry. Wood and plastic both work; deep knife grooves in plastic are the time to replace it. Now and then, peroxide for 10 minutes.</li>\n<li><b>Sponges:</b> squeeze out and stand upright. Replace every week or two, or switch to a dish brush and cloths that can go through the wash. Microwaving or boiling helps for a while, then the sponge refills.</li>\n<li><b>Sink:</b> baking soda on a damp brush, rinse, dry. A kettle of hot water down the drain weekly keeps grease moving.</li>\n<li><b>Drains:</b> half a cup of baking soda, a cup of hot water, wait, then more hot water. Leave caustic drain cleaners to Poisons’ list of last resorts.</li>\n</ul>" +
+            "<ul>\n<li><b>Boards:</b> hot soapy water and a brush right after use, then stand upright to dry. Wood and plastic both work; deep knife grooves in plastic are the time to replace it. Now and then, peroxide for 10 minutes.</li>\n<li><b>Sponges:</b> squeeze out and stand upright. Replace every week or two, or switch to a dish brush and cloths that can go through the wash. Microwaving or boiling helps for a while, then the sponge refills.</li>\n<li><b>Sink:</b> baking soda on a damp brush, rinse, dry. A kettle of hot water down the drain weekly keeps grease moving.</li>\n<li><b>Hair clogs:</b> a hair catcher over bathroom drains stops most of them, and a barbed plastic drain strip (about $3) pulls out the rest. Pulling a clog out beats dissolving it.</li>\n<li><b>Drains:</b> half a cup of baking soda, a cup of hot water, wait, then more hot water. Leave caustic drain cleaners to Poisons’ list of last resorts.</li>\n</ul>" +
             fix({ rungs: [["r1", "Water"], ["r3", "Baking soda"]], modes: [["habit"]], cost: "Free → $", c: 1,
               steps: [["Free · today", "Boards and sponges stand upright to dry."], ["$ · once", "A wooden dish brush with a replaceable head (about $8) instead of sponges."], ["Free · weekly", "Hot kettle down the drain; washable cloths in the laundry."]],
               add: ["Dish brush and washable cloths instead of sponges"] }) +
@@ -239,7 +240,16 @@
               steps: [["Free · now", "Soapy wipe along the whole trail, and lids on anything sweet."], ["Free", "Companion food bowls picked up between meals, or set in a shallow dish of water."], ["Free · once they’ve gone", "Seal the entry gap."]],
               add: ["Ants: wipe the trail, lid the sweet things, seal the gap"] }) +
             links("<a href=\"#lens-relationships/special/captive\">Relationships → Captive animals</a> · <a href=\"#lens-food/store/pantry\">Food → The pantry</a>") +
-            src("University of California IPM, <i>Pest Notes: Ants</i> (Pub. 7411) and <i>Fruit Flies</i>."); } }
+            src("University of California IPM, <i>Pest Notes: Ants</i> (Pub. 7411) and <i>Fruit Flies</i>."); } },
+          { id: "metals", short: "Metals", title: "Silver, copper, and cast iron", html: function () { return "<p>Metals darken because they react with the air around them. Silver meets sulfur (from rubber bands, some felts, cooking, and air pollution) and grows a black skin of silver sulfide. Copper and brass meet oxygen and turn brown, then green. Cast iron rusts when it stays wet. Each has a gentle fix that works with its own chemistry.</p>" +
+            "<div class=\"cl-does\">\n<div><b>Silver <i>Foil bath</i></b><p>Line a bowl with aluminum foil, add hot water with a tablespoon of baking soda per liter, and set the silver on the foil for a few minutes. The aluminum pulls the sulfur away, so the tarnish turns back into silver instead of being rubbed off. Rinse and dry.</p></div>\n<div><b>Copper and brass <i>Acid and grit</i></b><p>Equal parts salt and flour with enough vinegar to make a paste, or half a lemon dipped in salt. Rub gently, rinse well, and dry.</p></div>\n<div><b>Cast iron <i>Salt, dry, oil</i></b><p>Coarse salt and a splash of water as a scrub, a hot rinse, then dry it on a warm burner and wipe on a thin layer of oil. A drop of soap is fine; soaking and acid are not.</p></div>\n</div>" +
+            care("Skip the foil bath for antiques, thin or worn silver plate, and pieces darkened on purpose: it brightens everything, including the shadows that make a pattern show. Keep knives with glued handles and hollow, weighted pieces out of hot water. Copper or brass that’s still shiny after years is lacquered; soap and water only.") +
+            home("Silver that gets used and washed stays bright. Stored pieces tarnish slower wrapped in cotton cloth or sealed in a bag, away from rubber bands.") +
+            fix({ rungs: [["r3", "Baking soda"], ["r4", "Vinegar"]], modes: [["now"], ["habit"]], cost: "Free", c: 0,
+              steps: [["Free · now", "Silver: foil, hot water, and baking soda, a few minutes, rinse, and dry."], ["Free", "Copper and brass: salt, flour, and vinegar paste; rinse and dry."], ["Free · after cooking", "Cast iron: salt scrub, dry on the burner, thin oil."]],
+              add: ["Metals: foil bath for silver, salt paste for copper, salt scrub for cast iron"] }) +
+            links("<a href=\"#lens-cleaning/surfaces/counters\">3.1 Countertops</a> (stainless steel) · <a href=\"#lens-food/cook/pots\">Food → Pots, pans and stoves</a>") +
+            src("Canadian Conservation Institute, <i>Silver: Care and Tarnish Removal</i> (CCI Notes 9/7); Lodge Cast Iron, care and use."); } }
         ] },
 
       /* ===== 4 · Stains ===== */
@@ -248,6 +258,7 @@
         lede: "A stain is a question about chemistry. Protein wants cold water, tannin wants warm, grease wants soap, dye wants light or peroxide. Name the stain and the right rung lifts it, usually with nothing stronger than the gentle shelf.",
         mode: "The first five minutes matter more than any product.",
         subs: [
+          { id: 'finder', tool: true, short: 'Stain finder', title: 'Stain finder', html: finderHtml },
           { id: "soon", short: "Soon, blot, cold", title: "Soon, blot, cold", html: function () { return "<p>Three habits rescue most stains before they set.</p>" +
             "<div class=\"cl-does\">\n<div><b>Soon <i>Minutes</i></b><p>A fresh stain is still sitting on the fibers. A dried one has soaked in and bonded.</p></div>\n<div><b>Blot <i>Don’t rub</i></b><p>Press a cloth on top and lift. Rubbing pushes the stain deeper and spreads it wider.</p></div>\n<div><b>Cold first <i>Then warm</i></b><p>Hot water cooks protein stains into the fabric. Start cold; warm only once you know what it is.</p></div>\n</div>" +
             "<ul>\n<li>Work from the outside of the stain inward, so it doesn’t ring.</li>\n<li>Flush from the back of the fabric, so the stain leaves the way it came.</li>\n<li>Check before the dryer. Dryer heat sets whatever is left; air-dry until it’s gone.</li>\n</ul>" +
@@ -285,7 +296,15 @@
             fix({ rungs: [["r4", "Acid"]], modes: [["now"]], cost: "Free", c: 0,
               steps: [["Free", "Match the stain to its helper above; test on a hidden seam first."]],
               add: ["Rust: lemon, salt and sun"] }); } },
-          { id: 'finder', tool: true, short: 'Stain finder', title: 'Stain finder', html: finderHtml }
+          { id: "skunk", short: "Skunk spray", title: "Skunk spray", html: function () { return "<p>Skunk spray is made of thiols: sulfur oils that cling to fur and skin and don’t rinse out with water or shampoo. Tomato juice only covers the smell until your nose tires of it. Peroxide does the real work: it oxidizes the thiols into compounds that don’t smell, and baking soda and soap help it reach the oil.</p>" +
+            "<ol>\n<li>Check their eyes first. Spray in the eyes: flush gently with plenty of cool water. Eyes still red or squinting after that are a reason to call a vet.</li>\n<li>Mix fresh, in an open bowl: 1 quart (about 1 liter) of 3% peroxide, ¼ cup of baking soda, and 1 teaspoon of dish soap.</li>\n<li>Work it into dry fur, away from eyes, nose, and mouth. Leave it 5 minutes, then rinse very well. Repeat if the smell lingers.</li>\n<li>Pour any leftover down the drain with plenty of water.</li>\n</ol>" +
+            care("Never bottle or store the mix: it keeps releasing oxygen and can burst a closed container. It can lighten dark fur and fabric a little, so keep it off clothes; wash those with ½ cup of baking soda added, then dry them on the line.") +
+            kin("A skunk sprays only when cornered, and warns first: stamping, a raised tail, turning to aim. Skunks are out at dusk and night eating grubs and insects. A leash and a light on evening walks give everyone room.") +
+            fix({ rungs: [["r3", "Baking soda"], ["r4", "Peroxide"]], modes: [["now"]], cost: "Free", c: 0,
+              steps: [["Free · now", "Eyes first; then fresh peroxide, baking soda, and soap on dry fur, 5 minutes, rinse."], ["Free", "Never in a closed bottle; pour the rest away."]],
+              add: ["Peroxide and baking soda on hand for skunk spray"] }) +
+            links("<a href=\"#lens-relationships/special/wild\">Relationships → Wild animals</a>") +
+            src("Krebaum, P., letter in <i>Chemical &amp; Engineering News</i> (1993); University of Nebraska–Lincoln Extension, <i>Removing Skunk Odor</i>."); } }
         ] },
 
       /* ===== 5 · Laundry ===== */
@@ -295,13 +314,13 @@
         mode: "Small changes each load. A line, a filter bag, dryer balls.",
         subs: [
           { id: "detergent", short: "Less detergent", title: "Less detergent, no fragrance", html: function () { return "<p>Modern detergents are concentrated, and most people use two or three times what a load needs. The extra doesn’t rinse out: it stays in fabric, stiffens towels, holds smells and rubs against skin all day. Fragrance is the part most likely to irritate skin and lungs, and it’s added on purpose to cling.</p>" +
-            "<ul>\n<li>Start at half the cap line. If clothes come out clean, try less next time.</li>\n<li>“Free and clear” or “fragrance-free” detergents skip the scent; “unscented” can still mean a masking fragrance.</li>\n<li>Soft water needs even less. Very hard water: a tablespoon of washing soda helps the detergent work.</li>\n</ul>" +
+            "<ul>\n<li>Start at half the cap line. If clothes come out clean, try less next time.</li>\n<li>“Free and clear” or “fragrance-free” detergents skip the scent; “unscented” can still mean a masking fragrance.</li>\n<li>Soft water needs even less. Very hard water: a tablespoon of washing soda helps the detergent work.</li>\n<li><b>Homemade laundry soap</b> (grated bar soap and washing soda) works in soft water and for washing by hand (5.6). In hard water, soap binds to the minerals and leaves a dull, stiff film on fabric and inside the machine, and high-efficiency machine makers advise against it. A fragrance-free detergent at half the dose is usually gentler.</li>\n<li><b>Dingy whites:</b> soak a few hours in warm water with oxygen bleach (sodium percarbonate, a powder that becomes washing soda and peroxide in water), then wash. It brightens without chlorine. Not for wool or silk.</li>\n</ul>" +
             ca("California’s Cleaning Product Right to Know Act requires cleaning products, laundry detergents included, to list their ingredients, including fragrance allergens: online since 2020 and on the label since 2021.") +
             fix({ modes: [["habit"]], cost: "Free", c: 0,
               steps: [["Free · next load", "Half the detergent; mark the new line on the cap with a marker."], ["As it runs out", "Swap to a fragrance-free detergent."]],
               add: ["Half the detergent, fragrance-free when it runs out"] }) +
             links("<a href=\"#lens-toxins/home/fragrance\">Poisons → Fragrance</a>") +
-            src("California Cleaning Product Right to Know Act of 2017 (SB 258); American Academy of Dermatology, fragrance and contact dermatitis."); } },
+            src("California Cleaning Product Right to Know Act of 2017 (SB 258); American Academy of Dermatology, fragrance and contact dermatitis; American Cleaning Institute, soaps, detergents, and oxygen bleach."); } },
           { id: "cold", short: "Cold", title: "Cold most of the time", html: function () { return "<p>About 90% of the energy a washing machine uses goes to heating water. Today’s detergents are made to work in cold, and cold water is gentler on colors, elastic and shrink-prone fabric.</p>" +
             "<div class=\"cl-does\">\n<div><b>Cold <i>Most loads</i></b><p>Everyday clothes, colors, darks, anything with a protein stain.</p></div>\n<div><b>Warm <i>Some</i></b><p>Greasy kitchen towels, very dirty work clothes.</p></div>\n<div><b>Hot <i>When it counts</i></b><p>Sheets and towels after illness, cloth diapers, companion bedding after a sick day.</p></div>\n</div>" +
             fix({ modes: [["habit"]], cost: "Free", c: 0,
@@ -573,11 +592,10 @@
       U.map(function (u) {
         var on = cur === u.id;
         return '<li class="cl-vt-unit ck' + u.num + (on ? ' cur' : '') + '"><a class="cl-vt-head" href="' + BASE + '/' + u.id + '"' + (on ? ' aria-current="page"' : '') + '><span class="cl-vt-dot">' + u.num + '</span><span><b>' + u.word + '</b><small>' + u.sub + '</small></span></a>' +
-          '<ul class="cl-vt-subs">' + u.subs.map(function (s) { return '<li><a' + (s.tool ? ' class="is-tool"' : '') + ' href="' + BASE + '/' + u.id + '/' + s.id + '">' + (s.tool ? 'Tool: ' : '') + s.title + '</a></li>'; }).join('') + '</ul></li>';
+          '<ul class="cl-vt-subs">' + u.subs.filter(function (s) { return !s.tool; }).map(function (s) { return '<li><a' + (s.tool ? ' class="is-tool"' : '') + ' href="' + BASE + '/' + u.id + '/' + s.id + '">' + (s.tool ? 'Tool: ' : '') + s.title + '</a></li>'; }).join('') + '</ul></li>';
       }).join('') + '</ol>' +
       '<div class="cl-nav-tools"><span class="eyebrow">Tools</span>' +
       '<a class="cl-nav-over" href="' + BASE + '/now"' + (cur === 'now' ? ' aria-current="page"' : '') + '>What needs cleaning?</a>' +
-      '<a class="cl-nav-over" href="' + BASE + '/stains/finder">Stain finder</a>' +
       '<a class="cl-nav-over" href="' + BASE + '/list"' + (cur === 'list' ? ' aria-current="page"' : '') + '>My list <span class="cl-cnt" id="cl-cnt">' + openCount() + '</span></a></div>' +
       '<p class="cl-nav-pair"><b>The gentle ladder</b>Water first. Climb one rung only when the rung below didn’t do it. Past vinegar and peroxide, Poisons takes over.</p>' +
       '</details></nav>';
@@ -638,7 +656,7 @@
     var html = '<article class="cl-unit ck' + u.num + '">' +
       '<header class="cl-unit-hero"><span class="eyebrow">Unit ' + u.num + ' of ' + U.length + ' · ' + u.kind + '</span><h1 tabindex="-1">' + u.word + '</h1><p class="cl-unit-sub">' + u.sub + '</p><p class="cl-lede">' + u.lede + '</p>' +
       (u.mode ? '<p class="cl-unit-mode">' + u.modes.map(function (m) { return mode(m); }).join('') + ' ' + u.mode + '</p>' : '') +
-      '<ul class="cl-jumps">' + u.subs.map(function (s) { return '<li><a href="' + BASE + '/' + u.id + '/' + s.id + '"><span>' + NUM[u.id + '/' + s.id] + '</span>' + s.short + '</a></li>'; }).join('') + '</ul></header>' +
+      '<ul class="cl-jumps">' + u.subs.filter(function (s) { return !s.tool; }).map(function (s) { return '<li><a href="' + BASE + '/' + u.id + '/' + s.id + '"><span>' + NUM[u.id + '/' + s.id] + '</span>' + s.short + '</a></li>'; }).join('') + '</ul></header>' +
       (u.intro || '') +
       u.subs.map(function (s) {
         CUR = { u: u.id, s: s.id };

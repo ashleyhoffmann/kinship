@@ -225,3 +225,18 @@
 .em-ucard.is-planned { background: rgba(255, 255, 255, 0.4); border-style: dashed; }
 .em-ucard.is-planned .em-band { opacity: 0.35; }
 .em-ucard.is-planned:hover { background: rgba(255, 255, 255, 0.4); }
+
+/* v2 · Oct 26: named notes, stacked tables, next-unit card */
+.em-note { background: var(--b-bg); border-left: 4px solid var(--b-dot); }
+.em-nl { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; }
+.em-stack tbody th { font-family: var(--f-body, inherit); text-transform: none; letter-spacing: normal; background: none; color: var(--ink); font-size: 14px; font-weight: 600; text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--b-soft); vertical-align: top; }
+.em-pager a.next.ek2, .em-pager a.next.ek3 { background: var(--b-mid); border-color: var(--b-edge); }
+@media (max-width: 600px) {
+  .em-stack { background: transparent; border: 0; overflow: visible; }
+  .em-stack table { min-width: 0; }
+  .em-stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .em-stack tr { display: block; margin-bottom: 8px; padding: 10px 12px; border-radius: 16px; background: #fff; border: 1px solid var(--b-edge); }
+  .em-stack tbody th, .em-stack td { display: block; padding: 2px 0; border: 0; }
+  .em-stack tbody th { font-family: var(--f-head); font-size: 16px; padding-bottom: 4px; }
+  .em-stack td::before { content: attr(data-l) ' · '; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+}

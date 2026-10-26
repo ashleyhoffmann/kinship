@@ -142,8 +142,8 @@ window.MN_TIERS = [
       {
         id: 'emergency-prep', name: 'Emergency prep', status: 'building',
         blurb: 'Natural disasters, supplies, go-bags and securing your home: plan ahead so you can stay calm when it counts.',
-        topics: ['What to prep for', 'Supplies', 'Go-bags', 'Plans & people', 'Securing your home'],
-        looks: ['What to prep for: wildfire, earthquakes, heat, floods, outages and animals', 'Go-bags, water and supplies for earthquakes, fires and floods', 'Plans with family, neighbors and access needs', 'Simple ways to secure doors, windows and your home']
+        topics: ['What kind of emergency', 'Your hazards', 'Staying put', 'Going', 'Plans & people', 'Securing your home'],
+        looks: ['Stay or go, how big, how long: from blackouts to the worst case, and the first 15 minutes', 'Your hazards: wildfire, earthquakes, tsunamis, heat, floods, outages, and animals', 'Go-bags, water and supplies for earthquakes, fires and floods', 'Plans with family, neighbors and access needs', 'Simple ways to secure doors, windows and your home']
       },
       {
         id: 'first-aid', name: 'First aid', status: 'later',

@@ -1,7 +1,7 @@
 /* Emergency prep lens (tier 5, in progress): course content, profile tailoring, My prep list and a hazard tool.
    Registers window.MN_LENS_VIEWS['emergency-prep'].
    Routes: #lens-emergency-prep (overview) · #lens-emergency-prep/list · #lens-emergency-prep/<unit>[/<sub>].
-   Unit 1 (What to prep for) is written; later units are planned and shown dashed. Units are blues, darkest (1) to lightest.
+   Unit 1 (What kind of emergency: stay or go, how big, how long) and unit 2 (Your hazards) are written; later units are planned and shown dashed. Units are blues, darkest (1) to lightest.
    Air, water and food during events link back to their Roots courses rather than repeating them. Laws mentioned are California’s. */
 (function () {
   var BASE = '#lens-emergency-prep', LKEY = 'meeting-needs.em.v1';
@@ -42,6 +42,12 @@
       rows.map(function (r) { return '<tr>' + r.map(function (c) { var m = /^\[(y|p|n)\](.*)$/.exec(c); return m ? '<td class="' + m[1] + '">' + m[2] + '</td>' : '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>';
   }
   function does(list) { return '<div class="em-does">' + list.map(function (d) { return '<div><b>' + d[0] + (d[2] ? ' <i>' + d[2] + '</i>' : '') + '</b><p>' + d[1] + '</p></div>'; }).join('') + '</div>'; }
+  function note(label, html) { return '<p class="em-box em-note"><b class="em-nl">' + label + ' · </b>' + html + '</p>'; }
+  /* stack(): a table that becomes one card per row on phones */
+  function stack(head, rows) {
+    return '<div class="em-tbl em-stack"><table><thead><tr>' + head.map(function (h) { return '<th scope="col">' + h + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      rows.map(function (r) { return '<tr>' + r.map(function (c, i) { return (i ? '<td data-l="' + head[i] + '">' : '<th scope="row">') + c + (i ? '</td>' : '</th>'); }).join('') + '</tr>'; }).join('') + '</tbody></table></div>';
+  }
   function to(hash, text) { return '<a href="' + hash + '">' + text + '</a>'; }
 
   var MODE = { before: 'Before', during: 'During', after: 'After', together: 'Together' };
@@ -75,8 +81,56 @@
   /* ---------- course content ---------- */
   function units() {
     return [
-      { id: 'prepare', num: 1, word: 'What to prep for', sub: 'The events your place asks you to plan around',
-        lede: 'Preparing is a calm, practical kind of care: deciding ahead of time, while things are easy, so that when something happens there are fewer decisions left. Most places have two or three events worth planning for. This unit helps you find yours, and for each one shows what to do before, during and after.',
+      { id: 'anticipate', num: 1, word: 'What kind of emergency', sub: 'Stay or go, how big, how long',
+        lede: 'Every plan starts by naming what it’s for. A blackout, an earthquake, a tsunami warning, and a pandemic each ask for something different: some ask you to stay put with a stocked pantry, others ask you to leave in minutes with a bag. Self-defense covers everyday life; this lens is for the times a whole place changes at once.',
+        subs: [
+          { id: 'name', short: 'Name it', title: 'Name it first', html: function () { return '<p>Three questions sort almost any emergency, and the answers point to which plan to use.</p>' +
+            does([['Stay or go?', 'Is home the safest place, or is leaving safer? This picks the kit: a stocked home, or a bag by the door and in the car.'], ['How big?', 'Just your home, your street, your town, the region, or everywhere at once. The bigger it is, the longer outside help takes, and the more neighbors matter.'], ['How long?', 'Hours, days, or weeks. Most guides aim for at least three days on your own, and two weeks for a big California earthquake.']]) +
+            stack(['Event', 'Usually', 'How big', 'How long'], [
+              ['Power outage or shutoff', 'Stay', 'Street to region', 'Hours to days'],
+              ['Earthquake', 'Stay (go if the building is damaged)', 'Region', 'Days to weeks'],
+              ['Wildfire', 'Go, early', 'Town', 'Days to weeks away'],
+              ['Wildfire smoke', 'Stay, in a clean room', 'Region', 'Days'],
+              ['Tsunami', 'Go, on foot, to high ground', 'Coast', 'Hours'],
+              ['Flood or debris flow', 'Go, early', 'Town', 'Days'],
+              ['Extreme heat', 'Stay cool, or go to a cool place', 'Region', 'Days'],
+              ['Pandemic', 'Stay', 'Everywhere', 'Weeks to months'],
+              ['Chemical spill or nuclear fallout', 'Stay inside, sealed', 'Town to region', 'Hours to days'],
+              ['Phones and internet down', 'Stay, and meet as planned', 'Town to everywhere', 'Hours to days']]) +
+            legend('Officials have the final word: an evacuation order means go, and a shelter-in-place order means stay.') +
+            src('Ready.gov, <i>Make a Plan</i>; Earthquake Country Alliance, <i>Seven Steps to Earthquake Safety</i>; Cal OES.'); } },
+          { id: 'stay-go', short: 'Stay or go', title: 'Two kits: the pantry and the go-bag', html: function () { return '<p>Almost every plan comes down to two kits. Neither has to be fancy, and most of what goes in them is already in the house.</p>' +
+            does([['The pantry <i>Stay</i>', 'Water, food that keeps without power, medicines, light, and a way to hear the news: enough for two weeks at home. Unit 3 builds it.'], ['The go-bag <i>Go</i>', 'One bag per person and per animal: water, snacks, medicines, copies of documents, a charger, and a change of clothes. Light enough to carry. Unit 4 builds it.'], ['The car kit <i>Go</i>', 'A smaller kit that lives in the car: water, a blanket, a charger, shoes you can walk in, and a paper map. Just as useful stuck on a freeway as leaving town.']]) +
+            '<p>In California, most households need both. Earthquakes and outages mostly ask you to stay; fire, floods, and tsunamis ask you to leave, often fast. The kits overlap, so the go-bag can sit on the pantry shelf and grab from it on the way out.</p>' +
+            note('Without a steady home', 'Living in a vehicle or without a fixed place, the go-bag and the car kit are the whole home, and staying put isn’t always possible. The same lists still help; unit 4 keeps them small and portable.') +
+            ready({ cost: 'Free', steps: [['Before · today', 'Name your two or three likely events and mark each one Stay or Go.'], ['Before', 'Pick one spot near the door for go-bags and one shelf for the pantry.'], ['Together', 'Show everyone at home where both are.']], add: ['Our events marked Stay or Go; a spot for go-bags and the pantry'] }) +
+            src('Ready.gov, <i>Build a Kit</i>; Cal OES, <i>Listos California</i>.'); } },
+          { id: 'small', short: 'Small and often', title: 'Small and often: blackouts', html: function () { return '<p>The most common emergency is small: the power goes out for an evening, or for a few days during a Public Safety Power Shutoff. Small ones are practice for big ones, and they mostly ask for charge, light, cold, and news.</p>' +
+            ul(['<b>Charge:</b> a power bank for each phone, kept full (a 10,000 mAh bank charges most phones about twice), and a car charger. Top them up whenever a storm or shutoff is forecast.', '<b>Light:</b> a headlamp for each person keeps hands free; candles start home fires.', '<b>Cold:</b> keep the fridge and freezer shut. A full freezer stays cold about two days.', '<b>News:</b> a battery or hand-crank radio works when phones and Wi-Fi don’t.']) +
+            note('Learning from neighbors', 'For people living outside or in vehicles, every day is a bit like a blackout seen from a house, and many already know where to charge a phone (libraries, transit stations), find water, keep food without a fridge, and stay warm or cool. Libraries and 211 are worth knowing by heart, for yourself and to pass on.') +
+            '<p>Lights, charging, solar, and safe heating and cooling get a fuller home in the Energy &amp; light lens (planned). The outage plan for your place is in ' + r('prepare', 'power', 'Power outages') + '.</p>' +
+            ready({ cost: '$', c: 1, steps: [['Before', 'A charged power bank for each phone and a headlamp for each person.'], ['During', 'Phones on low-power mode, the fridge shut, and a check on neighbors who rely on power.'], ['After', 'Recharge everything before putting it away.']], add: ['A power bank for each phone, a headlamp for each person'] }) +
+            links(to('#lens-relationships/special/distress', 'Relationships: People in distress') + ' · ' + FOOD) +
+            src('USDA, food safety during power outages; CPUC, Public Safety Power Shutoffs; US Fire Administration, candle safety.'); } },
+          { id: 'big', short: 'Big and rare', title: 'Big and rare: when the worst happens', html: function () { return '<p>Some emergencies are rare but huge, the kind that stay in the news for years. They’re frightening to think about, and thinking them through once, calmly, makes them less so. Most use the same two kits, plus a few extra pieces.</p>' +
+            does([['Phones and internet down <i>Stay</i>', 'When the network is down for days, plans that live online disappear. Keep a paper list of numbers and addresses, a paper map, some cash in small bills, and offline maps on your phone, and agree on a meeting place and time ahead. Texts often get through when calls don’t, and FRS walkie-talkies need no license.'], ['A pandemic <i>Stay</i>', 'Weeks at home, not days: food and medicine for two weeks, masks, and a plan for who brings groceries to whom.'], ['A nuclear emergency <i>Stay inside</i>', 'Get inside, stay inside, stay tuned. Go to a basement or the middle of a sturdy building, away from windows, for at least 24 hours unless officials say otherwise. Fallout is most dangerous in the first hours and weakens quickly, and brick or concrete walls block much of it. If you were outside, take off your outer layer and wash.'], ['When power turns on people <i>Stay or go</i>', 'When a government or institution harms the people it’s meant to serve, the preparations are people and paper: know your rights, keep copies of documents, write down a legal aid number, and join a rapid response network.']]) +
+            '<p>The details for that last one live in ' + to('#lens-self-defense/1-6', 'Self-defense 1.6 When the threat is power') + ' and ' + to('#lens-governance/5.1', 'Governance 5.1 Rights you have by existing') + '.</p>' +
+            ready({ cost: 'Free → $', c: 1, steps: [['Before · today', 'Write the ten phone numbers you’d need on paper, and download offline maps of your area.'], ['Before', 'Some cash in small bills; a meeting place and time for when phones are down.'], ['Together', 'Pick one out-of-area contact everyone texts.']], add: ['Paper contacts, offline maps, cash, and a meeting place and time'] }) +
+            src('Ready.gov and CDC, <i>Get Inside, Stay Inside, Stay Tuned</i>; FCC, Family Radio Service; Ready.gov, pandemic.'); } },
+          { id: 'first', short: 'First 15 minutes', title: 'The first 15 minutes: is it real?', html: function () { return '<p>Big news rarely arrives clear. An alert buzzes, a rumor spreads, the sky turns orange, and the first stretch goes to wondering whether it’s real. That pause is normal: brains look for proof before acting. A plan made ahead turns it into a few quick steps.</p>' +
+            does([['1 · Check two sources', 'Official ones: a Wireless Emergency Alert, county alerts, local radio or TV, NOAA Weather Radio, or the agency’s own site. Not one post.'], ['2 · Do the cheap safe thing now', 'If it costs little (get inside, put on shoes, fill the tub, load the go-bags), do it while you check. Being wrong costs a little; waiting can cost a lot.'], ['3 · Follow your triggers', 'Decided ahead: “At an evacuation warning, we leave.” “Long or strong shaking by the coast, we walk uphill.” With triggers, there’s nothing to debate.'], ['4 · Tell your people', 'One text to your household and your out-of-area contact: where you are and what you’re doing.']]) +
+            '<p>In January 2018, a false ballistic missile alert reached phones across Hawaii, and the correction came 38 minutes later. People spent those minutes in many ways: sheltering, searching for news, calling family. Sheltering cost little once the alert turned out to be false, which is the point of step 2.</p>' +
+            care('Natural warnings come before official ones. Near the coast, long or strong shaking, a roar, or the sea pulling back means walk to high ground right away, without waiting for an alert.') +
+            ready({ cost: 'Free', steps: [['Before · today', 'Write your triggers: what makes you stay, and what makes you go.'], ['Before', 'Turn on emergency alerts on every phone and sign up for county alerts.'], ['Together', 'Read the triggers aloud with your household once.']], add: ['Our triggers written down; alerts on every phone'] }) +
+            src('FCC, report on the January 13, 2018 Hawaii false ballistic missile alert; NOAA and California Geological Survey, tsunami natural warnings; FEMA, Wireless Emergency Alerts.'); } },
+          { id: 'together', short: 'In it together', title: 'We’re in it together', html: function () { return '<p>The bigger an emergency is, the more it becomes a community event. On 9/11, boats of every kind carried about half a million people off Lower Manhattan in one day. In 2020, mutual aid groups formed on block after block to bring groceries and medicine to neighbors. Disaster research finds the same pattern again and again: people mostly help each other, and the places with the strongest ties recover fastest.</p>' +
+            does([['Neighbors first', 'In the first hours, most help comes from people already nearby. Knowing two neighbors and what each of you needs is a real preparation.'], ['Ties save lives', 'In Chicago’s 1995 heat wave, people living alone and cut off were most at risk, and neighborhoods where people checked on each other lost far fewer.'], ['Offer what you have', 'A spare room, a ladder, a car, a second language, first aid, or a calm voice: every household has something to offer.']]) +
+            ready({ cost: 'Free', steps: [['Before', 'Swap numbers with two neighbors and ask what each of you would need.'], ['During', 'Check on the people you agreed to, then on whoever lives alone.'], ['After', 'Share what’s left over: food, water, chargers, and time.']], add: ['Two neighbors: numbers swapped, needs known'] }) +
+            links(NEIGH + ' · ' + to('#lens-self-defense/1-7', 'Self-defense 1.7 Safety is a web of people')) +
+            src('Rebecca Solnit, <i>A Paradise Built in Hell</i> (2009); Eric Klinenberg, <i>Heat Wave</i> (2002); Daniel P. Aldrich, <i>Building Resilience</i> (2012); James Kendra and Tricia Wachtendorf, <i>American Dunkirk</i> (2016).'); } }
+        ] },
+      { id: 'prepare', num: 2, word: 'Your hazards', sub: 'The events your place asks you to plan around',
+        lede: 'Preparing is a calm, practical kind of care: deciding ahead of time, while things are easy, so that when something happens there are fewer decisions left. Most places have two or three events worth planning for. This unit helps you find yours, and for each one shows what to do before, during, and after.',
         subs: [
           { id: 'hazards', short: 'Your hazards', title: 'Know your hazards', html: function () { return '<p>Start with the place, not the fear. A free lookup of your address shows which events actually reach you, and it’s usually a shorter list than the news suggests.</p>' +
             does([['MyHazards.CA.gov <i>California</i>', 'Earthquake, flood, fire and tsunami risk for an address, with steps for each.'], ['FEMA National Risk Index <i>US</i>', 'Every county’s risk for 18 hazards, side by side.'], ['County alerts <i>Local</i>', 'Most counties send emergency alerts by text; sign up once and it covers every event.'], ['Evacuation zones <i>Local</i>', 'Many California counties use Genasys Protect: find your zone name now, while it’s calm.']]) +
@@ -97,6 +151,11 @@
             ready({ cost: 'Free → $', c: 1, steps: [['Before', 'Download MyShake; strap the water heater; anchor the tallest furniture; shoes and a flashlight by each bed.'], ['During', 'Drop, Cover, Hold On. In bed, stay there and cover your head with a pillow.'], ['After', 'Check people, then gas and water; expect aftershocks; N95 for dusty cleanup.']], add: ['MyShake, water heater strap, tall furniture anchored, shoes by the bed'] }) +
             links(AIR.disasters) +
             src('Earthquake Country Alliance; USGS ShakeAlert; Cal OES MyShake; California Earthquake Authority, Brace + Bolt.'); } },
+          { id: 'tsunami', short: 'Tsunamis', title: 'Tsunamis', html: function () { return '<p>California’s coast gets tsunamis from two directions. From far away, after a big earthquake across the Pacific, there are hours of warning. From close by, after a big local earthquake, there may be only minutes. In 1964, a tsunami from an Alaska earthquake killed 11 people in Crescent City, and in 2011, waves from Japan wrecked harbors in Crescent City and Santa Cruz.</p>' +
+            does([['Long or strong, get gone <i>Natural warning</i>', 'Shaking that makes it hard to stand or lasts 20 seconds or more, a loud roar, or the sea pulling back: walk to high ground or inland right away.'], ['Know your zone <i>Before</i>', 'Tsunami hazard areas are mapped along the whole coast, and MyHazards shows yours. Blue signs mark the routes out.'], ['On foot <i>During</i>', 'Walk, don’t drive; roads jam fast. Aim for 100 feet up or a mile inland, and stay until officials say it’s over: the first wave is often not the biggest.']]) +
+            ready({ cost: 'Free', steps: [['Before', 'Check whether home, work, or school is in a tsunami zone, and walk the route uphill once.'], ['During', 'Long or strong shaking by the coast: go on foot, right away.'], ['After', 'Stay away from the shore until officials give the all-clear, often a day or more.']], add: ['Tsunami zone checked; walking route to high ground'] }) +
+            links(r('anticipate', 'first', '1.5 The first 15 minutes')) +
+            src('California Geological Survey, tsunami hazard area maps; NOAA, <i>Tsunami Safety</i>; Cal OES, MyHazards; USGS, 1964 Alaska earthquake.'); } },
           { id: 'heat', short: 'Extreme heat', title: 'Extreme heat', html: function () { return '<p>Heat waves are the deadliest weather event in the US, and the quietest. They harm most where homes hold heat, nights stay warm, power fails, or someone lives alone. The full guide to cooling bodies and rooms is in ' + AIR.heat + '; here is the plan around it.</p>' +
             ul(['<b>Know the forecast:</b> the National Weather Service issues heat advisories and warnings, often days ahead.', '<b>Know your cool place:</b> the coolest room at home, and the nearest cooling center or library (211 lists them).', '<b>Medicines:</b> some (for blood pressure, mood, allergies) change how the body handles heat; a pharmacist can say which. Insulin and some others need cool storage.', '<b>Check-ins:</b> elders, people living alone and anyone working outside, twice a day.']) +
             ready({ cost: 'Free', steps: [['Before', 'A cool-room plan, shades on sunny windows, and the nearest cooling center saved.'], ['During', 'Cool showers, wet cloths, water often; the hottest hours inside or in shade.'], ['After', 'Bodies stay tired after a heat wave; keep drinking and resting a day or two.']], add: ['Heat plan: cool room, cooling center saved, check-in list'] }) +
@@ -122,10 +181,10 @@
             links(ANIMALS + ' · ' + to('#lens-air/smoke/companions', 'Air: Smoke, scent and companions')) +
             src('Ready.gov, <i>Prepare Your Pets for Disasters</i>; Pets Evacuation and Transportation Standards (PETS) Act, 2006; CAL FIRE, animal evacuation; American Veterinary Medical Association.'); } }
         ] },
-      { id: 'supplies', num: 2, word: 'Water, food &amp; supplies', sub: 'Two weeks on hand', planned: ['Water: a gallon per person a day, two weeks if you can', 'Food that keeps without power', 'Medicines, glasses and the things that are hard to replace'] },
-      { id: 'gobag', num: 3, word: 'Go-bags &amp; kits', sub: 'Ready by the door', planned: ['One bag per person and per animal', 'Car, work and school kits', 'Documents and photos, kept safe'] },
-      { id: 'plans', num: 4, word: 'Plans &amp; people', sub: 'Who, where, how we reach each other', planned: ['A meeting place and an out-of-area contact', 'Neighbors, check-ins and mutual aid', 'Kids, elders and access needs'] },
-      { id: 'home', num: 5, word: 'Securing your home', sub: 'Doors, windows, and calm', planned: ['Locks, lights and simple reinforcements', 'Shutting off gas, water and power', 'Renters and shared buildings', 'A safe room and a household plan', 'Noticing, de-escalation and getting away live in <a href="#lens-self-defense">Self-defense</a>'] }
+      { id: 'supplies', num: 3, word: 'Staying put', sub: 'The pantry: two weeks on hand', planned: ['Water: a gallon per person a day, two weeks if you can', 'Food that keeps without power', 'Medicines, glasses, and the things that are hard to replace', 'A clean room for smoke, and sealing a room for fallout or chemicals'] },
+      { id: 'gobag', num: 4, word: 'Going', sub: 'Go-bags and car kits, ready by the door', planned: ['One bag per person and per animal', 'The car kit, and kits for work and school', 'Documents, photos, and cash, kept safe', 'Kept small for living on the move'] },
+      { id: 'plans', num: 5, word: 'Plans &amp; people', sub: 'Who, where, how we reach each other', planned: ['A meeting place and an out-of-area contact', 'Neighbors, check-ins and mutual aid', 'Kids, elders and access needs'] },
+      { id: 'home', num: 6, word: 'Securing your home', sub: 'Doors, windows, and calm', planned: ['Locks, lights and simple reinforcements', 'Shutting off gas, water and power', 'Renters and shared buildings', 'A safe room and a household plan', 'Noticing, de-escalation and getting away live in <a href="#lens-self-defense">Self-defense</a>'] }
     ];
   }
 
@@ -160,7 +219,7 @@
   // [id, label, sections it raises (sub id: weight)]
   var HZ = [
     ['wild', 'Near grass, brush or forest', { fire: 3 }], ['ca', 'In California (or anywhere near a fault)', { quake: 3, fire: 1, power: 1 }],
-    ['low', 'Low-lying, or near a creek, river or coast', { water: 3, quake: 1 }], ['hill', 'On or below a hillside, or below a recent burn scar', { water: 2, fire: 1 }],
+    ['low', 'Low-lying, or near a creek or river', { water: 3 }], ['coast', 'Near the coast or a bay', { tsunami: 3, quake: 1 }], ['hill', 'On or below a hillside, or below a recent burn scar', { water: 2, fire: 1 }],
     ['hot', 'Summers over 95°F, or no cooling at home', { heat: 3, power: 1 }], ['psps', 'Windy fire days with power shutoffs, or power lines through brush', { power: 3, fire: 1 }],
     ['med', 'Someone relies on power or cold for medicine or devices', { power: 3, heat: 1 }], ['pets', 'Companion or farmed animals', { animals: 3 }],
     ['care', 'Kids, elders or someone who needs more time to leave', { fire: 1, heat: 1, water: 1 }]
@@ -224,7 +283,7 @@
   function layout(U, cur, main) { return mn().header('home') + '<div class="em-layout">' + sidebar(U, cur) + '<main class="em-main">' + main + '</main></div>' + mn().footer(); }
   function viewOverview(U) {
     return '<section class="em-hero"><span class="em-lens-pill">Tier 5 · Resilience · In progress</span><h1 tabindex="-1">Emergency prep</h1>' +
-      '<p class="em-lede">Plan ahead so you can stay calm when it counts. Preparing is care done early: for yourself, the people and animals you live with, and your neighbors. It starts with the events your place actually asks you to plan for, then builds out supplies, go-bags, plans and a safe home.</p></section>' +
+      '<p class="em-lede">Plan ahead so you can stay calm when it counts. Preparing is care done early: for yourself, the people and animals you live with, and your neighbors. It starts by naming the kind of emergency (stay or go, how big, how long), then the events your place asks you to plan for, then the pantry, the go-bag, your people, and your home. Everyday safety lives in <a href="#lens-self-defense">Self-defense</a>; this lens is for when a whole place changes at once.</p></section>' +
       '<ol class="em-ucards">' + U.map(function (u) {
         if (u.planned) return '<li><div class="em-ucard ek' + u.num + ' is-planned"><i class="em-band"></i><span class="em-n">0' + u.num + ' · Planned</span><b>' + u.word + '</b><span>' + u.sub + '</span><ol>' + u.planned.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ol></div></li>';
         return '<li><a class="em-ucard ek' + u.num + '" href="' + BASE + '/' + u.id + '"><i class="em-band"></i><span class="em-n">0' + u.num + '</span><b>' + u.word + '</b><span>' + u.sub + '</span><ol>' + u.subs.filter(function (s) { return !s.tool; }).map(function (s) { return '<li>' + s.title + '</li>'; }).join('') + '</ol></a></li>';
@@ -247,7 +306,9 @@
         CUR = { u: u.id, s: s.id };
         if (s.tool) return '<section class="em-tool" id="em-' + u.id + '-' + s.id + '"><span class="eyebrow">Tool</span><b class="em-tool-t">' + s.title + '</b>' + s.html() + '</section>';
         return '<section class="em-sub" id="em-' + u.id + '-' + s.id + '"><div class="em-sub-top"><span class="em-sub-n">' + NUM[u.id + '/' + s.id] + '</span><h2>' + s.title + '</h2></div>' + s.html() + '</section>';
-      }).join('') + '</article><nav class="em-pager" aria-label="Units"><a href="' + BASE + '"><small>← Back to</small><b>Overview</b></a><a class="next" href="' + BASE + '/list"><small>Your list →</small><b>My prep list</b></a></nav>';
+      }).join('') + '</article>';
+    var nx = U.filter(function (x) { return x.num === u.num + 1 && !x.planned; })[0];
+    html += '<nav class="em-pager" aria-label="Units"><a href="' + BASE + '"><small>← Back to</small><b>Overview</b></a>' + (nx ? '<a class="next ek' + nx.num + '" href="' + BASE + '/' + nx.id + '"><small>Next · Unit ' + nx.num + ' →</small><b>' + nx.word + '</b></a>' : '<a class="next" href="' + BASE + '/list"><small>Your list →</small><b>My prep list</b></a>') + '</nav>';
     setTimeout(function () { runHz(); syncUi(); var el = subId && document.getElementById('em-' + u.id + '-' + subId); if (el) el.scrollIntoView({ block: 'start' }); }, 0);
     return html;
   }

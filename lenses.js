@@ -75,9 +75,9 @@ window.MN_TIERS = [
       },
       {
         id: 'body-care', name: 'Body care', status: 'ready',
-        blurb: 'Care for every body at home, starting with the mouth: why teeth decay, and xylitol and homemade mouthwash that help them repair.',
-        topics: ['Mouth', 'Skin & hair', 'Sleep & rest', 'Bodies through time', 'Animal bodies'],
-        looks: ['Why teeth decay: bacteria, acid, dryness and minerals', 'Xylitol, and mouthwash and mints you can make at home', 'Skin, hair and sleep (planned)', 'Bodies through time: children, pregnancy, aging and different bodies (planned)', 'The animals who share your home (planned)']
+        blurb: 'Care for every body at home: why teeth decay and how xylitol and homemade mouthwash help them repair, and bleaching hair at home with less damage.',
+        topics: ['Mouth', 'Skin', 'Hair', 'Hair bleaching', 'Sleep & rest', 'Bodies through time', 'Animal bodies'],
+        looks: ['Why teeth decay: bacteria, acid, dryness and minerals', 'Xylitol, and mouthwash and mints you can make at home', 'Hair bleaching at home: bleach, wash, tone, and condition', 'Skin, hair, and sleep (planned)', 'Bodies through time: children, pregnancy, aging and different bodies (planned)', 'The animals who share your home (planned)']
       },
       {
         id: 'self-defense', name: 'Self-defense', status: 'soon',

@@ -695,8 +695,18 @@
     if (card && sel && !sel.isCollapsed && card.contains(sel.anchorNode)) e.preventDefault();
   }, true);
 
+  /* Jump links inside a page (#gr-u2, #bc-4-2) scroll to their section instead of routing; the address keeps the page's route. */
+  var lastHash = '';
   function route() {
     var r = (location.hash || '').replace(/^#/, '');
+    var jump = r && !/^(lens-|profile|about|resources|plans|favorites|tools)/.test(r) && document.getElementById(r);
+    if (jump && app.contains(jump)) {
+      history.replaceState(null, '', lastHash || location.pathname);
+      jump.scrollIntoView({ block: 'start' });
+      if (!jump.hasAttribute('tabindex')) jump.setAttribute('tabindex', '-1');
+      jump.focus({ preventScroll: true });
+      return;
+    }
     if (needsLazy(r)) return;
     var html, title = 'Kinship';
     var sec = '';
@@ -720,6 +730,7 @@
         dd.classList.add('is-closed'); dd.addEventListener('mouseleave', function () { dd.classList.remove('is-closed'); }, { once: true });
       });
     }
+    lastHash = location.hash;
     document.title = title;
     requestAnimationFrame(placeArrow);
     window.scrollTo(0, 0);

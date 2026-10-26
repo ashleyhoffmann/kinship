@@ -1,5 +1,6 @@
-/* Water lens: steps as abilities (FOUNDATION §8). Registers window.MN_LENS_VIEWS.water.
-   Routes: #lens-water (step 1 Thinking) · #lens-water/<step>[/<section>] for use, sources, containers, purify, test · #lens-water/abilities.
+/* Water lens: an overview and five units (Use, Sources, Containers, Purify, Test). Registers window.MN_LENS_VIEWS.water.
+   Routes: #lens-water (overview) · #lens-water/<unit>[/<section>] for use, sources, containers, purify, test · #lens-water/abilities.
+   Old #lens-water/think[/steps|/loop] links open the overview.
    Old v1 routes (uses, storage, testing, costs, cows and their sections) still resolve; see resolve() and mockups/water-v1-coverage.md.
    Numbers carry forward from the Use calculator to every later step and the plan tray (localStorage meeting-needs.water.v2).
    Tailoring: answers from the Profile (Place + Water) become tags; accordions tagged data-for open with a "For you" badge.
@@ -115,7 +116,7 @@
           'Of the water behind animal foods, about <b>98%</b> grows their feed. What the animals drink is about 1.1%; hosing down feedlots, barns and the animals themselves about 0.8%. Slaughterhouse water isn’t counted at all, so the real total runs higher.',
           'In all, per pound of animal foods: cow milk 120 gal · eggs 400 · chickens 520 · pigs 720 · cows 1,850.']) +
           '<p class="opinion-src">Sources: Public Policy Institute of California; California Department of Food and Agriculture (top crops by value, 2024); Water Footprint Network and Mekonnen &amp; Hoekstra (2012) (world averages, rain included).</p></div></details><p class="opinion-src">More on peace with animals in <a href="#lens-relationships/special/captive">Captive animals</a>.</p>') : ''; },
-        lede: 'Water reaches us from the sky, the ground or a pipe. Each source carries its own likely problems, which tells you what storage, purifying and testing it needs.',
+        lede: 'Water reaches us from the sky, the ground, or a pipe. Each source carries its own likely problems, which tells you what storage, purifying and testing it needs.',
         subs: [
           { id: 'know', short: 'Sources', title: 'Know your sources', html: function () { return '<p>Two truths come before every source:</p>' +
             truths([['Know what’s upstream', 'Water carries everything it has passed: towns, farms, roads, mines, factories, someone’s laundry. Clear and fast doesn’t mean clean.'], ['Unknown until you know', 'Until you know a water’s story or have tested it, treat it as unsafe. Today that’s most water you didn’t trace yourself.']]) +
@@ -400,8 +401,7 @@
   }
 
   /* ======================================================================
-     v2: a lens is a run of steps, and each step is an ability (FOUNDATION §8).
-     Step 1 Thinking (overview) · 2 Use · 3 Sources · 4 Containers · 5 Purify · 6 Test · Your abilities.
+     v2: an overview, then five units: 1 Use · 2 Sources · 3 Containers · 4 Purify · 5 Test · Your abilities.
      Numbers carry forward: the Use calculator feeds Sources, Containers, Purify, Test and the plan tray.
      Most section text comes from units() above (the v1 course), so nothing written there is lost.
      ====================================================================== */
@@ -720,35 +720,32 @@
   function steps() { return _steps || (_steps = buildSteps()); }
   function buildSteps() {
     return [
-      { id: 'think', num: 1, word: 'Thinking', title: 'Thinking about water', ability: 'Can picture any water situation as five steps, and work it through',
-        lede: 'Every water situation, from a dry campsite to a city apartment to a farm, comes down to the same five steps. Knowing them by heart is how you help anyone, including yourself, quickly.',
-        secs: [{ id: 'steps', short: 'Five steps', title: 'Five steps', html: htmlFive }, { id: 'loop', short: 'Your loop', title: 'Designing your water system', html: OLD('uses', 'system') }] },
-      { id: 'use', num: 2, word: 'Use', title: 'Use: how much, how clean', ability: 'Can size a household’s water, use by use, and match each use to the water it needs',
+      { id: 'use', num: 1, word: 'Use', sub: 'How much, how clean', title: 'Use: how much, how clean', ability: 'Can size a household’s water, use by use, and match each use to the water it needs',
         lede: 'Not every job needs drinking water. Knowing what each use really needs is the base of every system after this, and the easiest way to need less.',
         take: OLDTAKE('uses'),
         secs: [{ id: 'calc', short: 'Calculator', title: 'How much water, use by use', html: htmlCalc }, { id: 'food', short: 'Water in food', title: 'Water from food', html: htmlFood },
           { id: 'grades', short: 'Grades', title: 'Four grades of water', html: OLD('uses', 'grades') }, { id: 'gray', short: 'Gray water', title: 'Gray water', html: OLD('uses', 'gray') },
           { id: 'reuse', short: 'Reuse', title: 'Using water more than once', html: htmlReuse }, { id: 'drink', short: 'Drinking', title: 'How much to drink', html: OLD('uses', 'drink') },
           { id: 'less', short: 'Use less', title: 'Small ways to use less', html: OLD('uses', 'less') }, { id: 'day', short: 'A day of water', title: 'A day of water', html: OLD('uses', 'needs') }] },
-      { id: 'sources', num: 3, word: 'Sources', title: 'Sources: where it can come from', ability: 'Can find water anywhere, and point someone else to it',
-        lede: 'Water reaches us from the sky, the ground or a pipe. Each source carries its own likely problems, which tells you what containers, purifying and testing it needs.',
+      { id: 'sources', num: 2, word: 'Sources', sub: 'Where it can come from', title: 'Sources: where it can come from', ability: 'Can find water anywhere, and point someone else to it',
+        lede: 'Water reaches us from the sky, the ground, or a pipe. Each source carries its own likely problems, which tells you what containers, purifying and testing it needs.',
         take: OLDTAKE('sources'),
         secs: [{ id: 'table', short: 'Compare', title: 'Compare sources', html: htmlSrcTable }, { id: 'prices', short: 'Your prices', title: 'Your prices', html: htmlPrices },
           { id: 'know', short: 'Know them', title: 'Know your sources', html: OLD('sources', 'know') }, { id: 'taps', short: 'Taps &amp; refills', title: 'Taps and free refills', html: OLD('sources', 'taps') },
           { id: 'rain', short: 'Rain', title: 'Catching rain', html: OLD('sources', 'rain') }, { id: 'wells', short: 'Wells &amp; springs', title: 'Wells and springs', html: OLD('sources', 'wells') },
           { id: 'wild', short: 'Wild water', title: 'Rivers, lakes and the wild', html: OLD('sources', 'wild') }, { id: 'place', short: 'Where to live', title: 'Choosing where to live', html: OLD('sources', 'place') },
           { id: 'fair', short: 'Fair costs', title: 'It’s expensive being poor', html: htmlFair }] },
-      { id: 'containers', num: 4, word: 'Containers', title: 'Containers: what holds it, and how much', ability: 'Can choose, fill and keep water containers',
+      { id: 'containers', num: 3, word: 'Containers', sub: 'What holds it, and how much', title: 'Containers: what holds it, and how much', ability: 'Can choose, fill and keep water containers',
         lede: 'Stored water stays good with a clean food-grade container, darkness and coolness. Then a date on the lid, and a reminder to refresh it.',
         secs: [{ id: 'keep', short: 'How much', title: 'How much to keep', html: htmlKeep }, { id: 'kinds', short: 'Kinds', title: 'Kinds of containers', html: htmlKinds },
           { id: 'where', short: 'Where', title: 'Where to keep it', html: OLD('storage', 'where') }, { id: 'algae', short: 'Algae', title: 'Beware green in the sun', html: OLD('storage', 'algae') },
           { id: 'fresh', short: 'Fresh', title: 'Keeping it fresh', html: OLD('storage', 'fresh') }] },
-      { id: 'purify', num: 5, word: 'Purify', title: 'Purify: clean enough for the job', ability: 'Can make water clean enough for each job',
+      { id: 'purify', num: 4, word: 'Purify', sub: 'Clean enough for the job', title: 'Purify: clean enough for the job', ability: 'Can make water clean enough for each job',
         lede: 'No single method does everything, and the priciest one isn’t automatically right. Start with what’s in your water and what the job needs, then choose the simplest thing that handles it.',
         secs: [{ id: 'yours', short: 'Your sources', title: 'Your sources, made safe', html: htmlPurYours }, { id: 'match', short: 'Match', title: 'Match the method to the problem', html: OLD('purify', 'match') },
           { id: 'everyday', short: 'Everyday', title: 'Everyday filtering', html: OLD('purify', 'everyday') }, { id: 'permanent', short: 'Permanent', title: 'Permanent systems', html: OLD('purify', 'permanent') },
           { id: 'crisis', short: 'Crisis', title: 'Crisis: boil, bleach, sun', html: OLD('purify', 'crisis') }, { id: 'nohome', short: 'No fixed home', title: 'With no fixed home', html: OLD('purify', 'nohome') }] },
-      { id: 'test', num: 6, word: 'Test', title: 'Test: knowing it’s safe', ability: 'Can tell whether water is safe, and find out when unsure',
+      { id: 'test', num: 5, word: 'Test', sub: 'Knowing it’s safe', title: 'Test: knowing it’s safe', ability: 'Can tell whether water is safe, and find out when unsure',
         lede: 'Your senses and surroundings catch a lot; the serious problems are often invisible. Testing turns worry into a clear picture, and much of it is free.',
         secs: [{ id: 'yours', short: 'Your sources', title: 'Testing your sources', html: htmlTestYours }, { id: 'safe', short: 'Safe', title: 'What “safe” means', html: OLD('testing', 'safe') },
           { id: 'signs', short: 'Signs', title: 'Reading the signs around you', html: OLD('testing', 'signs') }, { id: 'report', short: 'Reports &amp; maps', title: 'Water reports and maps', html: OLD('testing', 'report') },
@@ -756,9 +753,8 @@
     ];
   }
   function htmlFive() {
-    var w = [['Use', 'What it’s for, how much, and how clean'], ['Source', 'Where it comes from'], ['Container', 'What holds it, and for how long'], ['Purify', 'Making it clean enough for the job'], ['Test', 'Knowing it’s safe']];
-    return '<ol class="wa2-five">' + w.map(function (x, i) { return '<li class="wk' + (i + 2) + '"><a href="' + BASE + '/' + ['use', 'sources', 'containers', 'purify', 'test'][i] + '"><span>' + (i + 2) + '</span><b>' + x[0] + '</b><small>' + x[1] + '</small></a></li>'; }).join('') + '</ol>' +
-      '<p>Each step is its own ability, and your numbers carry from one to the next: how much you use decides which sources can cover it, which decides the containers, the purifying and the testing. The total builds in your plan at the bottom of the page.</p>';
+    return '<ol class="wa2-five">' + steps().map(function (u) { return '<li class="wk' + u.num + '"><a href="' + BASE + '/' + u.id + '"><span>' + u.num + '</span><b>' + u.word + '</b><small>' + u.sub + '</small></a></li>'; }).join('') + '</ol>' +
+      '<p>Your numbers carry from one unit to the next: how much you use decides which sources can cover it, which decides the containers, the purifying, and the testing. The total builds in your plan at the bottom of the page.</p>';
   }
 
   function resolve(path) {
@@ -770,8 +766,8 @@
     return p.replace(/^\//, '');
   }
   function titleFor(path) {
-    var p = resolve(path).split('/'), st = steps().filter(function (x) { return x.id === (p[0] || 'think'); })[0];
-    if (!st) return null;
+    var p = resolve(path).split('/'), st = steps().filter(function (x) { return x.id === p[0]; })[0];
+    if (!st) return p[0] === 'abilities' ? 'Your abilities' : null;
     var sc = p[1] && st.secs.filter(function (x) { return x.id === p[1]; })[0];
     return st.word + (sc ? ' · ' + sc.short.replace(/&amp;/g, '&') : '');
   }
@@ -779,7 +775,7 @@
   /* ---------- Abilities ---------- */
   var LV = ['Know how', 'Done it', 'Shared it'];
   var RECALL = {
-    think: { q: 'The five steps', items: [['Use', 'use|uses|using|need|needs'], ['Source', 'source|sources'], ['Container', 'container|containers|storage|store|storing'], ['Purify', 'purify|purification|purifying|filter|treat|clean'], ['Test', 'test|testing|tests|check']] },
+    think: { q: 'The five units', items: [['Use', 'use|uses|using|need|needs'], ['Source', 'source|sources'], ['Container', 'container|containers|storage|store|storing'], ['Purify', 'purify|purification|purifying|filter|treat|clean'], ['Test', 'test|testing|tests|check']] },
     use: { q: 'The four grades of water, cleanest first', items: [['Drinking', 'drinking|drink|potable|drinkable'], ['Clean', 'clean|washing|wash'], ['Gray', 'gray|grey|graywater|greywater'], ['Black', 'black|blackwater|sewage']] },
     sources: { q: 'Water reaches us from the ___, the ___ or a ___', items: [['Sky', 'sky|rain|air'], ['Ground', 'ground|groundwater|earth|well|spring'], ['Pipe', 'pipe|tap|pipes']] },
     containers: { q: 'Four ways to keep stored water good', items: [['Food-grade', 'foodgrade|foodsafe|food'], ['Dark', 'dark|shade|shaded|cool|nolight'], ['Dated', 'dated|date|label|labeled|labelled'], ['Spread out', 'spreadout|spread|spreaditout']] },
@@ -803,21 +799,15 @@
     }).join('') + '</div><div class="wa2-row"><button type="button" class="btn" data-w2-check="' + id + '">Check</button><button type="button" class="btn ghost" data-w2-reset="' + id + '">Start again</button><span class="wa-legend" data-w2-last="' + id + '">' + (S.last[id] ? 'Last refreshed ' + new Date(S.last[id]).toLocaleDateString() : '') + '</span></div>' +
       '<p class="wa-legend" aria-live="polite" data-w2-msg="' + id + '"></p></div>';
   }
-  function bar(cur) {
-    var ST = steps();
-    return '<nav class="wa2-abar" aria-label="Your water abilities"><ol>' + ST.map(function (s) {
-      var lv = S.badges[s.id];
-      return '<li><a href="' + BASE + (s.id === 'think' ? '' : '/' + s.id) + '"' + (cur === s.id ? ' aria-current="page"' : '') + ' class="wk' + s.num + '"><span class="n">' + s.num + '</span><span class="t">' + s.word + '<small>' + (lv != null ? LV[lv] : 'Not yet') + '</small></span></a></li>';
-    }).join('') + '<li><a class="all" href="' + BASE + '/abilities"' + (cur === 'abilities' ? ' aria-current="page"' : '') + '><span class="t">Your abilities<small>levels &amp; refresh</small></span></a></li></ol></nav>';
-  }
   function viewAbilities() {
     var ST = steps();
     return '<article class="wa-unit wk1"><header class="wa-unit-hero"><span class="eyebrow">Water</span><h1 tabindex="-1">Your water abilities</h1>' +
-      '<p class="wa-lede">Abilities, never identities. Tap a level when it’s true: <b>Know how</b> once you’ve read the step, <b>Done it</b> once you’ve done it in real life, <b>Shared it</b> once you’ve helped someone else do it. Honor system, no pressure, saved only on this device. Refresh any one from memory now and then: a hint fills in the first letter.</p></header>' +
+      '<p class="wa-lede">Tap a level when it’s true: <b>Know how</b> once you’ve read the unit, <b>Done it</b> once you’ve done it, and <b>Shared it</b> once you’ve helped someone else do it. Saved only on this device. Refresh any one from memory now and then: a hint fills in the first letter.</p></header>' +
+      '<section class="wa-sub wa2-ab" id="wa-ab-think"><div class="wa-sub-top"><h2>The five units</h2></div><p>Every water situation, from a dry campsite to a city apartment to a farm, comes down to the same five units.</p>' + recall('think') + '</section>' +
       ST.map(function (s) {
         return '<section class="wa-sub wa2-ab" id="wa-ab-' + s.id + '"><div class="wa-sub-top"><span class="wa-sub-n">' + s.num + '</span><h2>' + s.title + '</h2></div>' +
           '<p class="wa2-ability">Ability: <b>' + s.ability + '</b></p>' + lvls(s.id, s.ability) +
-          '<p class="wa2-also"><b>Also useful for</b> ' + ALSO[s.id] + ' <a href="' + BASE + (s.id === 'think' ? '' : '/' + s.id) + '">Go to the step →</a></p>' +
+          '<p class="wa2-also"><b>Also useful for</b> ' + ALSO[s.id] + ' <a href="' + BASE + '/' + s.id + '">Go to unit ' + s.num + ' →</a></p>' +
           '<details class="wa-acc"><summary><span class="wa-who">Refresh</span><span class="wa-acc-t">Refresh from memory</span></summary><div class="wa-in">' + recall(s.id) + '</div></details></section>';
       }).join('') +
       '<section class="wa-sub"><div class="wa-sub-top"><h2>Clear what’s saved</h2></div><p>Your abilities, calculator numbers and plan live only in this browser.</p>' +
@@ -827,10 +817,11 @@
   /* ---------- Layout ---------- */
   function sidebarV2(ST, cur) {
     var wide = window.matchMedia && window.matchMedia('(min-width: 900px)').matches;
-    return '<nav class="wa-nav" aria-label="Water course"><details class="wa-nav-wrap"' + (wide ? ' open' : '') + '><summary class="wa-nav-head"><span class="eyebrow">Course map</span><b>Water</b></summary><ol class="wa-vt">' +
+    return '<nav class="wa-nav" aria-label="Water course"><details class="wa-nav-wrap"' + (wide ? ' open' : '') + '><summary class="wa-nav-head"><span class="eyebrow">Course map</span><b>Water</b></summary>' +
+      '<a class="wa-nav-over" href="' + BASE + '"' + (!cur ? ' aria-current="page"' : '') + '>Overview</a><ol class="wa-vt">' +
       ST.map(function (u) {
-        var on = cur === u.id, href = BASE + (u.id === 'think' ? '' : '/' + u.id);
-        return '<li class="wa-vt-unit wk' + u.num + (on ? ' cur' : '') + '"><a class="wa-vt-head" href="' + href + '"' + (on ? ' aria-current="page"' : '') + '><span class="wa-vt-dot">' + u.num + '</span><span><b>' + u.word + '</b><small>' + u.ability + '</small></span></a>' +
+        var on = cur === u.id, href = BASE + '/' + u.id;
+        return '<li class="wa-vt-unit wk' + u.num + (on ? ' cur' : '') + '"><a class="wa-vt-head" href="' + href + '"' + (on ? ' aria-current="page"' : '') + '><span class="wa-vt-dot">' + u.num + '</span><span><b>' + u.word + '</b><small>' + u.sub + '</small></span></a>' +
           '<ul class="wa-vt-subs">' + u.secs.map(function (s) { return '<li><a href="' + BASE + '/' + u.id + '/' + s.id + '">' + s.title + '</a></li>'; }).join('') + '</ul></li>';
       }).join('') + '</ol><a class="wa-nav-over wa2-nav-ab" href="' + BASE + '/abilities"' + (cur === 'abilities' ? ' aria-current="page"' : '') + '>Your abilities</a></details></nav>';
   }
@@ -840,28 +831,31 @@
       '<span><small>Upfront</small><b data-w2-n="t-up"></b></span><span><small>Each year</small><b data-w2-n="t-yr"></b></span></div></div>';
   }
   function layoutV2(ST, cur, main) {
-    return mn().header('home') + '<div class="wa-layout">' + sidebarV2(ST, cur) + '<main class="wa-main wa2-main">' + panel() + bar(cur) + main + '</main></div>' + tray() + mn().footer();
+    return mn().header('home') + '<div class="wa-layout">' + sidebarV2(ST, cur) + '<main class="wa-main wa2-main">' + panel() + main + '</main></div>' + tray() + mn().footer();
   }
   function secHtml(u, s) {
     return '<section class="wa-sub" id="wa-' + u.id + '-' + s.id + '"><div class="wa-sub-top"><span class="wa-sub-n">' + u.num + '.' + (u.secs.indexOf(s) + 1) + '</span><h2>' + s.title + '</h2></div>' + s.html() + '</section>';
   }
   function pager(ST, u) {
     var i = ST.indexOf(u), prev = ST[i - 1], next = ST[i + 1];
-    function href(x) { return BASE + (x.id === 'think' ? '' : '/' + x.id); }
-    return '<nav class="wa-pager" aria-label="Steps">' +
-      (prev ? '<a href="' + href(prev) + '"><small>← Previous</small><b>' + prev.num + ' · ' + prev.word + '</b></a>' : '<span></span>') +
-      (next ? '<a class="next" href="' + href(next) + '"><small>Next step →</small><b>' + next.num + ' · ' + next.word + '</b></a>' : '<a class="next" href="' + BASE + '/abilities"><small>Next →</small><b>Your abilities</b></a>') + '</nav>';
+    return '<nav class="wa-pager" aria-label="Units">' +
+      (prev ? '<a href="' + BASE + '/' + prev.id + '"><small>← Previous</small><b>' + prev.num + ' · ' + prev.word + '</b></a>' : '<a href="' + BASE + '"><small>← Back to</small><b>Overview</b></a>') +
+      (next ? '<a class="next" href="' + BASE + '/' + next.id + '"><small>Next unit →</small><b>' + next.num + ' · ' + next.word + '</b></a>' : '<a class="next" href="' + BASE + '"><small>Back to →</small><b>Water overview</b></a>') + '</nav>';
+  }
+  function viewOverview(ST) {
+    var first = ST[0];
+    return '<article class="wa-unit wk1"><header class="wa-unit-hero"><span class="wa-lens-pill">Tier 2 · Roots · Course</span><h1 tabindex="-1">Water</h1>' +
+      '<p class="wa-lede">Every body needs water, and so does every plant and animal sharing the land. Five short units on how much you use and how clean it needs to be, where it can come from, what holds it, how to make it clean, and how to know it’s safe, at every scale: a studio, a farm, a car, a sidewalk.</p></header>' +
+      '<section class="wa-sub" id="wa-think-steps"><div class="wa-sub-top"><h2>Five units</h2></div>' + htmlFive() + '</section>' +
+      '<section class="wa-sub" id="wa-think-loop"><div class="wa-sub-top"><h2>Your water loop</h2></div>' + OLD('uses', 'system')() + '</section>' +
+      '<aside class="wa-funfact"><span class="eyebrow">Fun fact</span><p>This course leans on three kinds of knowing, checked against each other: old practice that kept people alive for thousands of years, international guidance (the World Health Organization’s drinking-water guidelines and the Sphere humanitarian handbook), and what you can see, smell, and test yourself. Legal limits come from politics as well as science, and they change, so we use them as one input, not the last word. Laws mentioned are California’s; water itself is the same everywhere. Thank you to everyone who keeps this knowledge free.</p></aside>' +
+      '</article><nav class="wa-pager" aria-label="Units"><span></span><a class="next" href="' + BASE + '/' + first.id + '"><small>Start →</small><b>' + first.num + ' · ' + first.word + '</b></a></nav>';
   }
   function viewStep(ST, u) {
-    var hero = u.id === 'think'
-      ? '<header class="wa-unit-hero"><span class="wa-lens-pill">Tier 2 · Roots · Course</span><h1 tabindex="-1">Water</h1><p class="wa2-big">The site is the map and the notebook. The game happens in real life.</p>' +
-        '<p class="wa-lede">Every body needs water, and so does every plant and animal sharing the land. Work out how much you need, then where it can come from, what holds it, and how to make it clean and know it’s safe, at every scale: a studio, a farm, a car, a sidewalk.</p>' +
-        '<p class="wa2-ability">Step 1 · ' + u.title + ' · Ability: <b>' + u.ability + '</b></p>'
-      : '<header class="wa-unit-hero"><span class="eyebrow">Step ' + u.num + ' of ' + ST.length + '</span><h1 tabindex="-1">' + u.title + '</h1><p class="wa2-ability">Ability: <b>' + u.ability + '</b></p><p class="wa-lede">' + u.lede + '</p>';
+    var hero = '<header class="wa-unit-hero"><span class="eyebrow">Unit ' + u.num + ' of ' + ST.length + '</span><h1 tabindex="-1">' + u.word + '</h1><p class="wa2-sub">' + u.sub + '</p><p class="wa-lede">' + u.lede + '</p>';
     hero += '<ul class="wa-jumps">' + u.secs.map(function (s, j) { return '<li><a href="' + BASE + '/' + u.id + '/' + s.id + '"><span>' + u.num + '.' + (j + 1) + '</span>' + s.short + '</a></li>'; }).join('') + '</ul></header>';
-    var extra = u.id === 'think' ? '<aside class="wa-funfact"><span class="eyebrow">Fun fact</span><p>This course leans on three kinds of knowing, checked against each other: old practice that kept people alive for thousands of years, international guidance (the World Health Organization’s drinking-water guidelines and the Sphere humanitarian handbook), and what you can see, smell and test yourself. Legal limits come from politics as well as science, and they change, so we use them as one input, not the last word. Laws mentioned are California’s; water itself is the same everywhere. Thank you to everyone who keeps this knowledge free.</p></aside>' : '';
     return '<article class="wa-unit wk' + u.num + '">' + hero + u.secs.map(function (s) { return secHtml(u, s); }).join('') +
-      (u.take ? '<section class="wa-sub wa-take" id="wa-' + u.id + '-take">' + u.take() + '</section>' : '') + extra + '</article>' + pager(ST, u);
+      (u.take ? '<section class="wa-sub wa-take" id="wa-' + u.id + '-take">' + u.take() + '</section>' : '') + '</article>' + pager(ST, u);
   }
 
   /* ---------- Live numbers ---------- */
@@ -908,7 +902,6 @@
       if (S.badges[id] === l) { if (l > 0) S.badges[id] = l - 1; else delete S.badges[id]; } else S.badges[id] = l;
       saveS();
       bd.parentNode.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', S.badges[id] != null && +x.getAttribute('data-l') <= S.badges[id] ? 'true' : 'false'); });
-      var ab = document.querySelector('.wa2-abar'); if (ab) ab.outerHTML = bar('abilities');
       live(bd.parentNode.getAttribute('aria-label') + ': ' + (S.badges[id] != null ? LV[S.badges[id]] : 'not yet')); return;
     }
     var h = t.closest('[data-w2-hint]');
@@ -953,12 +946,13 @@
     var ST = steps(), path = resolve(sub), seg = path.split('/'), html, title;
     if (seg[0] === 'abilities') { html = layoutV2(ST, 'abilities', viewAbilities()); title = 'Your abilities · Water · Kinship'; }
     else {
-      var u = ST.filter(function (x) { return x.id === (seg[0] || 'think'); })[0] || ST[0];
-      html = layoutV2(ST, u.id, viewStep(ST, u)); title = (u.id === 'think' ? 'Water' : u.word + ' · Water') + ' · Kinship';
+      var u = ST.filter(function (x) { return x.id === seg[0]; })[0];
+      if (u) { html = layoutV2(ST, u.id, viewStep(ST, u)); title = u.word + ' · Water · Kinship'; }
+      else { seg[0] = 'think'; html = layoutV2(ST, null, viewOverview(ST)); title = 'Water · Kinship'; }
     }
     setTimeout(function () {
       runTools(); refresh(true);
-      var id = seg[1] && document.getElementById('wa-' + (seg[0] || 'think') + '-' + seg[1]);
+      var id = seg[1] && document.getElementById('wa-' + seg[0] + '-' + seg[1]);
       if (id) { if (seg[1] === 'take') id.querySelectorAll('details').forEach(function (d) { d.open = true; }); id.scrollIntoView({ block: 'start' }); }
     }, 0);
     return { title: title, html: html + '<p class="sr-only" aria-live="polite" id="wa2-live"></p>' };

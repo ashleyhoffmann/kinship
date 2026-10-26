@@ -33,9 +33,9 @@ window.MN_TIERS = [
     lenses: [
       {
         id: 'water', name: 'Water', status: 'ready',
-        blurb: 'Five steps for any water situation: use, source, container, purify, test. Your numbers carry from one to the next, at every scale from a studio to a farm to a sidewalk.',
+        blurb: 'Five units for any water situation: use, sources, containers, purify, and test. Your numbers carry from one to the next, at every scale from a studio to a farm to a sidewalk.',
         topics: ['Uses', 'Sources', 'Containers', 'Purify', 'Test'],
-        looks: ['The five steps, and designing your water loop', 'How much water your household uses, task by task, and how clean each needs to be', 'Sources side by side, from bottles and 211 to rain, springs and wells', 'How much to keep, and containers that keep it good', 'Making each source clean enough for the job', 'Knowing it’s safe, and what to test for your sources']
+        looks: ['An overview of the five units, and designing your water loop', 'How much water your household uses, task by task, and how clean each needs to be', 'Sources side by side, from bottles and 211 to rain, springs and wells', 'How much to keep, and containers that keep it good', 'Making each source clean enough for the job', 'Knowing it’s safe, and what to test for your sources']
       },
       {
         id: 'food', name: 'Food', status: 'ready',

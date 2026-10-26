@@ -167,23 +167,12 @@
    Text always runs the full width of its box (FOUNDATION §7).
    ====================================================================== */
 .wa2-main { padding-bottom: 96px; }
-.wa2-big { font-family: var(--f-head); font-weight: 700; font-size: clamp(19px, 2.2vw, 24px); color: var(--w1-dot); line-height: 1.3; }
+.wa2-sub { font-family: var(--f-head); font-size: 19px; font-weight: 600; color: var(--ink-2); }
 .wa2-ability { font-size: 15.5px; color: var(--ink-2); }
 .wa2-ability b { font-family: var(--f-head); color: var(--ink); }
 .wa2-h3 { font-size: 18px; font-weight: 800; margin-top: 6px; }
 .wa2-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 
-/* Abilities bar */
-.wa2-abar ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
-.wa2-abar a { display: flex; align-items: center; gap: 8px; height: 100%; min-height: 52px; padding: 6px 10px; border-radius: 16px; background: rgba(255, 255, 255, 0.72); border: 1px solid var(--w-edge); color: var(--ink); text-decoration: none; }
-.wa2-abar a:hover { background: var(--w-bg); }
-.wa2-abar a[aria-current="page"] { background: var(--w-mid); border-color: var(--w-dot); box-shadow: 0 0 0 1px var(--w-dot); }
-.wa2-abar .n { width: 26px; height: 26px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--w-dot); color: var(--w-on); font-family: var(--f-mono); font-size: 12.5px; }
-.wa2-abar .t { display: flex; flex-direction: column; font-family: var(--f-head); font-weight: 800; font-size: 14.5px; line-height: 1.15; min-width: 0; }
-.wa2-abar .t small { font-family: var(--f-body); font-weight: 400; font-size: 12px; color: var(--muted); }
-.wa2-abar a.all { background: var(--me-bg); border-color: var(--me-edge); }
-@media (max-width: 1100px) { .wa2-abar ol { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .wa2-abar ol { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Five steps strip */
 .wa2-five { list-style: none; margin: 0; padding: 0 !important; display: grid !important; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }

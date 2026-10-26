@@ -323,7 +323,8 @@ window.MN_REL = (function () {
           key: ['Every person shares the same needs. We may experience them at different times, in different ways.',
             'A need never names a person, place, object or time. That’s what makes it universal.',
             'Because we share them, we can recognise each other’s needs, even mid-conflict.'],
-          tool: 'needs', remember: 'No who, where, what or when inside a need.' },
+          tool: 'needs', remember: 'No who, where, what or when inside a need.',
+          also: 'a yellow leaf is a plant asking for water, light or food (<a href="#lens-gardening/1-3">Growing → Soil</a>); a musty smell is a house asking to dry out (<a href="#lens-toxins/living/mold">Poisons → Mold in the house</a>); a pacing dog is asking for something too (<a href="#lens-relationships/special/family">Family animals</a>).' },
         { id: 'strategies', title: 'Needs vs. strategies', short: '“I need you to…” is a strategy. Find the need under it.',
           key: ['A strategy is one way to meet a need: a specific person, action, thing or time.',
             'One need has many strategies. Conflict happens when we cling to just one.',
@@ -397,7 +398,7 @@ window.MN_REL = (function () {
     { id: 'neighbors', name: 'Neighbors', short: 'The people, plants and animals you share water, air, walls and streets with.', status: 'Soon', preview: true },
     { id: 'distress', name: 'People in distress', short: 'Meeting someone unhoused or struggling: respect, capacity, boundaries and who can help.', status: 'Soon', preview: true },
     { id: 'coops', name: 'Cooperatives', short: 'Workplaces and homes owned and run together, without extracting profit.', status: 'Soon', preview: true },
-    { id: 'plants', name: 'Plants', short: 'A plant’s signals as needs; continues in Gardening.', status: 'Soon' },
+    { id: 'plants', name: 'Plants', short: 'A plant’s signals as needs; continues in Growing.', status: 'Soon' },
     { id: 'groups', name: 'Gatherings & events', short: 'Hosting, rounds and agreements, conflict in a circle.', status: 'Soon' },
     { id: 'projects', name: 'Projects', short: 'A shared goal, roles by willingness, check-ins.', status: 'Later' },
     { id: 'power', name: 'Power & peace', short: 'Nonviolence, abolition, and power with instead of power over.', status: 'Later', preview: true }

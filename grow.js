@@ -1,13 +1,13 @@
 /* Growing lens (tier 4 Nurture, Beta), one page, kept hyper-plain (FOUNDATION §6): 1 What plants need, 2 Where plants come from (three starter
    "recipes", easiest first, then starts and how long each takes), 3 Indoors & small spaces, 4 Yard & outdoors, 5 Sharing the garden (gentle insect
-   and animal care, Cat health and Dog health). Units 6–7 planned. Registers window.MN_LENS_VIEWS['gardening']. */
+   and animal care, Cat health and Dog health). Units 6–7 planned. 1.3 Soil is the hub for soil care, linked from Composting and Poisons. Registers window.MN_LENS_VIEWS['gardening']. */
 (function () {
   function mn() { return window.MN; }
   function ul(items) { return '<ul>' + items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>'; }
   function unit(n, title, body) {
     return '<article class="gr-sec" id="gr-u' + n + '"><div class="gr-sec-head"><span class="gr-n">' + n + '</span><h2>' + title + '</h2></div>' + body + '</article>';
   }
-  function sub(n, title, body) { return '<section class="gr-sub"><h3><span class="gr-n">' + n + '</span>' + title + '</h3>' + body + '</section>'; }
+  function sub(n, title, body) { return '<section class="gr-sub" id="gr-' + n.replace('.', '-') + '"><h3><span class="gr-n">' + n + '</span>' + title + '</h3>' + body + '</section>'; }
   function card(title, text) { return '<div><h4>' + title + '</h4><p>' + text + '</p></div>'; }
   /* A starter "recipe": what you need, how, then the same idea for other plants. */
   function recipe(title, need, how, same) {
@@ -20,7 +20,7 @@
   var UNITS = ['What plants need', 'Where plants come from', 'Indoors &amp; small spaces', 'Yard &amp; outdoors', 'Sharing the garden'];
   var PLANNED = [
     ['Your year', 'Frost dates and a month-by-month plan for your space (with the Garden planner).'],
-    ['Prune &amp; save seeds', 'Pruning that keeps plants young, and saving seeds for next year.']
+    ['Harvest, prune &amp; save seeds', 'Picking at the right time, letting beans and seeds dry on the plant, pruning that keeps plants young, and saving seeds for next year. Storing what you pick is in <a href="#lens-food/store">Food → Store</a>; drying herbs for medicine will be in Herbalism.']
   ];
 
   function view() {
@@ -39,16 +39,30 @@
           '</div>' +
           '<p>That’s it. Everything else helps them grow bigger and faster.</p>') +
         sub('1.2', 'Going further',
-          ul(['<b>Compost</b> feeds the soil life that feeds roots. Mix in 1–3 inches a season (see <a href="#lens-composting-waste">Composting → Using compost</a>).',
+          ul(['<b>Compost</b> feeds the soil life that feeds roots. Mix in 1–3 inches a season (see <a href="#lens-composting-waste/1-4">Composting → Using compost</a>).',
             '<b>Mulch</b> (2–3 inches of leaves, straw, or wood chips) keeps soil damp and cool, and feeds soil life as it breaks down.',
             '<b>Fertilizer</b> tops up hungry plants like tomatoes, squash, and corn. Nitrogen grows leaves; phosphorus and potassium grow flowers and fruit. Too much burns roots, or grows leaves instead of fruit.']) +
-          '<p class="gr-tip"><span>Potting mix</span> Bagged mix can carry <i>Legionella longbeachae</i>, bacteria that cause a lung infection when the dust is breathed in. Dampen it before opening it wide, keep it away from your face, wear gloves, and wash your hands after. Added fertilizers and wetting agents are listed on the bag; for food plants, OMRI-listed mixes leave out synthetic ones. More in <a href="#lens-toxins/soil">Poisons → Soil</a>.</p>') +
-        sub('1.3', 'Game plan',
+          '<p class="gr-tip"><span>Potting mix</span> Bagged mix can carry <i>Legionella longbeachae</i>, bacteria that cause a lung infection when the dust is breathed in. Dampen it before opening it wide, keep it away from your face, wear gloves, and wash your hands after. Added fertilizers and wetting agents are listed on the bag; for food plants, OMRI-listed mixes leave out synthetic ones. More in <a href="#lens-toxins/soil/potting">Poisons → Potting mix and compost</a>.</p>') +
+        sub('1.3', 'Soil',
+          '<p>Soil is roughly half crushed rock (sand, silt, and clay) and half the spaces between, shared by air and water, with a little organic matter: old roots, leaves, and the living things that eat them. Roots need all three: something to hold, water, and air.</p>' +
+          '<div class="gr-points">' +
+            card('Feel it', 'Squeeze a damp handful. Gritty and falls apart: sandy, so it drains fast and dries out. Sticky, and it ribbons between your fingers: clay, so it holds water and food but packs down. In between is loam. Compost helps both ends.') +
+            card('Watch it drain', 'Dig a hole about a foot deep, fill it with water, and let it drain. Fill it again. Still standing after a few hours means roots will sit wet: plant in a mound or raised bed.') +
+            card('Keep it covered', 'Bare soil dries, crusts, washes away, and turns to dust. Mulch and plants keep it alive. Dig as little as you can: digging tears the fungal threads that carry water to roots.') +
+            card('Test before food', 'Near an older house or a busy road, test for lead first (<a href="#lens-toxins/soil">Poisons → Soil</a>). Ask the lab for pH and organic matter in the same sample: most vegetables like pH 6 to 7.') +
+          '</div>' +
+          '<p><b>Feeding by plant.</b> Not every plant wants the same meal.</p>' +
+          ul(['<b>Hungry:</b> tomatoes, squash, corn, cabbage and kale, and leafy greens. Compost at planting, then a top-up halfway through the season: worm castings, bokashi liquid, or a little plant-based fertilizer.',
+            '<b>Light eaters:</b> carrots, radishes, beets, and onions. Compost alone; too much nitrogen grows leaves instead of roots. Rosemary, thyme, and oregano like lean, dry soil too.',
+            '<b>Givers:</b> beans and peas host bacteria in little root bumps (nodules) that pull nitrogen from the air. They need little feeding and leave some behind, so plant a hungry crop where beans grew last.']) +
+          '<p><b>Leaves as messages.</b> Older leaves turning pale yellow often mean hungry for nitrogen. New leaves going yellow while the veins stay green often mean iron is locked up, common in California’s alkaline soils; compost and a slightly lower pH free it. Yellow leaves with soggy soil mean too much water, not too little food.</p>' +
+          '<p>In pots, the bag is the soil: what’s in it, and how to open it safely, is in <a href="#lens-toxins/soil/potting">Poisons → Potting mix and compost</a>. Where compost comes from is in <a href="#lens-composting-waste">Composting &amp; waste</a>.</p>') +
+        sub('1.4', 'Game plan',
           ul(['<b>Before planting:</b> count your sun hours.',
             '<b>Start small:</b> one pot or bed of a few things you love to eat.',
             '<b>Every day or two:</b> push a finger into the soil, and water deeply only if the top inch is dry. Look under a few leaves.',
             '<b>Every season:</b> add compost, top up the mulch, and plant what fits the season.'])) +
-        '<p class="gr-src">Sources: Taiz &amp; Zeiger, <i>Plant Physiology</i>; UC Agriculture and Natural Resources, “Vegetable Gardening Basics”; Chalker-Scott, mulch review, <i>Journal of Environmental Horticulture</i> (2007); CDC, Legionnaires’ disease and potting soil; OMRI Products List.</p>') +
+        '<p class="gr-src">Sources: Taiz &amp; Zeiger, <i>Plant Physiology</i>; UC Agriculture and Natural Resources, “Vegetable Gardening Basics”; Chalker-Scott, mulch review, <i>Journal of Environmental Horticulture</i> (2007); CDC, Legionnaires’ disease and potting soil; OMRI Products List; USDA NRCS, <i>Soil Biology Primer</i> and soil texture by feel; UC Agriculture and Natural Resources, soil pH and garden soils; University of Minnesota Extension, nutrient deficiencies in plants.</p>') +
 
       unit(2, 'Where plants come from',
         '<p>Easiest first. No yard needed: a sunny windowsill and kitchen scraps are enough to start.</p>' +
@@ -83,8 +97,8 @@
       unit(4, 'Yard &amp; outdoors',
         ul(['<b>Sun:</b> count the hours of direct sun each spot gets, and save the sunniest for fruiting plants.',
           '<b>Season:</b> much of California grows greens, peas, and garlic from fall to spring, and tomatoes and squash in summer.',
-          '<b>Soil:</b> near an older house or a busy road, test for lead first (see <a href="#lens-toxins/soil">Poisons → Soil</a>), or grow in raised beds of new soil.',
-          '<b>Water:</b> deeply and less often, soaking about 6 inches down, so roots grow deep. In dry months beds need about an inch a week, around 60 gallons per 100 square feet. Mornings are best, and drip lines, soaker hoses, and mulch save water.']) +
+          '<b>Soil:</b> near an older house or a busy road, test for lead first (see <a href="#lens-toxins/soil">Poisons → Soil</a>), or grow in raised beds of new soil. In the Central Valley and south, wet dry ground before digging: its dust can carry Valley fever (<a href="#lens-air/what/disasters">Air → Valley fever</a>).',
+          '<b>Water:</b> deeply and less often, soaking about 6 inches down, so roots grow deep. In dry months beds need about an inch a week, around 60 gallons per 100 square feet. Mornings are best, and drip lines, soaker hoses, and mulch save water. Rain barrels, shower buckets, and laundry water can carry much of it (<a href="#lens-water/uses/gray">Water → Gray water</a>, <a href="#lens-water/sources">Water → Sources</a>).']) +
         '<p><b>What saves the most:</b> grow what’s easy and costly to buy, and buy what’s cheap.</p>' +
         '<div class="gr-waits">' +
           wait('Grow it', [['Herbs', 'About $57 a pound in small clamshells; one basil plant can stand in for a clamshell a week'], ['Chard and kale', 'Pick the outer leaves for months; chard gives about 30 lb per 10 ft of row'], ['Lettuce and spinach', 'Ready in 4–6 weeks, and happiest in cool weather'], ['Cherry tomatoes', 'About $4 a pound, if the spot gets 6+ hours of sun'], ['Pole beans', 'They climb, so they need little ground']]) +
@@ -99,20 +113,20 @@
         ul(['<b>Most visitors help.</b> Bees pollinate, and ladybugs and lacewings eat aphids. Bug sprays kill the helpers too.',
           '<b>Each one has favorites.</b> Aphids crowd soft new growth, snails love lettuce and seedlings, caterpillars love kale and broccoli, and birds love ripe berries. Knowing who loves what tells you what to cover.',
           '<b>Cover favorites.</b> Fine mesh or row covers keep insects off; bird netting stretched taut (loose netting tangles birds) keeps birds off.',
-          '<b>Move, don’t kill.</b> Rinse aphids off with water, and carry snails and caterpillars to a wilder corner at dusk.',
+          '<b>Move, don’t kill.</b> Rinse aphids off with water, and carry snails and caterpillars to a wilder corner at dusk. Ants, mice, and other visitors to the house are in <a href="#lens-toxins/pesticides/yard">Poisons → Yard, home and companions</a>.',
           '<b>Grow extra.</b> Plant a little more than you need, and some flowers to feed the helpers.']) +
-        '<p class="gr-care"><span>Cat health</span> All true lilies and daylilies cause kidney failure in cats, even a little pollen or vase water. Also toxic: onions, garlic, chives, and green onions; tomato leaves, stems, and green fruit; mint in large amounts; pothos; aloe; tulip and hyacinth bulbs; azalea; sago palm; oleander; and foxglove.</p>' +
-        '<p class="gr-care"><span>Dog health</span> Sago palm is often fatal, every part, especially the seeds. Also toxic: grapes and raisins (pick up fallen fruit under a vine); onions, garlic, chives, and green onions; tomato leaves, stems, and green fruit; mint in large amounts; tulip and daffodil bulbs (dogs dig them up); azalea; oleander; foxglove; and cocoa bean mulch, which holds the same stimulant as chocolate.</p>' +
-        '<p>The ASPCA keeps a full list of toxic and safe plants. More on wild neighbors in <a href="#lens-relationships/special/wild">Relationships → Wild animals</a>.</p>' +
+        '<p class="gr-care"><span>Cat and dog health</span> Lilies and daylilies cause kidney failure in cats, even a little pollen. Sago palm is often fatal to dogs. Grapes and raisins (pick up fallen fruit under a vine), the onion family, tomato leaves, bulbs that dogs dig up, and cocoa bean mulch are toxic too. The full list, plant by plant, is in <a href="#lens-toxins/living/plants">Poisons → Plants and companions</a>.</p>' +
+        '<p>More on wild neighbors in <a href="#lens-relationships/special/wild">Relationships → Wild animals</a>.</p>' +
         '<p class="gr-src">Sources: UC IPM, “Aphids”, “Snails and Slugs”, and “Natural Enemies Gallery”; ASPCA Animal Poison Control, toxic and non-toxic plants; FDA, “Lovely Lilies and Curious Cats”.</p>') +
 
       '<section class="gr-planned" aria-label="Planned units">' + PLANNED.map(function (u, i) { return '<div><span class="gr-n">' + (i + 6) + '</span><h2>' + u[0] + '</h2><span class="gr-soon">Planned</span><p>' + u[1] + '</p></div>'; }).join('') + '</section>';
 
     var c = mn().credits('gardening');
-    if (c.length) html += mn().deeper('People whose work shaped this course, and where to go for more.', c);
+    if (c.length) html += mn().deeper('People whose work shaped this lens, and where to go for more.', c);
     return { title: 'Growing · Kinship', html: mn().header('home') + '<div><a class="back" href="#">← Education</a></div><main class="gr">' + html + '</main>' + mn().footer() };
   }
 
   window.MN_LENS_VIEWS = window.MN_LENS_VIEWS || {};
-  window.MN_LENS_VIEWS['gardening'] = function () { return view(); };
+  /* Deep links: #lens-gardening/1-3 opens at 1.3, #lens-gardening/u4 at unit 4. */
+  window.MN_LENS_VIEWS['gardening'] = function (sub) { var v = view(); if (/^(\d-\d+|u\d)$/.test(sub || '')) v.jump = 'gr-' + sub; return v; };
 })();

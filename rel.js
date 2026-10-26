@@ -85,7 +85,7 @@
     var special = '<li class="rel-vt-unit k-apps u-special' + (cur === 'special' ? ' cur' : '') + '"><a class="rel-vt-head" href="' + BASE + '/special"' + (cur === 'special' ? ' aria-current="page"' : '') + '>' +
       '<span class="rel-vt-dot" aria-hidden="true">3</span><span><b>Special situations</b><small>the people, animals and places in your life</small></span></a>' +
       (cur === 'special' ? '<ol class="rel-vt-subs">' + D.APPS.map(function (a) { return '<li><a href="' + spHref(a.id) + '">' + esc(a.name) + '</a></li>'; }).join('') + '</ol>' : '') + '</li>';
-    return '<nav class="rel-nav" aria-label="Choices courses: Emotions and Relationships">' +
+    return '<nav class="rel-nav" aria-label="Choices lenses: Emotions and Relationships">' +
       '<details class="rel-nav-wrap"' + (wide ? ' open' : '') + '><summary class="rel-nav-head"><span class="eyebrow">Tier 1 · Choices</span><b>Inside, then outside</b></summary>' +
       block('emotions', 'Inside') +
       '<p class="rel-bridge" aria-hidden="true">then, connect</p>' +
@@ -118,10 +118,10 @@
     '<g stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round"><path d="M8.6 12.6L4.7 8.5"/><path d="M14.4 10L12.3 5"/><path d="M22 8.6V3"/><path d="M29.6 10L31.7 5"/><path d="M35.4 12.6L39.3 8.5"/></g></svg>';
   function coursePager(prevH, prevL, nextH, nextL) {
     return '<nav class="rel-pager" aria-label="Courses">' +
-      (prevH ? '<a class="rel-pg prev" href="' + prevH + '"><small>← Previous course</small><b>' + prevL + '</b></a>' : '<a class="rel-pg prev" href="#"><small>← Back to</small><b>Education</b></a>') +
-      (nextH ? '<a class="rel-pg next" href="' + nextH + '"><small>Next course →</small><b>' + nextL + '</b></a>' : '<a class="rel-pg next" href="#lens-water"><small>Next →</small><b>Tier 2 · Water</b></a>') + '</nav>';
+      (prevH ? '<a class="rel-pg prev" href="' + prevH + '"><small>← Previous lens</small><b>' + prevL + '</b></a>' : '<a class="rel-pg prev" href="#"><small>← Back to</small><b>Education</b></a>') +
+      (nextH ? '<a class="rel-pg next" href="' + nextH + '"><small>Next lens →</small><b>' + nextL + '</b></a>' : '<a class="rel-pg next" href="#lens-water"><small>Next →</small><b>Tier 2 · Water</b></a>') + '</nav>';
   }
-  /* Go deeper credits live in app.js (SHOULDERS) so the Resources page and every course share one list. */
+  /* Go deeper credits live in app.js (SHOULDERS) so the Resources page and every lens share one list. */
 
   /* ---------- Emotions overview: looking, plants, roots, soil ----------
      Going down is going deeper, so the units read 1 → 4 top to bottom: inward attention shines down from above (looking),
@@ -131,9 +131,9 @@
     return {
       title: 'Emotions · Kinship',
       html: layout(null,
-        '<section class="rel-hero"><span class="eyebrow">Tier 1 · Choices · Course 1 of 2</span><h1 tabindex="-1">Emotions</h1>' +
+        '<section class="rel-hero"><span class="eyebrow">Tier 1 · Choices · Lens 1 of 2</span><h1 tabindex="-1">Emotions</h1>' +
         '<p class="lede">Your rich inner world. Feelings are what’s alive inside of you: anger, love and pain are all asking to be tended. Beneath them are the roots, what you need, and beneath those the soil: who you are, and what’s going on down there.</p></section>' +
-        '<section class="rel-depth" aria-label="Course map: looking, plants, roots and soil">' +
+        '<section class="rel-depth" aria-label="Units: looking, plants, roots and soil">' +
           '<div class="rel-look">' + EYE + '<div class="rel-plants-in"><p class="rel-layer"><b>Looking · inward attention</b><span>Presence</span></p>' + card(U[0]) + '</div></div>' +
           '<div class="rel-plants">' + SPROUT + '<div class="rel-plants-in"><p class="rel-layer"><b>Plants · what shows</b><span>Emotional signals asking to be tended. Others can see them too.</span></p>' + card(U[1]) + tool('feel', 'wheel', 'Inner tool', 'Feelings wheel', 'Spin to the feeling that fits, and see the needs it may point to.') + '</div></div>' +
           '<div class="rel-ground"><div class="rel-gauge" aria-hidden="true"><span>Deeper</span></div>' +
@@ -141,7 +141,7 @@
             tool('need', 'identify', 'Inner tool', 'Identify a need', 'From a big feeling to the word that fits and the need underneath.') +
             '<p class="rel-layer"><b>Soil · ego identity</b><span>What’s going on down there.</span></p>' + card(U[3]) +
           '</div></section>' +
-        mn().deeper('People whose work shaped this course, and where to go for more.', mn().credits('emotions')) +
+        mn().deeper('People whose work shaped this lens, and where to go for more.', mn().credits('emotions')) +
         /* Next step from the overview is the first written unit (Feel while Observe is planned), not the Relationships course. */
         (function (F) { return '<nav class="rel-pager" aria-label="Units"><a class="rel-pg prev" href="#"><small>← Back to</small><b>Education</b></a>' +
           '<a class="rel-pg next k-' + F.k + '" href="' + href(F.id) + '"><small>Next unit →</small><b>' + F.num + ' · ' + esc(F.word) + '</b></a></nav>'; })(U.filter(function (x) { return !x.planned; })[0] || U[0]), 'emotions')
@@ -157,17 +157,17 @@
     return {
       title: 'Relationships · Kinship',
       html: layout(null,
-        '<section class="rel-hero"><span class="eyebrow">Tier 1 · Choices · Course 2 of 2</span><h1 tabindex="-1">Relationships</h1>' +
+        '<section class="rel-hero"><span class="eyebrow">Tier 1 · Choices · Lens 2 of 2</span><h1 tabindex="-1">Relationships</h1>' +
         '<p class="lede">Connecting inner worlds. Every conflict is two people trying to meet their universal needs through strategies that aren’t working yet. Once you can hear your own needs, say them kindly and keep everyone’s on the table.</p></section>' +
-        '<a class="rel-rooted" href="' + BASES.emotions + '">' + SPROUT + '<span><b>Rooted in Emotions</b><span>Feel and Identify the need come first: what’s showing in you, and what you need.</span></span><i>← Course 1</i></a>' +
-        '<section class="rel-out" aria-label="Course map">' +
+        '<a class="rel-rooted" href="' + BASES.emotions + '">' + SPROUT + '<span><b>Rooted in Emotions</b><span>Feel and Identify the need come first: what’s showing in you, and what you need.</span></span><i>← Lens 1</i></a>' +
+        '<section class="rel-out" aria-label="Units">' +
           '<p class="rel-zone"><b>Between gardens</b><span>Others see your plants, and you see theirs.</span></p>' +
           card(U[0]) + card(U[1]) +
           tool('dialogue', 'communicate', 'Between people', 'Communicate', 'Hear each other’s needs and find a strategy that meets you both.') +
         '</section>' +
         '<section class="rel-apps" aria-labelledby="rel-apps-h"><div class="rel-apps-head"><span class="rel-tu-n">3</span><div><h2 id="rel-apps-h"><a href="' + BASE + '/special">Special situations</a></h2><p>Your inner world and theirs, applied to the particular people, animals and places in your life.</p></div></div>' +
         '<ul>' + apps + '</ul></section>' +
-        mn().deeper('People whose work shaped this course, and where to go for more.', mn().credits('relationships')) +
+        mn().deeper('People whose work shaped this lens, and where to go for more.', mn().credits('relationships')) +
         coursePager(BASES.emotions, 'Emotions', null, null), 'relationships')
     };
   }
@@ -182,6 +182,7 @@
       if (s.ex) h += '<div class="rel-ex">' + s.ex.map(function (e) { return '<div><p class="rel-say">' + md(e[0]) + '</p><p>' + md(e[1]) + '</p></div>'; }).join('') + '</div>';
       if (s.tool) h += '<div class="rel-tool" data-tool="' + s.tool + '">' + TOOLS[s.tool]() + '</div>';
       if (s.next) h += '<a class="rel-nextunit k-' + KEYS[s.next[0]] + '" href="' + href(s.next[0], s.next[1]) + '"><span class="eyebrow">' + esc(s.next[2]) + '</span><b>' + esc(s.next[3]) + '</b><span>' + esc(s.next[4]) + '</span><i aria-hidden="true">→</i></a>';
+      if (s.also) h += '<p class="rel-src"><b>Same skill, elsewhere:</b> ' + s.also + '</p>'; /* raw HTML: links to other lenses */
       if (s.remember) h += '<p class="rel-remember"><span class="eyebrow">Remember</span>' + md(s.remember) + '</p>';
       if (s.src) h += '<p class="rel-src">' + s.src + '</p>';
       var op = s.opinion ? mn().opinion('<p>' + md(s.opinion) + '</p>' + (s.opinionSrc ? '<p class="opinion-src">' + s.opinionSrc + '</p>' : '')) : '';
@@ -231,7 +232,7 @@
   function src(t) { return '<p class="rel-q"><small>' + t + '</small></p>'; }
   function animalsAfter() {
     var items = [
-      ['Food', 'every recipe in the course comes from plants: the cheapest, longest-keeping and most shareable way to meet the need for food.', '#lens-food', 'Food'],
+      ['Food', 'every recipe in the lens comes from plants: the cheapest, longest-keeping and most shareable way to meet the need for food.', '#lens-food', 'Food'],
       ['Food', 'what each companion species eats in nature, kibble and raw food told plainly, and complete plant-based food as one option.', '#lens-food/companions', 'Food → Companions'],
       ['Water', 'where California’s farm water goes, including the feed grown for farmed animals.', '#lens-water/sources/take', 'Water → Sources'],
       ['Poisons', 'wool, leather, down and silk kept in use secondhand, instead of new.', '#lens-toxins/exposures/healthy', 'Poisons → What healthy looks like'],
@@ -254,7 +255,7 @@
           '**Farmed animals,** not “livestock” or “stock”, which count living beings as inventory.'
         ]],
         ['Cows, in their own right', 'More than the water their lives use.', [
-          'The Water course counts how much water goes into one cow raised for meat (about 99% of it grows their feed). That matters, and it isn’t the main reason a cow matters. She matters because she’s someone.',
+          'The Water lens counts how much water goes into one cow raised for meat (about 99% of it grows their feed). That matters, and it isn’t the main reason a cow matters. She matters because she’s someone.',
           '**Cows have friends.** Studies find cows are calmer and less stressed when they’re with a preferred companion.',
           '**Mothers and calves bond.** In dairy farming, calves are usually separated from their mothers within hours to a day of birth so the milk can be sold.',
           '**Cows feel and learn.** Young cows have shown excitement when they solve a problem themselves. Cows can live 15–20 years; those raised for meat in US feedlots are usually killed at about 18–22 months.',
@@ -467,7 +468,7 @@
       plants: {
         id: 'plants', letter: 'L', name: 'Plants', sub: 'A plant’s signals as needs',
         lede: 'A yellow leaf or a bare patch of soil is a message about a need: water, light, nutrients, shelter. The same four steps work with plants: notice, wonder what they’re feeling, find the need, and change what you offer.',
-        secs: [], note: 'The full Plants unit is in progress, and continues in Gardening.', related: ['#lens-gardening', 'Gardening']
+        secs: [], note: 'The full Plants unit is in progress, and continues in Growing (What plants need).', related: ['#lens-gardening', 'Growing']
       },
       groups: {
         id: 'groups', letter: 'G', name: 'Gatherings & events', sub: 'Hosting, rounds and agreements, conflict in a circle',

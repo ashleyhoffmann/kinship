@@ -1,6 +1,6 @@
 /* Body care lens (tier 3 Protect, Beta). Each ready unit is its own screen: unit 1 Mouth (#lens-body-care; 1.1 Why teeth decay, 1.2 Solutions,
-   1.3 Make mouthwashes & mints) and unit 4 Hair bleaching (#lens-body-care/bleach; 4.1 Steps as blocks (0 Preparation, then 1–4), 4.2 Materials & safety, 4.3 How bleach works).
-   Units 2 Skin, 3 Hair, 5 Sleep & rest, 6 Bodies through time, and 7 Animal bodies are planned. Kept plain on purpose (FOUNDATION §6, Only build what helps). Registers window.MN_LENS_VIEWS['body-care']. */
+   1.3 Make mouthwashes & mints) and unit 3 Hair (#lens-body-care/hair, old /bleach too; 3.1 Bleaching, step by step (0 Preparation, then 1–4), 3.2 Bleaching materials & safety, 3.3 How bleach works).
+   Units 2 Skin, 4 Sleep & rest, 5 Bodies through time, and 6 Animal bodies are planned. Kept plain on purpose (FOUNDATION §6, Only build what helps). Registers window.MN_LENS_VIEWS['body-care']. */
 (function () {
   function mn() { return window.MN; }
   function ul(items) { return '<ul>' + items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>'; }
@@ -10,14 +10,13 @@
   function card(title, text) { return '<div><h4>' + title + '</h4><p>' + text + '</p></div>'; }
   /* A block with a number title, a short bold subtitle (optional), and its text. */
   function step(title, sub, text) { return '<div><h4>' + title + '</h4>' + (sub ? '<p class="bc-sub">' + sub + '</p>' : '') + (text ? '<p>' + text + '</p>' : '') + '</div>'; }
-  /* Body care credits split by unit: a credit whose line starts with Hair bleaching shows on unit 4, the rest on Mouth. */
+  /* Body care credits split by unit: a credit whose line starts with Hair bleaching shows on unit 3 Hair, the rest on Mouth. */
   function unitCredits(bleach) { return mn().credits('body-care').filter(function (p) { return (p.shaped.indexOf('Hair bleaching') === 0) === bleach; }); }
   /* Units in order. Ready ones have a route and their own screen; planned ones show dashed. */
   var UNITS = [
     { id: 'mouth', name: 'Mouth', href: '#lens-body-care' },
     { id: 'skin', name: 'Skin' },
-    { id: 'hair', name: 'Hair' },
-    { id: 'bleach', name: 'Hair bleaching', href: '#lens-body-care/bleach' },
+    { id: 'hair', name: 'Hair', href: '#lens-body-care/hair' },
     { id: 'sleep', name: 'Sleep &amp; rest' },
     { id: 'time', name: 'Bodies through time' },
     { id: 'animals', name: 'Animal bodies' }
@@ -71,8 +70,8 @@
             '<p>Melt the xylitol on low heat until clear. Cool it briefly, stir in the peppermint (and vanilla, if using), and drop ¼ tsp amounts into tiny silicone molds. Let them set at room temperature, then store airtight. Each mint is about 1 g, dependent on size.</p></div>' +
         '</div>' +
         '<p>Mix essential oils into the dry powder first, because a drop of pure oil can burn your gums. Tea tree, cinnamon, and wintergreen are best left out.</p>' +
-        '<p class="bc-care"><span>Dog health</span> Xylitol is very toxic to dogs (not cats, though stay cautious), even in small amounts. Keep jars, gum, and mints out of reach.</p>' +
-        '<p class="bc-tip"><span>For sore gums</span> Occasionally, add 3% hydrogen peroxide to this rinse for irritated gums. It’s an oxidizing antiseptic: its foam lifts gumline debris, and its oxygen kills oxygen-avoiding bacteria that inflame gums. Stir ¾ tsp powder into equal parts peroxide and warm water (⅛–¼ cup each), swish a minute, spit it all out, and rinse with water. Don’t use it undiluted (it can burn gums) or daily past a week (it irritates gums and tongue, sensitizes teeth, and kills helpful bacteria). Mix it fresh each time, since peroxide breaks down once it meets baking soda. Don’t swallow it; supervise kids under 12 or skip it.</p>' +
+        '<p class="bc-care"><span>Dog health</span> Xylitol is very toxic to dogs (not cats, though stay cautious), even in small amounts. Keep jars, gum, and mints out of reach. More in <a href="#lens-toxins/exposures/companions">Poisons → Companion animals</a>.</p>' +
+        '<p class="bc-tip"><span>For sore gums</span> Occasionally, add 3% hydrogen peroxide to this rinse for irritated gums. It’s an oxidizing antiseptic: its foam lifts gumline debris, and its oxygen kills oxygen-avoiding bacteria that inflame gums. Stir ¾ tsp powder into equal parts peroxide and warm water (⅛–¼ cup each), swish a minute, spit it all out, and rinse with water. Don’t use it undiluted (it can burn gums) or daily past a week (it irritates gums and tongue, sensitizes teeth, and kills helpful bacteria). Mix it fresh each time, since peroxide breaks down once it meets baking soda. Don’t swallow it; supervise kids under 12 or skip it. It’s the same brown bottle as <a href="#lens-cleaning">Cleaning</a>’s peroxide rung, and soft foods for a sore mouth are in <a href="#lens-food/gentle/chewing">Food → Sore mouths</a>.</p>' +
         '<h4>Store-bought</h4>' +
         '<p>I’d recommend Auromere. Dr. Ellie Phillips uses unflavored Closys (stabilized chlorine dioxide), original Listerine (for menthol, thymol, and eucalyptus oil, though beware its acidity), and ACT (0.05% sodium fluoride). Anything with those active ingredients does the same job. I’d avoid dyes, alcohol, and unknown chemicals.</p>' +
         '<p class="bc-src">Sources: ASPCA Animal Poison Control, xylitol; US over-the-counter label for 1.5% peroxide mouth rinses (use up to 7 days); Walsh, “Safety issues relating to the use of hydrogen peroxide in dentistry,” <i>Australian Dental Journal</i> (2000); Hossainian et al., review of hydrogen peroxide mouthwashes, <i>International Journal of Dental Hygiene</i> (2011).</p>') +
@@ -82,11 +81,11 @@
   }
 
   function bleach() {
-    var html = hero('bleach') + unitHead(4, 'Hair bleaching') +
+    var html = hero('hair') + unitHead(3, 'Hair') +
       '<p class="bc-lede">After prep, four steps: bleach, shampoo, tone, and condition. Free first: sunlight breaks down hair color too, so hair lightens over a summer outdoors, with the same dryness at a slower pace.</p>' +
       '<p class="bc-tip"><span>Heads up</span> I’m not a doctor or a cosmetologist. I’ve bleached my own hair at home for five years, and this is what I’ve learned.</p>' +
 
-      sec('4.1', 'Steps',
+      sec('3.1', 'Bleaching, step by step',
         '<div class="bc-points bc-five">' +
           step('0. Preparation', '', 'Set up your materials, section your hair with hair clips, then mix the bleach.') +
           step('1. Bleach (on oily hair)', 'Lighten (leans orange)', 'Apply bleach paste to dry hair, typically painting thin strips from roots to tips, then cover them in tinfoil. Burning means rinse right away. It’s a race against the clock, and body heat makes roots lighten faster.</p><p>Where to bleach is an art, not a science, and depends on the style you’re going for. I’d recommend balayage (hand-painted highlights), keeping roots darker and cooler and tips lighter and warmer.') +
@@ -98,7 +97,7 @@
         '<h4>Care after</h4><p>Purple shampoo, purple conditioner, or both keep yellow away between tones.</p>' +
         '<h4>Go lighter in steps</h4><p>Dark hair often needs two or three sessions to reach pale blonde. Wait about two weeks between them, and afterward bleach only new growth, since bleach over bleach is where hair breaks.</p>') +
 
-      sec('4.2', 'Materials &amp; safety',
+      sec('3.2', 'Bleaching materials &amp; safety',
         '<div class="bc-points bc-five">' +
           step('Bleach powder + bleach developer', '(I use BLONDME.)', 'Use 20 vol developer, the usual choice at home and the strongest to use on the scalp.') +
           step('Toner + toner developer', '(I use Wella T14.)', 'Wella toners mix with 20 vol developer; check the box for yours.') +
@@ -120,7 +119,7 @@
         '<p class="bc-ally"><span>Allies</span> Beauty (cosmetology) schools color hair for much less, done by students with an instructor checking each step. If bleach gets in an eye, rinse it with water for 15 minutes and call Poison Control at <a href="tel:18002221222">1-800-222-1222</a> (free, any time). For blisters or swelling, get medical care; 211 can point you to low-cost clinics.</p>' +
         '<p class="bc-src">Sources: Cosmetic Ingredient Review, “Final report on the safety assessment of ammonium, potassium, and sodium persulfate,” <i>International Journal of Toxicology</i> (2001); America’s Poison Centers, first aid for eye exposures; Wella Color Charm toner directions.</p>') +
 
-      sec('4.3', 'How bleach works',
+      sec('3.3', 'How bleach works',
         '<p>Hair gets its color from melanin, pigment packed inside each hair’s core (the cortex). There are two kinds: eumelanin (brown and black) and pheomelanin (red and yellow). Overlapping scales, the cuticle, shield the core.</p>' +
         '<div class="bc-points">' +
           step('Alkali opens the hair', '', 'Bleach is mixed to a high pH (about 10–11) with ammonia or a similar alkali. That swells each hair and lifts its scales, so peroxide can reach the pigment.') +
@@ -131,7 +130,7 @@
         '<p class="bc-src">Sources: Robbins, <i>Chemical and Physical Behavior of Human Hair</i>, 5th ed. (Springer, 2012); Wolfram, “Human hair: a unique physicochemical composite,” <i>Journal of the American Academy of Dermatology</i> (2003).</p>') +
 
       mn().deeper('People whose work shaped this unit, and where to go for more.', unitCredits(true));
-    return page('Hair bleaching', ' bc-u4', html);
+    return page('Hair', ' bc-u3', html);
   }
 
   function page(name, cls, html) {
@@ -139,5 +138,10 @@
   }
 
   window.MN_LENS_VIEWS = window.MN_LENS_VIEWS || {};
-  window.MN_LENS_VIEWS['body-care'] = function (sub) { return (sub || '').split('/')[0] === 'bleach' ? bleach() : mouth(); };
+  /* #lens-body-care/hair is unit 3 (Hair, starting with bleaching); old #lens-body-care/bleach links land there too. #lens-body-care/1-2 opens Mouth at 1.2. */
+  window.MN_LENS_VIEWS['body-care'] = function (sub) {
+    var seg = (sub || '').split('/')[0];
+    if (seg === 'hair' || seg === 'bleach') return bleach();
+    var v = mouth(); if (/^1-\d$/.test(seg)) v.jump = 'bc-' + seg; return v;
+  };
 })();

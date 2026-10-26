@@ -1,7 +1,7 @@
 /* Cleaning lens: course content, profile tailoring, My list and tools. Registers window.MN_LENS_VIEWS.cleaning.
    Routes: #lens-cleaning (overview) · #lens-cleaning/beyond (overview, at Beyond the ladder) · #lens-cleaning/now (tool: What needs cleaning?)
            #lens-cleaning/list (My list) · #lens-cleaning/<unit>[/<sub>] (the Stain finder is #lens-cleaning/stains/finder).
-   The course's main idea is the gentle ladder: Water → Soap → Baking soda → Vinegar or 3% peroxide → Beyond (Poisons).
+   The lens's main idea is the gentle ladder: Water → Soap → Baking soda → Vinegar or 3% peroxide → Beyond (Poisons).
    Every How to fix card shows the rung it uses. Harsh cases (big mold, sewage, droppings, a stomach bug, ash, lead, mercury) hand off to Poisons.
    Units are whites, darkest (1) to lightest (5): Water → The gentle shelf → Surfaces → Stains → Laundry.
    Mold lives in Poisons (Living toxins → Mold in the house) and is linked, not repeated. Laws mentioned are California’s; the chemistry is general.
@@ -569,7 +569,7 @@
   function panel() {
     var rows = onFile(), p = prof();
     if (!p.counter && !p.laundry && !p.pets && !Number(p.kids)) {
-      return '<div class="cl-sit"><span class="eyebrow">Tailor this course</span><p>Your counters and where you do laundry (Profile → Cleaning), plus kids and companion animals (Profile → Household), open the parts that fit. Everything here stays open to everyone.</p><a class="btn personal sm" href="#profile/cleaning">Answer in Profile</a></div>';
+      return '<div class="cl-sit"><span class="eyebrow">Tailor this lens</span><p>Your counters and where you do laundry (Profile → Cleaning), plus kids and companion animals (Profile → Household), open the parts that fit. Everything here stays open to everyone.</p><a class="btn personal sm" href="#profile/cleaning">Answer in Profile</a></div>';
     }
     return '<div class="cl-sit"><span class="eyebrow">Tailored to your profile</span><p>Sections for you are open and marked <span class="cl-foryou is-on">For you</span>.</p>' +
       '<span class="cl-review"><a href="#profile/cleaning" aria-describedby="cl-onfile">Review what’s on file</a>' +
@@ -587,7 +587,7 @@
   }
   function sidebar(U, cur) {
     var wide = window.matchMedia && window.matchMedia('(min-width: 900px)').matches;
-    return '<nav class="cl-nav" aria-label="Cleaning course"><details class="cl-nav-wrap"' + (wide ? ' open' : '') + '><summary class="cl-nav-head"><span class="eyebrow">Course map</span><b>Cleaning</b></summary>' +
+    return '<nav class="cl-nav" aria-label="Cleaning lens"><details class="cl-nav-wrap"' + (wide ? ' open' : '') + '><summary class="cl-nav-head"><span class="eyebrow">Units</span><b>Cleaning</b></summary>' +
       '<a class="cl-nav-over" href="' + BASE + '"' + (!cur ? ' aria-current="page"' : '') + '>Overview</a><ol class="cl-vt">' +
       U.map(function (u) {
         var on = cur === u.id;
@@ -610,8 +610,8 @@
       ['r3', 'Rung 3', 'Baking soda', 'A soft scrub for stuck-on food, and a sponge for smells.', 'shelf/soda'],
       ['r4', 'Rung 4', 'Vinegar · peroxide', 'Vinegar for mineral scale and soap scum. 3% hydrogen peroxide when you want to disinfect. Never in one bottle.', 'shelf/vinegar'],
       ['r5', 'Beyond', 'Poisons', 'Big mold, sewage, droppings, ash, lead dust, a stomach bug. Those need a different plan.', 'beyond']];
-    return '<section class="cl-hero"><span class="cl-lens-pill">Tier 3 · Protect · Course</span><h1 tabindex="-1">Cleaning</h1>' +
-      '<p class="cl-lede">A clean home is one where dirt, grease and crumbs leave, and nothing harsh stays behind on the counter, in the air or on a cat’s paws. Most of that is done with water and a good cloth. The rest of the course is a short ladder of gentle helpers, climbed one rung at a time, and a clear line where Poisons takes over.</p>' +
+    return '<section class="cl-hero"><span class="cl-lens-pill">Tier 3 · Protect · Lens</span><h1 tabindex="-1">Cleaning</h1>' +
+      '<p class="cl-lede">A clean home is one where dirt, grease and crumbs leave, and nothing harsh stays behind on the counter, in the air or on a cat’s paws. Most of that is done with water and a good cloth. The rest of the lens is a short ladder of gentle helpers, climbed one rung at a time, and a clear line where Poisons takes over.</p>' +
       '<div class="cl-btns"><a class="btn" href="' + BASE + '/now">What needs cleaning?</a><a class="btn" href="' + BASE + '/stains/finder">Stain finder</a></div></section>' +
       '<section class="cl-ladder-box"><span class="eyebrow">The gentle ladder · start at the bottom</span><ol class="cl-ladder">' +
       R.map(function (r) { return '<li><a class="cl-rung cl-' + r[0] + '" href="' + BASE + '/' + r[4] + '"><span class="cl-rung-n">' + r[1] + '</span><b>' + r[2] + '</b><p>' + r[3] + '</p></a></li>'; }).join('') + '</ol>' +
@@ -629,7 +629,7 @@
       '<li><b>Ash and soot after a fire</b> → ' + to('#lens-toxins/neighbors/fire', 'Poisons: After a fire') + '</li>' +
       '<li><b>Peeling paint in a home built before 1978</b>, or dust from sanding it → ' + to('#lens-air/dust/disturbed', 'Air: Asbestos and lead') + '</li>' +
       '<li><b>A broken mercury thermometer or CFL bulb</b>, or an unknown chemical spill → ' + to(TOX_CLEAN[0], TOX_CLEAN[1]) + ' · California Poison Control, 1-800-222-1222</li></ul></section>' +
-      '<aside class="cl-toolcard"><span class="eyebrow">Tools</span><p>Shortcuts into the course, for when something needs cleaning right now. Every unit above stays open to read either way.</p>' +
+      '<aside class="cl-toolcard"><span class="eyebrow">Tools</span><p>Shortcuts into the lens, for when something needs cleaning right now. Every unit above stays open to read either way.</p>' +
       '<div class="cl-btns"><a class="btn" href="' + BASE + '/now">What needs cleaning?</a><a class="btn" href="' + BASE + '/stains/finder">Stain finder</a><a class="btn" href="' + BASE + '/list">My list</a></div></aside>' +
       '<aside class="cl-funfact"><span class="eyebrow">Fun fact</span><p>The baking-soda-and-vinegar volcano is a lovely science lesson and a weak cleaner: the fizz is the two cancelling each other out into carbon dioxide, a little sodium acetate and mostly water. Used one after the other, each does its own job. Knowing what each thing does is what lets so little do so much.</p>' +
       '<p>Laws mentioned are California’s; the chemistry is the same everywhere.</p>' + src('American Chemical Society, reactions of acids and bases (sodium bicarbonate and acetic acid).') + '</aside>';
@@ -637,7 +637,7 @@
   function viewNeeds() {
     setTimeout(runTools, 0);
     return '<article class="cl-unit ck1"><header class="cl-unit-hero"><span class="eyebrow">Tool</span><h1 tabindex="-1">What needs cleaning?</h1><p class="cl-unit-sub">The lowest rung that does the job</p>' +
-      '<p class="cl-lede">Pick the surface, then the mess. The answer starts at water and only climbs as far as it needs to, with notes for your counters and the people and animals you live with. Each answer links into the course, which stays open to read from the start either way.</p></header>' +
+      '<p class="cl-lede">Pick the surface, then the mess. The answer starts at water and only climbs as far as it needs to, with notes for your counters and the people and animals you live with. Each answer links into the lens, which stays open to read from the start either way.</p></header>' +
       '<section class="cl-tool"><b class="cl-tool-t">1 · What are you cleaning?</b><div class="cl-picks" id="cl-wn-s"></div>' +
       '<b class="cl-tool-t">2 · What’s on it?</b><div class="cl-picks" id="cl-wn-m"></div><div class="cl-out" id="cl-wn-out"></div></section>' +
       legend('A starting point, not a rule.') + '</article>';

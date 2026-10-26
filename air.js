@@ -135,7 +135,7 @@
       /* ===== 1 · What’s in the air ===== */
       { id: 'what', num: 1, word: 'What’s in the air', sub: 'The yuckies, and reading the air around events',
         modes: ['habit', 'once'],
-        lede: 'Air carries three kinds of things we didn’t ask for: particles, gases and living things. Most days indoor air is where they gather, and some days a fire, a dust storm or a flood fills the air outside too. This unit names them, then shows how to read the air yourself so the rest of the course has something to act on.',
+        lede: 'Air carries three kinds of things we didn’t ask for: particles, gases and living things. Most days indoor air is where they gather, and some days a fire, a dust storm or a flood fills the air outside too. This unit names them, then shows how to read the air yourself so the rest of the lens has something to act on.',
         mode: 'Knowing the sources is free. A $20 alert sign-up or a shared sensor keeps you ahead of events.',
         subs: [
           { id: 'particles', short: 'Particles', title: 'Particles', html: function () { return '<p>Particles are named by size. <b>PM10</b> (dust, pollen, mold spores) mostly stops in the nose and throat. <b>PM2.5</b>, about a thirtieth the width of a hair, reaches deep into the lungs: smoke, cooking, traffic, fine dust. <b>Ultrafine</b> particles are smaller still, made by flames, hot pans and engines, and some pass into the blood.</p>' +
@@ -164,7 +164,7 @@
             src('US EPA, <i>A Citizen’s Guide to Radon</i> and <i>Introduction to Indoor Air Quality</i>; WHO, <i>Handbook on Indoor Radon</i> (2009); CDPH Radon Program.'); } },
           { id: 'living', short: 'Living things', title: 'Living things in the air', html: function () { return '<p>Some of what floats is alive, or was: pollen, mold spores, dust mite droppings, skin flakes and dander from companions, and the tiny droplets that carry colds and flu. Most are harmless to most people. For allergies and asthma they’re the main triggers, and for everyone, fresh air and filters cut how much of a cold travels from one person to the next.</p>' +
             does([['Pollen', 'Peaks on warm, dry, windy mornings in spring.', 'Outside in'], ['Mold spores', 'Everywhere outdoors; grow indoors only where it stays wet.', 'Damp'], ['Dust mites', 'Live in bedding and rugs; thrive above about 50% humidity.', 'Damp'], ['Germs', 'Ride on breath. Airflow and filters dilute them.', 'Ventilation']]) +
-            '<p>Mold is where air and toxicology meet. Air carries the spores; what molds make, how they affect bodies, and how to clean them up lives in ' + TOX.mold + '. In this course, the fix is the water behind them (' + r('ventilation', 'damp') + ').</p>' +
+            '<p>Mold is where air and toxicology meet. Air carries the spores; what molds make, how they affect bodies, and how to clean them up lives in ' + TOX.mold + '. In this lens, the fix is the water behind them (' + r('ventilation', 'damp') + ').</p>' +
             fix({ modes: [['habit']], cost: 'Free', steps: [
               ['Free · today', 'Pollen season: close the windows on windy mornings and air out in the evening instead.'],
               ['Free', 'Someone has a cold: a window cracked and a filter running in shared rooms.'],
@@ -339,7 +339,7 @@
             src('Lioy et al., <i>Journal of the Air &amp; Waste Management Association</i> 1999; Knibbs et al., <i>Environmental Science &amp; Technology</i> 2012; US HUD, lead-safe cleaning guidance.'); } },
           { id: 'new', short: 'New things', title: 'New things breathe out', html: function () { return '<p>New furniture, mattresses, flooring, carpet and paint release chemicals (VOCs, and formaldehyde from pressed wood) for weeks to months. The “new smell” is the strongest part; it fades as the material settles, faster when the space is warm and well aired. Things that are already old have mostly finished.</p>' +
             ul(['<b>Secondhand is already aired out.</b> Used furniture and solid-wood pieces did most of their off-gassing years ago.', '<b>Air new things out first</b> in a garage, porch or spare room with the window open, for a week or two if you can.', '<b>Low- or zero-VOC paint</b>, windows open and a fan out while it dries, and a few days before sleeping in the room.']) +
-            ca('Composite wood sold in California has had to meet CARB’s formaldehyde limits since 2009 (now national). Upholstered furniture carries a label saying whether it has added flame retardants (SB 1019); “contains NO added flame retardants” is the one to look for.') +
+            '<p>Which labels to look for (no added formaldehyde, no added flame retardants), and what each material gives off, is in <a href="#lens-toxins/home/furniture">Poisons → Furniture</a>.</p>' +
             fix({ modes: [['habit']], cost: 'Free', steps: [
               ['Free · first', 'Secondhand, swap or borrow before buying new.'],
               ['Free', 'A new item? A week or two airing out somewhere other than a bedroom.'],
@@ -455,7 +455,7 @@
       /* ===== 5 · Sun & temperature ===== */
       { id: 'sun', num: 5, word: 'Sun &amp; temperature', sub: 'Heat, shade, cold and skin',
         modes: ['now', 'once'],
-        lede: 'Air carries temperature as well as everything else, and the sun sets most of it. Hot air strains hearts and kidneys and raises ozone; cold, damp air invites unsafe heating. Shade is the oldest and freest tool there is. Sun on skin is covered here briefly and in full in Body care.',
+        lede: 'Air carries temperature as well as everything else, and the sun sets most of it. Hot air strains hearts and kidneys and raises ozone; cold, damp air invites unsafe heating. Shade is the oldest and freest tool there is. Sun on skin lives here too, and Body care points back to it.',
         mode: 'Shade and timing are free. Outside shades, a fan and a mineral sunscreen are small, lasting buys.',
         subs: [
           { id: 'heat', short: 'Heat waves', title: 'Hot air and heat waves', html: function () { return '<p>Bodies cool by sweating and moving blood to the skin. In a heat wave, especially when nights stay warm, they can’t keep up. Heat is the deadliest weather event in the US, and most harm happens indoors, in homes that hold heat.</p>' +
@@ -482,7 +482,7 @@
               ['$', 'An outside shade, awning or shade cloth for the sunniest window, or a trellis with a vine.'],
               ['Together', 'Ask your city about street tree programs, or plant with neighbors.']],
               add: [F.shade] }) +
-            links(to('#lens-interior-design', 'Interior design (following the sun)') + ' · ' + to('#lens-gardening', 'Gardening')) +
+            links(to('#lens-interior-design', 'Interior design (following the sun)') + ' · ' + to('#lens-gardening', 'Growing')) +
             src('US Department of Energy, <i>Energy Saver: Window Shades and Awnings</i> and landscaping for shade; US EPA, <i>Heat Island Effect</i>.'); } },
           { id: 'skin', short: 'Sun on skin', title: 'Sun on skin', html: function () { return '<p>Ultraviolet (UV) light from the sun travels through air whether it feels hot or not, and it’s strongest from about 10 a.m. to 4 p.m., at altitude, and off water, sand and snow. The UV index in a weather app says how strong: from 3 up, skin needs protecting.</p>' +
             ul(['<b>Shade and timing first</b>, then clothing: a wide-brim hat, sunglasses, long sleeves (tightly woven or UPF-rated).', '<b>Sunscreen for what’s left uncovered.</b> Broad spectrum, SPF 30 or higher, plenty of it, again every two hours and after swimming or sweating.', '<b>Mineral sunscreens</b> use zinc oxide or titanium dioxide. These are the only two active ingredients the FDA has proposed as generally recognized as safe and effective; zinc oxide covers the widest range of UV.', '<b>Lotions over sprays:</b> spray sunscreens put a fine mist into the air you breathe.', '<b>Babies under 6 months:</b> shade and clothing rather than sunscreen.']) +
@@ -548,7 +548,7 @@
     return addItem({ title: title, u: u, sub: sub, c: c || 0, m: m || '' });
   }
 
-  /* ---------- Tool: What do you notice? A shortcut into the course, never a gate in front of it. ---------- */
+  /* ---------- Tool: What do you notice? A shortcut into the lens, never a gate in front of it. ---------- */
   // [id, what you notice, urgency (2 urgent · 1 take care · 0), fastest fix, why, unit, sub, list title, cost, modes]
   var RN = [
     ['co', 'CO alarm, or headache or dizziness in more than one of us', 2, 'Everyone outside into fresh air, animals too. Then call 911.', 'Carbon monoxide has no smell. Several people or animals unwell at once is the sign.', 'smoke', 'gas', F.co, 1, 'once:Set up once'],
@@ -645,7 +645,7 @@
   function panel() {
     var rows = onFile(), p = prof();
     if (!p.stove && !p.hood && !p.built && !(p.near || []).length) {
-      return '<div class="ai-sit"><span class="eyebrow">Tailor this course</span><p>Your stove and kitchen fan (Profile → Food), when the building was built and what’s close by (Profile → Surroundings), plus your place and household, open the parts that fit. Everything here stays open to everyone.</p><a class="btn personal sm" href="#profile/food">Answer in Profile</a></div>';
+      return '<div class="ai-sit"><span class="eyebrow">Tailor this lens</span><p>Your stove and kitchen fan (Profile → Food), when the building was built and what’s close by (Profile → Surroundings), plus your place and household, open the parts that fit. Everything here stays open to everyone.</p><a class="btn personal sm" href="#profile/food">Answer in Profile</a></div>';
     }
     return '<div class="ai-sit"><span class="eyebrow">Tailored to your profile</span><p>Sections for you are open and marked <span class="ai-foryou is-on">For you</span>.</p>' +
       '<span class="ai-review"><a href="#profile/food" aria-describedby="ai-onfile">Review what’s on file</a>' +
@@ -663,7 +663,7 @@
   }
   function sidebar(U, cur) {
     var wide = window.matchMedia && window.matchMedia('(min-width: 900px)').matches;
-    return '<nav class="ai-nav" aria-label="Air course"><details class="ai-nav-wrap"' + (wide ? ' open' : '') + '><summary class="ai-nav-head"><span class="eyebrow">Course map</span><b>Air &amp; temperature</b></summary>' +
+    return '<nav class="ai-nav" aria-label="Air lens"><details class="ai-nav-wrap"' + (wide ? ' open' : '') + '><summary class="ai-nav-head"><span class="eyebrow">Units</span><b>Air &amp; temperature</b></summary>' +
       '<a class="ai-nav-over" href="' + BASE + '"' + (!cur ? ' aria-current="page"' : '') + '>Overview</a><ol class="ai-vt">' +
       U.map(function (u) {
         var on = cur === u.id;
@@ -680,7 +680,7 @@
     return mn().header('home') + '<div class="ai-layout">' + sidebar(U, cur) + '<main class="ai-main">' + panel() + main + '</main></div>' + mn().footer();
   }
   function viewOverview(U) {
-    return '<section class="ai-hero"><span class="ai-lens-pill">Tier 2 · Roots · Course</span><h1 tabindex="-1">Air &amp; temperature</h1>' +
+    return '<section class="ai-hero"><span class="ai-lens-pill">Tier 2 · Roots · Lens</span><h1 tabindex="-1">Air &amp; temperature</h1>' +
       '<p class="ai-lede">We breathe around 10,000 liters of air a day, most of it indoors. Lungs, a bird’s air sacs, a cat’s nose and a houseplant’s leaves all need the same thing: air that’s moving, not too wet, not too hot, and free of what heat and dust put into it. Five units, read in order or dipped into, each ending in a <b>How to fix</b>, free steps first.</p></section>' +
       '<div class="ai-ways">' +
         '<a class="ai-way ak1" href="' + BASE + '/what"><b>1 · Notice</b><p>What’s in the air at all: particles, gases, living things, and what disasters add. Then how to read it yourself.</p></a>' +
@@ -693,16 +693,16 @@
         return '<li><a class="ai-ucard ak' + u.num + '" href="' + BASE + '/' + u.id + '"><i class="ai-band-top"></i><span class="ai-n">0' + u.num + '</span><b>' + u.word + '</b><span>' + u.sub + '</span><ol>' + u.subs.filter(function (s) { return !s.tool; }).map(function (s) { return '<li>' + s.title + '</li>'; }).join('') + '</ol>' +
           '<span class="ai-modes">' + u.modes.map(function (m) { return mode(m); }).join('') + '</span></a></li>';
       }).join('') + '</ol>' +
-      '<aside class="ai-toolcard"><span class="eyebrow">Tools</span><p>Shortcuts into the course, for when something’s happening right now. Every unit above stays open to read either way.</p>' +
+      '<aside class="ai-toolcard"><span class="eyebrow">Tools</span><p>Shortcuts into the lens, for when something’s happening right now. Every unit above stays open to read either way.</p>' +
       '<div class="ai-btns"><a class="btn" href="' + BASE + '/notice">What do you notice?</a><a class="btn" href="' + BASE + '/ventilation/sizer">Filter sizer</a><a class="btn" href="' + BASE + '/list">My list</a></div></aside>' +
       '<aside class="ai-funfact"><span class="eyebrow">Fun fact</span><p>A gas burner on high, or a pan of something searing, can push fine particles in a kitchen higher than a smoggy day outside, and an open window plus a fan pointing out can bring them back down in well under an hour. Air answers fast, which makes it one of the most satisfying needs to meet.</p>' +
       '<p>Numbers come from public health research and agencies (EPA, CDC, CARB, Lawrence Berkeley National Laboratory, WHO), cited in each section. Laws mentioned are California’s; the physics is the same everywhere.</p>' + src('Singer et al., <i>Building and Environment</i> 2017; Logue et al., <i>Environmental Health Perspectives</i> 2014.') + '</aside>' +
-      (mn().deeper && mn().credits ? mn().deeper('People whose work shaped this course, and where to go for more.', mn().credits('air')) : '');
+      (mn().deeper && mn().credits ? mn().deeper('People whose work shaped this lens, and where to go for more.', mn().credits('air')) : '');
   }
   function viewNotice() {
     setTimeout(runTools, 0);
     return '<article class="ai-unit ak1"><header class="ai-unit-hero"><span class="eyebrow">Tool</span><h1 tabindex="-1">What do you notice?</h1><p class="ai-unit-sub">The fastest fix, then where to learn more</p>' +
-      '<p class="ai-lede">Your nose, eyes, windows and body are good instruments. Pick everything you notice and the fixes come back in order: anything urgent first, then the free ones that work in minutes. Each one links into the course, which stays open to read from the start either way.</p></header>' +
+      '<p class="ai-lede">Your nose, eyes, windows and body are good instruments. Pick everything you notice and the fixes come back in order: anything urgent first, then the free ones that work in minutes. Each one links into the lens, which stays open to read from the start either way.</p></header>' +
       '<section class="ai-tool"><b class="ai-tool-t">Pick what you notice</b><div class="ai-picks" id="ai-rn"></div><div class="ai-out" id="ai-rn-out"></div></section>' +
       legend('A quick read, not a diagnosis.') + '</article>';
   }

@@ -32,7 +32,7 @@ This app talks the way it teaches people to talk.
 - **Requests, not demands.** The app offers; it never orders. No guilt copy ("you're poisoning your family"), no countdowns, no streak shaming. A "Not now" is always a valid answer.
 - Plain words, short sentences, warm tone. Explain any term the first time it appears.
 
-Source: Marshall B. Rosenberg, *Nonviolent Communication: A Language of Life* (PuddleDancer Press). Feelings and needs lists are adapted from the Center for Nonviolent Communication's inventories (cnvc.org). Acknowledge this gratefully in the course's **Go deeper** block at the end (see README), rather than as a headline credit. Meeting Needs' own writing, tools and code are meant to stay free and open for everyone.
+Source: Marshall B. Rosenberg, *Nonviolent Communication: A Language of Life* (PuddleDancer Press). Feelings and needs lists are adapted from the Center for Nonviolent Communication's inventories (cnvc.org). Acknowledge this gratefully in the lens's **Go deeper** block at the end (see README), rather than as a headline credit. Meeting Needs' own writing, tools and code are meant to stay free and open for everyone.
 
 ## 4. Relationship with everything
 
@@ -55,7 +55,8 @@ The same four steps (notice, feel, find the need, ask) work everywhere, so every
 
 ## 6. How this shows up in the build
 
-- Lenses are courses. A course opens on a **skill tree**: units left to right, nodes connected by prerequisites, planned nodes shown dashed.
+- **Words:** a **tier** holds **lenses**; a lens is a way of seeing one need, made of **units** (Unit 2 · Sources), each with **sub-units** (2.1). Say “the Water lens”, not “the Water course” or “the unit on water”.
+- A lens opens on a **skill tree**: units left to right, nodes connected by prerequisites, planned nodes shown dashed.
 - Every node says what it teaches, gives a real example from home life, and ends with something to *do* (a tool, a practice or a question), not a quiz to pass.
 - **Only build what helps.** A unit is as short as its topic needs. Simple topics stay plain: the why, what to do, and where to get more help. Add tools, calculators, builders, trackers, lists or extra sections (like life stages) only when they do a job plain text can't. If it would mostly repeat the text, leave it out.
 - Tools are plug-and-play: start from where the person actually is ("I feel sad", "I need my husband to…", "there are mice in the pantry") and walk them to the need.
@@ -70,7 +71,7 @@ Meeting needs includes the need to reach the information. Many of the people Kin
 - Design for a 360px-wide screen first, then widen. Nothing may need a mouse, hover, or a big screen: anything shown on hover is also reachable by tap and by keyboard.
 - No sideways page scrolling. Text reflows to one column at 320px wide and at 400% zoom.
 - Tap targets are at least 44 × 44px, with space between them, reachable one-handed where possible.
-- Light pages: no build step, no tracking, plain HTML/CSS/JS, course files load only when opened, images compressed and only when they teach something. Every page should be usable on a slow 3G connection and an older phone.
+- Light pages: no build step, no tracking, plain HTML/CSS/JS, lens files load only when opened, images compressed and only when they teach something. Every page should be usable on a slow 3G connection and an older phone.
 - Once a page has loaded it keeps working if the signal drops (tools run in the browser, nothing waits on a server). Lists and progress stay on the device.
 - Shared devices: nothing personal is stored without saying so, and every saved list can be cleared.
 
@@ -92,21 +93,21 @@ Meeting needs includes the need to reach the information. Many of the people Kin
 - Video or audio gets captions or a transcript.
 - Respect “reduce motion”: no motion is needed to understand anything, and nothing flashes.
 - No time limits, countdowns or streaks (section 3 already rules these out).
-- Plain words, short sentences, one idea per paragraph, and terms explained the first time (section 3). Consistent layout and names across courses, so learning one course teaches how to use the next.
-- Long pages can be read in pieces: jump links, a course map, and progress saved on the device.
+- Plain words, short sentences, one idea per paragraph, and terms explained the first time (section 3). Consistent layout and names across lenses, so learning one lens teaches how to use the next.
+- Long pages can be read in pieces: jump links, a map of units, and progress saved on the device.
 
 **Checking**
-- Before a course ships, try it: on a phone, with keyboard only, with a screen reader (VoiceOver or TalkBack), at 200% zoom, and with reduce motion on. Run an automated checker (such as axe or Lighthouse) as a first pass, not the last word.
+- Before a lens ships, try it: on a phone, with keyboard only, with a screen reader (VoiceOver or TalkBack), at 200% zoom, and with reduce motion on. Run an automated checker (such as axe or Lighthouse) as a first pass, not the last word.
 - Ask disabled people, phone-only users, and organizations that serve unhoused and disabled communities for feedback, and fold it in.
 
 
-## 8. Courses build real-life abilities
+## 8. Lenses build real-life abilities
 
 What makes meeting needs fun is the joy of being able to provide, for yourself and for others, so every lens builds abilities people use off the screen. Nobody is "done" once their own needs are met; the same skills reach outward, and we keep the collective in view without a single "should".
 
 **Care reaches outward.** Me → my household (including the animals and plants sharing the land) → my closest people and animals → neighbors and strangers (including animals and plants I'm not technically responsible for). This is a way of thinking, not a grid on screen.
 
-**A lens opens with a short overview, then a run of units.** The overview shows the lens's whole way of thinking at a glance (Water: **Use · Sources · Containers · Purify · Test**). Each unit is its own ability, in order (Water: 1 Use, 2 Sources, 3 Containers, 4 Purify, 5 Test), and unit pages match every other course: “Unit 1 of 5”, the unit name, a short subtitle, jump links, and previous / next cards.
+**A lens opens with a short overview, then a run of units.** The overview shows the lens's whole way of thinking at a glance (Water: **Use · Sources · Containers · Purify · Test**). Each unit is its own ability, in order (Water: 1 Use, 2 Sources, 3 Containers, 4 Purify, 5 Test), and unit pages match every other lens: “Unit 1 of 5”, the unit name, a short subtitle, jump links, and previous / next cards.
 
 **Numbers carry forward.** The first unit usually opens with a calculator (Water: how much water, per task, at what grade of cleanliness). Its answers flow into every later unit: sources show what your use would cost and whether a source can cover it; containers show how much to keep, for how long, and whether your roof can fill it, which points back to sources. Costs are never a final unit; a running total (upfront, each year) builds at the bottom of the page like a build-a-bear.
 
@@ -118,7 +119,7 @@ What makes meeting needs fun is the joy of being able to provide, for yourself a
 
 **Tools are listed per topic.** No carried inventory. Where a tool is required, it can show **Also helps with**: its uses in other lenses and situations (a hammer drives tent stakes for your own camping trip or a neighbor's shelter, or secures a tarp in a storm). Generalizations, never assumptions about anyone's life.
 
-**Abilities, three levels, on their own page.** Each unit's ability is named on a separate **Your abilities** page, in different words from the unit (unit: *Use*; ability: *Can size a household’s water, use by use, and match each use to the water it needs*). The levels and the refresh live there, reached from the course map, never right below the content they test. Verbs, never identities ("Can catch rain", not "rain genius"). Self-reported on the honor system: **Know how** → **Done it** (in real life) → **Shared it** (helped someone else do it; the top level, because the joy is in giving). A badge can sit at *Know how* forever with no pressure. Asking to borrow and lending count as abilities too, and link to Relationships → Requests.
+**Abilities, three levels, on their own page.** Each unit's ability is named on a separate **Your abilities** page, in different words from the unit (unit: *Use*; ability: *Can size a household’s water, use by use, and match each use to the water it needs*). The levels and the refresh live there, reached from the map of units, never right below the content they test. Verbs, never identities ("Can catch rain", not "rain genius"). Self-reported on the honor system: **Know how** → **Done it** (in real life) → **Shared it** (helped someone else do it; the top level, because the joy is in giving). A badge can sit at *Know how* forever with no pressure. Asking to borrow and lending count as abilities too, and link to Relationships → Requests.
 
 **Refresh from memory.** Recall practice, not a test: fill in a lens's steps, or a step's short list (containers: food-grade, dark, dated, spread out), then check. A **Hint** button fills in the first letter, large. Missed ones are simply shown. No mnemonics, score, streak or countdown (§3); only "last refreshed" on the device. This is the one kind of question §6 allows: something to *do*, not something to pass.
 

@@ -113,7 +113,7 @@
             ca('Picking plants in state parks is generally not allowed; rules differ on other land. Ask before picking from a tree on someone else’s property; fallen-fruit maps show public trees.') +
             accs(
               acc('portable', 'Portable', 'A windowsill harvest', '<p>Sprouts in a jar (' + a('rehydrate/sprouting', '3.5') + '), herbs in pots, scallions regrowing in a glass of water. Everything moves with you.</p>'),
-              acc('outdoor invest', 'Yard', 'Beds and fruit trees', '<p>Greens and beans in spring and fall, squash and tomatoes in summer. Fruit trees are a long gift: plant where you’ll stay.</p>' + links('Gardening · <a href="#lens-water/uses/gray">Water</a> (gray water to trees)')),
+              acc('outdoor invest', 'Yard', 'Beds and fruit trees', '<p>Greens and beans in spring and fall, squash and tomatoes in summer. Fruit trees are a long gift: plant where you’ll stay.</p>' + links('<a href="#lens-gardening">Growing</a> · <a href="#lens-identification">Identification &amp; foraging</a> · <a href="#lens-water/uses/gray">Water</a> (gray water to trees)')),
               acc('land', 'Land', 'Staple crops', '<p>Dry beans, winter squash, potatoes and grains store for months without power, so a land garden can carry the pantry, not just the salad.</p>')); } },
           { id: 'pass', short: 'Pass it on', title: 'Passing it on', html: function () { return '<p>Too many lemons, half a pot of soup, a sack that’s too big: extra food meets someone else’s need. Neighbors, Buy Nothing groups, community fridges and food banks all take it.</p>' +
             ca('Since 2022, many grocery stores, distributors and large kitchens must donate edible food they’d otherwise throw away to food recovery groups (SB 1383). Federal and state law protect people who donate food in good faith.') +
@@ -147,7 +147,7 @@
               'Wash hands with soap for about 20 seconds before cooking and after handling soil or raw sprouts.',
               'Hot soapy water for boards and knives. Deep grooves in a board hold germs: sand wood, retire scarred plastic.',
               'Sponges grow germs fast. Let them dry between uses and replace often; cloths that go in the laundry stay cleaner.']) +
-            links('Cleaning (surfaces) · Poisons (plastic boards and heat)') +
+            links('<a href="#lens-cleaning/surfaces">Cleaning → Surfaces</a> · <a href="#lens-toxins/plastics/heat">Poisons → Heat, fat and acid</a>') +
             accs(acc('nohome nocook', 'No sink', 'Washing food with little water', ul(['Choose food you peel: bananas, oranges, avocados, carrots you can scrape.', 'A bottle of drinking water poured over produce in a bowl does the job.', 'Hand sanitizer is a backup for hands, not a wash for food.']))); } }
         ] },
 
@@ -196,7 +196,7 @@
             old('The haybox: a wooden crate packed with hay, used across Europe and Africa to finish porridges, beans and stews while the household went about its day.') +
             accs(
               acc('smallkit', 'One appliance', 'Hot plate, rice cooker or microwave', ul(['A rice cooker steams vegetables in a basket above the rice, and makes oats and lentil stew.', 'A single electric pressure cooker does beans, grains, soups and steaming.', 'Microwave: red lentils in a big bowl with water (they foam), potatoes, frozen vegetables, oats.'])),
-              acc('shared', 'Shared kitchen', 'Cooking in a shared kitchen', '<p>Batch-cook in quiet hours, label your shelf, and keep one crate of your own tools. A shared pot of soup is a lovely way to meet housemates.</p>' + links('<a href="#lens-relationships">Relationships</a> (housemates) · Cleaning (shared chores)')),
+              acc('shared', 'Shared kitchen', 'Cooking in a shared kitchen', '<p>Batch-cook in quiet hours, label your shelf, and keep one crate of your own tools. A shared pot of soup is a lovely way to meet housemates.</p>' + links('<a href="#lens-relationships">Relationships</a> (housemates) · <a href="#lens-cleaning">Cleaning</a> (shared chores)')),
               acc('nocook nohome', 'No cooking', 'Cold soaking and no-cook meals', ul(['Cold soak in a jar with a tight lid: rolled oats (overnight), couscous (1–2 hours), instant noodles (about an hour), instant mashed potatoes (minutes).', 'Canned beans, chickpeas and lentils are already cooked: rinse and eat.', 'Nut butter, bread, fruit and canned beans meet protein, energy and fiber with no heat.'])),
               acc('land outdoor', 'Outdoors', 'Sun and fire', '<p>A solar oven (a box, a black pot, foil and glass) slow-cooks beans and rice on sunny days. Rocket stoves burn small sticks hot and clean.</p>')) +
             care('Food left wrapped for many hours can cool into the danger zone. If a retained-heat pot has sat more than about 4 hours, bring it back to a boil before eating.'); } },
@@ -206,13 +206,13 @@
               ['Early school', 'Cut and mix', 'A small sharp knife on soft food with a claw grip, cracking open pods, rinsing quinoa.'],
               ['Older kids', 'Cook a dish', 'The stove with an adult nearby, then a whole meal of their own for everyone.']]) +
             together('Sorting a tray of dried beans for stones is a favorite: it’s a treasure hunt that makes dinner.') +
-            links('<a href="#lens-relationships">Relationships</a> (children) · Foundation 2 (togetherness)'); } },
+            links('<a href="#lens-relationships">Relationships</a> (children)'); } },
           { id: 'pots', short: 'Pots &amp; stoves', title: 'Pots, pans and stoves', html: function () { return ul([
               '<b>Cast iron, carbon steel, stainless steel and glass</b> last a lifetime and turn up secondhand.',
               '<b>Nonstick coatings:</b> keep the heat low and retire pans once scratched or flaking. See Poisons for what’s in them.',
               '<b>Gas stoves</b> put fumes into the room. Run the hood fan or open a window while cooking.',
               'Hot food goes into glass, steel or ceramic rather than plastic.']) +
-            links('Poisons (cookware, plastics) · Air (gas stoves, ventilation)'); } },
+            links('<a href="#lens-toxins/plastics/pans">Poisons → Pots and pans</a> · <a href="#lens-air/smoke/gas">Air → Gas flames</a> · <a href="#lens-air/smoke/cooking">Air → Cooking smoke</a>'); } },
           { id: 'plate', short: 'The plate', title: 'A plate that meets needs', html: function () { return '<p>Bodies need energy, protein, fats, fiber, vitamins and minerals. A plant plate meets nearly all of them with variety across the day. Major dietetic associations find well-planned vegan diets healthy at every stage of life, including pregnancy and childhood.</p>' +
             '<div class="fo-plate">' +
             '<div><b>Beans and lentils</b><p>Protein, iron, fiber. Tofu, tempeh and peanuts count too.</p></div>' +
@@ -252,7 +252,7 @@
           { id: 'visitors', short: 'Visitors', title: 'Animals in the pantry', html: function () { return '<p>Moths in the flour, ants on the counter, a mouse behind the rice: they’re neighbors whose need for food our pantry is meeting by accident. Change what we offer and they move on, no poison needed.</p>' +
             ul(['<b>Pantry moths and weevils:</b> flour and grain in glass or metal jars with good lids, so there’s nothing to move into. Carry anything they’ve already moved into out to the compost or a far corner of the yard, and wipe the shelf.', '<b>Ants:</b> follow the trail to the door, wipe it with soapy water or vinegar (it erases their scent path), and seal the crack.', '<b>Mice:</b> food in jars and tins, crumbs swept, nothing left out overnight. With no food on offer, mice move on; once they have, stuff the gaps around pipes with steel wool so the next ones find nothing to come in for.']) +
             old('Bay leaves in the flour bin are a common old remedy for weevils. Studies are thin, but they smell nice and do no harm.') +
-            links('<a href="#lens-relationships/special/captive">Relationships: Captive animals</a> · Cleaning'); } },
+            links('<a href="#lens-relationships/special/captive">Relationships: Captive animals</a> · <a href="#lens-cleaning/surfaces">Cleaning → Visitors on the counter</a> · <a href="#lens-toxins/pesticides/yard">Poisons → Yard, home and companions</a>'); } },
           { id: 'keeps', tool: true, short: 'How long it keeps', title: 'How long does it keep?', html: function () { return '<div class="fo-row"><label class="fo-f">Food<select data-fo id="fo-kp-food">' + opts(KP) + '</select></label></div><div class="fo-out" id="fo-kp-out"></div>'; } }
         ] },
 
@@ -279,6 +279,7 @@
               '<b>Smoothies</b> with soy milk, oats, banana and a spoon of nut butter are a full meal when chewing isn’t possible.']) +
             tryit('The fork test: press a piece with the back of a fork until your thumbnail turns pale. If it squashes and stays squashed, it’s soft enough for level 6.') +
             care('<b>Trouble swallowing</b> (dysphagia): coughing or clearing the throat during meals, a wet or gurgly voice after drinking, food that sticks, or repeated chest infections. A speech-language pathologist can assess it and say which level fits; thin liquids are often the hardest. Sit fully upright for meals and for about 30 minutes after.') +
+            links('<a href="#lens-body-care/1-1">Body care → Mouth</a> (why teeth and gums get sore, and gentle rinses)') +
             '<p class="fo-src"><small>Source: International Dysphagia Diet Standardisation Initiative (iddsi.org).</small></p>'; } },
           { id: 'medicine', short: 'Food as medicine', title: 'Food as medicine', html: function () { return '<p>Food doesn’t replace care, and it’s part of it. Every culture has gentle foods for sick days: they’re easy on a body putting its energy into healing, and they carry back the water, salt and sugar that fever, vomiting and diarrhea pull out.</p>' +
             ul(['<b>Fluids first.</b> Small sips often (a spoonful every few minutes after vomiting) stay down better than big gulps.',
@@ -291,7 +292,7 @@
             old('Jook (rice porridge) across East Asia, khichdi (rice and lentils cooked soft) in South Asia, miso soup in Japan, vegetable broth nearly everywhere: sick-day foods are some of the oldest recipes people share.') +
             note('Every day, too', '<p>Over years, the plate in ' + a('cook/plate', '4.5') + ' is food medicine: diets high in fiber, beans, whole grains, fruit and vegetables are linked with less heart disease, type 2 diabetes and some cancers.</p>') +
             care('Get care right away for signs of dehydration: very little or no pee, no tears, a dry mouth, a sunken soft spot on a baby’s head, unusual sleepiness or confusion. Also for blood in vomit or stool, vomiting that won’t stop, or a fever in a baby under 3 months (100.4°F / 38°C or higher).') +
-            links('Body care (in progress) and First aid (in progress) take this further.') +
+            links('<a href="#lens-body-care">Body care</a> and <a href="#lens-first-aid">First aid</a> (planned) take this further.') +
             '<p class="fo-src"><small>Sources: World Health Organization (oral rehydration); American Academy of Pediatrics; Viljoen et al., <i>Nutrition Journal</i> (2014), ginger for nausea in pregnancy.</small></p>'; } },
           { id: 'animals', short: 'Animals', title: 'Tender times for companion animals', html: function () { return ul([
               '<b>Kittens and puppies</b> nurse for about 4 weeks, then move onto soft wet food mashed with warm water over the next few weeks. An orphaned kitten or puppy needs a milk replacer made for their species, warmth and a vet: cow’s milk upsets their stomachs.',
@@ -433,7 +434,7 @@
   function panel() {
     var rows = onFile();
     if (!rows.length) {
-      return '<div class="fo-sit"><span class="eyebrow">Tailor this course</span><p>Two questions in your Profile’s Food section (how you cook, how you keep food cold) open the parts that fit your life. Everything here stays open to everyone.</p><a class="btn personal sm" href="#profile/food">Answer in Profile</a></div>';
+      return '<div class="fo-sit"><span class="eyebrow">Tailor this lens</span><p>Two questions in your Profile’s Food section (how you cook, how you keep food cold) open the parts that fit your life. Everything here stays open to everyone.</p><a class="btn personal sm" href="#profile/food">Answer in Profile</a></div>';
     }
     return '<div class="fo-sit"><span class="eyebrow">Tailored to your profile</span><p>Sections for you are open and marked <span class="fo-foryou is-on">For you</span>.</p>' +
       '<span class="fo-review"><a href="#profile/food" aria-describedby="fo-onfile">Review your profile’s food subsection</a>' +
@@ -444,7 +445,7 @@
   /* ---------- layout ---------- */
   function sidebar(U, cur) {
     var wide = window.matchMedia && window.matchMedia('(min-width: 900px)').matches;
-    return '<nav class="fo-nav" aria-label="Food course"><details class="fo-nav-wrap"' + (wide ? ' open' : '') + '><summary class="fo-nav-head"><span class="eyebrow">Course map</span><b>Food</b></summary>' +
+    return '<nav class="fo-nav" aria-label="Food lens"><details class="fo-nav-wrap"' + (wide ? ' open' : '') + '><summary class="fo-nav-head"><span class="eyebrow">Units</span><b>Food</b></summary>' +
       '<a class="fo-nav-over" href="' + BASE + '"' + (!cur ? ' aria-current="page"' : '') + '>Overview</a><ol class="fo-vt">' +
       U.map(function (u) {
         var on = cur === u.id;
@@ -456,12 +457,12 @@
     return mn().header('home') + '<div class="fo-layout">' + sidebar(U, cur) + '<main class="fo-main">' + panel() + main + '</main></div>' + mn().footer();
   }
   function viewOverview(U) {
-    return '<section class="fo-hero"><span class="fo-lens-pill">Tier 2 · Roots · Course</span><h1 tabindex="-1">Food</h1>' +
+    return '<section class="fo-hero"><span class="fo-lens-pill">Tier 2 · Roots · Lens</span><h1 tabindex="-1">Food</h1>' +
       '<p class="fo-lede">Every body needs food, and feeding each other is one of the oldest pleasures there is. Seven short units on finding food, washing it, waking up dried food, cooking it safely, keeping it good, softening it for tender bodies and sick days, and feeding the animals we live with, at every scale: a full kitchen, a hot plate, a cooler, no kitchen at all.</p></section>' +
       '<ol class="fo-ucards">' + U.map(function (u) {
         return '<li><a class="fo-ucard fk' + u.num + '" href="' + BASE + '/' + u.id + '"><i class="fo-band"></i><span class="fo-n">0' + u.num + '</span><b>' + u.word + '</b><span>' + u.sub + '</span><ol>' + u.subs.filter(function (s) { return !s.tool; }).map(function (s) { return '<li>' + s.title + '</li>'; }).join('') + '</ol></a></li>';
       }).join('') + '</ol>' +
-      '<aside class="fo-funfact"><span class="eyebrow">Fun fact</span><p>Every recipe in this course comes from plants, the cheapest, longest-keeping and most shareable way to meet the need for food. Beans and rice alone have fed much of the world for thousands of years. More on the <a href="#lens-relationships/special/captive">Captive animals</a> page.</p>' +
+      '<aside class="fo-funfact"><span class="eyebrow">Fun fact</span><p>Every recipe in this lens comes from plants, the cheapest, longest-keeping and most shareable way to meet the need for food. Beans and rice alone have fed much of the world for thousands of years. More on the <a href="#lens-relationships/special/captive">Captive animals</a> page.</p>' +
       '<p>Safety numbers come from public food-safety and health guidance (USDA, FDA, the UK’s NHS, the National Center for Home Food Preservation, WHO, the American Academy of Pediatrics and IDDSI). Laws mentioned are California’s; food itself is the same everywhere. Thank you to everyone who keeps this knowledge free.</p></aside>';
   }
   function viewUnit(U, u, subId) {

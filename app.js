@@ -62,13 +62,13 @@
     /* Food: how you can cook and keep food cold right now. */
     kitchen: ['A full kitchen', 'A hot plate, rice cooker or microwave', 'A shared kitchen', 'No way to cook right now'],
     cold: ['Fridge and freezer', 'A small or shared fridge', 'A cooler, or no fridge'],
-    /* Air: what cooks the food, and where the kitchen air goes (Air course). */
+    /* Air: what cooks the food, and where the kitchen air goes (Air lens). */
     stove: ['Gas', 'Electric (coil or smooth top)', 'Induction', 'Hot plate or countertop only', 'No stove'],
     hood: ['Vents outside', 'Recirculates (no duct)', 'No hood or fan', 'Not sure'],
-    /* Surroundings: what the building and the neighborhood bring (Poisons course). */
+    /* Surroundings: what the building and the neighborhood bring (Poisons lens). */
     built: ['Before 1978', '1978 or later', 'Not sure'],
     near: ['A freeway or busy road', 'Factory, refinery or oil and gas wells', 'Farm fields', 'An airport', 'None of these'],
-    /* Cleaning: what the counters are made of (stone changes the vinegar advice) and where the wash gets done (Cleaning course). */
+    /* Cleaning: what the counters are made of (stone changes the vinegar advice) and where the wash gets done (Cleaning lens). */
     counter: ['Laminate or plastic', 'Sealed granite or quartz', 'Marble, limestone or travertine', 'Wood or butcher block', 'Tile and grout', 'Stainless steel', 'Concrete', 'Not sure'],
     laundry: ['Machine at home', 'Shared machines in the building', 'Laundromat', 'By hand', 'A mix of these'],
     space: ['Windowsill', 'Balcony', 'Shared yard', 'Private yard', 'Community plot', 'Acreage or farmland', 'None yet'],
@@ -82,7 +82,7 @@
       { id: 'grow', label: 'Want to grow food', lens: 'gardening' },
       { id: 'damp', label: 'Stuffy, damp rooms', lens: 'air' },
       { id: 'tension', label: 'Tension at home', lens: 'relationships' },
-      { id: 'products', label: 'Too many products under the sink', lens: 'household-tools' },
+      { id: 'products', label: 'Too many products under the sink', lens: 'cleaning' },
       { id: 'broken', label: 'Things break and get tossed', lens: 'repair' }
     ]
   };
@@ -227,7 +227,7 @@
     { id: 'education', name: 'Education plan', blurb: 'Your next most useful lessons' },
     { id: 'budget', name: 'Improvements & budget', blurb: 'What meeting needs costs, now and after upgrades' },
     { id: 'garden', name: 'Garden planner', blurb: '12 months, seed by seed' },
-    { id: 'tools', name: 'My tools', blurb: 'Every course tool and list in one place', href: '#tools' }
+    { id: 'tools', name: 'My tools', blurb: 'Every lens tool and list in one place', href: '#tools' }
   ];
   function plansMenu(current) {
     return '<div class="navdrop">' +
@@ -262,7 +262,7 @@
   }
   window.addEventListener('resize', function () { requestAnimationFrame(placeArrow); });
 
-  /* Go deeper: the people and places a course stands on, and where to go for more. Same block at the end of every course.
+  /* Go deeper: the people and places a course stands on, and where to go for more. Same block at the end of every lens.
      people: [{ name, who, work (html), shaped, url?, link? }]. Names and descriptions are plain text except work. */
   function deeper(intro, people) {
     return '<section class="deeper" aria-label="Go deeper"><div class="deeper-head"><span class="eyebrow">Shoulders we stand on</span><h2>Go deeper</h2>' +
@@ -275,7 +275,7 @@
   }
 
   /* Resources: the library of shoulders we stand on. One entry per person or group; shaped says what they shaped, per course.
-     Courses pull their Go deeper credits from here with MN.credits(courseId), so the Resources page and every course stay in sync.
+     Courses pull their Go deeper credits from here with MN.credits(courseId), so the Resources page and every lens stay in sync.
      Keys in shaped are lens ids, or 'kinship' for the project as a whole. work is html; the rest is plain text. */
   var CONTACT = 'ashley@ashleyhoffmann.com';
   var SHOULDERS = [
@@ -321,7 +321,7 @@
     { tier: 2, name: 'Dr. Sarah Taber & Farm to Taber', who: 'Crop scientist · writer · podcaster', work: '<i>Farm to Taber</i>, on farming, food systems and the people who do the work, including field-tested heat safety.', url: 'https://substack.com/@farm2taber', link: 'Farm to Taber on Substack',
       shaped: { air: 'Heat and “the heat stupids”: confusion as heat’s first warning' } },
     { tier: 2, name: 'Dr. Yvonne Burkart', who: 'Toxicologist', work: 'Free education on everyday toxic exposures and gentler swaps.',
-      shaped: { toxins: 'This course’s view of everyday exposures' } },
+      shaped: { toxins: 'This lens’s view of everyday exposures' } },
     { tier: 3, name: 'Kirsten Dirksen', who: 'Filmmaker · YouTuber', work: 'Video tours of small, off-grid and self-built homes and the people who live in them, with Nicolás Boullosa of faircompanies.', url: 'https://www.youtube.com/user/kirstendirksen', link: 'Kirsten Dirksen on YouTube',
       shaped: { shelter: 'Documenting off-grid shelter alternatives (coming soon)' } },
     { tier: 3, name: 'Dr. Ellie Phillips', who: 'Dentist · author', work: '<i>Kiss Your Dentist Goodbye</i>: mouth health as chemistry and bacteria, with xylitol and a simple home routine.',
@@ -371,7 +371,7 @@
       '</div></section>' +
       '<aside class="res-collab"><b>Are you one of these people, or associated with their work?</b><span>I’d love to collaborate if you’re interested! For feedback, corrections, or anything else, reach me at ' + mailto() + '.</span></aside>' +
       '<section class="deeper res-lib" aria-labelledby="res-lib-h"><div class="deeper-head"><span class="eyebrow">The library</span><h2 id="res-lib-h">Who shaped what</h2>' +
-      '<p>Each course ends with its own Go deeper list; here they all are together, coloured by tier.</p></div>' + groups + '</section>' +
+      '<p>Each lens ends with its own Go deeper list; here they all are together, coloured by tier.</p></div>' + groups + '</section>' +
       footer();
   }
 
@@ -503,12 +503,12 @@
       '<div class="favs">' + body + '</div>' + footer();
   }
 
-  /* My tools: every course tool and personal list in one place. Each is a shortcut into its course, never a gate. */
+  /* My tools: every lens tool and personal list in one place. Each is a shortcut into its lens, never a gate. */
   var TOOLS = [
     ['water', [['Your water use', '#lens-water/use/calc'], ['Compare sources', '#lens-water/sources/table'], ['How much to keep', '#lens-water/containers/keep'], ['Bleach dose for a crisis', '#lens-water/purify/crisis'], ['Match a filter to the worry', '#lens-water/purify/match'], ['Water prices', '#lens-water/sources/prices'], ['Your water abilities', '#lens-water/abilities']]],
     ['food', [['Soak & cook', '#lens-food/rehydrate/tool'], ['How long it keeps', '#lens-food/store/keeps'], ['Make it gentle', '#lens-food/gentle/tool']]],
     ['air', [['What do you notice?', '#lens-air/notice'], ['Filter sizer', '#lens-air/ventilation/sizer'], ['My list', '#lens-air/list']]],
-    ['toxins', [['Where to start', '#lens-toxins/exposures/start'], ['Soil batch planner', '#lens-toxins/soil/planner'], ['My list', '#lens-toxins/list']]],
+    ['toxins', [['Where to start', '#lens-toxins/exposures/start'], ['My list', '#lens-toxins/list']]],
     ['cleaning', [['What needs cleaning?', '#lens-cleaning/now'], ['Stain finder', '#lens-cleaning/stains/finder'], ['My list', '#lens-cleaning/list']]],
     ['emergency-prep', [['What to prep for', '#lens-emergency-prep/prepare/planner'], ['My prep list', '#lens-emergency-prep/list']]]
   ];
@@ -523,7 +523,7 @@
     return header('tools') +
       '<section class="intro"><span class="eyebrow">My tools</span>' +
       '<h1 tabindex="-1">Your tools, all in one place.</h1>' +
-      '<p>Calculators, finders and your lists from every course. Each one opens inside its course, and your lists stay saved in this browser.</p></section>' +
+      '<p>Calculators, finders and your lists from every lens. Each one opens inside its lens, and your lists stay saved in this browser.</p></section>' +
       '<div class="favs">' + body + '</div>' + footer();
   }
 
@@ -606,24 +606,24 @@
       '<div class="srcs" role="group" aria-labelledby="l-sources">' + OPT.sources.map(srcRow).join('') + '</div></div>' +
       pickField('filters', 'Water filters you already have', OPT.filters, '(pick any)') +
       '<div class="row">' + selectField('pipes', 'When were your building’s pipes put in?', OPT.pipes, p.pipes) + selectField('rain', 'How often does rain or snow fall?', OPT.rain, p.rain) + '</div>' +
-      '<p class="hint">These change rarely. When something does (say, you now have a safe tap), update it here and the Water course follows.</p>' +
+      '<p class="hint">These change rarely. When something does (say, you now have a safe tap), update it here and the Water lens follows.</p>' +
       '</fieldset>' +
 
       '<fieldset id="s-food" class="glass"><legend>Food</legend>' +
       '<div class="row">' + selectField('kitchen', 'How can you cook right now?', OPT.kitchen, p.kitchen) + selectField('cold', 'How do you keep food cold?', OPT.cold, p.cold) + '</div>' +
       '<div class="row">' + selectField('stove', 'What do you cook on?', OPT.stove, p.stove) + selectField('hood', 'Kitchen fan', OPT.hood, p.hood) + '</div>' +
-      '<p class="hint">The Food course opens the parts that fit: one-pot cooking, cold soaking, a small fridge or none. The Air course reads the stove and fan: gas flames and getting kitchen air out.</p>' +
+      '<p class="hint">The Food lens opens the parts that fit: one-pot cooking, cold soaking, a small fridge or none. The Air lens reads the stove and fan: gas flames and getting kitchen air out.</p>' +
       '</fieldset>' +
 
       '<fieldset id="s-toxins" class="glass"><legend>Surroundings</legend>' +
       '<div class="row">' + selectField('built', 'When was the building built?', OPT.built, p.built) + '</div>' +
       pickField('near', 'Close by, within about half a mile', OPT.near, '(pick any)') +
-      '<p class="hint">Lead paint was banned for homes in 1978. With what’s nearby, the Poisons course opens the parts that fit: soil testing, filters, spray alerts.</p>' +
+      '<p class="hint">Lead paint was banned for homes in 1978. With what’s nearby, the Poisons lens opens the parts that fit: soil testing, filters, spray alerts.</p>' +
       '</fieldset>' +
 
       '<fieldset id="s-cleaning" class="glass"><legend>Cleaning</legend>' +
       '<div class="row">' + selectField('counter', 'Your kitchen counters', OPT.counter, p.counter) + selectField('laundry', 'Where you do laundry', OPT.laundry, p.laundry) + '</div>' +
-      '<p class="hint">The Cleaning course reads both: marble, limestone and concrete skip vinegar, and shared machines or washing by hand open their own tips.</p>' +
+      '<p class="hint">The Cleaning lens reads both: marble, limestone and concrete skip vinegar, and shared machines or washing by hand open their own tips.</p>' +
       '</fieldset>' +
 
       '<fieldset id="s-household" class="glass"><legend>Household</legend>' +
@@ -729,7 +729,7 @@
     else if (r === 'tools') { html = viewTools(); title = 'My tools · Kinship'; }
     else if (r.indexOf('lens-') === 0 && LENS[r.slice(5).split(/[\/?]/)[0]]) {
       var lid = r.slice(5).split(/[\/?]/)[0], l = LENS[lid], custom = (window.MN_LENS_VIEWS || {})[lid];
-      if (custom) { var v = custom(r.slice(5 + lid.length).replace(/^\//, ''), l); html = v.html; title = v.title; }
+      if (custom) { var v = custom(r.slice(5 + lid.length).replace(/^\//, ''), l); html = v.html; title = v.title; if (v.jump) sec = v.jump; }
       else { html = viewLens(l); title = l.name + ' · Kinship'; }
     }
     else html = viewHome();

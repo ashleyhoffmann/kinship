@@ -66,7 +66,7 @@
     return [
       { id: 'uses', num: 1, word: 'Uses', sub: 'Using water wisely',
         take: function () { return mn().opinion ? mn().opinion('<p>Since children’s bodies are smallest, they dehydrate fastest and are most sensitive to drought and famine.</p><p class="opinion-src">Worldwide, 1 in 5 children don’t have enough water for everyday needs (UNICEF, 2021).</p>') : ''; },
-        lede: 'Not every job needs drinking water. Knowing what each use really needs is the base of every system later in this course, and the easiest way to need less.',
+        lede: 'Not every job needs drinking water. Knowing what each use really needs is the base of every system later in this lens, and the easiest way to need less.',
         subs: [
           { id: 'needs', short: 'Needs', title: 'What we need it for', html: function () { return '<p>A day of water: drinking, cooking, brushing teeth, washing hands and bodies, dishes, laundry, flushing, cleaning, plants and animals. A body needs about 2–3 liters a day to drink, more in heat (' + a('uses/drink', '1.2') + '). Humanitarian groups plan around 15 liters (about 4 gallons) per person a day for drinking, cooking and basic washing. A typical US home with taps uses many times that.</p>' +
             old('When every drop was carried, every drop had a job: washing water went to the garden, dishwater to the animals’ trough or the fruit trees.') +
@@ -91,8 +91,8 @@
             ca('A simple laundry-to-landscape system needs no permit if it follows the state plumbing code’s rules (no storage, no spraying, water stays on your land).') +
             accs(
               acc('portable nohome', 'Portable', 'Gray water without changing any pipes', '<p>A bucket in the shower while it warms up, then into the toilet tank or onto outdoor plants. A basin in the sink for hand-washing water. Nothing to install, nothing to ask permission for.</p>'),
-              acc('invest', 'Long-term place', 'Laundry-to-landscape and branched drains', '<p>The washing machine’s drain hose feeds a pipe to mulch basins around trees. A branched drain does the same for showers. A 3-way valve lets you switch back to the sewer in rainy months.</p>' + links('Gardening · Composting &amp; waste')),
-              acc('crisis', 'Outage', 'Flushing when the water is off', '<p>Pour a bucket of gray water (about 1–2 gallons) quickly into the bowl to flush. If sewer lines may be broken after an earthquake, don’t flush: use a lined bucket toilet instead.</p>' + links('Composting &amp; waste · Emergency prep'))
+              acc('invest', 'Long-term place', 'Laundry-to-landscape and branched drains', '<p>The washing machine’s drain hose feeds a pipe to mulch basins around trees. A branched drain does the same for showers. A 3-way valve lets you switch back to the sewer in rainy months.</p>' + links('<a href="#lens-gardening/u4">Growing → Yard &amp; outdoors</a> · <a href="#lens-composting-waste">Composting &amp; waste</a>')),
+              acc('crisis', 'Outage', 'Flushing when the water is off', '<p>Pour a bucket of gray water (about 1–2 gallons) quickly into the bowl to flush. If sewer lines may be broken after an earthquake, don’t flush: use a lined bucket toilet instead.</p>' + links('<a href="#lens-composting-waste">Composting &amp; waste (sewage and septic, planned)</a> · <a href="#lens-emergency-prep">Emergency prep</a>'))
             ); } },
           { id: 'less', short: 'Use less', title: 'Small ways to use less', html: function () { return ul(['<b>Toilet leak test:</b> a few drops of food coloring in the tank. Color in the bowl after 10 minutes without flushing means a leak.', 'A faucet dripping once a second adds up to thousands of gallons a year.', 'Wash dishes in a basin, run full laundry loads, catch the cold water while the shower warms.', 'Water gardens early or late, at the roots, with mulch on top.']) +
             tryit('Do the toilet dye test with a child: they’re great at watching for color.'); } },
@@ -103,7 +103,7 @@
               acc('invest outdoor', 'Rooted, with outdoor space', 'A house-and-yard loop', '<p>Tap and rain barrels → under-sink filter → stored drums → laundry-to-landscape → fruit trees and mulch. Rain gardens let what’s left soak in.</p>'),
               acc('land', 'Land', 'An off-grid loop', '<p>Well or roof catchment → cistern → sediment, carbon and UV (or slow sand) → house → gray water to orchard → swales that recharge the aquifer.</p>'),
               acc('nohome', 'No fixed home', 'A map-it loop', '<p>Free refill points → two or three clean bottles → a small backup filter → rinse water reused for washing up. Here the system is the map of where water is, and the people who share it.</p>'),
-              acc('dry', 'Dry climate', 'Designing for the dry season', '<p>Most of California gets its rain in a few winter months. Count how many dry months you need to bridge, and let the garden plan follow the water: native, dry-adapted plants, deep mulch, and winter rain stored in the soil.</p>' + links('Gardening · Weather'))
+              acc('dry', 'Dry climate', 'Designing for the dry season', '<p>Most of California gets its rain in a few winter months. Count how many dry months you need to bridge, and let the garden plan follow the water: native, dry-adapted plants, deep mulch, and winter rain stored in the soil.</p>' + links('<a href="#lens-gardening">Growing</a> · <a href="#lens-weather">Weather</a>'))
             ) + tryit('Draw your loop on paper with arrows. Mark one step you’d like to add.'); } }
         ] },
 
@@ -168,7 +168,7 @@
             ul(['Opaque containers, or cover clear ones and keep them in the dark.', 'Rain barrels: opaque, lidded and screened.', 'Pet bowls and bottles by a window grow the same film in miniature.']) +
             old('Standing water breeds mosquitoes: eggs can become biting adults in about a week. Empty, cover or keep water moving.') +
             tryit('Walk the house and yard with a child and find every place water sits in sunlight or stands still. Cover, empty or move each one.') +
-            links('Animal care · ' + a('purify/crisis', '4.4 Sunlight as a tool') + ' (the short-trip exception)'); } },
+            links('<a href="#lens-relationships/special/family">Relationships → Family animals</a> · <a href="#lens-toxins/living/blooms">Poisons → Water that blooms</a> · ' + a('purify/crisis', '4.4 Sunlight as a tool') + ' (the short-trip exception)'); } },
           { id: 'fresh', short: 'Fresh', title: 'Keeping it fresh', html: function () { return ul(['<b>Before filling:</b> wash with soap, rinse, swish with a little unscented bleach and water (about 1 tsp per quart), then rinse.', '<b>Label:</b> “filled on” date. Refresh tap water you bottled yourself every 6 months; sealed bottled water lasts to its date.', '<b>Pour, don’t dip:</b> a spigot or pouring keeps hands and cups out of the supply.', 'Old stored water makes great plant water.']); } },
           { id: 'amount', short: 'How much', title: 'How much to keep', html: function () { return '<p>A short-term bare minimum is about <b>1 gallon per person per day</b>. For longer stretches, humanitarian groups plan around <b>4 gallons (15 L)</b> to cover cooking and washing. Three days is a start; two weeks gives real ease. There’s no rush: a few jugs a month adds up.</p>' +
             '<div class="wa-tool"><b class="wa-tool-t">Storage planner</b><div class="wa-row">' +
@@ -176,7 +176,7 @@
             '<label class="wa-f">Days<select data-wa="store" id="wa-days"><option value="3">3 days</option><option value="7">1 week</option><option value="14" selected>2 weeks</option></select></label>' +
             '<label class="wa-f">Level<select data-wa="store" id="wa-lvl"><option value="1">Bare minimum (1 gal)</option><option value="4">Comfortable (4 gal)</option></select></label>' +
             '<label class="wa-chk"><input type="checkbox" data-wa="store" id="wa-hot"> Hot weather, nursing or sick</label></div>' +
-            '<div class="wa-out" id="wa-store-out" aria-live="polite"></div></div>' + links('Emergency prep'); } }
+            '<div class="wa-out" id="wa-store-out" aria-live="polite"></div></div>' + links('<a href="#lens-emergency-prep">Emergency prep</a>'); } }
         ] },
 
       { id: 'purify', num: 4, word: 'Purify', sub: 'From a pitcher to an aquifer',
@@ -212,7 +212,7 @@
               acc('well land', 'Well', 'A well water train', '<p>Well → pressure tank → sediment filter → carbon → UV light where water enters the house. Add a treatment for whatever testing finds (an iron filter, RO at the kitchen sink for nitrate or arsenic).</p>'),
               acc('land catch', 'Rain', 'Rain to drinking water', '<p>First flush → screened, dark cistern → floating intake (draws from just under the surface, above settled sediment) → sediment → carbon → UV. Test before trusting it.</p>'),
               acc('land nohome', 'Low-tech', 'Slow sand and biosand filters', '<p>Water trickles through fine sand; a living layer on top (the “schmutzdecke”) eats germs. Buildable from a barrel, gravel and sand, no power. Removes most germs and cloudiness, not chemicals. Takes a few weeks to mature.</p>' + old('Sand, charcoal, settling and sunlight are some of the oldest water tools people have.')),
-              acc('land invest dry', 'Land', 'Feeding the aquifer', '<p>The longest-term system: help rain sink in instead of running off. Swales, rain gardens, mulch and less pavement recharge the groundwater that wells and springs draw from, for everyone downhill too.</p>' + links('Gardening · Weather · Death &amp; seasons'))
+              acc('land invest dry', 'Land', 'Feeding the aquifer', '<p>The longest-term system: help rain sink in instead of running off. Swales, rain gardens, mulch and less pavement recharge the groundwater that wells and springs draw from, for everyone downhill too.</p>' + links('<a href="#lens-gardening">Growing</a> · <a href="#lens-weather">Weather</a> · <a href="#lens-death-seasons">Death &amp; cycles</a>'))
             ); } },
           { id: 'crisis', short: 'Crisis', title: 'Crisis: boil, bleach, sun', html: function () { return '<p>These keep people alive for days when the usual systems stop. They aren’t meant to be how we drink every day.</p>' +
             '<ol><li><b>Settle:</b> let cloudy water sit, pour off the clearer top.</li><li><b>Strain:</b> through clean cloth, a coffee filter or paper towel.</li><li><b>Boil:</b> a full rolling boil kills germs. Many people keep it boiling for 1 minute to be sure (3 minutes at high altitude).</li></ol>' +
@@ -230,10 +230,10 @@
                 '<div class="wa-out" id="wa-bleach-out" aria-live="polite"></div></div>'),
               acc('nohome', 'Free', 'Sunlight as a tool (SODIS)', '<p>Clear water in a clear plastic bottle (2 L or smaller), lying in full sun for about 6 hours (2 days if cloudy), is disinfected by UV. The flip side of ' + a('storage/algae', '3.3') + ': a short trip in the sun cleans; a long stay grows algae.</p>'),
               acc('crisis', 'Notices', 'During a boil-water notice', '<p>Use boiled or bottled water for drinking, brushing teeth, ice, baby bottles and washing produce. Showering is fine; keep it out of your mouth. When it lifts, run taps for a few minutes, empty the ice maker and change fridge and pitcher filters.</p>')
-            ) + links('Emergency prep · First aid · Cleaning'); } },
+            ) + links('<a href="#lens-emergency-prep">Emergency prep</a> · <a href="#lens-first-aid">First aid</a> · <a href="#lens-cleaning">Cleaning</a>'); } },
           { id: 'nohome', short: 'No fixed home', title: 'With no fixed home', html: function () { return kind('Being unhoused makes all of this much harder: more carrying, more asking, fewer places to wash and store. These are real options, cheapest first.') +
             ul(['<b>Free:</b> refill points (' + a('sources/taps', '2.2') + '), SODIS with clear bottles, rinsing bottles with hot water and soap at a library or day center.', '<b>A few dollars:</b> a small dropper bottle of plain bleach (date it).', '<b>Around $10–40:</b> a squeeze hollow-fiber filter for bacteria and parasites. Buy this one new (a used one can’t be checked for cracks, and boiling or freezing damages it); keep it from freezing.', '<b>Tablets:</b> chlorine dioxide tablets are light and handle Cryptosporidium too, with a longer wait (check the label, up to 4 hours).', '<b>Heat:</b> drink before you’re thirsty; shade and a slow pace stretch water further.']) +
-            links('First aid · Body care'); } }
+            links('<a href="#lens-first-aid">First aid</a> · <a href="#lens-body-care">Body care</a>'); } }
         ] },
 
       { id: 'testing', num: 5, word: 'Testing', sub: 'Knowing it’s safe',
@@ -247,7 +247,7 @@
               ['Only worms, leeches and slime', 'Polluted or low-oxygen water'], ['Fields, feedlots, mines or factories upstream', 'Possible chemicals no sense can detect: test or choose another source']]) +
             '<p><b>Watch what animals drink.</b> Many animals smell far better than we do, so an animal who sniffs a source and walks away may be telling you something. It’s a clue, not a test: animals will drink polluted water when it’s all they have, so tracks at the edge don’t prove it’s clean.</p>' +
             home('If an animal you live with refuses the tap or a new source but drinks happily from filtered or bottled water, follow their lead. It may only be chlorine, but switch for now and test (' + a('testing/kits', '5.4') + ').') +
-            tryit('Turn over a few stones in a creek with a child and count the little creatures clinging to them. That’s a real field test.') + links('Identification · <a href="#lens-relationships/special/captive">Relationships: Captive animals</a> (reading their signals)'); } },
+            tryit('Turn over a few stones in a creek with a child and count the little creatures clinging to them. That’s a real field test.') + links('<a href="#lens-identification">Identification &amp; foraging</a> · <a href="#lens-relationships/special/captive">Relationships: Captive animals</a> (reading their signals)'); } },
           { id: 'report', short: 'Reports &amp; maps', title: 'Water reports and maps', html: function () { return '<p>Every public water system publishes a yearly report of what it found. Search your water provider’s name + “water quality report.” Each line shows the <b>legal limit</b> and the <b>health goal</b>. Goals are set on health alone and are often stricter (for lead, the goal is zero), so compare to those.</p>' +
             '<p>Maps go further: they show where water is, and what’s been found in it, across a whole region.</p>' +
             '<div class="wa-cols"><div class="wa-note"><b>Where water is</b>' + ul(['Reservoir and snowpack levels (the state’s CDEC data exchange).', 'The US Drought Monitor, updated weekly.', 'Groundwater basins and how stressed they are (the state’s SGMA portal).']) + '</div>' +
@@ -392,7 +392,7 @@
   function panel() {
     var rows = onFile();
     if (!rows.length) {
-      return '<div class="wa-sit"><span class="eyebrow">Tailor this course</span><p>A few questions in your Profile’s Water section open the parts that fit your life. Everything here stays open to everyone.</p><a class="btn personal sm" href="#profile/water">Answer in Profile</a></div>';
+      return '<div class="wa-sit"><span class="eyebrow">Tailor this lens</span><p>A few questions in your Profile’s Water section open the parts that fit your life. Everything here stays open to everyone.</p><a class="btn personal sm" href="#profile/water">Answer in Profile</a></div>';
     }
     return '<div class="wa-sit"><span class="eyebrow">Tailored to your profile</span><p>Sections for you are open and marked <span class="wa-foryou">For you</span>.</p>' +
       '<span class="wa-review"><a href="#profile/water" aria-describedby="wa-onfile">Review your profile’s water subsection</a>' +
@@ -628,7 +628,7 @@
       '<div class="wa2-res"><div class="wa2-r main"><span class="eyebrow">Drinking-clean on hand</span><b data-w2-n="k-keep"></b><span data-w2-n="k-jugs"></span></div>' +
       '<div class="wa2-r"><span class="eyebrow">Rain to bridge the dry months</span><b data-w2-n="k-need"></b><span data-w2-n="k-needn"></span></div>' +
       '<div class="wa2-r"><span class="eyebrow">Your roof catches in a year</span><b data-w2-n="k-roof"></b><span data-w2-n="k-roofn"></span></div></div>' +
-      '<p class="wa2-carry" data-w2-n="carryCont"></p>' + links('Emergency prep');
+      '<p class="wa2-carry" data-w2-n="carryCont"></p>' + links('<a href="#lens-emergency-prep">Emergency prep</a>');
   }
   var MAT = [
     ['Food-grade HDPE (#2)', 'water jugs, blue barrels', '1–55 gal', [1, 'drinking'], 'Opaque blue blocks light', '10+ years out of sun', 'Sun breaks it down. Secondhand barrels are often free from bakeries and juice bottlers: ask what was in them.'],
@@ -817,7 +817,7 @@
   /* ---------- Layout ---------- */
   function sidebarV2(ST, cur) {
     var wide = window.matchMedia && window.matchMedia('(min-width: 900px)').matches;
-    return '<nav class="wa-nav" aria-label="Water course"><details class="wa-nav-wrap"' + (wide ? ' open' : '') + '><summary class="wa-nav-head"><span class="eyebrow">Course map</span><b>Water</b></summary>' +
+    return '<nav class="wa-nav" aria-label="Water lens"><details class="wa-nav-wrap"' + (wide ? ' open' : '') + '><summary class="wa-nav-head"><span class="eyebrow">Units</span><b>Water</b></summary>' +
       '<a class="wa-nav-over" href="' + BASE + '"' + (!cur ? ' aria-current="page"' : '') + '>Overview</a><ol class="wa-vt">' +
       ST.map(function (u) {
         var on = cur === u.id, href = BASE + '/' + u.id;
@@ -844,11 +844,11 @@
   }
   function viewOverview(ST) {
     var first = ST[0];
-    return '<article class="wa-unit wk1"><header class="wa-unit-hero"><span class="wa-lens-pill">Tier 2 · Roots · Course</span><h1 tabindex="-1">Water</h1>' +
+    return '<article class="wa-unit wk1"><header class="wa-unit-hero"><span class="wa-lens-pill">Tier 2 · Roots · Lens</span><h1 tabindex="-1">Water</h1>' +
       '<p class="wa-lede">Every body needs water, and so does every plant and animal sharing the land. Five short units on how much you use and how clean it needs to be, where it can come from, what holds it, how to make it clean, and how to know it’s safe, at every scale: a studio, a farm, a car, a sidewalk.</p></header>' +
       '<section class="wa-sub" id="wa-think-steps"><div class="wa-sub-top"><h2>Five units</h2></div>' + htmlFive() + '</section>' +
       '<section class="wa-sub" id="wa-think-loop"><div class="wa-sub-top"><h2>Your water loop</h2></div>' + OLD('uses', 'system')() + '</section>' +
-      '<aside class="wa-funfact"><span class="eyebrow">Fun fact</span><p>This course leans on three kinds of knowing, checked against each other: old practice that kept people alive for thousands of years, international guidance (the World Health Organization’s drinking-water guidelines and the Sphere humanitarian handbook), and what you can see, smell, and test yourself. Legal limits come from politics as well as science, and they change, so we use them as one input, not the last word. Laws mentioned are California’s; water itself is the same everywhere. Thank you to everyone who keeps this knowledge free.</p></aside>' +
+      '<aside class="wa-funfact"><span class="eyebrow">Fun fact</span><p>This lens leans on three kinds of knowing, checked against each other: old practice that kept people alive for thousands of years, international guidance (the World Health Organization’s drinking-water guidelines and the Sphere humanitarian handbook), and what you can see, smell, and test yourself. Legal limits come from politics as well as science, and they change, so we use them as one input, not the last word. Laws mentioned are California’s; water itself is the same everywhere. Thank you to everyone who keeps this knowledge free.</p></aside>' +
       '</article><nav class="wa-pager" aria-label="Units"><span></span><a class="next" href="' + BASE + '/' + first.id + '"><small>Start →</small><b>' + first.num + ' · ' + first.word + '</b></a></nav>';
   }
   function viewStep(ST, u) {

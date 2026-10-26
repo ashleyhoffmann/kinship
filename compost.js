@@ -1,5 +1,5 @@
 /* Composting & waste lens (tier 4 Nurture, Beta): unit 1 Compost (1.1 How compost works, 1.2 Ways to compost, 1.3 What goes in (broth and ferments first), 1.4 Using compost).
-   Unit 2 Sewage & septic and unit 3 Less to throw away are planned. Kept plain like Body care (FOUNDATION §6). Registers window.MN_LENS_VIEWS['composting-waste']. */
+   Unit 2 Sewage & septic and unit 3 Sending less away are planned. Kept plain like Body care (FOUNDATION §6). Registers window.MN_LENS_VIEWS['composting-waste']. */
 (function () {
   function mn() { return window.MN; }
   function ul(items) { return '<ul>' + items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>'; }
@@ -14,10 +14,10 @@
   }
   var PLANNED = [
     ['Sewage &amp; septic', 'How sewer and septic systems work, why the grid is usually safest, and caring for a septic tank.'],
-    ['Less to throw away', 'Sending less of everything else away.']
+    ['Sending less away', 'Sending less of everything else away: repair, pass on, and salvage at home. How a whole town can do it is in <a href="#lens-governance/3-8">Governance → Less to throw away</a>.']
   ];
 
-  function view() {
+  function view(sub) {
     var html =
       '<div class="cp-hero"><span class="cp-pill">Tier 4 · Nurture</span><h1 tabindex="-1">Composting &amp; waste</h1>' +
         '<p class="cp-lede">Nothing in nature is waste: fallen leaves and scraps become food for the next thing that grows. Composting gives that cycle a place to happen. We start with compost.</p>' +
@@ -32,7 +32,7 @@
           card('Water and air', 'Keep it as damp as a wrung-out sponge. Microbes that breathe oxygen work fast and smell earthy.</p><p>When a pile is too wet or packed, oxygen-avoiding microbes take over, and they work slowly and give off a rotten-egg smell. Add browns and fluff or turn it.') +
           card('Hot or cold', 'A big, well-fed pile (about 3 feet each way) heats itself to 130–160°F as microbes multiply. Holding 131°F for several days kills most weed seeds and germs, and it can finish in 1–3 months.</p><p>A small or unturned pile stays cool. It still works, just slowly (6–12 months), and seeds and germs survive.') +
         '</div>' +
-        '<p class="cp-ally"><span>Soil life</span> Healthy garden soil holds the same crowd: a teaspoon can hold more microbes than there are people on Earth. Compost feeds them and adds more, and they in turn hand nutrients to plant roots. Tilling, bare soil, and pesticides thin them out; mulch and compost bring them back. Growing will cover soil care in more depth.</p>' +
+        '<p class="cp-ally"><span>Soil life</span> Healthy garden soil holds the same crowd: a teaspoon can hold more microbes than there are people on Earth. Compost feeds them and adds more, and they in turn hand nutrients to plant roots. Tilling, bare soil, and pesticides thin them out; mulch and compost bring them back. More on caring for soil in <a href="#lens-gardening/1-3">Growing → Soil</a>.</p>' +
         '<p class="cp-src">Sources: US EPA, “Composting at Home”; Cornell Waste Management Institute, “Composting Science” (1996); US EPA 40 CFR 503, process to further reduce pathogens (131°F for 3+ days); USDA NRCS, “Soil Biology Primer”.</p>') +
 
       sec('1.2', 'Ways to compost',
@@ -69,12 +69,12 @@
           '</div>' +
           '<div class="cp-no"><h4><span aria-hidden="true">✕</span> Keep out of a home pile</h4>' +
             ul(['Flesh, bones, dairy, and oily cooked food, which smell and draw rats, raccoons, and flies (the green bin or bokashi takes them)', 'Food-soiled paper like pizza boxes (fine in most green bins)', 'Sick plants and weeds gone to seed, which a cool pile won’t kill', 'Black walnut, whose juglone slows other plants', '“Compostable” cups, forks, and bags (see below)']) +
-            ul(['Cat litter and poop, never in any compost: they carry a parasite, <i>Toxoplasma</i>, that survives composting', 'Human waste (see Sewage &amp; septic, planned)', 'Charcoal ash, glossy or plastic-coated paper, produce stickers, and plastic', 'Anything sprayed or treated']) +
+            ul(['Cat litter and poop, never in any compost: they carry a parasite, <i>Toxoplasma</i>, that survives composting (more on what companions’ bodies carry and can’t process in <a href="#lens-toxins/exposures/companions">Poisons → Companion animals</a>)', 'Human waste (see Sewage &amp; septic, planned, and <a href="#lens-water/uses/gray">Water → compost toilets</a>)', 'Charcoal ash, glossy or plastic-coated paper, produce stickers, and plastic', 'Anything sprayed or treated, including sawdust from pressure-treated wood (<a href="#lens-toxins/pesticides/wood">Poisons → Treated wood</a>)']) +
           '</div>' +
         '</div>' +
         '<p class="cp-tip"><span>“Compostable” isn’t banana-peel compostable</span> A banana peel rots anywhere. “Compostable” cups, forks, takeout boxes, and bags (usually labeled BPI or ASTM D6400) are made to break down in an industrial site held around 130–160°F for months. In a backyard pile they can last a year or more, and in a landfill, with no air, they barely change. Only items labeled “home compostable” are made for a backyard pile. Some green bins take “compostable” kitchenware (San Francisco does) and many don’t, so check your hauler. California doesn’t allow plastic to be labeled “biodegradable” at all, because the word promised more than it delivered.</p>' +
         '<p class="cp-care"><span>Dog poop</span> Dog poop can be composted, but in its own pile, kept apart from garden compost. Run it hot (above 131°F for several days), then let it rest a year. Use it only around trees, shrubs, and flowers, never on food plants, because roundworm eggs can survive. “Compostable” poop bags only break down in industrial heat; in a trash can or landfill they sit like any bag, so empty them into a pet pile or use paper. Most California green bins don’t take pet waste, so in an apartment, the trash is usually the right place: tie the bag tight, use a lidded bin, and take it out often so neighbors aren’t living with the smell. An in-ground pet waste digester works where there’s a patch of yard.</p>' +
-        '<p class="cp-tip"><span>Weed killers</span> A few weed killers (clopyralid, aminopyralid, and picloram) survive composting and stunt tomatoes, beans, and peppers for years. They can ride in on grass clippings, hay, straw, or manure from fields that were sprayed, so ask where it came from. More in <a href="#lens-toxins/soil">Poisons → Soil</a>.</p>' +
+        '<p class="cp-tip"><span>Weed killers</span> A few weed killers (clopyralid, aminopyralid, and picloram) survive composting and stunt tomatoes, beans, and peppers for years. They can ride in on grass clippings, hay, straw, or manure from fields that were sprayed, so ask where it came from. A pea test catches them before they reach a bed: <a href="#lens-toxins/soil/potting">Poisons → Potting mix and compost</a>.</p>' +
         '<p class="cp-src">Sources: USDA NRCS Alaska, “Composting Dog Waste” (2005); UF/IFAS Extension, “Composting dog waste”; CDC, toxoplasmosis; Biodegradable Products Institute and ASTM D6400 (industrial compostability); California Public Resources Code §42357 (no “biodegradable” plastic labels); Rathje &amp; Murphy, <i>Rubbish! The Archaeology of Garbage</i> (1992); Washington State University Extension, “Persistent herbicides in compost” (2019).</p>') +
 
       sec('1.4', 'Using compost',
@@ -101,16 +101,17 @@
           card('A sponge', 'Humus holds several times its weight in water, so sandy soil stays damp longer and clay drains and breathes better.') +
           card('Living soil', 'Compost brings microbes that make nutrients available to roots, and fungi that reach water and minerals roots can’t reach alone.') +
         '</div>' +
-        '<p>Heavy feeders like tomatoes, squash, corn, and leafy greens may want more than compost alone. Worm castings, bokashi liquid, or a little plant-based fertilizer can top them up. Growing will cover feeding by plant.</p>' +
+        '<p>Heavy feeders like tomatoes, squash, corn, and leafy greens may want more than compost alone. Worm castings, bokashi liquid, or a little plant-based fertilizer can top them up. Which plants want more, and which want less, is in <a href="#lens-gardening/1-3">Growing → Soil</a>.</p>' +
         '<p class="cp-src">Sources: University of California Agriculture and Natural Resources, “Compost Use in the Home Garden”; Cornell Waste Management Institute, “Compost Quality”.</p>') +
 
       '<section class="cp-planned" aria-label="Planned units">' + PLANNED.map(function (u, i) { return '<div><span class="cp-n">' + (i + 2) + '</span><h2>' + u[0] + '</h2><span class="cp-soon">Planned</span><p>' + u[1] + '</p></div>'; }).join('') + '</section>';
 
     var c = mn().credits('composting-waste');
-    if (c.length) html += mn().deeper('People whose work shaped this course, and where to go for more.', c);
+    if (c.length) html += mn().deeper('People whose work shaped this lens, and where to go for more.', c);
     return { title: 'Composting & waste · Kinship', html: mn().header('home') + '<div><a class="back" href="#">← Education</a></div><main class="cp">' + html + '</main>' + mn().footer() };
   }
 
   window.MN_LENS_VIEWS = window.MN_LENS_VIEWS || {};
-  window.MN_LENS_VIEWS['composting-waste'] = function () { return view(); };
+  /* Deep links: #lens-composting-waste/1-4 opens the page at 1.4. */
+  window.MN_LENS_VIEWS['composting-waste'] = function (sub) { var v = view(); if (/^\d-\d+$/.test(sub || '')) v.jump = 'cp-' + sub; return v; };
 })();

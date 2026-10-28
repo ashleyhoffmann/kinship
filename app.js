@@ -197,6 +197,7 @@
       '<div class="top-left"><a class="brand" href="#">' + LOGO + '<b>Kinship</b></a>' +
       '<nav class="nav" aria-label="About">' + link('#about', 'About', 'about') + '</nav></div>' +
       '<nav class="nav" aria-label="Main">' +
+      '<a class="nav-gifts" href="#gifts"' + (active === 'gifts' ? ' aria-current="page"' : '') + '>Local gifts <small>Beta</small></a>' +
       eduMenu(active === 'home') +
       plansMenu(active === 'plans') +
       link('#resources', 'Resources', 'resources') +
@@ -306,10 +307,14 @@
       shaped: { relationships: 'Children' } },
     { tier: 1, name: 'Barbara Rogoff', who: 'Researcher', work: 'Research on how children learn by observing and pitching in.',
       shaped: { relationships: 'Children' } },
+    { tier: 1, name: 'Giulia Enders, MD', who: 'Physician · author', work: '<i>Gut</i> (2014), and a Big Think talk on true safety: the immune system as a curious, flexible host rather than a soldier, the few signs that make a microbe harmful, and why calm and tolerance keep us well.', url: 'https://www.youtube.com/watch?v=lx1djVcn1Gc', link: 'Her talk on YouTube',
+      shaped: { governance: '4.5 Community safety: red flags are things people do, and small things are tolerated', 'self-defense': 'Unit 1 Safety: the four red flags (1.4 Trust and vulnerability)' } },
     { tier: 1, name: 'Howard Schubiner, MD', who: 'Physician', work: '<i>Unlearn Your Pain</i>: how the brain can learn to send pain signals, and how they can be unlearned.',
       shaped: { emotions: 'Pain is a signal too, and Mind-body pain relationships (both planned)' } },
     { tier: 2, name: 'Earthships & Michael Reynolds', who: 'Architect · Taos, New Mexico', work: 'Earthship Biotecture: off-grid homes of earth-packed tires and bottles that catch their own water, hold their own warmth and grow food.',
       shaped: { kinship: 'A home designed to take care of you: the absolute basics, built in', water: 'Earthships: one drop, four jobs' } },
+    { tier: 2, name: 'Brad Lancaster', who: 'Rainwater harvester · author · Tucson, Arizona', work: '<i>Rainwater Harvesting for Drylands and Beyond</i>, and the curb cuts he made in 1998 that helped change Tucson’s law, told in <a href="https://www.youtube.com/watch?v=lQ-jdUGCxcc" target="_blank" rel="noopener">a short film by Andrew Millison</a>. With his neighbors in Dunbar/Spring, he turned bare streets into shaded, tree-lined basins that drink the rain.', url: 'https://www.harvestingrainwater.com', link: 'harvestingrainwater.com',
+      shaped: { water: 'Catching rain: plant the rain before the plant, and soil as the cheapest tank (2.5)' } },
     { tier: 2, name: 'Bob Sparkman & the Haven Street Bubbler', who: 'Neighbor · Holly Hills, St. Louis', work: 'A water fountain for neighborhood dogs, built in 2026 outside his home from leftover brick and tile and fed by his own spigot, after walking his two big dogs in summer heat. Neighbors who used to cross the street now stop and talk.', url: 'https://www.ksdk.com/article/news/local/lets-paws-south-st-louis-creates-continuous-water-fountain-for-dogs-in-his-neighborhood/63-4c9be1ba-af5f-48f1-b9f4-f9b33a5ccf05', link: 'KSDK',
       shaped: { governance: '1.2 There’s enough: one neighbor meeting a need with what he already had' } },
     { tier: 2, name: 'The San Francisco Diggers', who: 'Community anarchists · 1960s', work: 'Free food in the Panhandle and free stores, named for the English Diggers who farmed common land in 1649.', url: 'https://www.diggers.org', link: 'diggers.org',
@@ -675,16 +680,19 @@
 
   /* Course files load only when someone opens that lens, so the home page stays light. */
   var LAZY = { emotions: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, relationships: { css: 'rel.css', js: ['rel-data.js', 'rel.js'] }, water: { css: 'water.css', js: ['water.js'] }, food: { css: 'food.css', js: ['food.js'] }, toxins: { css: 'tox.css', js: ['tox.js'] }, air: { css: 'air.css', js: ['air.js'] }, cleaning: { css: 'clean.css', js: ['clean.js'] }, 'emergency-prep': { css: 'em.css', js: ['em.js'] }, governance: { css: 'gov.css', js: ['gov.js'] }, 'body-care': { css: 'body.css', js: ['body.js'] }, 'composting-waste': { css: 'compost.css', js: ['compost.js'] }, gardening: { css: 'grow.css', js: ['grow.js'] }, 'self-defense': { css: 'sd.css', js: ['sd.js'] } };
+  /* Local gifts (#gifts) is a sub-site, not a lens; it borrows the universal needs list from rel-data.js. */
+  LAZY.gifts = { css: 'gifts.css', js: ['rel-data.js', 'gifts.js'] };
   var lazyState = {};
   function needsLazy(r) {
-    var lid = r.indexOf('lens-') === 0 ? r.slice(5).split(/[\/?]/)[0] : '';
+    var lid = r.indexOf('lens-') === 0 ? r.slice(5).split(/[\/?]/)[0] : (/^gifts(\/|$)/.test(r) ? 'gifts' : '');
     var m = LAZY[lid];
     /* Emotions and Relationships share one file: once it has registered a view, don't load it again. */
     if (m && window.MN_LENS_VIEWS && window.MN_LENS_VIEWS[lid]) lazyState[lid] = 'done';
+    if (lid === 'gifts' && window.MN_GIFTS) lazyState[lid] = 'done';
     if (!m || lazyState[lid] === 'done' || lazyState[lid] === 'failed') return false;
     if (lazyState[lid] !== 'loading') {
       lazyState[lid] = 'loading';
-      var files = m.js.slice();
+      var files = m.js.filter(function (f) { return !(f === 'rel-data.js' && window.MN_REL); });
       var next = function () {
         if (!files.length) { lazyState[lid] = 'done'; route(); return; }
         var sc = document.createElement('script'); sc.src = files.shift();
@@ -711,7 +719,7 @@
   var lastHash = '';
   function route() {
     var r = (location.hash || '').replace(/^#/, '');
-    var jump = r && !/^(lens-|profile|about|resources|plans|favorites|tools)/.test(r) && document.getElementById(r);
+    var jump = r && !/^(lens-|profile|about|resources|plans|favorites|tools|gifts)/.test(r) && document.getElementById(r);
     if (jump && app.contains(jump)) {
       history.replaceState(null, '', lastHash || location.pathname);
       jump.scrollIntoView({ block: 'start' });
@@ -729,6 +737,7 @@
     else if (r === 'plans' || r.indexOf('plans/') === 0) { html = viewPlans(); title = 'Plans · Kinship'; sec = 'plan-' + r.slice(6); }
     else if (r === 'favorites') { html = viewFavorites(); title = 'Favorites · Kinship'; }
     else if (r === 'tools') { html = viewTools(); title = 'My tools · Kinship'; }
+    else if (/^gifts(\/|$)/.test(r) && window.MN_GIFTS) { var gv = window.MN_GIFTS(r.slice(6)); html = gv.html; title = gv.title; }
     else if (r.indexOf('lens-') === 0 && LENS[r.slice(5).split(/[\/?]/)[0]]) {
       var lid = r.slice(5).split(/[\/?]/)[0], l = LENS[lid], custom = (window.MN_LENS_VIEWS || {})[lid];
       if (custom) { var v = custom(r.slice(5 + lid.length).replace(/^\//, ''), l); html = v.html; title = v.title; if (v.jump) sec = v.jump; }

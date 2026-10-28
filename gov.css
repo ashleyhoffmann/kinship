@@ -216,3 +216,16 @@ details[open] > summary > .gv-pm { background: var(--gv-mid); }
   .gv-sizes small { text-align: left; }
 }
 .gv-stages + h4 { margin-top: 6px; }
+
+/* v19: 3.11 Catch the rain — eight cards, on land / with money */
+.gv-rain { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 10px; }
+.gv-rain li { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 14px 16px 16px; border-radius: 18px; background: var(--gv-bg); border: 1px solid var(--gv-edge); }
+.gv-rain-n { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--gv); color: #fff; font-family: var(--f-head); font-weight: 800; font-size: 15px; }
+.gv-rain h3 { font-family: var(--f-head); font-size: 19px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; }
+.gv-rain p { font-size: 14.5px; color: var(--ink-2); line-height: 1.45; padding: 8px 10px; border-radius: 12px; background: #fff; border: 1px solid var(--gv-edge); }
+.gv-rain p:first-of-type { background: #E6F0F7; border-color: #BCD3E4; }
+.gv-rain p:first-of-type .eyebrow { color: #24577D; }
+.gv-rain p:last-of-type { background: #E3F0E4; border-color: #B9D8BD; }
+.gv-rain p:last-of-type .eyebrow { color: #2E6B34; }
+.gv-rain .eyebrow { display: block; margin-bottom: 2px; font-size: 11px; }
+.gv-rain-credit { font-size: 14px; color: var(--muted); }

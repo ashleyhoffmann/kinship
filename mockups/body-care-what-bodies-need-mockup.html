@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kinship · Body care: Unit 2 What bodies need (mock-up)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="body-next.css">
+<style>
+.mk-label { display: block; max-width: 1180px; margin: 12px auto 8px; padding: 0 16px; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.mk-notes { max-width: 1180px; margin: 0 auto 12px; padding: 0 16px; font-size: 14.5px; color: var(--ink-2); }
+.mk-notes ul { margin: 4px 0 0; padding-left: 20px; }
+#app { max-width: 1180px; margin: 0 auto; padding: 0 16px 32px; }
+</style>
+</head>
+<body>
+<span class="mk-label">Mock-up · Oct 28 · Body care: new Unit 2 What bodies need (tap the unit pills, it’s live)</span>
+<div class="mk-notes"><ul>
+<li>New Unit 2 What bodies need at <code>/needs</code>, between Overview and Mouth: 2.1 One list for every cell (12 needs, linking tier 2 lenses), 2.2 Each part, its own way (teeth, bones, muscles, blood, collagen, brain, gut, heart and lungs, kidneys and liver, with plant foods), 2.3 Symptoms are messengers (two strategies; Allies on 911 / doctor / 211), 2.4 Thinking in systems (in and out, loops, first things first, slow changes, leverage, nesting; two spiral loops; Try this).</li>
+<li>Loops wrap on phones; arrows are hidden from screen readers, which hear “which leads to”.</li>
+<li>Later units shift by one: Mouth 3, Hair care 4, Hair bleaching 5, Bodies through time 6 and Animal bodies 7 (planned). Sub-unit numbers and “unit n” cross-references updated. Route links (<code>/mouth</code>, <code>/hair</code>, <code>/bleach</code>, <code>/1-1</code>) unchanged, so links from other lenses still work.</li>
+<li>On approval: <code>body.js</code> + <code>body.css</code> replaced; Body care’s home-page card (<code>lenses.js</code>) and README row updated to match.</li>
+</ul></div>
+<div id="app"></div>
+<script>window.MN={header:function(){return ''},footer:function(){return ''},credits:function(){return []},deeper:function(){return ''}};</script>
+<script src="body-next.js"></script>
+<script>
+function show(){var h=location.hash.replace(/^#lens-body-care\/?/,'').replace(/^#/,'');if(/^lens-/.test(h)){return;}var v=window.MN_LENS_VIEWS['body-care'](location.hash?h:'needs');document.getElementById('app').innerHTML=v.html;document.title=v.title+' (mock-up)';if(v.jump){var el=document.getElementById(v.jump);if(el)el.scrollIntoView();}else window.scrollTo(0,0);}
+window.addEventListener('hashchange',show);show();
+</script>
+</body>
+</html>

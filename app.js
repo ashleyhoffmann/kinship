@@ -38,6 +38,20 @@
     document.documentElement.classList.toggle('me-off', !PERSONALIZE);
   })();
 
+  /* Local gifts (#gifts) is hidden until it's ready: no nav button, and #gifts opens the home page.
+     Flip GIFTS to true to turn it on for everyone. To preview it in one browser, open the site with
+     ?gifts=1 (and ?gifts=0 to hide it again); that choice is remembered in this browser only. */
+  var GIFTS = false;
+  (function () {
+    var GK = 'meeting-needs.gifts-on';
+    try {
+      var m = location.search.match(/[?&]gifts=([01])/);
+      if (m) localStorage.setItem(GK, m[1]);
+      if (localStorage.getItem(GK) === '1') GIFTS = true;
+      if (localStorage.getItem(GK) === '0') GIFTS = false;
+    } catch (e) { /* storage blocked: keep the default */ }
+  })();
+
   var KEY = 'meeting-needs.profile.v1';
   var OPT = {
     /* Place questions ask what the place is and how long/how much you can shape it, not who owns it. */
@@ -197,7 +211,7 @@
       '<div class="top-left"><a class="brand" href="#">' + LOGO + '<b>Kinship</b></a>' +
       '<nav class="nav" aria-label="About">' + link('#about', 'About', 'about') + '</nav></div>' +
       '<nav class="nav" aria-label="Main">' +
-      '<a class="nav-gifts" href="#gifts"' + (active === 'gifts' ? ' aria-current="page"' : '') + '>Local gifts <small>Beta</small></a>' +
+      (GIFTS ? '<a class="nav-gifts" href="#gifts"' + (active === 'gifts' ? ' aria-current="page"' : '') + '>Local gifts <small>Beta</small></a>' : '') +
       eduMenu(active === 'home') +
       plansMenu(active === 'plans') +
       link('#resources', 'Resources', 'resources') +
@@ -684,7 +698,7 @@
   LAZY.gifts = { css: 'gifts.css', js: ['rel-data.js', 'gifts.js'] };
   var lazyState = {};
   function needsLazy(r) {
-    var lid = r.indexOf('lens-') === 0 ? r.slice(5).split(/[\/?]/)[0] : (/^gifts(\/|$)/.test(r) ? 'gifts' : '');
+    var lid = r.indexOf('lens-') === 0 ? r.slice(5).split(/[\/?]/)[0] : (GIFTS && /^gifts(\/|$)/.test(r) ? 'gifts' : '');
     var m = LAZY[lid];
     /* Emotions and Relationships share one file: once it has registered a view, don't load it again. */
     if (m && window.MN_LENS_VIEWS && window.MN_LENS_VIEWS[lid]) lazyState[lid] = 'done';
@@ -737,6 +751,7 @@
     else if (r === 'plans' || r.indexOf('plans/') === 0) { html = viewPlans(); title = 'Plans · Kinship'; sec = 'plan-' + r.slice(6); }
     else if (r === 'favorites') { html = viewFavorites(); title = 'Favorites · Kinship'; }
     else if (r === 'tools') { html = viewTools(); title = 'My tools · Kinship'; }
+    else if (!GIFTS && /^gifts(\/|$)/.test(r)) { html = viewHome(); }
     else if (/^gifts(\/|$)/.test(r) && window.MN_GIFTS) { var gv = window.MN_GIFTS(r.slice(6)); html = gv.html; title = gv.title; }
     else if (r.indexOf('lens-') === 0 && LENS[r.slice(5).split(/[\/?]/)[0]]) {
       var lid = r.slice(5).split(/[\/?]/)[0], l = LENS[lid], custom = (window.MN_LENS_VIEWS || {})[lid];
